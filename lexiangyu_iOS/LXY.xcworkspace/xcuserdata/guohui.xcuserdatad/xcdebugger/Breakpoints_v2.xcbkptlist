@@ -27,38 +27,6 @@
             endingLineNumber = "606"
             landmarkName = "-sendAddShopGoodsCartId:andGoodsNum:"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ShoppingCartVC sendAddShopGoodsCartId:andGoodsNum:]"
-                  moduleName = "LXY"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/guohui/Desktop/lexianyu_ios/LXY/LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
-                  timestampString = "482134270.02756"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "609"
-                  endingLineNumber = "609"
-                  offsetFromSymbolStart = "276">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__53-[ShoppingCartVC sendAddShopGoodsCartId:andGoodsNum:]_block_invoke"
-                  moduleName = "LXY"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/guohui/Desktop/lexianyu_ios/LXY/LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
-                  timestampString = "482134270.027766"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "611"
-                  endingLineNumber = "611"
-                  offsetFromSymbolStart = "64">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -235,6 +203,54 @@
             endingLineNumber = "65"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LXY/Controllers/Login/LoginVC.m"
+            timestampString = "482143660.671391"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "-sendSMS"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[LoginVC sendSMS]"
+                  moduleName = "LXY"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guohui/Desktop/lexiangyu_iOS/LXY/Controllers/Login/LoginVC.m"
+                  timestampString = "482144497.381229"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "295">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__18-[LoginVC sendSMS]_block_invoke"
+                  moduleName = "LXY"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guohui/Desktop/lexiangyu_iOS/LXY/Controllers/Login/LoginVC.m"
+                  timestampString = "482144497.381437"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "39">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
