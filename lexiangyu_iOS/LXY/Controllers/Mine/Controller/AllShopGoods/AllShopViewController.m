@@ -10,9 +10,10 @@
 #import "Common.h"
 #import "GHControl.h"
 #import "AllShopVC.h"
-#import "AllWaiteGetVC.h"
-#import "AllWaiteEvaluationVC.h"
-#import "AllWaitePayVC.h"
+
+#import "WaitPayFirstViewController.h"
+#import "WaitSendVC.h"
+#import "WaitGetVC.h"
 
 @interface AllShopViewController ()<UIScrollViewDelegate>
 @property (nonatomic ,strong)NSMutableArray *dataArray;
@@ -21,9 +22,9 @@
 @property (nonatomic ,strong)UIScrollView *allShopScrollView;
 
 @property (nonatomic ,strong)AllShopVC *allShopVC;
-@property (nonatomic ,strong)AllWaitePayVC *allWaitePayVC;
-@property (nonatomic ,strong)AllWaiteGetVC *allWaiteGetVC;
-@property (nonatomic ,strong)AllWaiteEvaluationVC *allWaiteEvaluationVC;
+@property (nonatomic ,strong)WaitPayFirstViewController *allWaitePayVC;
+@property (nonatomic ,strong)WaitGetVC *allWaiteGetVC;
+@property (nonatomic ,strong)WaitSendVC *allWaiteEvaluationVC;
 
 @end
 
@@ -86,19 +87,19 @@
             _allShopVC.view.frame = CGRectMake(i*M_WIDTH,0, M_WIDTH,_allShopScrollView.frame.size.height);
             [_allShopScrollView addSubview:self.allShopVC.view];
         }else if (i==1){
-            _allWaitePayVC = [[AllWaitePayVC alloc]init];
+            _allWaitePayVC = [[WaitPayFirstViewController alloc]init];
             [self addChildViewController:_allWaitePayVC];
             _allWaitePayVC.view.frame = CGRectMake(i*M_WIDTH,0, M_WIDTH,_allShopScrollView.frame.size.height);
             [_allShopScrollView addSubview:self.allWaitePayVC.view];
         
         }else if(i==2){
-            _allWaiteEvaluationVC = [[AllWaiteEvaluationVC alloc]init];
+            _allWaiteEvaluationVC = [[WaitSendVC alloc]init];
             [self addChildViewController:_allWaiteEvaluationVC];
             _allWaiteEvaluationVC.view.frame = CGRectMake(i*M_WIDTH,0, M_WIDTH,_allShopScrollView.frame.size.height);
             [_allShopScrollView addSubview:self.allWaiteEvaluationVC.view];
         
         }else{
-            _allWaiteGetVC = [[AllWaiteGetVC alloc]init];
+            _allWaiteGetVC = [[WaitGetVC alloc]init];
             [self addChildViewController:_allWaiteGetVC];
             _allWaiteGetVC.view.frame = CGRectMake(i*M_WIDTH,0, M_WIDTH,_allShopScrollView.frame.size.height);
             [_allShopScrollView addSubview:self.allWaiteGetVC.view];
