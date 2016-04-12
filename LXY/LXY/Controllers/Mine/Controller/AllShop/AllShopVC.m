@@ -1,0 +1,241 @@
+//
+//  AllShopVC.m
+//  LXY
+//
+//  Created by guohui on 16/3/24.
+//  Copyright © 2016年 guohui. All rights reserved.
+//
+
+#import "AllShopVC.h"
+#import "Common.h"
+#import "GHControl.h"
+#import "ConfirmorderVC.h"
+#import "WaiteSendCell.h"
+#import "DetailOrderVC.h"
+#import "RequestCenter.h"
+#import "SaveInfo.h"
+
+@interface AllShopVC ()<UITableViewDataSource,UITableViewDelegate>
+
+@property (nonatomic,strong)UIView *headView;
+@property (nonatomic ,strong)UIView *footView;
+@property (nonatomic)int page;
+@end
+
+@implementation AllShopVC
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"全部";
+    [self createTableView];
+    [self sendRequestData];
+}
+
+
+-(void)sendRequestData{
+    
+    RequestCenter * request = [RequestCenter shareRequestCenter];
+    NSDictionary *postDic = @{@"order_state":@"0",
+                              @"user_id":[[SaveInfo shareSaveInfo]user_id]
+                              };
+    
+    [request sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+        
+        if (resultDic[@"code"]==0) {
+            HUDNormal(@"获取数据失败，请稍后再试");
+            return ;
+        }
+        HUDNormal(@"获取数据成功");
+        
+        NSDictionary *dict = resultDic[@"data"];
+        _page = [dict[@"page"] intValue];
+        NSArray *array = dict[@"list"];
+        //        for (NSDictionary *subDic in array) {
+        //            MyFooterModel *model = [MyFooterModel modelWithDic:subDic];
+        //
+        //
+        //
+        //            [_dataArray addObject:model];
+        //
+        //            
+        //            
+        //        }
+
+        [_waitPayTableView reloadData];
+    } setFailBlock:^(NSString *errorStr) {
+        NSLog(@"");
+        
+    }];
+}
+-(void)createTableView{
+    
+    _waitPayTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH, M_HEIGHT-94) style:UITableViewStyleGrouped];
+    _waitPayTableView.delegate = self;
+    _waitPayTableView.dataSource = self;
+    _waitPayTableView.backgroundColor = RGBCOLOR(219, 223, 224);
+    [self.view addSubview:_waitPayTableView];
+    
+}
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    
+    return 3;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 1;
+}
+
+
+
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
+    [self createHeadView];
+    UILabel *label = [GHControl createLabelWithFrame:CGRectMake(45,11, M_WIDTH-25-40, 30) Font:14 Text:[NSString stringWithFormat:@"订单号：%ld",140112212155]];
+    label.textColor = RGBCOLOR(99, 100, 101);
+    [_headView addSubview:label];
+    if (section==0) {
+        UILabel *waitLabel = [GHControl createLabelWithFrame:CGRectMake(M_WIDTH-70,11,70, 30) Font:13 Text:@"等待付款"];
+        waitLabel.textColor = RGBCOLOR(249, 147, 73);
+        [_headView addSubview:waitLabel];
+    }else{
+    
+        UILabel *waitLabel = [GHControl createLabelWithFrame:CGRectMake(M_WIDTH-70,11,70, 30) Font:13 Text:@"交易完成"];
+        waitLabel.textColor = RGBCOLOR(240,30,40);
+        [_headView addSubview:waitLabel];
+    }
+    
+    
+    
+    return _headView;
+    
+}
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    
+    [self createFootView];
+    if (section==0) {
+        UILabel *label = [GHControl createLabelWithFrame:CGRectMake(18,5,60, 30) Font:14 Text:@"已付款:"];
+        label.textColor = RGBCOLOR(99, 100, 101);
+        [_footView addSubview:label];
+        
+        UILabel *moneyLabel = [GHControl createLabelWithFrame:CGRectMake(78, 5,M_WIDTH-150, 30) Font:14 Text:@"￥3000"];
+        moneyLabel.font = [UIFont boldSystemFontOfSize:14];
+        moneyLabel.textColor = RGBCOLOR(249, 147, 73);
+        [_footView addSubview:moneyLabel];
+        
+        
+        UIButton *payBtn = [GHControl createButtonWithFrame:CGRectMake(M_WIDTH-90,5,75, 30) ImageName:@"redBtnBg" Target:self Action:@selector(payBtnClick:) Title:@"去支付"];
+        payBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+        [payBtn setTitleColor:RGBCOLOR(249, 147, 73) forState:UIControlStateNormal];
+        [_footView addSubview:payBtn];
+    }else{
+    
+        UILabel *label = [GHControl createLabelWithFrame:CGRectMake(18,5,60, 30) Font:14 Text:@"已付款:"];
+        label.textColor = RGBCOLOR(99, 100, 101);
+        [_footView addSubview:label];
+        
+        UILabel *moneyLabel = [GHControl createLabelWithFrame:CGRectMake(78, 5,M_WIDTH-150, 30) Font:14 Text:@"￥3000"];
+        moneyLabel.font = [UIFont boldSystemFontOfSize:14];
+        moneyLabel.textColor = RGBCOLOR(249, 147, 73);
+        [_footView addSubview:moneyLabel];
+        
+        
+        UIButton *evaluationBtn = [GHControl createButtonWithFrame:CGRectMake(M_WIDTH-180,5,75, 30) ImageName:@"redBtnBg" Target:self Action:@selector(evaluationBtnClick:) Title:@"评价商品"];
+        evaluationBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+        [evaluationBtn setTitleColor:RGBCOLOR(249, 147, 73) forState:UIControlStateNormal];
+        [_footView addSubview:evaluationBtn];
+        
+        UIButton *againPayBtn = [GHControl createButtonWithFrame:CGRectMake(M_WIDTH-90,5,75, 30) ImageName:@"redBtnBg" Target:self Action:@selector(againPayBtnClick:) Title:@"再次购买"];
+        againPayBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+        [againPayBtn setTitleColor:RGBCOLOR(249, 147, 73) forState:UIControlStateNormal];
+        [_footView addSubview:againPayBtn];
+    }
+    
+    
+    
+    return _footView;
+    
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 45;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    
+    return 45;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString *cellName = @"WaiteSendCell";
+    
+    WaiteSendCell *cell =
+    (WaiteSendCell *)[tableView dequeueReusableCellWithIdentifier:cellName];
+    if (!cell) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:cellName owner:self options:nil] firstObject];
+        
+    }
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    //    if (indexPath.section == 0) {
+    //        return 50;
+    //    }
+    return 77;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [self.waitPayTableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    DetailOrderVC *detailVC = [[DetailOrderVC alloc]init];
+    
+    [self.navigationController pushViewController:detailVC animated:YES];
+    
+}
+
+-(void)payBtnClick:(UIButton *)btn{
+    NSLog(@"去支付");
+    ConfirmorderVC *confirmVC = [[ConfirmorderVC alloc]init];
+    [self.navigationController pushViewController:confirmVC animated:YES];
+    
+}
+-(void)againPayBtnClick:(UIButton *)againPayBtn{
+
+    NSLog(@"再次购买");
+}
+-(void)evaluationBtnClick:(UIButton *)evaluationBtn{
+
+    NSLog(@"去评价");
+}
+
+
+-(UIView *)createHeadView{
+    _headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH,45)];
+    _headView.backgroundColor = [UIColor whiteColor];
+    UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH,5)];
+    topView.backgroundColor = RGBCOLOR(219, 223, 224);
+    [_headView addSubview:topView];
+    
+    UIImage *headImage = [UIImage imageNamed:@"个人中心店铺icon"];
+    UIImageView *headImageView = [[UIImageView alloc]initWithFrame:CGRectMake(16,18, headImage.size.width, headImage.size.height)];
+    headImageView.image = headImage;
+    [_headView addSubview:headImageView];
+    return _headView;
+}
+
+
+-(UIView *)createFootView{
+    _footView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH,45)];
+    _footView.backgroundColor = [UIColor whiteColor];
+    UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(0,40, M_WIDTH,5)];
+    topView.backgroundColor = RGBCOLOR(219, 223, 224);
+    [_footView addSubview:topView];
+    UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0,0, M_WIDTH, 0.5)];
+    lineView.backgroundColor = RGBCOLOR(226, 227, 228);
+    [_footView addSubview:lineView];
+    return _footView;
+}
+
+@end
