@@ -274,5 +274,51 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 	return returnValue;
 }
 
+-(BOOL)isReachableViaWWAN
+{
+#if	TARGET_OS_IPHONE
+    
+    SCNetworkReachabilityFlags flags = 0;
+    
+    if(SCNetworkReachabilityGetFlags(_reachabilityRef, &flags))
+    {
+        // Check we're REACHABLE
+        if(flags & kSCNetworkReachabilityFlagsReachable)
+        {
+            // Now, check we're on WWAN
+            if(flags & kSCNetworkReachabilityFlagsIsWWAN)
+            {
+                return YES;
+            }
+        }
+    }
+#endif
+    
+    return NO;
+}
+
+-(BOOL)isReachableViaWiFi
+{
+    SCNetworkReachabilityFlags flags = 0;
+    
+    if(SCNetworkReachabilityGetFlags(_reachabilityRef, &flags))
+    {
+        // Check we're reachable
+        if((flags & kSCNetworkReachabilityFlagsReachable))
+        {
+#if	TARGET_OS_IPHONE
+            // Check we're NOT on WWAN
+            if((flags & kSCNetworkReachabilityFlagsIsWWAN))
+            {
+                return NO;
+            }
+#endif
+            return YES;
+        }
+    }
+    
+    return NO;
+}
+
 
 @end

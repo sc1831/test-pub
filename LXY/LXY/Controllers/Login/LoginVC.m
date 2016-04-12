@@ -14,8 +14,8 @@
 #import "CheckTelPhoneNumVC.h"
 #import "SaveInfo.h"
 #import "RequestCenter.h"
-
-
+#import "GHControl.h"
+#import "Common.h"
 @interface LoginVC ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
@@ -53,6 +53,12 @@
 
 //登录点击
 - (IBAction)login:(id)sender {
+    
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(networkFailed);
+        return;
+    }
+    
     [self sendSMS];
     
 //    MainTabBar *mainVC = [[MainTabBar alloc]init];

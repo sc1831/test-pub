@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface WaiteSendCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *shopName;
+@property (weak, nonatomic) IBOutlet UILabel *shopTime;
+@property (weak, nonatomic) IBOutlet UILabel *shopNum;
+@property (weak, nonatomic) IBOutlet UIImageView *shopImage;
 
 @end

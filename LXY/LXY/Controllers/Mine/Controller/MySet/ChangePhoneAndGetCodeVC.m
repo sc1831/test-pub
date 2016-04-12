@@ -104,6 +104,7 @@
                  forState:UIControlStateNormal];
                 //RGBCOLOR(171, 171, 171)
                 [_AuthCodeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                [_AuthCodeButton setBackgroundImage:[UIImage imageNamed:@"下一步_默认"] forState:UIControlStateNormal];
             });
             timeout--;
         }
@@ -136,6 +137,8 @@ replacementString:(NSString *)string {
                 _AuthCodeButton.userInteractionEnabled = YES;
                 [_AuthCodeButton setTitle:@"获取验证码" forState:UIControlStateNormal];
                 [_AuthCodeButton setBackgroundImage:[UIImage imageNamed:@"下一步_默认"] forState:UIControlStateNormal];
+                [_AuthCodeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+
                 
                 return NO;
             } else {

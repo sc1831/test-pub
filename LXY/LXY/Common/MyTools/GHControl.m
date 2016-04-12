@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 
 #define IOS7   [[UIDevice currentDevice]systemVersion].floatValue>=7.0
+
 @implementation GHControl
 
 //+(void)add_image:(NSString*)pathurl completion:(IMAGE_Completion)completion {

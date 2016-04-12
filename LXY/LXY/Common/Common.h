@@ -13,6 +13,15 @@
 #import "AFNetworking/AFHTTPSessionManager.h"
 #import "SDWebImage/UIImageView+WebCache.h"
 
+/** 系统版本 */
+#define isIos7Version  ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f ? 1 : 0)
+
+/** 网络不给力 */
+#define networkFailed   @"您当前网络不给力哦"
+
+//网络监听主页
+#define TEST_NET_STATUS_HOST @"www.lexianyu.com"
+
 /**
  *  常用变量
  */

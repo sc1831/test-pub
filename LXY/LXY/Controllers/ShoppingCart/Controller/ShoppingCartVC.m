@@ -23,6 +23,7 @@
 @end
 
 @interface ShoppingCartVC ()<UITableViewDataSource,UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *allMoneyPay;
 //全部结算底部view
 @property (weak, nonatomic) IBOutlet UIView *AllView;
 //删除底部view
@@ -46,16 +47,25 @@
 
 @property (nonatomic ,strong)NSString *cartStr;
 @property (nonatomic ,strong)NSString *cartIds;
-
+//选中全部删除
 @property (nonatomic) BOOL allClick;
 @property (nonatomic ,assign) int allGoods;
+//选中全部结算
+@property (nonatomic) BOOL allPayClick;
+//选中物品价格
+@property (nonatomic ,assign)CGFloat goodsMucth;
 
 
+//存储每组数据的状态
 @property (nonatomic ,strong) NSMutableArray *sectionStateArray;
-
+//购物车每个商品的数量
 @property (nonatomic ,assign) int shopNum;
 //收货地址
 @property (nonatomic ,strong)NSString *addressStr;
+//记录是否是单个侧滑删除
+@property (nonatomic ) BOOL isOnly;
+@property (nonatomic ,strong)NSMutableArray *mutDataArray;
+
 //删除全部
 - (IBAction)allDeleteClick:(id)sender;
 //删除
@@ -77,6 +87,7 @@
     self.view.backgroundColor = RGBCOLOR(219, 223, 224);
     _dataArray = [[NSMutableArray alloc]init];
     _allClick = NO;
+    _allPayClick = NO;
     _allGoods = 0;
     _shopNum = 0;
     _sectionStateArray = [NSMutableArray array];
@@ -91,7 +102,7 @@
    
     self.tabBarItemOfMessage =[self.tabBarController.tabBar.items objectAtIndex:2];
     self.tabBarItemOfMessage.badgeValue = @"99+";
-    [self sendRequestData];
+
     
 }
 -(void)sendRequestData{
@@ -306,6 +317,8 @@
      ShoppingCartModel *model = _dataArray[indexPath.section][indexPath.row];
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        _isOnly = YES;
+        [_mutDataArray removeLastObject];
         //删除单个
         [self deleteShopDoods:indexPath cartIds:model.cart_id andIsAllDelete:NO];
 
@@ -380,6 +393,8 @@
     NSLog(@"点击圆点");
     [self.shoppingTableView reloadData];
 
+    //显示总价
+    [self allMoneyPayStr];
     
 }
 -(void)rightImageButtonClick:(id)sender {
@@ -425,6 +440,8 @@
     
     [shopCell.rightButton setBackgroundImage:image forState:UIControlStateNormal];
     [self.shoppingTableView reloadData];
+    //显示总价
+    [self allMoneyPayStr];
 }
 
 -(UIImage *)buttonBackgroundImage:(UIButton *)button{
@@ -450,21 +467,59 @@
 //全选
 - (IBAction)allFutureButton:(id)sender {
     NSLog(@"全选点击");
-   UIButton *button = (UIButton *)sender;
-
-    _allClick = !_allClick;
-    if (_allClick) {
-        _allGoods = 1;
+    
+    UIButton *button = (UIButton *)sender;
+    
+    _allPayClick = !_allPayClick;
+    if (_allPayClick) {
+        for (int i = 0 ; i< _sectionStateArray.count; i++) {
+            for (int j = 0 ; j < [_dataArray[i] count]; j++) {
+                ShoppingCartModel *model = _dataArray[i][j];
+                model.isSelected = YES;
+            }
+        }
+        
+        for (int i = 0 ; i<_sectionStateArray.count; i++) {
+            [_sectionStateArray replaceObjectAtIndex:i withObject:@"2"];
+        }
         [button setTitle:@"取消全选" forState:UIControlStateNormal];
         _bootmAllImageView.image = [UIImage imageNamed:@"选中"];
     }else{
-    
-        _allGoods = 2;
+        
+        for (int i = 0 ; i< _sectionStateArray.count; i++) {
+            for (int j = 0 ; j < [_dataArray[i] count]; j++) {
+                ShoppingCartModel *model = _dataArray[i][j];
+                model.isSelected = NO;
+            }
+        }
+        for (int i = 0 ; i<_sectionStateArray.count; i++) {
+            [_sectionStateArray replaceObjectAtIndex:i withObject:@"1"];
+        }
         [button setTitle:@"全选" forState:UIControlStateNormal];
         _bootmAllImageView.image = [UIImage imageNamed:@"未选中"];
     }
     [self.shoppingTableView reloadData];
+    //显示总价
+    [self allMoneyPayStr];
 
+}
+-(void)allMoneyPayStr{
+    _goodsMucth = 0;
+    
+    for (int i = 0 ; i< _sectionStateArray.count; i++) {
+        for (int j = 0 ; j < [_dataArray[i] count]; j++) {
+            ShoppingCartModel *model = _dataArray[i][j];
+            CGFloat value;
+            if (model.isSelected) {
+                value = [model.goods_price floatValue];
+                _goodsMucth += value;
+                
+            }
+        }
+        
+    }
+    _allMoneyPay.text = [NSString stringWithFormat:@"合计：%.2lf元",_goodsMucth];
+    
 }
 //去结算
 - (IBAction)settlementButton:(id)sender {
@@ -488,8 +543,6 @@
                 }
             }
         
-        
-//        _allGoods = 1;
         for (int i = 0 ; i<_sectionStateArray.count; i++) {
             [_sectionStateArray replaceObjectAtIndex:i withObject:@"2"];
         }
@@ -497,7 +550,6 @@
         _bootmDeleteImageView.image = [UIImage imageNamed:@"选中"];
     }else{
         
-//        _allGoods = 2;
         for (int i = 0 ; i< _sectionStateArray.count; i++) {
             for (int j = 0 ; j < [_dataArray[i] count]; j++) {
                 ShoppingCartModel *model = _dataArray[i][j];
@@ -516,34 +568,21 @@
 - (IBAction)deleteClick:(id)sender {
    
     
-    NSMutableArray *mutArray = [NSMutableArray array];
-//    NSString *str;
-    
+    _mutDataArray = [NSMutableArray array];
+
+    _cartIds = @"";
     for (int i = 0 ; i< _sectionStateArray.count; i++) {
         for (int j = 0 ; j < [_dataArray[i] count]; j++) {
             ShoppingCartModel *model = _dataArray[i][j];
-                if ([_dataArray[i]count]==1) {
-                    if (model.isSelected) {
-                      NSString *str = [NSString stringWithFormat:@"%@,",model.cart_id];
-                        _cartIds = str;
-                        [mutArray addObject:str];
-                    }
-                    
-                }else{
                     if (model.isSelected) {
                        NSString *str = [NSString stringWithFormat:@"%@,",model.cart_id];
-                        if ([_cartIds isEqualToString:@"null"]) {
-                            _cartIds = str;
-                        }else{
                         _cartIds = [NSString stringWithFormat:@"%@%@",_cartIds,str];
-                        }
-                        
-                        [mutArray addObject:str];
-                    }
+                        [_mutDataArray addObject:str];
+
                     
                 }
             }
-//        }
+
     }
     
     
@@ -571,23 +610,30 @@
             return ;
         }
         HUDNormal(@"数据删除成功");
-        if (isAllDelete) {
-//            [_dataArray removeAllObjects];
+        
+        if (_mutDataArray.count!=0) {
             [self sendRequestData];
             if (_dataArray.count==0) {
                 _bootmDeleteImageView.image = [UIImage imageNamed:@"未选中"];
                 [_allDeleteButton setTitle:@"全选" forState:UIControlStateNormal];
             }
-            
-        }else{
+        }
+        
+        //侧滑删除
+        if (_isOnly) {
+            _isOnly = NO;
+            [_sectionStateArray removeLastObject];
             if ([_dataArray[indexPath.section] count]==1) {
                 [_dataArray removeObjectAtIndex:indexPath.section];
             }else{
-            
+                
                 [_dataArray[indexPath.section] removeObjectAtIndex:indexPath.row];
             }
-        
+            for (int i = 0 ; i<_dataArray.count; i++) {
+                [_sectionStateArray addObject:@"1"];
+            }
         }
+       
         
         [_shoppingTableView reloadData];
     } setFailBlock:^(NSString *errorStr) {

@@ -13,7 +13,7 @@
 #import "CollectVC.h"
 #import "MyfootprintVC.h"
 #import "ConfirmorderVC.h"
-#import "WaitPayVC.h"
+
 #import  "WaitGetVC.h"
 #import "WaitSendVC.h"
 #import "WaitPayFirstViewController.h"

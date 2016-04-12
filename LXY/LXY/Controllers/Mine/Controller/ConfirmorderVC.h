@@ -8,8 +8,6 @@
 
 #import "RootVC.h"
 
-
-
 @interface ConfirmorderVC : RootVC
 @property (nonatomic ,strong)NSString *addressStr;
 @end

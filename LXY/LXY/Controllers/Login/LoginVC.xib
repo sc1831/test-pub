@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -23,8 +23,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CjF-kH-xHf">
                     <rect key="frame" x="28" y="258" width="319" height="44"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="输入框.png" translatesAutoresizingMaskIntoConstraints="NO" id="PbG-VY-YKM">
-                            <rect key="frame" x="0.0" y="0.0" width="319" height="44"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="输入框.png" translatesAutoresizingMaskIntoConstraints="NO" id="PbG-VY-YKM">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         </imageView>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="MrX-FE-uYy">
                             <rect key="frame" x="0.0" y="0.0" width="319" height="44"/>
@@ -34,21 +34,17 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="PbG-VY-YKM" firstAttribute="top" secondItem="CjF-kH-xHf" secondAttribute="top" id="0ag-Un-M8m"/>
                         <constraint firstItem="MrX-FE-uYy" firstAttribute="top" secondItem="CjF-kH-xHf" secondAttribute="top" id="72u-KE-sW9"/>
-                        <constraint firstItem="PbG-VY-YKM" firstAttribute="leading" secondItem="CjF-kH-xHf" secondAttribute="leading" id="EZB-93-HOo"/>
                         <constraint firstAttribute="trailing" secondItem="MrX-FE-uYy" secondAttribute="trailing" id="Hmv-Qh-ZCm"/>
-                        <constraint firstAttribute="bottom" secondItem="PbG-VY-YKM" secondAttribute="bottom" id="Rt1-fc-pJC"/>
                         <constraint firstAttribute="bottom" secondItem="MrX-FE-uYy" secondAttribute="bottom" id="Wl6-hK-WJx"/>
                         <constraint firstItem="MrX-FE-uYy" firstAttribute="leading" secondItem="CjF-kH-xHf" secondAttribute="leading" id="a7E-ug-uqv"/>
-                        <constraint firstAttribute="trailing" secondItem="PbG-VY-YKM" secondAttribute="trailing" id="hoE-4p-b8b"/>
                         <constraint firstAttribute="width" secondItem="CjF-kH-xHf" secondAttribute="height" multiplier="80:11" id="ii7-81-AdE"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FCL-76-57p">
                     <rect key="frame" x="27" y="306" width="320" height="44"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="输入框.png" translatesAutoresizingMaskIntoConstraints="NO" id="8wi-pB-hMV">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="输入框.png" translatesAutoresizingMaskIntoConstraints="NO" id="8wi-pB-hMV">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         </imageView>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" placeholder="密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="DdH-5V-ggV">
@@ -63,14 +59,10 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="FCL-76-57p" secondAttribute="height" multiplier="80:11" id="5bg-nW-3Ck"/>
-                        <constraint firstAttribute="trailing" secondItem="8wi-pB-hMV" secondAttribute="trailing" id="Cqg-GL-cg2"/>
                         <constraint firstAttribute="trailing" secondItem="DdH-5V-ggV" secondAttribute="trailing" id="Ste-qm-sEb"/>
-                        <constraint firstItem="8wi-pB-hMV" firstAttribute="top" secondItem="FCL-76-57p" secondAttribute="top" id="WAg-mF-TVd"/>
                         <constraint firstItem="DdH-5V-ggV" firstAttribute="leading" secondItem="FCL-76-57p" secondAttribute="leading" id="bya-ff-erX"/>
                         <constraint firstItem="DdH-5V-ggV" firstAttribute="top" secondItem="FCL-76-57p" secondAttribute="top" id="erQ-sD-73b"/>
                         <constraint firstAttribute="bottom" secondItem="DdH-5V-ggV" secondAttribute="bottom" id="mC4-jx-QCG"/>
-                        <constraint firstItem="8wi-pB-hMV" firstAttribute="leading" secondItem="FCL-76-57p" secondAttribute="leading" id="uDQ-ki-ZWS"/>
-                        <constraint firstAttribute="bottom" secondItem="8wi-pB-hMV" secondAttribute="bottom" id="wrM-XW-t7h"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIM-Sr-yRw">
@@ -86,28 +78,28 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3n2-Ya-EJ6">
-                    <rect key="frame" x="67" y="450" width="240" height="37"/>
+                    <rect key="frame" x="67" y="450.5" width="240" height="37"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ie-nM-u4E">
-                            <rect key="frame" x="139" y="0.0" width="52" height="28"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <state key="normal" title="手机注册"/>
-                            <connections>
-                                <action selector="phoneRegisteredClick:" destination="-1" eventType="touchUpInside" id="0Or-xd-2qq"/>
-                            </connections>
-                        </button>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3OR-7l-jQT">
+                            <rect key="frame" x="117" y="9" width="2" height="20"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wxm-P7-Ps2">
-                            <rect key="frame" x="47" y="0.0" width="52" height="28"/>
+                            <rect key="frame" x="52" y="6" width="61" height="25"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <state key="normal" title="忘记密码"/>
                             <connections>
                                 <action selector="forgotPasswordClick:" destination="-1" eventType="touchUpInside" id="oad-ca-r2m"/>
                             </connections>
                         </button>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3OR-7l-jQT">
-                            <rect key="frame" x="119" y="4" width="1" height="20"/>
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ie-nM-u4E">
+                            <rect key="frame" x="127" y="6" width="61" height="25"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <state key="normal" title="手机注册"/>
+                            <connections>
+                                <action selector="phoneRegisteredClick:" destination="-1" eventType="touchUpInside" id="0Or-xd-2qq"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>

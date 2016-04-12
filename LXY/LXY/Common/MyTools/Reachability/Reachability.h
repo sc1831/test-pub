@@ -17,12 +17,19 @@ typedef enum : NSInteger {
 	ReachableViaWWAN
 } NetworkStatus;
 
+@class Reachability;
+
+typedef void (^NetworkReachable)(Reachability * reachability);
+typedef void (^NetworkUnreachable)(Reachability * reachability);
 
 extern NSString *kReachabilityChangedNotification;
 
 
 @interface Reachability : NSObject
+@property (nonatomic, assign) SCNetworkReachabilityRef  reachabilityRef;
 
+@property (nonatomic, copy) NetworkReachable    reachableBlock;
+@property (nonatomic, copy) NetworkUnreachable  unreachableBlock;
 /*!
  * Use to check the reachability of a given host name.
  */
@@ -55,7 +62,9 @@ extern NSString *kReachabilityChangedNotification;
  * WWAN may be available, but not active until a connection has been established. WiFi may require a connection for VPN on Demand.
  */
 - (BOOL)connectionRequired;
-
+-(BOOL)isReachable;
+-(BOOL)isReachableViaWWAN;
+-(BOOL)isReachableViaWiFi;
 @end
 
 
