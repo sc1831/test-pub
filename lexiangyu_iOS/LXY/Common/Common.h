@@ -13,6 +13,9 @@
 #import "AFNetworking/AFHTTPSessionManager.h"
 #import "SDWebImage/UIImageView+WebCache.h"
 
+/** 系统版本 */
+#define isIos7Version  ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f ? 1 : 0)
+
 /**
  *  常用变量
  */

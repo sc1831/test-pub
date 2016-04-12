@@ -92,6 +92,10 @@ static NetworkStatus hostReachState=NotReachable;
     
     
     // !!!: 第三方结束
+    if (isIos7Version==1) {
+        [[UITextField appearance]setTintColor:RGBCOLOR(255, 115, 0)];
+    }
+    
     
     LoginVC *loginVC = [[LoginVC alloc]init];
     loginVC.not_loginOut = YES ;
