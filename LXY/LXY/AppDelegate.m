@@ -42,13 +42,13 @@ static AFNetworkReachabilityStatus wifi = AFNetworkReachabilityStatusReachableVi
                                              selector:@selector(reachabilityChanged:)
                                                  name:kReachabilityChangedNotification
                                                object:nil];
-//    hostReach = [Reachability reachabilityWithHostName:@"www.baidu.com"];//可以以多种形式初始化
-//    [hostReach startNotifier];  //开始监听,会启动一个run loop
+    hostReach = [Reachability reachabilityWithHostName:@"www.baidu.com"];//可以以多种形式初始化
+    [hostReach startNotifier];  //开始监听,会启动一个run loop
     
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-//        hostReach = [Reachability reachabilityWithHostName:TEST_NET_STATUS_HOST];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        hostReach = [Reachability reachabilityWithHostName:TEST_NET_STATUS_HOST];
 //        internetActive = hostReach.isReachable;
-//        hostReachState = [hostReach currentReachabilityStatus];
+        hostReachState = [hostReach currentReachabilityStatus];
 //        hostReach.reachableBlock = ^(Reachability *reachability) {
 //            dispatch_async(dispatch_get_main_queue(), ^{
 //                internetActive = YES;
@@ -61,8 +61,8 @@ static AFNetworkReachabilityStatus wifi = AFNetworkReachabilityStatusReachableVi
 //                hostReachState = NotReachable;
 //            });
 //        };
-//        [hostReach startNotifier]; //开始监听,会启动一个run loop
-//    });
+        [hostReach startNotifier]; //开始监听,会启动一个run loop
+    });
     
     
     
