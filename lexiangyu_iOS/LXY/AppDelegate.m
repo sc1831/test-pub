@@ -95,6 +95,26 @@ static NetworkStatus hostReachState=NotReachable;
     if (isIos7Version==1) {
         [[UITextField appearance]setTintColor:RGBCOLOR(255, 115, 0)];
     }
+    // 使用通知中心监听kReachabilityChangedNotification通知
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+     
+                                             selector:@selector(reachabilityChanged:)
+     
+                                                 name:kReachabilityChangedNotification object:nil];
+    
+    // 获取访问指定站点的Reachability对象
+    
+    Reachability* reach = [Reachability
+                           
+                           reachabilityWithHostName:@"www.baidu.com"];
+    
+    // 让Reachability对象开启被监听状态
+    
+    [reach startNotifier];
+    
+    
+    
     
     
     LoginVC *loginVC = [[LoginVC alloc]init];
@@ -124,7 +144,33 @@ static NetworkStatus hostReachState=NotReachable;
     [self.window makeKeyAndVisible];
     return YES;
 }
+- (void)reachabilityChanged:(NSNotification *)note
 
+{
+    
+    // 通过通知对象获取被监听的Reachability对象
+    
+    Reachability *curReach = [note object];
+    
+    // 获取Reachability对象的网络状态
+    
+    NetworkStatus status = [curReach currentReachabilityStatus];
+    
+    if (status == NotReachable)
+        
+    {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提醒"
+                              
+                                                        message:@"不能访问www.baidu.com" delegate:nil
+                              
+                                              cancelButtonTitle:@"YES" otherButtonTitles:nil];
+        
+        [alert show];
+        
+    }
+
+}
 //2.进入新手引导界面
 - (void)intoGuite{
     GuiteVC *guiteVC = [[GuiteVC alloc]init];

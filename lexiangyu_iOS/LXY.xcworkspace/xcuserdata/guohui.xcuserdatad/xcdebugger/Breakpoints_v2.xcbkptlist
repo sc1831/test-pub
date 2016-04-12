@@ -35,8 +35,8 @@
                   symbolName = "-[ShoppingCartVC sendAddShopGoodsCartId:andGoodsNum:]"
                   moduleName = "LXY"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/guohui/Desktop/lexianyu_ios/lexiangyu_iOS/LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
-                  timestampString = "482146124.23508"
+                  urlString = "file:///Users/guohui/Desktop/lexiangyu_iOS/LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
+                  timestampString = "482148780.590219"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "609"
@@ -50,13 +50,13 @@
                   symbolName = "__53-[ShoppingCartVC sendAddShopGoodsCartId:andGoodsNum:]_block_invoke"
                   moduleName = "LXY"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/guohui/Desktop/lexianyu_ios/lexiangyu_iOS/LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
-                  timestampString = "482146124.235235"
+                  urlString = "file:///Users/guohui/Desktop/lexiangyu_iOS/LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
+                  timestampString = "482148780.590416"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "611"
-                  endingLineNumber = "611"
-                  offsetFromSymbolStart = "64">
+                  startingLineNumber = "609"
+                  endingLineNumber = "609"
+                  offsetFromSymbolStart = "56">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -218,6 +218,38 @@
             startingLineNumber = "505"
             endingLineNumber = "505"
             landmarkName = "-allDeleteClick:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LXY/Controllers/Mine/Controller/ConfirmorderVC.m"
+            timestampString = "482137577.432348"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LXY/AppDelegate.m"
+            timestampString = "482147540.728235"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "-reachabilityChanged:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
