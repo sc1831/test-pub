@@ -20,6 +20,7 @@
 #import "GoodsModel.h"
 #import "HomeModel.h"
 #import "SaveInfo.h"
+#import "GHControl.h"
 static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 @interface HomePageVC ()<UIScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 {
@@ -272,6 +273,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     //逆时针旋转90°
     _specialTableView.transform = CGAffineTransformMakeRotation(-M_PI / 2);
     _specialTableView.showsVerticalScrollIndicator = NO;
+    [GHControl setExtraCellLineHidden:_specialTableView];
     [specialView addSubview:_specialTableView];
 }
 

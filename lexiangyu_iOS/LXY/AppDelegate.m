@@ -184,36 +184,38 @@ static NetworkStatus hostReachState=NotReachable;
 #pragma mark - 替换token 验证token是否合法 是否进入登录界面
 - (void)changeToken{
 
-    
-    RequestCenter *request = [RequestCenter shareRequestCenter];
     [[SaveInfo shareSaveInfo] setUser_id:@"323423"];
     [[SaveInfo shareSaveInfo] setToken:@"2332dfsfdsfsd"];
-    if ([SaveInfo shareSaveInfo].user_id != nil && [SaveInfo shareSaveInfo].token != nil) {
-        //有token
-        NSDictionary *postDic = @{@"user_id":[SaveInfo shareSaveInfo].user_id,@"token":[SaveInfo shareSaveInfo].token};
-        
-        [request sendRequestPostUrl:EDIT_USER_TOKEN andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
-            if ([[resultDic objectForKey:@"code"] intValue]== 1) {
-                //成功 token 替换成功
-                [[SaveInfo shareSaveInfo]setToken:[resultDic objectForKey:@"token"]];
-                MainTabBar *mainVC = [[MainTabBar alloc]init];
-                self.window.rootViewController = mainVC;
-            }else{
-                HUDNormal(@"请重新登录");
-                LoginVC *loginVC = [[LoginVC alloc]init];
-                self.window.rootViewController = loginVC ;
-            }
-        } setFailBlock:^(NSString *errorStr) {
-            NSLog(@"error:%@",errorStr);
-            //请求失败
-            MainTabBar *mainVC = [[MainTabBar alloc]init];
-            self.window.rootViewController = mainVC;
-        }];
-    }else{
-        //无token
-        LoginVC *loginVC = [[LoginVC alloc]init];
-        self.window.rootViewController = loginVC ;
-    }
+    MainTabBar *mainVC = [[MainTabBar alloc]init];
+    self.window.rootViewController = mainVC;
+    
+//    RequestCenter *request = [RequestCenter shareRequestCenter];
+//    if ([SaveInfo shareSaveInfo].user_id != nil && [SaveInfo shareSaveInfo].token != nil) {
+//        //有token
+//        NSDictionary *postDic = @{@"user_id":[SaveInfo shareSaveInfo].user_id,@"token":[SaveInfo shareSaveInfo].token};
+//        
+//        [request sendRequestPostUrl:EDIT_USER_TOKEN andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+//            if ([[resultDic objectForKey:@"code"] intValue]== 1) {
+//                //成功 token 替换成功
+//                [[SaveInfo shareSaveInfo]setToken:[resultDic objectForKey:@"token"]];
+//                MainTabBar *mainVC = [[MainTabBar alloc]init];
+//                self.window.rootViewController = mainVC;
+//            }else{
+//                HUDNormal(@"请重新登录");
+//                LoginVC *loginVC = [[LoginVC alloc]init];
+//                self.window.rootViewController = loginVC ;
+//            }
+//        } setFailBlock:^(NSString *errorStr) {
+//            NSLog(@"error:%@",errorStr);
+//            //请求失败
+//            MainTabBar *mainVC = [[MainTabBar alloc]init];
+//            self.window.rootViewController = mainVC;
+//        }];
+//    }else{
+//        //无token
+//        LoginVC *loginVC = [[LoginVC alloc]init];
+//        self.window.rootViewController = loginVC ;
+//    }
     
   
 

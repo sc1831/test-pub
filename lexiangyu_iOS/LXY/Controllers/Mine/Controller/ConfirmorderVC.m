@@ -83,6 +83,7 @@
 //    cashVC.allMoneyStr = _bootmMoney.text;
 //    [self.navigationController pushViewController:cashVC animated:YES];
 }
+
 - (void)bizPay {
     NSString *res = [WXApiRequestHandler jumpToBizPay];
     if( ![@"" isEqual:res] ){

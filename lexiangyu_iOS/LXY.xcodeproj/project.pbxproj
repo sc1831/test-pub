@@ -196,9 +196,6 @@
 		6E10320F1CB4FCC30098D5BD /* 数量选择_点击3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1031DF1CB4FCC30098D5BD /* 数量选择_点击3@3x.png */; };
 		6E1032101CB4FCC30098D5BD /* 数量选择_点击1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1031E01CB4FCC30098D5BD /* 数量选择_点击1@3x.png */; };
 		6E1032111CB4FCC30098D5BD /* 数量选择_点击2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1031E11CB4FCC30098D5BD /* 数量选择_点击2@3x.png */; };
-		6E1032121CB4FCC30098D5BD /* 产品图.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1031E21CB4FCC30098D5BD /* 产品图.png */; };
-		6E1032131CB4FCC30098D5BD /* 产品图@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1031E31CB4FCC30098D5BD /* 产品图@2x.png */; };
-		6E1032141CB4FCC30098D5BD /* 产品图@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1031E41CB4FCC30098D5BD /* 产品图@3x.png */; };
 		6E1032151CB4FCC30098D5BD /* 添加购物成功.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1031E51CB4FCC30098D5BD /* 添加购物成功.png */; };
 		6E1032161CB4FCC30098D5BD /* 添加购物成功@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1031E61CB4FCC30098D5BD /* 添加购物成功@2x.png */; };
 		6E1032171CB4FCC30098D5BD /* 添加购物成功@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1031E71CB4FCC30098D5BD /* 添加购物成功@3x.png */; };
@@ -714,9 +711,6 @@
 		6E1031DF1CB4FCC30098D5BD /* 数量选择_点击3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "数量选择_点击3@3x.png"; sourceTree = "<group>"; };
 		6E1031E01CB4FCC30098D5BD /* 数量选择_点击1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "数量选择_点击1@3x.png"; sourceTree = "<group>"; };
 		6E1031E11CB4FCC30098D5BD /* 数量选择_点击2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "数量选择_点击2@3x.png"; sourceTree = "<group>"; };
-		6E1031E21CB4FCC30098D5BD /* 产品图.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "产品图.png"; sourceTree = "<group>"; };
-		6E1031E31CB4FCC30098D5BD /* 产品图@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "产品图@2x.png"; sourceTree = "<group>"; };
-		6E1031E41CB4FCC30098D5BD /* 产品图@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "产品图@3x.png"; sourceTree = "<group>"; };
 		6E1031E51CB4FCC30098D5BD /* 添加购物成功.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "添加购物成功.png"; sourceTree = "<group>"; };
 		6E1031E61CB4FCC30098D5BD /* 添加购物成功@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "添加购物成功@2x.png"; sourceTree = "<group>"; };
 		6E1031E71CB4FCC30098D5BD /* 添加购物成功@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "添加购物成功@3x.png"; sourceTree = "<group>"; };
@@ -2363,9 +2357,6 @@
 				6E1031DF1CB4FCC30098D5BD /* 数量选择_点击3@3x.png */,
 				6E1031E01CB4FCC30098D5BD /* 数量选择_点击1@3x.png */,
 				6E1031E11CB4FCC30098D5BD /* 数量选择_点击2@3x.png */,
-				6E1031E21CB4FCC30098D5BD /* 产品图.png */,
-				6E1031E31CB4FCC30098D5BD /* 产品图@2x.png */,
-				6E1031E41CB4FCC30098D5BD /* 产品图@3x.png */,
 				6E1031E51CB4FCC30098D5BD /* 添加购物成功.png */,
 				6E1031E61CB4FCC30098D5BD /* 添加购物成功@2x.png */,
 				6E1031E71CB4FCC30098D5BD /* 添加购物成功@3x.png */,
@@ -2748,7 +2739,6 @@
 				6E1031BE1CB4FC570098D5BD /* 添加@3x.png in Resources */,
 				6E1030FC1CB4FAE80098D5BD /* 购物车@3x（选中）.png in Resources */,
 				6E10316D1CB4FC570098D5BD /* 个人中心白箭头@3x.png in Resources */,
-				6E1032131CB4FCC30098D5BD /* 产品图@2x.png in Resources */,
 				6E46B71F1CA4E27900D5F73B /* 搜索框搜索按钮@3x.png in Resources */,
 				6E1031851CB4FC570098D5BD /* 编辑_点击@2x.png in Resources */,
 				6E46B74F1CA4E2BC00D5F73B /* 8@3x.png in Resources */,
@@ -2903,7 +2893,6 @@
 				6E10319E1CB4FC570098D5BD /* 收藏@2x.png in Resources */,
 				6E1032281CB4FCC30098D5BD /* 选中@3x.png in Resources */,
 				6E10310B1CB4FAE80098D5BD /* 首页@3x（选中）.png in Resources */,
-				6E1032121CB4FCC30098D5BD /* 产品图.png in Resources */,
 				6E1031AA1CB4FC570098D5BD /* 店铺.png in Resources */,
 				6E1030A81CB4F73D0098D5BD /* 关闭@2x.png in Resources */,
 				6E7964B21C981A5D00EB43B9 /* ShoppingCartCell.xib in Resources */,
@@ -2939,7 +2928,6 @@
 				6E10317A1CB4FC570098D5BD /* 保存修改_置灰.png in Resources */,
 				6E1030FD1CB4FAE80098D5BD /* 我的.png in Resources */,
 				6E1032221CB4FCC30098D5BD /* 筛选2@2x.png in Resources */,
-				6E1032141CB4FCC30098D5BD /* 产品图@3x.png in Resources */,
 				6E1030E01CB4FAE80098D5BD /* 可能感兴趣“按钮”2@3x.png in Resources */,
 				6E46B7191CA4E22700D5F73B /* 头像@3x.png in Resources */,
 				6E1031901CB4FC570098D5BD /* 头像@2x.png in Resources */,
