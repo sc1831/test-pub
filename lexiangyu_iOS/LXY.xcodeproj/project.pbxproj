@@ -3223,6 +3223,7 @@
 					"$(PROJECT_DIR)/LXY/Rescource/3RD/UMessage_Sdk_1.2.6",
 					"$(PROJECT_DIR)/LXY/Rescource/3RD/UPPaySDK/libs",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lecuntao.lxy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -3251,6 +3252,7 @@
 					"$(PROJECT_DIR)/LXY/Rescource/3RD/UMessage_Sdk_1.2.6",
 					"$(PROJECT_DIR)/LXY/Rescource/3RD/UPPaySDK/libs",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lecuntao.lxy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

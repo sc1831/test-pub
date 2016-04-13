@@ -10,6 +10,7 @@
 #import "Common.h"
 #import "GHAPI.h"
 #import "RequestCenter.h"
+#import "GoodsModel.h"
 @interface ShopingDetailsVC ()<UIWebViewDelegate>
 {
     NSString *goods_detail_url ;
@@ -28,7 +29,7 @@
     // Do any additional setup after loading the view from its nib.
     self.navigationController.navigationBarHidden = YES ;
     RequestCenter *request = [RequestCenter shareRequestCenter];
-    [request sendRequestPostUrl:DETAIL_URL andDic:@{@"goods_commonid":self.goods_commonid} setSuccessBlock:^(NSDictionary *resultDic) {
+    [request sendRequestPostUrl:DETAIL_URL andDic:@{@"goods_id":self.goods_commonid} setSuccessBlock:^(NSDictionary *resultDic) {
         if ([[resultDic[@"code"] stringValue]isEqualToString:@"1"]) {
             goods_detail_url = STR_A_B(@"http://", resultDic[@"data"][@"goods_detail_url"]);
             [self loadWebView];

@@ -18,9 +18,17 @@
 #import "DataSigner.h"
 //银联
 #import "UPPaymentControl.h"
-
+#define kURL_TN_Normal                @"http://101.231.204.84:8091/sim/getacptn"
+#define kWaiting          @"正在获取TN,请稍后..."
+#define kNote             @"提示"
+#define kConfirm          @"确定"
+#define kErrorNet         @"网络错误"
+#define kResult           @"支付结果：%@"
 @interface ConfirmorderVC ()
-
+{
+    UIAlertView* _alertView;
+    NSMutableData* _responseData;
+}
 //手机号
 @property (weak, nonatomic) IBOutlet UILabel *phoneNumLabel;
 //收货地址
@@ -72,10 +80,10 @@
 - (IBAction)subMitClick:(id)sender {
     //TODO:微信支付
 //    [self bizPay];
-    //TODO:支付宝支付
+//    TODO:支付宝支付
 //    [self zhifubao];
     //TODO:银联支付
-    
+    [self startNetWithURL:[NSURL URLWithString:kURL_TN_Normal]];
     
     
     
@@ -84,6 +92,108 @@
 //    [self.navigationController pushViewController:cashVC animated:YES];
 }
 
+//银联
+- (void)startNetWithURL:(NSURL *)url
+{
+
+    [self showAlertWait];
+    
+    NSURLRequest * urlRequest=[NSURLRequest requestWithURL:url];
+    NSURLConnection* urlConn = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+    [urlConn start];
+}
+
+#pragma mark - Alert
+
+- (void)showAlertWait
+{
+    [self hideAlert];
+    _alertView = [[UIAlertView alloc] initWithTitle:kWaiting message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
+    [_alertView show];
+    UIActivityIndicatorView* aiv = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    aiv.center = CGPointMake(_alertView.frame.size.width / 2.0f - 15, _alertView.frame.size.height / 2.0f + 10 );
+    [aiv startAnimating];
+    [_alertView addSubview:aiv];
+    
+}
+
+- (void)showAlertMessage:(NSString*)msg
+{
+    [self hideAlert];
+    _alertView = [[UIAlertView alloc] initWithTitle:kNote message:msg delegate:self cancelButtonTitle:kConfirm otherButtonTitles:nil, nil];
+    
+}
+
+- (void)hideAlert
+{
+    if (_alertView != nil)
+    {
+        [_alertView dismissWithClickedButtonIndex:0 animated:NO];
+        _alertView = nil;
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    _alertView = nil;
+}
+
+#pragma mark - connection
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse*)response
+{
+    NSHTTPURLResponse* rsp = (NSHTTPURLResponse*)response;
+    NSInteger code = [rsp statusCode];
+    if (code != 200)
+    {
+        
+        [self showAlertMessage:kErrorNet];
+        [connection cancel];
+    }
+    else
+    {
+        
+        _responseData = [[NSMutableData alloc] init];
+    }
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    [_responseData appendData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    [self hideAlert];
+    NSString* tn = [[NSMutableString alloc] initWithData:_responseData encoding:NSUTF8StringEncoding];
+    if (tn != nil && tn.length > 0)
+    {
+        
+        NSLog(@"tn=%@",tn);
+        [[UPPaymentControl defaultControl] startPay:tn fromScheme:@"UPPayDemo" mode:@"01" viewController:self];
+        
+    }
+    
+    
+}
+
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    [self showAlertMessage:kErrorNet];
+}
+
+
+#pragma mark UPPayPluginResult
+- (void)UPPayPluginResult:(NSString *)result
+{
+    NSString* msg = [NSString stringWithFormat:kResult, result];
+    [self showAlertMessage:msg];
+}
+
+
+
+
+//微信
 - (void)bizPay {
     NSString *res = [WXApiRequestHandler jumpToBizPay];
     if( ![@"" isEqual:res] ){

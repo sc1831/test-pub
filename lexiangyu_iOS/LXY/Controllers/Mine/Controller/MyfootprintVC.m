@@ -151,7 +151,7 @@
                      }];
     ShopingDetailsVC *shoppingDetailsVC = [[ShopingDetailsVC alloc]init];
      MyFooterModel *model = _dataArray[indexPath.row];
-    shoppingDetailsVC.goods_commonid = model.goods_commonid ;
+    shoppingDetailsVC.goods_commonid = model.goods_id ;
     shoppingDetailsVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:shoppingDetailsVC animated:YES];
     

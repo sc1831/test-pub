@@ -525,7 +525,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
         // 4000 优品推荐
         model = superior[indexPath.row];
     }
-    shoppingDetailsVC.goods_commonid = model.goods_commonid ;
+    shoppingDetailsVC.goods_commonid = model.goods_id ;
     shoppingDetailsVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:shoppingDetailsVC animated:YES];
 }
@@ -592,7 +592,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
                      }];
     ShopingDetailsVC *shoppingDetailsVC = [[ShopingDetailsVC alloc]init];
     HomeModel *model = recommend_goods[indexPath.row];
-    shoppingDetailsVC.goods_commonid = model.goods_commonid ;
+    shoppingDetailsVC.goods_commonid = model.goods_id ;
     shoppingDetailsVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:shoppingDetailsVC animated:YES];
 }
@@ -663,7 +663,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     //  3000 促销商品
     ShopingDetailsVC *shoppingDetailsVC = [[ShopingDetailsVC alloc]init];
     HomeModel *model = discount[sender.tag - 3000];
-    shoppingDetailsVC.goods_commonid = model.goods_commonid ;
+    shoppingDetailsVC.goods_commonid = model.goods_id ;
     shoppingDetailsVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:shoppingDetailsVC animated:YES];
 }

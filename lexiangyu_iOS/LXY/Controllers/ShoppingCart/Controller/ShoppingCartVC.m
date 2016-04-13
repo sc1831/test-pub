@@ -103,6 +103,8 @@
     self.tabBarItemOfMessage =[self.tabBarController.tabBar.items objectAtIndex:2];
     self.tabBarItemOfMessage.badgeValue = @"99+";
 
+//    [self sendRequestData];
+
     
 }
 -(void)sendRequestData{
@@ -306,7 +308,7 @@
     [_shoppingTableView deselectRowAtIndexPath:indexPath animated:YES];
     ShopingDetailsVC *shoppingDetailsVC = [[ShopingDetailsVC alloc]init];
     ShoppingCartModel *model = _dataArray[indexPath.section][indexPath.row];
-    shoppingDetailsVC.goods_commonid = model.goods_commonid ;
+    shoppingDetailsVC.goods_commonid = model.goods_id ;
     shoppingDetailsVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:shoppingDetailsVC animated:YES];
     

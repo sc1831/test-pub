@@ -201,7 +201,7 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
 //    cell.backgroundColor = [UIColor whiteColor];
     ShopingDetailsVC *shoppingDetailsVC = [[ShopingDetailsVC alloc]init];
     GoodsModel *model = defMtArray[indexPath.section][indexPath.row];
-    shoppingDetailsVC.goods_commonid = model.goods_commonid ;
+    shoppingDetailsVC.goods_commonid = model.goods_id ;
     shoppingDetailsVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:shoppingDetailsVC animated:YES];
 }

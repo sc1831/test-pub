@@ -68,7 +68,6 @@
     
     [request sendRequestPostUrl:REGISTRE_SEND_SMS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
         HUDNormal(@"短信发送成功,请注意查收");
-        
         [self showInput];
     } setFailBlock:^(NSString *errorStr) {
         

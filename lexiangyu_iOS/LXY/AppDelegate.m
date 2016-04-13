@@ -13,9 +13,18 @@
 #import "SaveInfo.h"
 #import "RequestCenter.h"
 
+
+
 #import "UMessage.h"
 #define UMSYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 #define _IPHONE80_ 80000
+
+//银联支付
+#import "UPPaymentControl.h"
+#import "RSA.h"
+#import <CommonCrypto/CommonDigest.h>
+
+
 @interface AppDelegate ()
 
 @end
@@ -86,7 +95,8 @@ static NetworkStatus hostReachState=NotReachable;
     //for log 打开调试日志
     [UMessage setLogEnabled:YES];
     
-
+    //TODO:银联支付:
+    
     
     
     
@@ -183,7 +193,47 @@ static NetworkStatus hostReachState=NotReachable;
     return [WXApi handleOpenURL:url delegate:self];
 }
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+
+    //银联
+    [[UPPaymentControl defaultControl] handlePaymentResult:url completeBlock:^(NSString *code, NSDictionary *data) {
+        
+        //结果code为成功时，先校验签名，校验成功后做后续处理
+        if([code isEqualToString:@"success"]) {
+            
+            //判断签名数据是否存在
+            if(data == nil){
+                //如果没有签名数据，建议商户app后台查询交易结果
+                return;
+            }
+            
+            //数据从NSDictionary转换为NSString
+            NSData *signData = [NSJSONSerialization dataWithJSONObject:data
+                                                               options:0
+                                                                 error:nil];
+            NSString *sign = [[NSString alloc] initWithData:signData encoding:NSUTF8StringEncoding];
+            
+            
+            
+            //验签证书同后台验签证书
+            //此处的verify，商户需送去商户后台做验签
+            if([self verify:sign]) {
+                //支付成功且验签成功，展示支付成功提示
+            }
+            else {
+                //验签失败，交易结果数据被篡改，商户app后台查询交易结果
+            }
+        }
+        else if([code isEqualToString:@"fail"]) {
+            //交易失败
+        }
+        else if([code isEqualToString:@"cancel"]) {
+            //交易取消
+        }
+    }];
+
+    //微信
     return [WXApi handleOpenURL:url delegate:self];
+//    return YES ;
 }
 //- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options{
 //    return [WXApi handleOpenURL:url delegate:self];
@@ -226,51 +276,166 @@ static NetworkStatus hostReachState=NotReachable;
     //    }
 }
 
+//TODO:银联支付:
+- (NSString *) readPublicKey:(NSString *) keyName
+{
+    if (keyName == nil || [keyName isEqualToString:@""]) return nil;
+    
+    NSMutableArray *filenameChunks = [[keyName componentsSeparatedByString:@"."] mutableCopy];
+    NSString *extension = filenameChunks[[filenameChunks count] - 1];
+    [filenameChunks removeLastObject]; // remove the extension
+    NSString *filename = [filenameChunks componentsJoinedByString:@"."]; // reconstruct the filename with no extension
+    
+    NSString *keyPath = [[NSBundle mainBundle] pathForResource:filename ofType:extension];
+    
+    NSString *keyStr = [NSString stringWithContentsOfFile:keyPath encoding:NSUTF8StringEncoding error:nil];
+    
+    return keyStr;
+}
 
+-(BOOL) verify:(NSString *) resultStr {
+    
+    //验签证书同后台验签证书
+    //此处的verify，商户需送去商户后台做验签
+    return NO;
+}
+//-(BOOL) verifyLocal:(NSString *) resultStr {
+//
+//    //从NSString转化为NSDictionary
+//    NSData *resultData = [resultStr dataUsingEncoding:NSUTF8StringEncoding];
+//    NSDictionary *data = [NSJSONSerialization JSONObjectWithData:resultData options:0 error:nil];
+//
+//    //获取生成签名的数据
+//    NSString *sign = data[@"sign"];
+//    NSString *signElements = data[@"data"];
+//    //NSString *pay_result = signElements[@"pay_result"];
+//    //NSString *tn = signElements[@"tn"];
+//    //转换服务器签名数据
+//    NSData *nsdataFromBase64String = [[NSData alloc]
+//                                      initWithBase64EncodedString:sign options:0];
+//    //生成本地签名数据，并生成摘要
+////    NSString *mySignBlock = [NSString stringWithFormat:@"pay_result=%@tn=%@",pay_result,tn];
+//    NSData *dataOriginal = [[self sha1:signElements] dataUsingEncoding:NSUTF8StringEncoding];
+//    //验证签名
+//    //TODO：此处如果是正式环境需要换成public_product.key
+//    NSString *pubkey =[self readPublicKey:@"public_test.key"];
+//    OSStatus result=[RSA verifyData:dataOriginal sig:nsdataFromBase64String publicKey:pubkey];
+//
+//
+//
+//    //签名验证成功，商户app做后续处理
+//    if(result == 0) {
+//        //支付成功且验签成功，展示支付成功提示
+//        return YES;
+//    }
+//    else {
+//        //验签失败，交易结果数据被篡改，商户app后台查询交易结果
+//        return NO;
+//    }
+//
+//    return NO;
+//}
 
-
+- (NSString*)sha1:(NSString *)string
+{
+    unsigned char digest[CC_SHA1_DIGEST_LENGTH];
+    CC_SHA1_CTX context;
+    NSString *description;
+    
+    CC_SHA1_Init(&context);
+    
+    memset(digest, 0, sizeof(digest));
+    
+    description = @"";
+    
+    
+    if (string == nil)
+    {
+        return nil;
+    }
+    
+    // Convert the given 'NSString *' to 'const char *'.
+    const char *str = [string cStringUsingEncoding:NSUTF8StringEncoding];
+    
+    // Check if the conversion has succeeded.
+    if (str == NULL)
+    {
+        return nil;
+    }
+    
+    // Get the length of the C-string.
+    int len = (int)strlen(str);
+    
+    if (len == 0)
+    {
+        return nil;
+    }
+    
+    
+    if (str == NULL)
+    {
+        return nil;
+    }
+    
+    CC_SHA1_Update(&context, str, len);
+    
+    CC_SHA1_Final(digest, &context);
+    
+    description = [NSString stringWithFormat:
+                   @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",
+                   digest[ 0], digest[ 1], digest[ 2], digest[ 3],
+                   digest[ 4], digest[ 5], digest[ 6], digest[ 7],
+                   digest[ 8], digest[ 9], digest[10], digest[11],
+                   digest[12], digest[13], digest[14], digest[15],
+                   digest[16], digest[17], digest[18], digest[19]];
+    
+    return description;
+}
 
 
 #pragma mark - 替换token 验证token是否合法 是否进入登录界面
 - (void)changeToken{
 
-    [[SaveInfo shareSaveInfo] setUser_id:@"323423"];
-    [[SaveInfo shareSaveInfo] setToken:@"2332dfsfdsfsd"];
-    MainTabBar *mainVC = [[MainTabBar alloc]init];
-    self.window.rootViewController = mainVC;
+//    [[SaveInfo shareSaveInfo] setUser_id:@"323423"];
+//    [[SaveInfo shareSaveInfo] setToken:@"2332dfsfdsfsd"];
+//    MainTabBar *mainVC = [[MainTabBar alloc]init];
+//    self.window.rootViewController = mainVC;
     
-//    RequestCenter *request = [RequestCenter shareRequestCenter];
-//    if ([SaveInfo shareSaveInfo].user_id != nil && [SaveInfo shareSaveInfo].token != nil) {
-//        //有token
-//        NSDictionary *postDic = @{@"user_id":[SaveInfo shareSaveInfo].user_id,@"token":[SaveInfo shareSaveInfo].token};
-//        
-//        [request sendRequestPostUrl:EDIT_USER_TOKEN andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
-//            if ([[resultDic objectForKey:@"code"] intValue]== 1) {
-//                //成功 token 替换成功
-//                [[SaveInfo shareSaveInfo]setToken:[resultDic objectForKey:@"token"]];
-//                MainTabBar *mainVC = [[MainTabBar alloc]init];
-//                self.window.rootViewController = mainVC;
-//            }else{
-//                HUDNormal(@"请重新登录");
-//                LoginVC *loginVC = [[LoginVC alloc]init];
-//                self.window.rootViewController = loginVC ;
-//            }
-//        } setFailBlock:^(NSString *errorStr) {
-//            NSLog(@"error:%@",errorStr);
-//            //请求失败
-//            MainTabBar *mainVC = [[MainTabBar alloc]init];
-//            self.window.rootViewController = mainVC;
-//        }];
-//    }else{
-//        //无token
-//        LoginVC *loginVC = [[LoginVC alloc]init];
-//        self.window.rootViewController = loginVC ;
-//    }
+    RequestCenter *request = [RequestCenter shareRequestCenter];
+    if ([SaveInfo shareSaveInfo].user_id != nil && [SaveInfo shareSaveInfo].token != nil) {
+        //有token
+        NSDictionary *postDic = @{@"user_id":[SaveInfo shareSaveInfo].user_id,@"token":[SaveInfo shareSaveInfo].token};
+        
+        [request sendRequestPostUrl:EDIT_USER_TOKEN andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+            if ([[resultDic objectForKey:@"code"] intValue]== 1) {
+                //成功 token 替换成功
+                [[SaveInfo shareSaveInfo]setToken:[resultDic objectForKey:@"token"]];
+                MainTabBar *mainVC = [[MainTabBar alloc]init];
+                self.window.rootViewController = mainVC ;
+            }else{
+                HUDNormal(@"请重新登录");
+                LoginVC *loginVC = [[LoginVC alloc]init];
+                self.window.rootViewController = loginVC ;
+            }
+        } setFailBlock:^(NSString *errorStr) {
+            NSLog(@"error:%@",errorStr);
+            //请求失败
+            MainTabBar *mainVC = [[MainTabBar alloc]init];
+            self.window.rootViewController = mainVC;
+        }];
+    }else{
+        //无token
+        LoginVC *loginVC = [[LoginVC alloc]init];
+        self.window.rootViewController = loginVC ;
+    }
     
   
 
 
 }
+
+
+
 
 
 - (BOOL)isExistNetwork {
