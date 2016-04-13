@@ -122,6 +122,8 @@
     
     [request sendRequestPostUrl:MY_EDIT_PWD andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
         if ([[resultDic[@"code"] stringValue] isEqualToString:@"1"]) {
+            
+            HUDNormal(@"密码修改成功");
              [self.navigationController popToRootViewControllerAnimated:YES];
         }else{
             HUDNormal([resultDic objectForKey:@"msg"]);

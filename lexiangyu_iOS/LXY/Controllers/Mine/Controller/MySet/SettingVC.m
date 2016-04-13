@@ -13,6 +13,7 @@
 #import "SaveInfo.h"
 #import "AboutUsVC.h"
 @interface SettingVC ()
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UISwitch *handSwitch;
 //意见反馈
 - (IBAction)opinionClick:(id)sender;
@@ -29,7 +30,13 @@
     self.title = @"设置" ;
     
     
+    [_loginButton setBackgroundImage:[UIImage imageNamed:@"下一步_置灰"] forState:UIControlStateHighlighted];
+    
 }
+//-(void)loginButtonClick{
+//
+//    
+//}
 
 - (IBAction)opinionClick:(id)sender {
     NSLog(@"意见反馈点击");

@@ -14,6 +14,9 @@
 #import "GHControl.h"
 @interface FeedBackVC ()<UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *funationTextView;
+
+@property (weak, nonatomic) IBOutlet UIButton *submitFeedbackBtn;
+
 //功能意见
 - (IBAction)functionOfOpinion:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *placeholderLab;
@@ -33,9 +36,14 @@
     self.title = @"意见反馈" ;
     _dataArray = [NSMutableArray array];
     
-    
+    [_submitFeedbackBtn addTarget:self action:@selector(submitFeedbackBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [_submitFeedbackBtn setBackgroundImage:[UIImage imageNamed:@"下一步_置灰"] forState:UIControlStateHighlighted];
 }
-
+//提交按钮
+-(void)submitFeedbackBtnClick{
+    
+    [self leaveEditMode];
+}
 
 - (IBAction)functionOfOpinion:(id)sender {
     [self sendRequestData];

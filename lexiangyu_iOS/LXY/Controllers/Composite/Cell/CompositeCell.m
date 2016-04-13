@@ -20,7 +20,7 @@
     [self.goods_image sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@""]];
     self.goods_name.text = model.goods_name ;
     self.goods_price.text = [NSString stringWithFormat:@"¥%@",model.goods_price];
-    self.goods_salenum.text = STR_A_B(@"销量", model.goods_salenum);
+    self.goods_salenum.text = STR_A_B(@"销量:", model.goods_salenum);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

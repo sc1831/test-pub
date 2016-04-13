@@ -166,6 +166,11 @@
             [_shoppingTableView reloadData];
             HUDNormal(@"暂时还没有购物");
             [self allMoneyPayStr];
+            
+            [_rightNarBtn setTitle:@"编辑" forState:UIControlStateNormal];
+            _bottmView.hidden = YES;
+            _AllView.hidden = NO;
+
             [self.shoppingTableView headerEndRefresh];
             return;
         }
@@ -742,6 +747,8 @@
             if (_dataArray.count==0) {
                 _bootmDeleteImageView.image = [UIImage imageNamed:@"未选中"];
                 [_allDeleteButton setTitle:@"全选" forState:UIControlStateNormal];
+                
+                
             }
         }
         
@@ -757,9 +764,7 @@
             }
             [self sendRequestData];
             
-//            for (int i = 0 ; i<_dataArray.count; i++) {
-//                [_sectionStateArray addObject:@"1"];
-//            }
+
         }
        
         

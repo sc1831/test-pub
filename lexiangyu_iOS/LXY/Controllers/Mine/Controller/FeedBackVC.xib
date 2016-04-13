@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedBackVC">
@@ -10,6 +10,7 @@
                 <outlet property="classLab" destination="Wbn-h9-j3P" id="30x-Ih-uo9"/>
                 <outlet property="funationTextView" destination="QsM-wb-U3K" id="ZEn-kP-hJt"/>
                 <outlet property="placeholderLab" destination="3xV-uq-cgS" id="smn-nV-1zp"/>
+                <outlet property="submitFeedbackBtn" destination="VfN-4W-7MW" id="Qes-Xy-03v"/>
                 <outlet property="textCountLab" destination="FVJ-uk-BUd" id="dk3-Rc-jEI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -102,6 +103,13 @@
                     <color key="textColor" red="0.49803921569999998" green="0.50588235290000005" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VfN-4W-7MW">
+                    <rect key="frame" x="44" y="366" width="287" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="BuV-p5-ZqA"/>
+                    </constraints>
+                    <state key="normal" title="提交" backgroundImage="下一步_默认.png"/>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.94117647058823528" green="0.95686274509803915" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -110,21 +118,25 @@
                 <constraint firstItem="Bvu-7C-JdI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="72" id="4gP-Lg-24i"/>
                 <constraint firstItem="xC9-o1-hZu" firstAttribute="top" secondItem="QsM-wb-U3K" secondAttribute="bottom" constant="14" id="84j-go-b4e"/>
                 <constraint firstItem="3xV-uq-cgS" firstAttribute="top" secondItem="Bvu-7C-JdI" secondAttribute="bottom" constant="14" id="ARA-Ob-zln"/>
+                <constraint firstItem="VfN-4W-7MW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="44" id="E4Z-42-KUH"/>
                 <constraint firstItem="3xV-uq-cgS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="7" id="GlF-aW-zFq"/>
                 <constraint firstItem="Bvu-7C-JdI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Suq-ua-hiG"/>
                 <constraint firstItem="Svv-y4-UBc" firstAttribute="leading" secondItem="xC9-o1-hZu" secondAttribute="trailing" constant="2" id="YrB-Hc-zDM"/>
                 <constraint firstAttribute="trailing" secondItem="Bvu-7C-JdI" secondAttribute="trailing" id="ZsO-xM-2rq"/>
                 <constraint firstAttribute="trailing" secondItem="FVJ-uk-BUd" secondAttribute="trailing" constant="13" id="dcJ-fz-Jxk"/>
                 <constraint firstItem="FVJ-uk-BUd" firstAttribute="top" secondItem="Bvu-7C-JdI" secondAttribute="bottom" constant="111" id="iVb-ar-ieT"/>
+                <constraint firstAttribute="trailing" secondItem="VfN-4W-7MW" secondAttribute="trailing" constant="44" id="oWI-qX-8We"/>
                 <constraint firstItem="QsM-wb-U3K" firstAttribute="top" secondItem="Bvu-7C-JdI" secondAttribute="bottom" constant="8" id="q9n-7b-VaS"/>
                 <constraint firstItem="QsM-wb-U3K" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tpu-ka-KPG"/>
                 <constraint firstItem="xC9-o1-hZu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wiC-rz-ysm"/>
+                <constraint firstItem="VfN-4W-7MW" firstAttribute="top" secondItem="Svv-y4-UBc" secondAttribute="bottom" constant="62" id="yQg-cU-x0e"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="221.5" y="247.5"/>
         </view>
     </objects>
     <resources>
+        <image name="下一步_默认.png" width="328" height="44"/>
         <image name="地址选项跳转.png" width="30" height="30"/>
     </resources>
 </document>
