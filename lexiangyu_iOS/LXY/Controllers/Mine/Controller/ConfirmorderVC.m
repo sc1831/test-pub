@@ -9,7 +9,16 @@
 #import "ConfirmorderVC.h"
 #import "CashierDesk.h"
 #import "Common.h"
+#import "AllGoodsOrders.h"
+#import "GHControl.h"
+#import "Common.h"
+#import "ConfirmTableViewCell.h"
+#import "HeadTableView.h"
+#import "FooterTableView.h"
+#import "SectionFooterView.h"
+
 #import "RequestCenter.h"
+
 //微信
 #import "WXApiRequestHandler.h"
 //支付宝
@@ -24,41 +33,25 @@
 #define kConfirm          @"确定"
 #define kErrorNet         @"网络错误"
 #define kResult           @"支付结果：%@"
-@interface ConfirmorderVC ()
+@interface ConfirmorderVC ()<UITableViewDataSource,UITableViewDelegate>
 {
     UIAlertView* _alertView;
     NSMutableData* _responseData;
 }
-//手机号
-@property (weak, nonatomic) IBOutlet UILabel *phoneNumLabel;
-//收货地址
-@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
-//商品地址
-@property (weak, nonatomic) IBOutlet UILabel *shopAddress;
-//商品图片
-@property (weak, nonatomic) IBOutlet UIImageView *shopImage;
-//商品名称
-@property (weak, nonatomic) IBOutlet UILabel *shopName;
-//价位
-@property (weak, nonatomic) IBOutlet UILabel *weightMoney;
-//总价位
-@property (weak, nonatomic) IBOutlet UILabel *allMoney;
-//购买数量
-@property (weak, nonatomic) IBOutlet UILabel *number;
-//合计
-@property (weak, nonatomic) IBOutlet UILabel *combinedMoney;
-//商品共计数量
-@property (weak, nonatomic) IBOutlet UILabel *allNumber;
+
 //底部商品共计件数
 @property (weak, nonatomic) IBOutlet UILabel *bootmAllNum;
 //底部商品合计
 @property (weak, nonatomic) IBOutlet UILabel *bootmMoney;
 
 
+@property (nonatomic ,strong)UITableView *confirmTableView;
+@property (nonatomic ,strong)UIView *headView;
 
 
-//支付方式
-- (IBAction)paryMoneyClick:(id)sender;
+
+
+
 
 @property (weak, nonatomic) IBOutlet UIControl *subMitBtn;
 
@@ -70,11 +63,181 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"确认订单" ;
+
+    
+    [self createTableView];
+    
+}
+-(void)createTableView{
+    
+    _confirmTableView = [[UITableView alloc]initWithFrame:CGRectMake(0,64, M_WIDTH, M_HEIGHT-64-50) style:UITableViewStyleGrouped];
+    _confirmTableView.delegate = self;
+    _confirmTableView.dataSource = self;
+    _confirmTableView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_confirmTableView];
+    
+    //添加表头
+    HeadTableView *headTabView =
+    [[[NSBundle mainBundle] loadNibNamed:@"HeadTableView"
+                                   owner:self
+                                 options:nil] firstObject];
+    _confirmTableView.tableHeaderView = headTabView;
+    
+    
+
+    //添加表尾
+    FooterTableView *footerTabView =
+    [[[NSBundle mainBundle] loadNibNamed:@"FooterTableView"
+                                   owner:self
+                                 options:nil] firstObject];
+    _confirmTableView.tableFooterView = footerTabView;
+    
+//    AllGoodsOrders *dataModel = _dataArray[indexPath.section];
+//    cell.shopMoney.text = [NSString stringWithFormat:@"￥%@",dataModel.order_amount];
+    
+   
+    
+    [footerTabView.payType addTarget:self action:@selector(paryMoneyClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+//    CGFloat allPrice;
+//    CGFloat allNum;
+//    for (int i ; i< _mutArray.count; i++) {
+//        for (int j = 0; j<[_mutArray[i] count]; j++) {
+//            AllGoodsOrders *model = _mutArray[i][j];
+//            allPrice += [model.order_amount floatValue];
+//            allNum += model.
+//        }
+//    }
+    
+    
+    
+    
+    
+    headTabView.phoneNumLabel.text = @"1234567890-098765";
+    headTabView.addressLabel.text = @"北京市海淀区";
     
 }
 
+#pragma mark-----UITableViewDelegate
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    
+    return [_dataArray count];
+}
 
-- (IBAction)paryMoneyClick:(id)sender {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return [_mutArray[section] count];
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
+    [self createHeadView];
+    
+    AllGoodsOrders *model = _dataArray[section];
+    
+    UILabel *label = [GHControl createLabelWithFrame:CGRectMake(45,11,60, 30) Font:14 Text:model.store_name];
+    label.textColor = RGBCOLOR(99, 100, 101);
+    [_headView addSubview:label];
+    
+    
+    return _headView;
+    
+}
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+
+    SectionFooterView *sectionFooterView =
+    [[[NSBundle mainBundle] loadNibNamed:@"SectionFooterView"
+                                   owner:self
+                                 options:nil] firstObject];
+    
+    NSLog(@"section:%ld",section);
+    
+    
+    AllGoodsOrders *model = _dataArray[section];
+
+    
+        CGFloat allNum;
+        for (int i = 0 ; i< (int)[_mutArray[section] count]; i++) {
+                AllGoodsOrders *model = _mutArray[section][i];
+
+                allNum += [model.goods_num floatValue];
+
+        }
+    
+    
+    sectionFooterView.shopMoeny.text = [NSString stringWithFormat:@"￥%.2lf",[model.order_amount floatValue]];
+    sectionFooterView.shopNum.text = [NSString stringWithFormat:@"商品共%.lf件，合计：",allNum];
+    return sectionFooterView;
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 45;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+
+    return 70;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+
+        static NSString *cellName = @"ConfirmTableViewCell";
+        
+        ConfirmTableViewCell *cell =
+        (ConfirmTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellName];
+        if (!cell) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:cellName owner:self options:nil] firstObject];
+            
+        }
+        AllGoodsOrders *model = _mutArray[indexPath.section][indexPath.row];
+        cell.shopName.text = model.goods_name;
+        cell.shopNum.text = [NSString stringWithFormat:@"X%@",model.goods_num];
+        cell.shopMoney.text = [NSString stringWithFormat:@"￥%@",model.goods_price];
+       [cell.shopImage sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@"火影1"]];
+    
+    
+        
+        
+        return cell;
+        
+   
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return 77;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [_confirmTableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+}
+
+#pragma mark------headView  footView
+-(UIView *)createHeadView{
+    _headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH,45)];
+    _headView.backgroundColor = [UIColor whiteColor];
+    UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH,5)];
+    topView.backgroundColor = RGBCOLOR(219, 223, 224);
+    [_headView addSubview:topView];
+    
+    UIImage *headImage = [UIImage imageNamed:@"店铺"];
+    UIImageView *headImageView = [[UIImageView alloc]initWithFrame:CGRectMake(16,18, headImage.size.width, headImage.size.height)];
+    headImageView.image = headImage;
+    [_headView addSubview:headImageView];
+    
+    
+    return _headView;
+}
+
+
+
+
+
+#pragma mark------去支付
+- (void)paryMoneyClick {
     NSLog(@"银联支付");
 }
 - (IBAction)subMitClick:(id)sender {

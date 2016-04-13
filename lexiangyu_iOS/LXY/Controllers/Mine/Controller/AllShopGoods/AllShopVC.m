@@ -44,7 +44,7 @@
     RequestCenter * request = [RequestCenter shareRequestCenter];
     NSDictionary *postDic = @{@"order_state":@"",
                               @"user_id":[[SaveInfo shareSaveInfo]user_id],
-                              @"page":@"1"
+                              @"page":@"7"
                               };
     
     [request sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
@@ -111,12 +111,13 @@
     [_headView addSubview:labelNum];
     
     
-    UILabel *waitLabel = [GHControl createLabelWithFrame:CGRectMake(M_WIDTH-70,11,70, 30) Font:13 Text:@""];
+    UILabel *waitLabel = [GHControl createLabelWithFrame:CGRectMake(M_WIDTH-90,11,75, 30) Font:13 Text:@""];
     waitLabel.textColor = RGBCOLOR(249, 147, 73);
+    waitLabel.textAlignment = NSTextAlignmentRight;
     [_headView addSubview:waitLabel];
     
     if ([model.order_state intValue]==0) {
-        waitLabel.text = @"取消订单";
+        waitLabel.text = @"已取消订单";
     }else if ([model.order_state intValue]== 10){
         
         waitLabel.text = @"等待付款";
@@ -134,6 +135,8 @@
 }
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     
+    [self createFootView];
+    
     AllGoodsOrders *model = _dataArray[section];
     
     UILabel *label = [GHControl createLabelWithFrame:CGRectMake(18,5,60, 30) Font:14 Text:@"已付款:"];
@@ -147,21 +150,20 @@
     [_footView addSubview:moneyLabel];
 
     
-   
-    
-    
-   
-    
-    UIButton *againPayBtn = [GHControl createButtonWithFrame:CGRectMake(M_WIDTH-90,5,75, 30) ImageName:@"评价商品_默认" Target:self Action:@selector(againPayBtnClick:) Title:@"再次购买"];
-    againPayBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-    [againPayBtn setTitleColor:RGBCOLOR(249, 147, 73) forState:UIControlStateNormal];
-    
-    
-    
     
     if ([model.order_state intValue]==0) {
        // 取消订单
         label.text = @"付款:";
+        //再次购买按钮
+        UIButton *againPayBtn = [GHControl createButtonWithFrame:CGRectMake(M_WIDTH-90,5,75, 30) ImageName:@"评价商品_默认" Target:self Action:@selector(againPayBtnClick:) Title:@"再次购买"];
+        againPayBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+        [againPayBtn setTitleColor:RGBCOLOR(249, 147, 73) forState:UIControlStateNormal];
+        [againPayBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+        [againPayBtn setBackgroundImage:[UIImage imageNamed:@"保存修改_点击"] forState:UIControlStateHighlighted];
+
+        againPayBtn.tag = section;
+        [_footView addSubview:againPayBtn];
+        
     }else if ([model.order_state intValue]== 10){
         
       // 等待付款
@@ -171,39 +173,36 @@
         payBtn.tag = section;
         payBtn.titleLabel.font = [UIFont systemFontOfSize:14];
         [payBtn setTitleColor:RGBCOLOR(249, 147, 73) forState:UIControlStateNormal];
+        [payBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+        [payBtn setBackgroundImage:[UIImage imageNamed:@"保存修改_点击"] forState:UIControlStateHighlighted];
+        payBtn.tag = section;
         [_footView addSubview:payBtn];
         
         
     }else if ([model.order_state intValue] == 20){
     //等待发货
         UIButton *cancelBtn = [GHControl createButtonWithFrame:CGRectMake(M_WIDTH-90,5,75, 30) ImageName:@"评价商品_默认" Target:self Action:@selector(cancelBtnClick:) Title:@"取消订单"];
+        [cancelBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+        [cancelBtn setBackgroundImage:[UIImage imageNamed:@"保存修改_点击"] forState:UIControlStateHighlighted];
+        cancelBtn.tag = section;
         [_footView addSubview:cancelBtn];
         
     }else if ([model.order_state intValue] == 40){
         
        // 交易完成
        label.text = @"共计付款:";
-        //评价商品按钮
-        UIButton *evaluationBtn = [GHControl createButtonWithFrame:CGRectMake(M_WIDTH-180,5,75, 30) ImageName:@"评价商品_默认" Target:self Action:@selector(evaluationBtnClick:) Title:@"评价商品"];
-        evaluationBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-        [evaluationBtn setTitleColor:RGBCOLOR(249, 147, 73) forState:UIControlStateNormal];
-        [_footView addSubview:evaluationBtn];
+        
         //再次购买按钮
+        UIButton *againPayBtn = [GHControl createButtonWithFrame:CGRectMake(M_WIDTH-90,5,75, 30) ImageName:@"评价商品_默认" Target:self Action:@selector(againPayBtnClick:) Title:@"再次购买"];
+        againPayBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+        [againPayBtn setTitleColor:RGBCOLOR(249, 147, 73) forState:UIControlStateNormal];
+        [againPayBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+        [againPayBtn setBackgroundImage:[UIImage imageNamed:@"保存修改_点击"] forState:UIControlStateHighlighted];
+        againPayBtn.tag = section;
         [_footView addSubview:againPayBtn];
     }
     
-    
-    [self createFootView];
    
-        
-    
-        
-    
-        
-    
-    
-    
-    
     
     return _footView;
     
@@ -272,18 +271,40 @@
 }
 
 -(void)payBtnClick:(UIButton *)btn{
-    NSLog(@"去支付");
+    NSLog(@"去支付:%ld",btn.tag);
     ConfirmorderVC *confirmVC = [[ConfirmorderVC alloc]init];
     [self.navigationController pushViewController:confirmVC animated:YES];
     
 }
 -(void)againPayBtnClick:(UIButton *)againPayBtn{
 
-    NSLog(@"再次购买");
+    NSLog(@"再次购买:%ld",(long)againPayBtn.tag);
+    AllGoodsOrders *model = _dataArray[againPayBtn.tag];
+    NSMutableArray *smallDataArray = [NSMutableArray array];
+    [smallDataArray addObject:model];
+    
+    
+    NSMutableArray *smallMutArray = [NSMutableArray array];
+    [smallMutArray addObject:_subMutArray[againPayBtn.tag]];
+    NSLog(@"_subMutArray[againPayBtn.tag]:%@",_subMutArray[againPayBtn.tag]);
+    NSLog(@"smallMutArray.count:%ld",smallMutArray.count);
+    
+    
+    ConfirmorderVC *confirmVC = [[ConfirmorderVC alloc]init];
+    confirmVC.model = model;
+    
+    confirmVC.dataArray = [NSMutableArray arrayWithArray:smallDataArray];
+    
+    confirmVC.mutArray = [NSMutableArray arrayWithArray:smallMutArray];
+    [self.navigationController pushViewController:confirmVC animated:YES];
+    
+    
 }
--(void)evaluationBtnClick:(UIButton *)evaluationBtn{
+-(void)cancelBtnClick:(UIButton *)cancelBtn{
 
-    NSLog(@"去评价");
+    NSLog(@"取消订单:%ld",cancelBtn.tag);
+    
+    
 }
 
 

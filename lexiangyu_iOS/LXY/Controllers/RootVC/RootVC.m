@@ -34,7 +34,7 @@
 }
 
 - (void)createNavController{
-    UIButton *leftNarBtn = [GHControl createButtonWithFrame:CGRectMake(0, 0, 20, 20) ImageName:@"返回icon" Target:self Action:@selector(leftNavBtnClick:) Title:nil];
+    UIButton *leftNarBtn = [GHControl createButtonWithFrame:CGRectMake(0, 0, 20, 20) ImageName:@"返回" Target:self Action:@selector(leftNavBtnClick:) Title:nil];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:leftNarBtn];
     
     UIButton *rightNarBtn = [GHControl createButtonWithFrame:CGRectMake(0, 0, 20, 20) ImageName:@"rightBarBtnBg.png" Target:self Action:@selector(rightNavBtnClick:) Title:nil];

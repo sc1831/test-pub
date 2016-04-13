@@ -9,7 +9,10 @@
 #import "RootVC.h"
 
 
-
+@class AllGoodsOrders;
 @interface ConfirmorderVC : RootVC
 @property (nonatomic ,strong)NSString *addressStr;
+@property (nonatomic ,strong)AllGoodsOrders *model;
+@property (nonatomic ,strong)NSMutableArray *mutArray;
+@property (nonatomic ,strong)NSMutableArray *dataArray;
 @end

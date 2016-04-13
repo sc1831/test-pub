@@ -21,14 +21,14 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Hy-uU-agD">
                             <rect key="frame" x="0.0" y="136" width="375" height="74"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="评论_地址icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="tpV-gc-CKa">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="地址.png" translatesAutoresizingMaskIntoConstraints="NO" id="tpV-gc-CKa">
                                     <rect key="frame" x="12" y="6" width="20" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="POu-ib-BO5"/>
                                         <constraint firstAttribute="width" constant="20" id="ada-me-IbG"/>
                                     </constraints>
                                 </imageView>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="评论_定位icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="V40-Dm-ypK">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="位置.png" translatesAutoresizingMaskIntoConstraints="NO" id="V40-Dm-ypK">
                                     <rect key="frame" x="12" y="39" width="20" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="KMh-fg-sgf"/>
@@ -78,7 +78,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JSf-An-5KA">
                             <rect key="frame" x="0.0" y="212" width="375" height="72"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="产品图片.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ls3-6R-QPM">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="产品图.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ls3-6R-QPM">
                                     <rect key="frame" x="6" y="2" width="60" height="55"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="60" id="DNJ-Vx-goE"/>
@@ -286,9 +286,10 @@
         </view>
     </objects>
     <resources>
+        <image name="产品图.png" width="70" height="70"/>
         <image name="产品图片.png" width="1256" height="1134"/>
-        <image name="评论_地址icon.png" width="15" height="15"/>
-        <image name="评论_定位icon.png" width="15" height="15"/>
+        <image name="位置.png" width="15" height="15"/>
+        <image name="地址.png" width="15" height="15"/>
         <image name="邮箱样式条.png" width="752" height="4"/>
     </resources>
 </document>

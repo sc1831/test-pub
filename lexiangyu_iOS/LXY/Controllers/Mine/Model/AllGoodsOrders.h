@@ -25,6 +25,7 @@
 @property (nonatomic ,strong)NSString *goods_num ;
 @property (nonatomic ,strong)NSString *goods_salenum;
 @property (nonatomic ,strong)NSString *goods_image;
+@property (nonatomic ,strong)NSString *goods_price;
 
 +(AllGoodsOrders *)modelWithDic:(NSDictionary *)dic;
 -(id)initWithDic:(NSDictionary *)dic;
