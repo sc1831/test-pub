@@ -25,7 +25,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "606"
             endingLineNumber = "606"
-            landmarkName = "-sendAddShopGoodsCartId:andGoodsNum:"
+            landmarkName = "-deleteShopDoods:cartIds:andIsAllDelete:"
             landmarkType = "5">
             <Locations>
                <Location
@@ -36,7 +36,7 @@
                   moduleName = "LXY"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/guohui/Desktop/lexiangyu_iOS/LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
-                  timestampString = "482148780.590219"
+                  timestampString = "482148894.370156"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "609"
@@ -51,7 +51,7 @@
                   moduleName = "LXY"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/guohui/Desktop/lexiangyu_iOS/LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
-                  timestampString = "482148780.590416"
+                  timestampString = "482148894.370447"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "609"
@@ -73,7 +73,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "432"
             endingLineNumber = "432"
-            landmarkName = "-buttonBackgroundImage:"
+            landmarkName = "-rightImageButtonClick:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -105,7 +105,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "436"
             endingLineNumber = "436"
-            landmarkName = "-buttonBackgroundImage:"
+            landmarkName = "-rightImageButtonClick:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -137,7 +137,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "548"
             endingLineNumber = "548"
-            landmarkName = "-deleteClick:"
+            landmarkName = "-allDeleteClick:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -169,7 +169,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "530"
             endingLineNumber = "530"
-            landmarkName = "-deleteClick:"
+            landmarkName = "-settlementButton:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -185,7 +185,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "523"
             endingLineNumber = "523"
-            landmarkName = "-deleteClick:"
+            landmarkName = "-allMoneyPayStr"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -201,7 +201,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "478"
             endingLineNumber = "478"
-            landmarkName = "-allDeleteClick:"
+            landmarkName = "-allFutureButton:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -217,7 +217,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "505"
             endingLineNumber = "505"
-            landmarkName = "-allDeleteClick:"
+            landmarkName = "-allFutureButton:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

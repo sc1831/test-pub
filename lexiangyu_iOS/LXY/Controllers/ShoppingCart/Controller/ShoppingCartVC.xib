@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <objects>
@@ -8,6 +9,7 @@
             <connections>
                 <outlet property="AllView" destination="xAx-l6-bty" id="cH2-Ze-X7I"/>
                 <outlet property="allDeleteButton" destination="hWD-rr-Zx4" id="BtK-XW-2dx"/>
+                <outlet property="allMoneyPay" destination="g2i-p1-YkI" id="x1t-In-v9a"/>
                 <outlet property="bootmAllImageView" destination="6aj-de-6kd" id="NRc-jb-fuG"/>
                 <outlet property="bootmDeleteImageView" destination="M1F-FK-Ha4" id="d2d-fE-6US"/>
                 <outlet property="bottmView" destination="dIH-fI-Lgs" id="YUw-fp-6Uc"/>
@@ -39,7 +41,7 @@
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="合计:5980.40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2i-p1-YkI">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="合计:0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2i-p1-YkI">
                             <rect key="frame" x="94" y="8" width="111" height="15"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>

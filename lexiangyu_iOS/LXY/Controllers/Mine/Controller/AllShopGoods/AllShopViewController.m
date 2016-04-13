@@ -24,7 +24,7 @@
 @property (nonatomic ,strong)AllShopVC *allShopVC;
 @property (nonatomic ,strong)WaitPayFirstViewController *allWaitePayVC;
 @property (nonatomic ,strong)WaitGetVC *allWaiteGetVC;
-@property (nonatomic ,strong)WaitSendVC *allWaiteEvaluationVC;
+@property (nonatomic ,strong)WaitSendVC *waitSendVC;
 
 @end
 
@@ -81,24 +81,24 @@
 }
 -(void)addChildViewVC{
     for (int i = 0; i<4; i++) {
-        if (i==0) {
+        if (i==0) {//全部订单
             _allShopVC = [[AllShopVC alloc]init];
             [self addChildViewController:_allShopVC];
             _allShopVC.view.frame = CGRectMake(i*M_WIDTH,0, M_WIDTH,_allShopScrollView.frame.size.height);
             [_allShopScrollView addSubview:self.allShopVC.view];
-        }else if (i==1){
+        }else if (i==1){//待付款
             _allWaitePayVC = [[WaitPayFirstViewController alloc]init];
             [self addChildViewController:_allWaitePayVC];
             _allWaitePayVC.view.frame = CGRectMake(i*M_WIDTH,0, M_WIDTH,_allShopScrollView.frame.size.height);
             [_allShopScrollView addSubview:self.allWaitePayVC.view];
         
-        }else if(i==2){
-            _allWaiteEvaluationVC = [[WaitSendVC alloc]init];
-            [self addChildViewController:_allWaiteEvaluationVC];
-            _allWaiteEvaluationVC.view.frame = CGRectMake(i*M_WIDTH,0, M_WIDTH,_allShopScrollView.frame.size.height);
-            [_allShopScrollView addSubview:self.allWaiteEvaluationVC.view];
+        }else if(i==2){//待发货
+            _waitSendVC = [[WaitSendVC alloc]init];
+            [self addChildViewController:_waitSendVC];
+            _waitSendVC.view.frame = CGRectMake(i*M_WIDTH,0, M_WIDTH,_allShopScrollView.frame.size.height);
+            [_allShopScrollView addSubview:self.waitSendVC.view];
         
-        }else{
+        }else{//待收货
             _allWaiteGetVC = [[WaitGetVC alloc]init];
             [self addChildViewController:_allWaiteGetVC];
             _allWaiteGetVC.view.frame = CGRectMake(i*M_WIDTH,0, M_WIDTH,_allShopScrollView.frame.size.height);
