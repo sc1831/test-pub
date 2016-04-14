@@ -7,14 +7,19 @@
 //
 
 #import "OrderDetailCell.h"
-
+#import "Common.h"
 @implementation OrderDetailCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
 }
-
+- (void)configViewGoodsModel:(AllGoodsOrders *)model{
+    [self.goodsIcon sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@""]];
+    self.goodsName.text = model.goods_name ;
+    self.goodsNum.text = STR_A_B(@"数量", model.goods_num);
+    
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

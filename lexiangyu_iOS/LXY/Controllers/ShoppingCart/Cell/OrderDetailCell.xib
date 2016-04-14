@@ -22,18 +22,18 @@
                             <constraint firstAttribute="height" constant="60" id="i0M-sm-IWJ"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="数量:20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPe-AN-bea">
-                        <rect key="frame" x="75" y="50" width="285" height="19.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="0.52549019610000003" green="0.52941176469999995" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="泰国进口芒果新鲜青芒果 8斤起卖非常好吃泰国进口芒果新鲜青芒果 8斤起卖非常好吃" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRC-eX-zXD">
                         <rect key="frame" x="75" y="8" width="288" height="42"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="288" id="6Ke-IK-Dk2"/>
                             <constraint firstAttribute="height" constant="42" id="ZLD-8U-wiW"/>
                         </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.52549019610000003" green="0.52941176469999995" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="数量:20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPe-AN-bea">
+                        <rect key="frame" x="75" y="50" width="285" height="19.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.52549019610000003" green="0.52941176469999995" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -50,6 +50,11 @@
                     <constraint firstItem="jRC-eX-zXD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="zgz-P9-ki6"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="goodsIcon" destination="jTK-n7-NeJ" id="AVg-E5-edF"/>
+                <outlet property="goodsName" destination="jRC-eX-zXD" id="NH6-Py-HHG"/>
+                <outlet property="goodsNum" destination="pPe-AN-bea" id="11s-K9-H90"/>
+            </connections>
             <point key="canvasLocation" x="162.5" y="107"/>
         </tableViewCell>
     </objects>

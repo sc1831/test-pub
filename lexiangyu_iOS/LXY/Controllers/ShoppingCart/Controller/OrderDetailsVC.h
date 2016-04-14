@@ -7,7 +7,8 @@
 //
 
 #import "RootVC.h"
-
+#import "AllGoodsOrders.h"
 @interface OrderDetailsVC : RootVC
-
+@property (nonatomic,strong) AllGoodsOrders *orderModel ;
+@property (nonatomic,strong) NSArray *goodsArray ; //AllGoodsOrders list
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "AllGoodsOrders.h"
 @interface OrderDetailHeaderView : UIView
 
 @end

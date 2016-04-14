@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "AllGoodsOrders.h"
 @interface OrderDetailCell : UITableViewCell
-
+@property (weak, nonatomic) IBOutlet UIImageView *goodsIcon;
+@property (weak, nonatomic) IBOutlet UILabel *goodsName;
+@property (weak, nonatomic) IBOutlet UILabel *goodsNum;
+- (void)configViewGoodsModel:(AllGoodsOrders *)model ;
 @end

@@ -28,11 +28,9 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellId = @"OrderDetailCell";
-    OrderDetailCell *cell =
-    (OrderDetailCell *)[tableView dequeueReusableCellWithIdentifier:cellId];
+    OrderDetailCell *cell = (OrderDetailCell *)[tableView dequeueReusableCellWithIdentifier:cellId];
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:cellId owner:self options:nil] firstObject];
-        
     }
 
     return cell;

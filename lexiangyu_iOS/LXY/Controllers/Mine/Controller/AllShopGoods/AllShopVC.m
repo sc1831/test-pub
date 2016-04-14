@@ -60,7 +60,6 @@
         NSArray *array = dict[@"list"];
         for (NSDictionary *subDic in array) {
             AllGoodsOrders *model = [AllGoodsOrders modelWithDic:subDic];
-            
             NSArray *subArray = subDic[@"order_goods"];
             NSMutableArray *mutArray = [NSMutableArray array];
             for (NSDictionary *smallDic in subArray) {
@@ -70,12 +69,9 @@
             [_subMutArray addObject:mutArray];
             
             [_dataArray addObject:model];
-            
         }
-
         [_waitPayTableView reloadData];
     } setFailBlock:^(NSString *errorStr) {
-        NSLog(@"");
         
     }];
 }
@@ -245,12 +241,23 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:cellName owner:self options:nil] firstObject];
         }
         
+        UIControl *control = [[UIControl alloc]initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
+        control.tag = indexPath.section ;
+        [control addTarget:self action:@selector(cellClick:) forControlEvents:UIControlEventTouchUpInside];
+        [cell addSubview:control];
         
         [cell modelWithArray:_subMutArray[indexPath.section]];
         
         return cell;
     }
     
+}
+- (void)cellClick:(UIControl *)control {
+    NSLog(@"control.tag : %ld",control.tag);
+    OrderDetailsVC *detailVC = [[OrderDetailsVC alloc]init];
+    detailVC.orderModel =  _dataArray[control.tag];
+    detailVC.goodsArray = _subMutArray[control.tag];
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -262,8 +269,10 @@
     
     [self.waitPayTableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    OrderDetailsVC *detailVC = [[OrderDetailsVC alloc]init];
     
+    OrderDetailsVC *detailVC = [[OrderDetailsVC alloc]init];
+    detailVC.orderModel =  _dataArray[indexPath.section];
+    detailVC.goodsArray = _subMutArray[indexPath.section];
     [self.navigationController pushViewController:detailVC animated:YES];
     
 }
