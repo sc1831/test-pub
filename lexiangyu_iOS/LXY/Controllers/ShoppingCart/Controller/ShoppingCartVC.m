@@ -123,6 +123,33 @@
             return ;
         }
         HUDNormal(@"数据请求成功");
+        
+        //
+        //        NSArray *mutArray = resultDic[@"data"];
+        //        for (NSDictionary *dic in mutArray) {
+        //            [_dataArray addObject:@{@"store_name":dic[@"store_name"],@"store_id":dict[@"store_id"]}];
+        //
+        //            NSArray *array = dic[@"goods"];
+        //            NSMutableArray *smallArray = [NSMutableArray array];
+        //            for (NSDictionary *dict in array) {
+        //                ShoppingCartModel *model = [ShoppingCartModel modelWithDic:dict];
+        //                [smallArray addObject:model];
+        //
+        //
+        //                NSArray *subArray = dict[@"goods_spec"];
+        //                for (NSDictionary *subDcit in subArray) {
+        //                    ShoppingCartModel *model = [ShoppingCartModel modelWithDic:subDcit];
+        //                    [smallArray addObject:model];
+        //                }
+        //                
+        //            }
+        //            [_sectionStateArray addObject:smallArray];
+        //        }
+        //        
+        
+        
+        
+        
 
         NSDictionary *data = resultDic[@"data"];
         NSDictionary *cartDic = data[@"cart"];
@@ -341,15 +368,22 @@
     
 }
 -(void)addButtonClickOrReductionButtonClick:(BOOL )isAddButtonClick  andButton:(UIButton *)addButton {
-    NSIndexPath *indexPath;
-    if (isAddButtonClick) {
-       indexPath = [NSIndexPath indexPathForRow:0 inSection:addButton.tag-10];
-    }else{
     
-        indexPath = [NSIndexPath indexPathForRow:0 inSection:addButton.tag-100];
-    }
-   
-    ShoppingCartCell *cell = [self.shoppingTableView cellForRowAtIndexPath:indexPath];
+    UITableViewCell * cell = (UITableViewCell *)[[addButton superview] superview];
+    NSIndexPath * indexPath = [self.shoppingTableView indexPathForCell:cell];
+    
+//    NSIndexPath *indexPath;
+//    if (isAddButtonClick) {
+//       indexPath = [NSIndexPath indexPathForRow:0 inSection:addButton.tag-10];
+//    }else{
+//    
+//        indexPath = [NSIndexPath indexPathForRow:0 inSection:addButton.tag-100];
+//    }
+//
+    
+    NSLog(@"%ld",(long)indexPath.section);
+    NSLog(@"%ld",(long)indexPath.row);
+    ShoppingCartCell *shopCell = [self.shoppingTableView cellForRowAtIndexPath:indexPath];
     ShoppingCartModel *model = _dataArray[indexPath.section][indexPath.row];
     _shopNum =  [model.goods_num intValue];
     if (isAddButtonClick) {
@@ -360,7 +394,7 @@
     }
     
     model.goods_num = [NSString stringWithFormat:@"%d",_shopNum];
-    cell.numberTextField.text = model.goods_num;
+    shopCell.numberTextField.text = model.goods_num;
     [self sendAddShopGoodsCartId:model.cart_id andGoodsNum:model.goods_num];
     
 }

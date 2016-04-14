@@ -23,6 +23,7 @@
 
 //购物车
 #define SHOP_GOODS @"app/cart/index"
+#define SHOP_GOODS_TWO @"app/cart/cart_list"
 //添加购物车
 #define ADD_SHOP_GOODS @"app/cart/add"
 //删除购物车商品
