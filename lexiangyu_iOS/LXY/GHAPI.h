@@ -54,7 +54,7 @@
 #define MY_REGISTER @"app/User/my_order"
 //取消订单
 #define MY_CANCEL_REGISTER @"app/User/cancel_order"
-
+#define MY_GOODS_CONFIRM @"app/goods/confirm"
 //修改密码
 #define MY_EDIT_PWD @"app/User/edit_pwd"
 //意见反馈类型

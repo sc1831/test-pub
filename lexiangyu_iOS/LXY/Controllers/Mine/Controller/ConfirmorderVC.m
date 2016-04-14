@@ -18,6 +18,10 @@
 #import "SectionFooterView.h"
 
 #import "RequestCenter.h"
+#import "ShoppingCartModel.h"
+#import "SaveInfo.h"
+
+
 
 //微信
 #import "WXApiRequestHandler.h"
@@ -48,8 +52,13 @@
 @property (nonatomic ,strong)UITableView *confirmTableView;
 @property (nonatomic ,strong)UIView *headView;
 
+@property (nonatomic ,strong)NSMutableArray *sectionStateArray;
+//地址
+@property (nonatomic ,strong)NSString *addressStr;
+@property (nonatomic ,strong)NSString *addressId;
 
-
+@property (nonatomic ,strong)NSMutableArray *mutArray;
+@property (nonatomic ,strong)NSMutableArray *dataArray;
 
 
 
@@ -63,9 +72,73 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"确认订单" ;
-
+    _dataArray = [NSMutableArray array];
+    _sectionStateArray = [NSMutableArray array];
+    _mutArray = [NSMutableArray array];
     
     [self createTableView];
+    [self sendRequestData];
+    
+}
+-(void)sendRequestData{
+    [_sectionStateArray removeAllObjects];
+    [_dataArray removeAllObjects];
+    RequestCenter *request = [RequestCenter shareRequestCenter];
+    /**
+     user_id	是	string	买家id
+     cart_ids	否	string	如果传空则代表查询全部 只选择部分商品则传入购物车信息id(cart_id) 
+                            多个用逗号分隔  拼接成字符串传递(如"303,234,237")
+     order_ids	否	string	如果传空则代表查询全部 只选择部分商品则传入订单id(order_id) 
+                            多个用逗号分隔 拼接成字符串传递(如"1,2,3")
+     goods_id	否	string	商品id(直接购买时需要)
+     goods_num	否	string	购买数量(直接购买时需要)
+
+     */
+    NSDictionary *dict = @{
+                           @"user_id":[[SaveInfo shareSaveInfo] user_id],
+                           @"cart_ids":_cartIds,
+                           @"order_ids":_orderIds,
+                           @"goods_id":_goodsIds,
+                           @"goods_num":_goodsNum
+                           };
+    
+    NSMutableString *string = [NSMutableString stringWithString:MY_GOODS_CONFIRM];
+    
+    [request sendRequestPostUrl:string andDic:dict setSuccessBlock:^(NSDictionary *resultDic) {
+        
+        if ([resultDic[@"code"] intValue]==0) {
+            HUDNormal(@"数据请求失败，请稍后再试");
+            return ;
+        }
+        HUDNormal(@"数据请求成功");
+        
+        
+        NSDictionary *dic = resultDic[@"data"];
+        _addressStr = dic[@"address"][@"address"];
+        
+        NSArray *array = dic[@"cart"];
+        for (NSDictionary *dic in array) {
+            AllGoodsOrders *model = [AllGoodsOrders modelWithDic:dic];
+            [_dataArray addObject:model];
+            NSArray *goodsArray = dic[@"goods"];
+            NSMutableArray *mutGoodsArray = [NSMutableArray array];
+            for (NSDictionary *goodsDic in goodsArray) {
+                AllGoodsOrders *model = [AllGoodsOrders modelWithDic:goodsDic];
+                [mutGoodsArray addObject:model];
+            }
+            [_sectionStateArray addObject:mutGoodsArray];
+        }
+        
+        
+        
+        
+        
+        [_confirmTableView reloadData];
+    } setFailBlock:^(NSString *errorStr) {
+        
+    }];
+    
+    
     
 }
 -(void)createTableView{
@@ -91,31 +164,15 @@
                                    owner:self
                                  options:nil] firstObject];
     _confirmTableView.tableFooterView = footerTabView;
-    
-//    AllGoodsOrders *dataModel = _dataArray[indexPath.section];
-//    cell.shopMoney.text = [NSString stringWithFormat:@"￥%@",dataModel.order_amount];
-    
-   
+  
     
     [footerTabView.payType addTarget:self action:@selector(paryMoneyClick) forControlEvents:UIControlEventTouchUpInside];
     
-    
-//    CGFloat allPrice;
-//    CGFloat allNum;
-//    for (int i ; i< _mutArray.count; i++) {
-//        for (int j = 0; j<[_mutArray[i] count]; j++) {
-//            AllGoodsOrders *model = _mutArray[i][j];
-//            allPrice += [model.order_amount floatValue];
-//            allNum += model.
-//        }
-//    }
-    
-    
-    
+   
     
     
     headTabView.phoneNumLabel.text = @"1234567890-098765";
-    headTabView.addressLabel.text = @"北京市海淀区";
+    headTabView.addressLabel.text = _addressStr;
     
 }
 
@@ -126,47 +183,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [_mutArray[section] count];
-}
-
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    
-    [self createHeadView];
-    
-    AllGoodsOrders *model = _dataArray[section];
-    
-    UILabel *label = [GHControl createLabelWithFrame:CGRectMake(45,11,60, 30) Font:14 Text:model.store_name];
-    label.textColor = RGBCOLOR(99, 100, 101);
-    [_headView addSubview:label];
-    
-    
-    return _headView;
-    
-}
--(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-
-    SectionFooterView *sectionFooterView =
-    [[[NSBundle mainBundle] loadNibNamed:@"SectionFooterView"
-                                   owner:self
-                                 options:nil] firstObject];
-    
-    NSLog(@"section:%ld",section);
-    
-    
-    AllGoodsOrders *model = _dataArray[section];
-    sectionFooterView.shopMoeny.text = [NSString stringWithFormat:@"￥%.2lf",[model.order_amount floatValue]];
-    
-        CGFloat allNum;
-        for (int i = 0 ; i< (int)[_mutArray[section] count]; i++) {
-                AllGoodsOrders *model = _mutArray[section][i];
-
-                allNum += [model.goods_num floatValue];
-
-        }
-    
-    
-    sectionFooterView.shopNum.text = [NSString stringWithFormat:@"商品共%.lf件，合计：",allNum];
-    return sectionFooterView;
+    return [_sectionStateArray[section] count];
 }
 
 
@@ -189,7 +206,7 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:cellName owner:self options:nil] firstObject];
             
         }
-        AllGoodsOrders *model = _mutArray[indexPath.section][indexPath.row];
+        AllGoodsOrders *model = _sectionStateArray[indexPath.section][indexPath.row];
         cell.shopName.text = model.goods_name;
         cell.shopNum.text = [NSString stringWithFormat:@"X%@",model.goods_num];
         cell.shopMoney.text = [NSString stringWithFormat:@"￥%@",model.goods_price];
@@ -202,7 +219,36 @@
         
    
 }
-
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
+    [self createHeadView];
+    
+    AllGoodsOrders *model = _dataArray[section];
+    
+    UILabel *label = [GHControl createLabelWithFrame:CGRectMake(45,11,60, 30) Font:14 Text:model.store_name];
+    label.textColor = RGBCOLOR(99, 100, 101);
+    [_headView addSubview:label];
+    
+    
+    return _headView;
+    
+}
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    
+    SectionFooterView *sectionFooterView =
+    [[[NSBundle mainBundle] loadNibNamed:@"SectionFooterView"
+                                   owner:self
+                                 options:nil] firstObject];
+    
+    NSLog(@"section:%ld",section);
+    
+    
+    AllGoodsOrders *model = _dataArray[section];
+    sectionFooterView.shopMoeny.text = [NSString stringWithFormat:@"￥%.2lf",[model.goods_price_total floatValue]];
+    
+    sectionFooterView.shopNum.text = [NSString stringWithFormat:@"商品共%@件，合计：",model.goods_num_total];
+    return sectionFooterView;
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     return 77;

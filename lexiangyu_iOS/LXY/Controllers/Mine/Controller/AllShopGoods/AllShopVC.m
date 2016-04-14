@@ -279,32 +279,14 @@
 
 -(void)payBtnClick:(UIButton *)btn{
     NSLog(@"去支付:%ld",btn.tag);
-    ConfirmorderVC *confirmVC = [[ConfirmorderVC alloc]init];
-    [self.navigationController pushViewController:confirmVC animated:YES];
+   
+    [self pushConfirmVC:btn];
     
 }
 -(void)againPayBtnClick:(UIButton *)againPayBtn{
 
     NSLog(@"再次购买:%ld",(long)againPayBtn.tag);
-    AllGoodsOrders *model = _dataArray[againPayBtn.tag];
-    NSMutableArray *smallDataArray = [NSMutableArray array];
-    [smallDataArray addObject:model];
-    
-    
-    NSMutableArray *smallMutArray = [NSMutableArray array];
-    [smallMutArray addObject:_subMutArray[againPayBtn.tag]];
-    NSLog(@"_subMutArray[againPayBtn.tag]:%@",_subMutArray[againPayBtn.tag]);
-    NSLog(@"smallMutArray.count:%ld",smallMutArray.count);
-    
-    
-    ConfirmorderVC *confirmVC = [[ConfirmorderVC alloc]init];
-    confirmVC.model = model;
-    
-    confirmVC.dataArray = [NSMutableArray arrayWithArray:smallDataArray];
-    
-    confirmVC.mutArray = [NSMutableArray arrayWithArray:smallMutArray];
-    [self.navigationController pushViewController:confirmVC animated:YES];
-    
+    [self pushConfirmVC:againPayBtn];
     
 }
 -(void)cancelBtnClick:(UIButton *)cancelBtn{
@@ -313,7 +295,16 @@
     
     
 }
+-(void)pushConfirmVC:(UIButton *)btn{
 
+    AllGoodsOrders *model = _dataArray[btn.tag];
+    ConfirmorderVC *confirmVC = [[ConfirmorderVC alloc]init];
+    confirmVC.orderIds = model.order_id;
+    confirmVC.cartIds = @"";
+    confirmVC.goodsIds = @"";
+    confirmVC.goodsNum = @"";
+    [self.navigationController pushViewController:confirmVC animated:YES];
+}
 
 -(UIView *)createHeadView{
     _headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH,45)];

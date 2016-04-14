@@ -9,10 +9,15 @@
 #import "RootVC.h"
 
 
-@class AllGoodsOrders;
+
 @interface ConfirmorderVC : RootVC
-@property (nonatomic ,strong)NSString *addressStr;
-@property (nonatomic ,strong)AllGoodsOrders *model;
-@property (nonatomic ,strong)NSMutableArray *mutArray;
-@property (nonatomic ,strong)NSMutableArray *dataArray;
+//购物车信息
+@property (nonatomic ,strong) NSString *cartIds;
+//商品订单id
+@property (nonatomic ,strong) NSString *orderIds;
+//商品id
+@property (nonatomic ,strong) NSString *goodsIds;
+//商品数量
+@property (nonatomic ,strong) NSString *goodsNum;
+
 @end

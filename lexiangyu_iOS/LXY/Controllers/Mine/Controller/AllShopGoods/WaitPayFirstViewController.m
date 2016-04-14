@@ -224,22 +224,12 @@
 -(void)payBtnClick:(UIButton *)btn{
     NSLog(@"去支付");
     AllGoodsOrders *model = _dataArray[btn.tag];
-    NSMutableArray *smallDataArray = [NSMutableArray array];
-    [smallDataArray addObject:model];
-    
-    
-    NSMutableArray *smallMutArray = [NSMutableArray array];
-    [smallMutArray addObject:_subMutArray[btn.tag]];
-    NSLog(@"_subMutArray[againPayBtn.tag]:%@",_subMutArray[btn.tag]);
-    NSLog(@"smallMutArray.count:%ld",smallMutArray.count);
-    
-    
+   
     ConfirmorderVC *confirmVC = [[ConfirmorderVC alloc]init];
-    confirmVC.model = model;
-    
-    confirmVC.dataArray = [NSMutableArray arrayWithArray:smallDataArray];
-    
-    confirmVC.mutArray = [NSMutableArray arrayWithArray:smallMutArray];
+    confirmVC.orderIds = model.order_id;
+    confirmVC.cartIds = @"";
+    confirmVC.goodsIds = @"";
+    confirmVC.goodsNum = @"";
     [self.navigationController pushViewController:confirmVC animated:YES];
     
 }

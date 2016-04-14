@@ -523,8 +523,29 @@
 //去结算
 - (IBAction)settlementButton:(id)sender {
     NSLog(@"去结算");
+
+    
+    _cartIds = @"";
+    for (int i = 0 ; i< _sectionStateArray.count; i++) {
+        for (int j = 0 ; j < [_dataArray[i] count]; j++) {
+            ShoppingCartModel *model = _dataArray[i][j];
+            if (model.isSelected) {
+                NSString *str = [NSString stringWithFormat:@"%@,",model.cart_id];
+                _cartIds = [NSString stringWithFormat:@"%@%@",_cartIds,str];
+
+                
+                
+            }
+        }
+        
+    }
+
+
     ConfirmorderVC *confirmVC = [[ConfirmorderVC alloc]init];
-    confirmVC.addressStr = _addressStr;
+    confirmVC.orderIds = @"";
+    confirmVC.cartIds = _cartIds;
+    confirmVC.goodsIds = @"";
+    confirmVC.goodsNum = @"";
     confirmVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:confirmVC animated:YES];
 }

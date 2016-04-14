@@ -27,10 +27,10 @@
                     </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥130.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wca-Ci-i3X">
-                    <rect key="frame" x="259" y="10" width="94" height="21"/>
+                    <rect key="frame" x="259" y="10" width="116" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="Q6Y-ED-wEC"/>
-                        <constraint firstAttribute="width" constant="94" id="rKq-qW-h2T"/>
+                        <constraint firstAttribute="width" constant="116" id="rKq-qW-h2T"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.97254901959999995" green="0.21960784310000001" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -41,7 +41,7 @@
             <constraints>
                 <constraint firstItem="sMP-QN-p2w" firstAttribute="leading" secondItem="VKt-1c-ybJ" secondAttribute="leading" id="Cri-de-e7J"/>
                 <constraint firstItem="sMP-QN-p2w" firstAttribute="top" secondItem="VKt-1c-ybJ" secondAttribute="top" constant="10" id="Rnk-b0-MB3"/>
-                <constraint firstAttribute="trailing" secondItem="Wca-Ci-i3X" secondAttribute="trailing" constant="22" id="UFZ-YT-uca"/>
+                <constraint firstAttribute="trailing" secondItem="Wca-Ci-i3X" secondAttribute="trailing" id="UFZ-YT-uca"/>
                 <constraint firstItem="Wca-Ci-i3X" firstAttribute="top" secondItem="VKt-1c-ybJ" secondAttribute="top" constant="10" id="tXt-fh-jrb"/>
                 <constraint firstItem="Wca-Ci-i3X" firstAttribute="leading" secondItem="sMP-QN-p2w" secondAttribute="trailing" constant="1" id="w5E-dT-Zme"/>
             </constraints>
