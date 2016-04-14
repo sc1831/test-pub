@@ -211,6 +211,14 @@
 		6E11D0071CB5FA0A00AEE457 /* CheckTelPhoneNumVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E11D0051CB5FA0A00AEE457 /* CheckTelPhoneNumVC.m */; };
 		6E11D0081CB5FA0A00AEE457 /* CheckTelPhoneNumVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E11D0061CB5FA0A00AEE457 /* CheckTelPhoneNumVC.xib */; };
 		6E11D00B1CB60CCF00AEE457 /* FeedBackModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E11D00A1CB60CCF00AEE457 /* FeedBackModel.m */; };
+		6E16E5311CBF7092007F96C1 /* OrderDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E16E52F1CBF7092007F96C1 /* OrderDetailsVC.m */; };
+		6E16E5321CBF7092007F96C1 /* OrderDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E16E5301CBF7092007F96C1 /* OrderDetailsVC.xib */; };
+		6E16E5361CBF733C007F96C1 /* OrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E16E5341CBF733C007F96C1 /* OrderDetailCell.m */; };
+		6E16E5371CBF733C007F96C1 /* OrderDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E16E5351CBF733C007F96C1 /* OrderDetailCell.xib */; };
+		6E16E53A1CBF7981007F96C1 /* OrderDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E16E5391CBF7981007F96C1 /* OrderDetailHeaderView.m */; };
+		6E16E53D1CBF7996007F96C1 /* OrderTabViewFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E16E53C1CBF7996007F96C1 /* OrderTabViewFootView.m */; };
+		6E16E53F1CBF79AF007F96C1 /* OrderDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E16E53E1CBF79AF007F96C1 /* OrderDetailHeaderView.xib */; };
+		6E16E5411CBF7B10007F96C1 /* OrderTabViewFootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E16E5401CBF7B10007F96C1 /* OrderTabViewFootView.xib */; };
 		6E19787B1C8D737400594CB3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E19787A1C8D737400594CB3 /* main.m */; };
 		6E19787E1C8D737400594CB3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E19787D1C8D737400594CB3 /* AppDelegate.m */; };
 		6E1978811C8D737400594CB3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1978801C8D737400594CB3 /* ViewController.m */; };
@@ -357,8 +365,6 @@
 		6EC32C351C98FB9900581FDD /* ChangePasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EC32C331C98FB9900581FDD /* ChangePasswordVC.xib */; };
 		6EC32C391C98FF8800581FDD /* MineAccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC32C371C98FF8800581FDD /* MineAccountVC.m */; };
 		6EC32C3A1C98FF8800581FDD /* MineAccountVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EC32C381C98FF8800581FDD /* MineAccountVC.xib */; };
-		6EC32C3E1C99028E00581FDD /* DetailOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC32C3C1C99028E00581FDD /* DetailOrderVC.m */; };
-		6EC32C3F1C99028E00581FDD /* DetailOrderVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EC32C3D1C99028E00581FDD /* DetailOrderVC.xib */; };
 		6EC32C431C990D2200581FDD /* ReceiveAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC32C411C990D2200581FDD /* ReceiveAddressVC.m */; };
 		6EC32C441C990D2200581FDD /* ReceiveAddressVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EC32C421C990D2200581FDD /* ReceiveAddressVC.xib */; };
 		6EC32C4D1C99127000581FDD /* MyfootprintVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC32C4B1C99127000581FDD /* MyfootprintVC.m */; };
@@ -719,6 +725,18 @@
 		6E11D0061CB5FA0A00AEE457 /* CheckTelPhoneNumVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckTelPhoneNumVC.xib; sourceTree = "<group>"; };
 		6E11D0091CB60CCF00AEE457 /* FeedBackModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedBackModel.h; sourceTree = "<group>"; };
 		6E11D00A1CB60CCF00AEE457 /* FeedBackModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedBackModel.m; sourceTree = "<group>"; };
+		6E16E52E1CBF7092007F96C1 /* OrderDetailsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailsVC.h; sourceTree = "<group>"; };
+		6E16E52F1CBF7092007F96C1 /* OrderDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailsVC.m; sourceTree = "<group>"; };
+		6E16E5301CBF7092007F96C1 /* OrderDetailsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderDetailsVC.xib; sourceTree = "<group>"; };
+		6E16E5331CBF733C007F96C1 /* OrderDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailCell.h; sourceTree = "<group>"; };
+		6E16E5341CBF733C007F96C1 /* OrderDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailCell.m; sourceTree = "<group>"; };
+		6E16E5351CBF733C007F96C1 /* OrderDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderDetailCell.xib; sourceTree = "<group>"; };
+		6E16E5381CBF7981007F96C1 /* OrderDetailHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailHeaderView.h; sourceTree = "<group>"; };
+		6E16E5391CBF7981007F96C1 /* OrderDetailHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailHeaderView.m; sourceTree = "<group>"; };
+		6E16E53B1CBF7996007F96C1 /* OrderTabViewFootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderTabViewFootView.h; sourceTree = "<group>"; };
+		6E16E53C1CBF7996007F96C1 /* OrderTabViewFootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderTabViewFootView.m; sourceTree = "<group>"; };
+		6E16E53E1CBF79AF007F96C1 /* OrderDetailHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderDetailHeaderView.xib; sourceTree = "<group>"; };
+		6E16E5401CBF7B10007F96C1 /* OrderTabViewFootView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderTabViewFootView.xib; sourceTree = "<group>"; };
 		6E1978761C8D737400594CB3 /* LXY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LXY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E19787A1C8D737400594CB3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6E19787C1C8D737400594CB3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -996,9 +1014,6 @@
 		6EC32C361C98FF8800581FDD /* MineAccountVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineAccountVC.h; path = ../../Login/MineAccountVC.h; sourceTree = "<group>"; };
 		6EC32C371C98FF8800581FDD /* MineAccountVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineAccountVC.m; path = ../../Login/MineAccountVC.m; sourceTree = "<group>"; };
 		6EC32C381C98FF8800581FDD /* MineAccountVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MineAccountVC.xib; path = ../../Login/MineAccountVC.xib; sourceTree = "<group>"; };
-		6EC32C3B1C99028E00581FDD /* DetailOrderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailOrderVC.h; sourceTree = "<group>"; };
-		6EC32C3C1C99028E00581FDD /* DetailOrderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailOrderVC.m; sourceTree = "<group>"; };
-		6EC32C3D1C99028E00581FDD /* DetailOrderVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailOrderVC.xib; sourceTree = "<group>"; };
 		6EC32C401C990D2200581FDD /* ReceiveAddressVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiveAddressVC.h; sourceTree = "<group>"; };
 		6EC32C411C990D2200581FDD /* ReceiveAddressVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiveAddressVC.m; sourceTree = "<group>"; };
 		6EC32C421C990D2200581FDD /* ReceiveAddressVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReceiveAddressVC.xib; sourceTree = "<group>"; };
@@ -1786,8 +1801,8 @@
 				6ECACE7D1C92C0E9007310C0 /* MainTabbarController */,
 				6ECACE821C92C0E9007310C0 /* RootVC */,
 				6ECACE771C92C0E9007310C0 /* Guite */,
-				6ECACE7C1C92C0E9007310C0 /* Login */,
 				6ECACE781C92C0E9007310C0 /* HomePage */,
+				6ECACE7C1C92C0E9007310C0 /* Login */,
 				6ECACE731C92C0E9007310C0 /* Classify */,
 				6ECACE831C92C0E9007310C0 /* ShoppingCart */,
 				6ECACE7E1C92C0E9007310C0 /* Mine */,
@@ -2058,6 +2073,15 @@
 				6E7964AE1C981A5D00EB43B9 /* ShoppingCartCell.h */,
 				6E7964AF1C981A5D00EB43B9 /* ShoppingCartCell.m */,
 				6E7964B01C981A5D00EB43B9 /* ShoppingCartCell.xib */,
+				6E16E5331CBF733C007F96C1 /* OrderDetailCell.h */,
+				6E16E5341CBF733C007F96C1 /* OrderDetailCell.m */,
+				6E16E5351CBF733C007F96C1 /* OrderDetailCell.xib */,
+				6E16E5381CBF7981007F96C1 /* OrderDetailHeaderView.h */,
+				6E16E5391CBF7981007F96C1 /* OrderDetailHeaderView.m */,
+				6E16E53E1CBF79AF007F96C1 /* OrderDetailHeaderView.xib */,
+				6E16E53B1CBF7996007F96C1 /* OrderTabViewFootView.h */,
+				6E16E53C1CBF7996007F96C1 /* OrderTabViewFootView.m */,
+				6E16E5401CBF7B10007F96C1 /* OrderTabViewFootView.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2068,9 +2092,9 @@
 				6E7964B31C981B8600EB43B9 /* ShoppingCartVC.h */,
 				6E7964B41C981B8600EB43B9 /* ShoppingCartVC.m */,
 				6E7964B51C981B8600EB43B9 /* ShoppingCartVC.xib */,
-				6EC32C3B1C99028E00581FDD /* DetailOrderVC.h */,
-				6EC32C3C1C99028E00581FDD /* DetailOrderVC.m */,
-				6EC32C3D1C99028E00581FDD /* DetailOrderVC.xib */,
+				6E16E52E1CBF7092007F96C1 /* OrderDetailsVC.h */,
+				6E16E52F1CBF7092007F96C1 /* OrderDetailsVC.m */,
+				6E16E5301CBF7092007F96C1 /* OrderDetailsVC.xib */,
 				6E7964E51C983F5500EB43B9 /* OrderSuccessVC.h */,
 				6E7964E61C983F5500EB43B9 /* OrderSuccessVC.m */,
 				6E7964E71C983F5500EB43B9 /* OrderSuccessVC.xib */,
@@ -2744,6 +2768,8 @@
 				6E10316B1CB4FC570098D5BD /* 个人中心白箭头.png in Resources */,
 				6EF2A1C41CAA5E3B00057FC0 /* ChooseVillageVC.xib in Resources */,
 				6E10319A1CB4FC570098D5BD /* 地址.png in Resources */,
+				6E16E5321CBF7092007F96C1 /* OrderDetailsVC.xib in Resources */,
+				6E16E5371CBF733C007F96C1 /* OrderDetailCell.xib in Resources */,
 				6E10316F1CB4FC570098D5BD /* 适用列表箭头全部@2x.png in Resources */,
 				6E1031A01CB4FC570098D5BD /* 头像@3x.png in Resources */,
 				6E1032151CB4FCC30098D5BD /* 添加购物成功.png in Resources */,
@@ -2778,6 +2804,7 @@
 				6EC44D061CA4DD6200833567 /* 返回@2x.png in Resources */,
 				6E10317E1CB4FC570098D5BD /* 评价商品_默认.png in Resources */,
 				6E1031731CB4FC570098D5BD /* 保存修改_置灰@2x.png in Resources */,
+				6E16E5411CBF7B10007F96C1 /* OrderTabViewFootView.xib in Resources */,
 				6E1031091CB4FAE80098D5BD /* 首页@2x（选中）.png in Resources */,
 				6E1032051CB4FCC30098D5BD /* 数量选择1@2x.png in Resources */,
 				6E1030EA1CB4FAE80098D5BD /* 置顶@3x.png in Resources */,
@@ -2912,8 +2939,8 @@
 				6EA414AC1CBE49DF00A52BA5 /* SectionFooterView.xib in Resources */,
 				6E1032261CB4FCC30098D5BD /* 未选中@3x.png in Resources */,
 				6E1031921CB4FC570098D5BD /* 位置@2x.png in Resources */,
-				6EC32C3F1C99028E00581FDD /* DetailOrderVC.xib in Resources */,
 				6E1031861CB4FC570098D5BD /* 编辑_默认.png in Resources */,
+				6E16E53F1CBF79AF007F96C1 /* OrderDetailHeaderView.xib in Resources */,
 				6EC44CF91CA4DACF00833567 /* 确定_默认@.png in Resources */,
 				6E1031BA1CB4FC570098D5BD /* 添加（点击）@2x.png in Resources */,
 				6E1031C61CB4FC570098D5BD /* WhiteStars.png in Resources */,
@@ -3008,6 +3035,7 @@
 				6EF887D71CBCF3ED001E6D1F /* AllGoodsOrders.m in Sources */,
 				6EF2A1B91CAA58BE00057FC0 /* CountyVC.m in Sources */,
 				6EA503E21CA248A300FA19BA /* HomeClassifyVC.m in Sources */,
+				6E16E53D1CBF7996007F96C1 /* OrderTabViewFootView.m in Sources */,
 				6ECD26E81CBB906600ED2004 /* WXApiManager.m in Sources */,
 				6E04CE5F1C8FB5C900379F7D /* RequestCenter.m in Sources */,
 				6EF887CF1CBCF383001E6D1F /* AllShopViewController.m in Sources */,
@@ -3018,6 +3046,7 @@
 				6ECCAFA81CA26A6C00483BC7 /* ShopingDetailsVC.m in Sources */,
 				6E7964B11C981A5D00EB43B9 /* ShoppingCartCell.m in Sources */,
 				6E7964C51C982A0700EB43B9 /* CashierDesk.m in Sources */,
+				6E16E53A1CBF7981007F96C1 /* OrderDetailHeaderView.m in Sources */,
 				6E7964C01C98248800EB43B9 /* ConfirmorderVC.m in Sources */,
 				6EF2A1CC1CAB6C1A00057FC0 /* ShoppingCartModel.m in Sources */,
 				6ECD26EB1CBB906600ED2004 /* GetMessageFromWXResp+responseWithTextOrMediaMessage.m in Sources */,
@@ -3031,7 +3060,6 @@
 				6EA414A51CBE2A4D00A52BA5 /* FooterTableView.m in Sources */,
 				6E1C8F7F1C9CE52A00F1F300 /* WaiteGetCell.m in Sources */,
 				6E04CE651C8FBFF800379F7D /* JsonTool.m in Sources */,
-				6EC32C3E1C99028E00581FDD /* DetailOrderVC.m in Sources */,
 				6EBA3BC91CBBC2F0002D6C69 /* base64.m in Sources */,
 				6EF887D21CBCF383001E6D1F /* WaitPayFirstViewController.m in Sources */,
 				6E1978811C8D737400594CB3 /* ViewController.m in Sources */,
@@ -3072,6 +3100,7 @@
 				6E53EED91CA906AB00768FA0 /* SaveInfo.m in Sources */,
 				6EBA3BCF1CBBC2F0002D6C69 /* RSADataSigner.m in Sources */,
 				6EF2A1CF1CAB788000057FC0 /* MyCollectModel.m in Sources */,
+				6E16E5311CBF7092007F96C1 /* OrderDetailsVC.m in Sources */,
 				6EC32C391C98FF8800581FDD /* MineAccountVC.m in Sources */,
 				6ECD26EC1CBB906600ED2004 /* SendMessageToWXReq+requestWithTextOrMediaMessage.m in Sources */,
 				6EC32C2A1C98F1D100581FDD /* FeedBackVC.m in Sources */,
@@ -3080,6 +3109,7 @@
 				6E796F311C9A5BBC00F677E3 /* ChooseCityTableViewCell.m in Sources */,
 				6E7964DE1C983E4600EB43B9 /* CollectVC.m in Sources */,
 				6E79647F1C97DB8100EB43B9 /* DistrictVC.m in Sources */,
+				6E16E5361CBF733C007F96C1 /* OrderDetailCell.m in Sources */,
 				6EA503DD1CA232FC00FA19BA /* HomeCollectionViewCell.m in Sources */,
 				6EA4149B1CBE1FCF00A52BA5 /* ConfirmTableViewCell.m in Sources */,
 			);

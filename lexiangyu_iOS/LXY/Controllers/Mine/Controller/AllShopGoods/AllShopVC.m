@@ -11,7 +11,7 @@
 #import "GHControl.h"
 #import "ConfirmorderVC.h"
 #import "WaiteSendCell.h"
-#import "DetailOrderVC.h"
+#import "OrderDetailsVC.h"
 #import "RequestCenter.h"
 #import "SaveInfo.h"
 #import "AllGoodsOrders.h"
@@ -264,7 +264,7 @@
     
     [self.waitPayTableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    DetailOrderVC *detailVC = [[DetailOrderVC alloc]init];
+    OrderDetailsVC *detailVC = [[OrderDetailsVC alloc]init];
     
     [self.navigationController pushViewController:detailVC animated:YES];
     
