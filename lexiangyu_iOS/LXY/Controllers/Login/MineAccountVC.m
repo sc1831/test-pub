@@ -10,7 +10,7 @@
 #import "ChangePhoneNumVC.h"
 #import "ChangePasswordVC.h"
 #import "RequestCenter.h"
-
+#import "Common.h"
 @interface MineAccountVC ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 //头像图片
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
@@ -37,7 +37,14 @@
     _shopName.text = _shopNameStr;
     _bindPhoneNum.text =_bindPhoneNumStr;
     
+    
+//    [_userIcon sd_setImageWithURL:[NSURL URLWithString:[user objectForKey:CUSTOMERPHOTO]] placeholderImage:[UIImage imageNamed:@"userIcon.png"]];
+    
+    
+    _headImageView.layer.cornerRadius = _headImageView.frame.size.width*0.5f ;
+    _headImageView.layer.masksToBounds = YES ;
     _headImageView.image = _image;
+
     
     
 }
@@ -96,16 +103,20 @@
     NSLog(@"info～～～～%@",info);
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     NSLog(@"\n\nimage%@",image);
-    [[RequestCenter shareRequestCenter]sendRequestImageUrl:@"app/Image/upload_img" andImage:image setSuccessBlock:^(NSDictionary *resultDic) {
-        NSLog(@"dsfsfsdfsdfs");
+    [[RequestCenter shareRequestCenter]sendRequestImageUrl:UPLOAD_AVATAR andImage:image setSuccessBlock:^(NSDictionary *resultDic) {
+        
+        HUDNormal(@"头像上传成功");
+        _headImageView.image = image ;
     } setFailBlock:^(NSString *errorStr) {
-        NSLog(@"ffaasfafda");
+        
+        HUDNormal(@"头像上传失败");
     }];
-
-    
+     [self dismissViewControllerAnimated:YES completion:nil];
     
     
 }
+
+
 
 
 //点击取消

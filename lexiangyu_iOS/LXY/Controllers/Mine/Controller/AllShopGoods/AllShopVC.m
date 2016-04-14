@@ -243,8 +243,6 @@
         (MenyGoodsCell *)[tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:cellName owner:self options:nil] firstObject];
-            
-            
         }
         
         

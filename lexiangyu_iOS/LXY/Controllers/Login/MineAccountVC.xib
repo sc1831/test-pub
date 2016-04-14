@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -32,14 +33,6 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="头像.png" translatesAutoresizingMaskIntoConstraints="NO" id="ima-cn-GUd">
-                            <rect key="frame" x="302" y="15" width="44" height="45"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="ima-cn-GUd" secondAttribute="height" multiplier="44:45" id="DVs-wG-TxF"/>
-                                <constraint firstAttribute="height" constant="45" id="EFn-E7-uJt"/>
-                                <constraint firstAttribute="width" constant="44" id="yFX-c6-0ze"/>
-                            </constraints>
-                        </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="地址选项跳转.png" translatesAutoresizingMaskIntoConstraints="NO" id="eer-AR-IpS">
                             <rect key="frame" x="353" y="28" width="20" height="20"/>
                             <constraints>
@@ -47,16 +40,24 @@
                                 <constraint firstAttribute="width" constant="20" id="YRI-vD-70d"/>
                             </constraints>
                         </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="头像.png" translatesAutoresizingMaskIntoConstraints="NO" id="ima-cn-GUd">
+                            <rect key="frame" x="294" y="8" width="60" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="ima-cn-GUd" secondAttribute="height" multiplier="44:45" constant="1.3333333333333357" id="DVs-wG-TxF"/>
+                                <constraint firstAttribute="height" constant="60" id="EFn-E7-uJt"/>
+                                <constraint firstAttribute="width" constant="60" id="yFX-c6-0ze"/>
+                            </constraints>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="ima-cn-GUd" secondAttribute="bottom" constant="20" id="FzF-t9-EHX"/>
+                        <constraint firstAttribute="bottom" secondItem="ima-cn-GUd" secondAttribute="bottom" constant="12" id="FzF-t9-EHX"/>
                         <constraint firstItem="eer-AR-IpS" firstAttribute="top" secondItem="1Qe-mX-zaw" secondAttribute="top" constant="28" id="HB6-Ae-hpl"/>
-                        <constraint firstItem="eer-AR-IpS" firstAttribute="leading" secondItem="ima-cn-GUd" secondAttribute="trailing" constant="7" id="bxx-7S-la3"/>
+                        <constraint firstItem="eer-AR-IpS" firstAttribute="leading" secondItem="ima-cn-GUd" secondAttribute="trailing" constant="-1" id="bxx-7S-la3"/>
                         <constraint firstAttribute="trailing" secondItem="eer-AR-IpS" secondAttribute="trailing" constant="2" id="lLf-Yq-umR"/>
                         <constraint firstAttribute="height" constant="80" id="sa7-U1-xeT"/>
                         <constraint firstItem="lq9-tw-8mN" firstAttribute="leading" secondItem="1Qe-mX-zaw" secondAttribute="leading" constant="8" id="yFk-ir-yfQ"/>
-                        <constraint firstItem="ima-cn-GUd" firstAttribute="top" secondItem="1Qe-mX-zaw" secondAttribute="top" constant="15" id="zXL-hy-qYH"/>
+                        <constraint firstItem="ima-cn-GUd" firstAttribute="top" secondItem="1Qe-mX-zaw" secondAttribute="top" constant="8" id="zXL-hy-qYH"/>
                         <constraint firstItem="lq9-tw-8mN" firstAttribute="top" secondItem="1Qe-mX-zaw" secondAttribute="top" constant="27" id="zXq-SV-HT4"/>
                     </constraints>
                     <connections>
@@ -209,7 +210,7 @@
                 <constraint firstAttribute="trailing" secondItem="1Qe-mX-zaw" secondAttribute="trailing" id="uWD-YH-DKM"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <point key="canvasLocation" x="138.5" y="247.5"/>
+            <point key="canvasLocation" x="263.5" y="103.5"/>
         </view>
     </objects>
     <resources>

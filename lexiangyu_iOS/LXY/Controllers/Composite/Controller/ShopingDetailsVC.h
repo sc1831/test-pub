@@ -6,8 +6,8 @@
 //  Copyright © 2016年 guohui. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "RootVC.h"
 
-@interface ShopingDetailsVC : UIViewController
+@interface ShopingDetailsVC : RootVC
 @property (nonatomic,copy) NSString *goods_commonid ;
 @end

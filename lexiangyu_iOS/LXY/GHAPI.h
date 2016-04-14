@@ -63,7 +63,8 @@
 #define MY_FEEDBACK_INFORMATION @"app/User/add_feedback"
 //修改绑定手机号
 #define MY_EDIT_BING_PHONE @"app/User/edit_bind_phone"
-
+//图片上传
+#define UPLOAD_AVATAR @"app/image/upload_avatar"
 //-------------------------------------------首页
 #define HOME_INDEX @"app/index/index"
 //可能感兴趣的商品
