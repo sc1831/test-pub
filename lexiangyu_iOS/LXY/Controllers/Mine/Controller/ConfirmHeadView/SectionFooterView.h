@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SectionFooterView : UIView
-@property (weak, nonatomic) IBOutlet UITextField *messagetextField;
+
 @property (weak, nonatomic) IBOutlet UILabel *shopNum;
 @property (weak, nonatomic) IBOutlet UILabel *shopMoeny;
 

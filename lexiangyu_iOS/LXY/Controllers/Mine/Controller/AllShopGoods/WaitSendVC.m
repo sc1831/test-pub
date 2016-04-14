@@ -40,6 +40,8 @@
     [self sendRequestData];
 }
 -(void)sendRequestData{
+    [_dataArray removeAllObjects];
+    [_subMutArray removeAllObjects];
     /**
      *  order_state	否	int	订单状态0已取消，10未付款，20已付款，30已发货，40已收货
      */
@@ -136,6 +138,7 @@
     
     UIButton *btn = [GHControl createButtonWithFrame:CGRectMake(M_WIDTH-90,5,75, 30) ImageName:@"评价商品_默认" Target:self Action:@selector(btnClick:) Title:@"取消订单"];
     btn.titleLabel.font = [UIFont systemFontOfSize:14];
+    btn.tag = section;
     [btn setTitleColor:RGBCOLOR(249, 147, 73) forState:UIControlStateNormal];
     [_footView addSubview:btn];
     
@@ -205,10 +208,33 @@
 
 
 -(void)btnClick:(UIButton *)btn{
-
-    NSLog(@"订单取消");
+     NSLog(@"订单取消");
+    AllGoodsOrders *model = _dataArray[btn.tag];
+    [self sendRequestDataCancelOrderId:model.order_id];
+   
 }
+-(void)sendRequestDataCancelOrderId:(NSString *)orderId{
 
+    RequestCenter * request = [RequestCenter shareRequestCenter];
+    NSDictionary *postDic = @{
+                              @"reason":@"我不想买了",
+                              @"user_id":[[SaveInfo shareSaveInfo]user_id],
+                              @"order_id":orderId
+                              };
+    
+    [request sendRequestPostUrl:MY_CANCEL_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+        if (resultDic[@"code"]==0) {
+            HUDNormal(@"已付款的订单目前不支持取消订单");
+            return ;
+        }
+        [self sendRequestData];
+       
+//        [_waitSendtableView reloadData];
+    } setFailBlock:^(NSString *errorStr) {
+        NSLog(@"");
+        
+    }];
+}
 
 #pragma mark------headView  footView
 -(UIView *)createHeadView{

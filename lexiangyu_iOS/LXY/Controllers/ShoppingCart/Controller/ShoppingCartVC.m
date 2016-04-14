@@ -252,10 +252,10 @@
     NSString *str = nil;
     str = @"选中";
     
-    NSString *goodsName =nil;
+    NSString *storName =nil;
     for (int i =0 ; i<[_dataArray[section] count]; i++) {
         ShoppingCartModel *model = _dataArray[section][i];
-        goodsName = model.goods_name;
+        storName = model.store_name;
         if (model.isSelected == NO) {
             str = @"未选中";
         }else{
@@ -274,7 +274,7 @@
     [_headView addSubview:rightButton];
     
     
-    UILabel *label = [GHControl createLabelWithFrame:CGRectMake(63,11, M_WIDTH-25-60, 30) Font:14 Text:[NSString stringWithFormat:@"%@",goodsName ]];
+    UILabel *label = [GHControl createLabelWithFrame:CGRectMake(63,11, M_WIDTH-25-60, 30) Font:14 Text:[NSString stringWithFormat:@"%@",storName]];
     label.textColor = RGBCOLOR(99, 100, 101);
     [_headView addSubview:label];
     

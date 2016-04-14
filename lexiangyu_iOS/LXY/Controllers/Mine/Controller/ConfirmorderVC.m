@@ -154,7 +154,7 @@
     
     
     AllGoodsOrders *model = _dataArray[section];
-
+    sectionFooterView.shopMoeny.text = [NSString stringWithFormat:@"￥%.2lf",[model.order_amount floatValue]];
     
         CGFloat allNum;
         for (int i = 0 ; i< (int)[_mutArray[section] count]; i++) {
@@ -165,7 +165,6 @@
         }
     
     
-    sectionFooterView.shopMoeny.text = [NSString stringWithFormat:@"￥%.2lf",[model.order_amount floatValue]];
     sectionFooterView.shopNum.text = [NSString stringWithFormat:@"商品共%.lf件，合计：",allNum];
     return sectionFooterView;
 }
@@ -177,7 +176,7 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
 
-    return 70;
+    return 40;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     

@@ -51,6 +51,9 @@
 #define MY_DELLECT_FOOTER @"app/User/del_footprint"
 //我的订单
 #define MY_REGISTER @"app/User/my_order"
+//取消订单
+#define MY_CANCEL_REGISTER @"app/User/cancel_order"
+
 //修改密码
 #define MY_EDIT_PWD @"app/User/edit_pwd"
 //意见反馈类型

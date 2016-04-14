@@ -140,8 +140,9 @@
     
     
     UIButton *payBtn = [GHControl createButtonWithFrame:CGRectMake(M_WIDTH-90,5,75, 30) ImageName:@"评价商品_默认" Target:self Action:@selector(payBtnClick:) Title:@"去支付"];
-    [payBtn setBackgroundImage:[UIImage imageNamed:@"保存修改_点击"] forState:UIControlStateSelected];
-    payBtn.selected = NO;
+    [payBtn setBackgroundImage:[UIImage imageNamed:@"保存修改_点击"] forState:UIControlStateHighlighted];
+    [payBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    payBtn.tag = section;
     payBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     [payBtn setTitleColor:RGBCOLOR(249, 147, 73) forState:UIControlStateNormal];
     [_footView addSubview:payBtn];
@@ -213,8 +214,23 @@
 
 -(void)payBtnClick:(UIButton *)btn{
     NSLog(@"去支付");
-    btn.selected = YES;
+    AllGoodsOrders *model = _dataArray[btn.tag];
+    NSMutableArray *smallDataArray = [NSMutableArray array];
+    [smallDataArray addObject:model];
+    
+    
+    NSMutableArray *smallMutArray = [NSMutableArray array];
+    [smallMutArray addObject:_subMutArray[btn.tag]];
+    NSLog(@"_subMutArray[againPayBtn.tag]:%@",_subMutArray[btn.tag]);
+    NSLog(@"smallMutArray.count:%ld",smallMutArray.count);
+    
+    
     ConfirmorderVC *confirmVC = [[ConfirmorderVC alloc]init];
+    confirmVC.model = model;
+    
+    confirmVC.dataArray = [NSMutableArray arrayWithArray:smallDataArray];
+    
+    confirmVC.mutArray = [NSMutableArray arrayWithArray:smallMutArray];
     [self.navigationController pushViewController:confirmVC animated:YES];
     
 }
