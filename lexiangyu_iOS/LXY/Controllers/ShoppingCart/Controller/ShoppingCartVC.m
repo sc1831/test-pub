@@ -259,10 +259,10 @@
     
     //添加商品数量按钮
     [cell.addButton addTarget:self action:@selector(addButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    cell.addButton.tag = 10+indexPath.section;
+    cell.addButton.tag = indexPath.section*1000 + indexPath.row;
     //减少商品数量按钮
     [cell.reductionButton addTarget:self action:@selector(reductionButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    cell.reductionButton.tag = 100+indexPath.section;
+    cell.reductionButton.tag = indexPath.section*1000 + indexPath.row ;
     
     return cell;
 }
@@ -369,22 +369,22 @@
 }
 -(void)addButtonClickOrReductionButtonClick:(BOOL )isAddButtonClick  andButton:(UIButton *)addButton {
     
-    UITableViewCell * cell = (UITableViewCell *)[[addButton superview] superview];
-    NSIndexPath * indexPath = [self.shoppingTableView indexPathForCell:cell];
-    
-//    NSIndexPath *indexPath;
-//    if (isAddButtonClick) {
-//       indexPath = [NSIndexPath indexPathForRow:0 inSection:addButton.tag-10];
-//    }else{
+//    UITableViewCell * cell = (UITableViewCell *)[[addButton superview] superview];
+//    NSIndexPath * indexPath = [self.shoppingTableView indexPathForCell:cell];
 //    
-//        indexPath = [NSIndexPath indexPathForRow:0 inSection:addButton.tag-100];
-//    }
-//
-    
-    NSLog(@"%ld",(long)indexPath.section);
-    NSLog(@"%ld",(long)indexPath.row);
-    ShoppingCartCell *shopCell = [self.shoppingTableView cellForRowAtIndexPath:indexPath];
-    ShoppingCartModel *model = _dataArray[indexPath.section][indexPath.row];
+////    NSIndexPath *indexPath;
+////    if (isAddButtonClick) {
+////       indexPath = [NSIndexPath indexPathForRow:0 inSection:addButton.tag-10];
+////    }else{
+////    
+////        indexPath = [NSIndexPath indexPathForRow:0 inSection:addButton.tag-100];
+////    }
+////
+//    
+//    NSLog(@"%ld",(long)indexPath.section);
+//    NSLog(@"%ld",(long)indexPath.row);
+//    ShoppingCartCell *shopCell = [self.shoppingTableView cellForRowAtIndexPath:indexPath];
+    ShoppingCartModel *model = _dataArray[addButton.tag/1000][addButton.tag%1000];
     _shopNum =  [model.goods_num intValue];
     if (isAddButtonClick) {
       _shopNum++;
@@ -394,7 +394,7 @@
     }
     
     model.goods_num = [NSString stringWithFormat:@"%d",_shopNum];
-    shopCell.numberTextField.text = model.goods_num;
+//    shopCell.numberTextField.text = model.goods_num;
     [self sendAddShopGoodsCartId:model.cart_id andGoodsNum:model.goods_num];
     
 }
