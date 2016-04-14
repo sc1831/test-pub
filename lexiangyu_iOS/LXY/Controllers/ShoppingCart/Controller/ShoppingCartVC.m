@@ -22,7 +22,7 @@
 
 @end
 
-@interface ShoppingCartVC ()<UITableViewDataSource,UITableViewDelegate>
+@interface ShoppingCartVC ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *allMoneyPay;
 //全部结算底部view
 @property (weak, nonatomic) IBOutlet UIView *AllView;
@@ -60,6 +60,8 @@
 @property (nonatomic ,strong) NSMutableArray *sectionStateArray;
 //购物车每个商品的数量
 @property (nonatomic ,assign) int shopNum;
+//选择需要添加或减少的cart——id
+@property (nonatomic ,strong) NSString *cart_ids;
 //收货地址
 @property (nonatomic ,strong)NSString *addressStr;
 //记录是否是单个侧滑删除
@@ -237,7 +239,8 @@
     //减少商品数量按钮
     [cell.reductionButton addTarget:self action:@selector(reductionButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     cell.reductionButton.tag = indexPath.section*1000 + indexPath.row ;
-    
+    cell.numberTextField.delegate = self;
+    cell.numberTextField.tag = indexPath.section*10000 + indexPath.row ;
     return cell;
 }
 
@@ -343,7 +346,7 @@
 }
 -(void)addButtonClickOrReductionButtonClick:(BOOL )isAddButtonClick  andButton:(UIButton *)addButton {
     
-
+    _cart_ids = nil;
     ShoppingCartModel *model = _dataArray[addButton.tag/1000][addButton.tag%1000];
     _shopNum =  [model.goods_num intValue];
     if (isAddButtonClick) {
@@ -354,8 +357,8 @@
     }
     
     model.goods_num = [NSString stringWithFormat:@"%d",_shopNum];
-//    shopCell.numberTextField.text = model.goods_num;
-    [self sendAddShopGoodsCartId:model.cart_id andGoodsNum:model.goods_num];
+
+    [self sendAddShopGoodsCartId:model.cart_id andGoodsNum:model.goods_num isManual:NO];
     
 }
 #pragma mark------点击cell对勾按钮
@@ -638,7 +641,7 @@
     
 }
 #pragma mark----更改商品数量
--(void)sendAddShopGoodsCartId:(NSString *)cartId  andGoodsNum:(NSString *)goodsNum{
+-(void)sendAddShopGoodsCartId:(NSString *)cartId  andGoodsNum:(NSString *)goodsNum isManual:(BOOL)ismanual{
 
     RequestCenter *request = [RequestCenter shareRequestCenter];
     
@@ -654,12 +657,60 @@
             HUDNormal(@"添加数据失败，请稍后再试");
             return ;
         }
-       
+        if (ismanual) {
+            [self sendRequestData];
+        }else{
         
-        [_shoppingTableView reloadData];
+          [_shoppingTableView reloadData];
+        }
+        
+        
     } setFailBlock:^(NSString *errorStr) {
         
     }];
+    
+   
+
+}
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField;{
+    
+    
+    ShoppingCartModel *model = _dataArray[textField.tag/10000][textField.tag%10000];
+    
+    _cart_ids = model.cart_id;
+    [self showInput];
+    return YES;
+}
+- (void)showInput{
+    //文本框只能是alert风格
+    UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:nil message:@"请输入要购物的数量" preferredStyle:UIAlertControllerStyleAlert];
+    
+    
+    [alertControl addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"取消");
+    }]];
+    [alertControl addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"确定");
+       UITextField *codeTestField = alertControl.textFields.lastObject;
+
+        [self sendAddShopGoodsCartId:_cart_ids andGoodsNum:codeTestField.text isManual:YES];
+    }]];
+
+    
+    [alertControl addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"请输入购物数量" ;
+    }];
+    [self presentViewController:alertControl animated:YES completion:nil];
+}
+- (void)alertTextFieldDidChange:(NSNotification *)notification{
+    UIAlertController *alertController = (UIAlertController *)self.presentedViewController;  // 不要错写为self.presentedViewController
+    if (alertController) {
+        //下标为2的是添加了坚挺的 也是最后一个alertcontroller.textfields.lastObject
+        UITextField *listrn = alertController.textFields.lastObject;
+        //限制,如果listen输入长度要限制5个字内,否则不允许点击默认defalut 键
+        UIAlertAction *action = alertController.actions.lastObject ;
+        action.enabled = listrn.text.length == 4 ;
+    }
 }
 #pragma mark------headView  footView
 -(UIView *)createHeadView{

@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
-            timestampString = "482315172.34205"
+            timestampString = "482319459.970323"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "646"
-            endingLineNumber = "646"
+            startingLineNumber = "609"
+            endingLineNumber = "609"
             landmarkName = "-deleteShopDoods:cartIds:andIsAllDelete:"
             landmarkType = "5">
          </BreakpointContent>
@@ -36,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
-            timestampString = "482315172.34205"
+            timestampString = "482319459.970323"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "472"
-            endingLineNumber = "472"
+            startingLineNumber = "435"
+            endingLineNumber = "435"
             landmarkName = "-rightImageButtonClick:"
             landmarkType = "5">
          </BreakpointContent>
@@ -68,11 +68,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
-            timestampString = "482315172.34205"
+            timestampString = "482319459.970323"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "476"
-            endingLineNumber = "476"
+            startingLineNumber = "439"
+            endingLineNumber = "439"
             landmarkName = "-rightImageButtonClick:"
             landmarkType = "5">
          </BreakpointContent>
@@ -84,11 +84,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
-            timestampString = "482315172.34205"
+            timestampString = "482319459.970323"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "465"
-            endingLineNumber = "465"
+            startingLineNumber = "428"
+            endingLineNumber = "428"
             landmarkName = "-rightImageButtonClick:"
             landmarkType = "5">
          </BreakpointContent>
@@ -100,11 +100,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
-            timestampString = "482315172.34205"
+            timestampString = "482319459.970323"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "588"
-            endingLineNumber = "588"
+            startingLineNumber = "551"
+            endingLineNumber = "551"
             landmarkName = "-allDeleteClick:"
             landmarkType = "5">
          </BreakpointContent>
@@ -132,11 +132,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
-            timestampString = "482315172.34205"
+            timestampString = "482319459.970323"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "570"
-            endingLineNumber = "570"
+            startingLineNumber = "533"
+            endingLineNumber = "533"
             landmarkName = "-allDeleteClick:"
             landmarkType = "5">
          </BreakpointContent>
@@ -148,11 +148,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
-            timestampString = "482315172.34205"
+            timestampString = "482319459.970323"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "563"
-            endingLineNumber = "563"
+            startingLineNumber = "526"
+            endingLineNumber = "526"
             landmarkName = "-settlementButton:"
             landmarkType = "5">
          </BreakpointContent>
@@ -164,11 +164,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
-            timestampString = "482315172.34205"
+            timestampString = "482319459.970323"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "518"
-            endingLineNumber = "518"
+            startingLineNumber = "481"
+            endingLineNumber = "481"
             landmarkName = "-allFutureButton:"
             landmarkType = "5">
          </BreakpointContent>
@@ -180,11 +180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
-            timestampString = "482315172.34205"
+            timestampString = "482319459.970323"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "545"
-            endingLineNumber = "545"
+            startingLineNumber = "508"
+            endingLineNumber = "508"
             landmarkName = "-allMoneyPayStr"
             landmarkType = "5">
          </BreakpointContent>
@@ -308,11 +308,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
-            timestampString = "482315172.34205"
+            timestampString = "482319206.19567"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "393"
-            endingLineNumber = "393"
+            startingLineNumber = "356"
+            endingLineNumber = "356"
             landmarkName = "-addButtonClickOrReductionButtonClick:andButton:"
             landmarkType = "5">
          </BreakpointContent>
@@ -324,12 +324,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
-            timestampString = "482315686.647005"
+            timestampString = "482317534.374036"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "-sendRequestData"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
+            timestampString = "482319459.970323"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "648"
+            endingLineNumber = "648"
+            landmarkName = "-sendAddShopGoodsCartId:andGoodsNum:isManual:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
+            timestampString = "482319459.970323"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "656"
+            endingLineNumber = "656"
+            landmarkName = "-sendAddShopGoodsCartId:andGoodsNum:isManual:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
