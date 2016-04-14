@@ -37,6 +37,7 @@
     [self createTableView];
     [self sendRequestData];
 }
+
 -(void)sendRequestData{
     [_dataArray removeAllObjects];
     [_subMutArray removeAllObjects];
