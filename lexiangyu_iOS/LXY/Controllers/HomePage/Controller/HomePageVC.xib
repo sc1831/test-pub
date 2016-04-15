@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -25,7 +25,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="2471"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j9P-XM-G0P">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="10086" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j9P-XM-G0P">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="2471"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4lS-eJ-jUc">
@@ -573,6 +573,9 @@
                         <constraint firstItem="Mfl-Iq-WOU" firstAttribute="leading" secondItem="j9P-XM-G0P" secondAttribute="leading" id="vh5-Pc-CyW"/>
                         <constraint firstItem="EhH-gt-dlb" firstAttribute="leading" secondItem="j9P-XM-G0P" secondAttribute="leading" id="yqO-Gr-Pht"/>
                     </constraints>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="6Cm-iL-b6x"/>
+                    </connections>
                 </scrollView>
                 <view alpha="0.85999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4dn-v9-UnM">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>

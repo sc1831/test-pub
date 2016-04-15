@@ -28,7 +28,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     __weak IBOutlet UITableView *bestGoodsTab; //优品推荐
     //特价view
     __weak IBOutlet UIView *specialView;
-
+    
     
 }
 
@@ -77,7 +77,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
-   
+    
     //关闭定时器
     [_middleMoveTimer setFireDate:[NSDate distantFuture]];
     [_moveTimer setFireDate:[NSDate distantFuture]];
@@ -94,6 +94,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.TopView.contentSize = CGSizeMake(self.view.frame.size.width, 1438);
     adv = [NSMutableArray arrayWithCapacity:0];
     discount = [NSMutableArray arrayWithCapacity:0];
     goods_class = [NSMutableArray arrayWithCapacity:0];
@@ -408,7 +409,19 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     
 }
 //减速结束时调用
+#pragma mark scrollView
+
+
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+//    if (scrollView.tag == 10086) {
+//        //1438
+//        if (scrollView.contentSize.height > 1436) {
+//            scrollView.contentSize = CGSizeMake(M_WIDTH, 2471);
+//        }else if (scrollView.contentSize.height <= 1442){
+//            scrollView.contentSize = CGSizeMake(M_WIDTH, 1436);
+//        }
+//    }
+    
     
     if (scrollView.tag == 10001) {
         int index = (float)scrollView.contentOffset.x/M_WIDTH;
@@ -468,6 +481,9 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
         }
 
     }
+    
+    
+    
     
     
 }
