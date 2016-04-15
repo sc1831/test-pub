@@ -16,6 +16,7 @@
 #import "SaveInfo.h"
 #import "AllGoodsOrders.h"
 #import "MenyGoodsCell.h"
+#import "UITableView+MJRefresh.h"
 
 @interface AllShopVC ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -27,7 +28,13 @@
 @end
 
 @implementation AllShopVC
+{
+    int _page  ;//当前页码
+    int _pageSize ;
+    RequestCenter *requestCenter;
+    NSMutableDictionary *postDic ;
 
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"全部";
@@ -35,46 +42,115 @@
     _subMutArray = [NSMutableArray array];
     
     [self createTableView];
-    [self sendRequestData];
+//    [self sendRequestData];
+    
+    postDic = [NSMutableDictionary dictionaryWithCapacity:0];
+    requestCenter = [RequestCenter shareRequestCenter];
+    [postDic setValue:VALUETOSTR(_page) forKey:@"page"];
+    //    [postDic setValue:VALUETOSTR(_pageSize) forKey:@"pageamount"];
+    [postDic setValue:[[SaveInfo shareSaveInfo]user_id] forKey:@"user_id"];
+    [postDic setValue:@"" forKey:@"order_state"];
+
+    
+    [self addMjHeaderAndFooter];
+    [self.waitPayTableView headerBeginRefresh];
+    /**
+     NSDictionary *postDic = @{@"order_state":@"",
+     @"user_id":[[SaveInfo shareSaveInfo]user_id],
+     @"page":@"7"
+     };
+     */
+    
 }
-
-
--(void)sendRequestData{
-    
-    RequestCenter * request = [RequestCenter shareRequestCenter];
-    NSDictionary *postDic = @{@"order_state":@"",
-                              @"user_id":[[SaveInfo shareSaveInfo]user_id],
-                              @"page":@"7"
-                              };
-    
-    [request sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
-        
-        if (resultDic[@"code"]==0) {
-            HUDNormal(@"获取数据失败，请稍后再试");
-            return ;
-        }
-//        HUDNormal(@"获取数据成功");
-        
-        NSDictionary *dict = resultDic[@"data"];
-        _page = [dict[@"page"] intValue];
-        NSArray *array = dict[@"list"];
-        for (NSDictionary *subDic in array) {
-            AllGoodsOrders *model = [AllGoodsOrders modelWithDic:subDic];
-            NSArray *subArray = subDic[@"order_goods"];
-            NSMutableArray *mutArray = [NSMutableArray array];
-            for (NSDictionary *smallDic in subArray) {
-                AllGoodsOrders *model = [AllGoodsOrders modelWithDic:smallDic];
-                [mutArray addObject:model];
-            }
-            [_subMutArray addObject:mutArray];
+#pragma mark MJRefresh
+- (void)addMjHeaderAndFooter{
+    [self.waitPayTableView headerAddMJRefresh:^{//添加顶部刷新功能
+        [self.waitPayTableView footerResetNoMoreData];//重置无数据状态
+        [postDic setValue:@"1" forKey:@"page"];
+        [requestCenter sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+            [self.waitPayTableView headerEndRefresh];
             
-            [_dataArray addObject:model];
-        }
-        [_waitPayTableView reloadData];
-    } setFailBlock:^(NSString *errorStr) {
+            if (resultDic[@"code"]==0) {
+                HUDNormal(@"获取数据失败，请稍后再试");
+                return ;
+            }
+            HUDNormal(@"获取数据成功");
+            
+            NSDictionary *dict = resultDic[@"data"];
+            _page = [dict[@"page"] intValue];
+            NSArray *array = dict[@"list"];
+            for (NSDictionary *subDic in array) {
+                AllGoodsOrders *model = [AllGoodsOrders modelWithDic:subDic];
+                NSArray *subArray = subDic[@"order_goods"];
+                NSMutableArray *mutArray = [NSMutableArray array];
+                for (NSDictionary *smallDic in subArray) {
+                    AllGoodsOrders *model = [AllGoodsOrders modelWithDic:smallDic];
+                    [mutArray addObject:model];
+                }
+                [_subMutArray addObject:mutArray];
+                
+                [_dataArray addObject:model];
+            }
+            _page = 2;
+            [_waitPayTableView reloadData];
+            
+        } setFailBlock:^(NSString *errorStr) {
+            [self.waitPayTableView headerEndRefresh];
+        }];
+        
+
+    }];
+    
+    [self.waitPayTableView footerAddMJRefresh:^{
+        [postDic setValue:VALUETOSTR(_page) forKey:@"page"];
+        [requestCenter sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+            
+            if ([[resultDic[@"code"] stringValue] isEqualToString:@"1"]) {
+                NSMutableArray *indexPaths = [NSMutableArray arrayWithCapacity:0];
+                NSInteger count = _dataArray.count ;
+                NSArray *goods_list = resultDic[@"data"] [@"list"];
+
+                
+                for (int i = 0 ; i <goods_list.count ; i++) {
+                    NSDictionary *dic = goods_list[i] ;
+                    AllGoodsOrders *model = [AllGoodsOrders modelWithDic:dic];
+                    [_dataArray addObject:model];
+                    
+                    
+                    
+                    
+                    NSArray *subArray = dic[@"order_goods"];
+                    NSMutableArray *mutArray = [NSMutableArray array];
+                    for (NSDictionary *smallDic in subArray) {
+                        AllGoodsOrders *model = [AllGoodsOrders modelWithDic:smallDic];
+                        [mutArray addObject:model];
+                    }
+                    [_subMutArray addObject:mutArray];
+                    
+//                    MY_REFRESH(count);
+                    MY_REFRESH_TWO;
+
+                }
+                if (indexPaths.count <= 0) {
+                    [self.waitPayTableView footerEndRefreshNoMoreData];
+                }else{
+                    _page ++ ;
+                    [self.waitPayTableView footerEndRefresh];
+                    
+                    [self.waitPayTableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+                }
+            }else{
+                [self.waitPayTableView footerEndRefresh ];
+
+            }
+            
+        } setFailBlock:^(NSString *errorStr) {
+        }];
         
     }];
+    
 }
+
 -(void)createTableView{
     
     _waitPayTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH, M_HEIGHT-94) style:UITableViewStyleGrouped];

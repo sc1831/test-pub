@@ -118,6 +118,7 @@
             _page = 2 ;
             [self.compositeTab reloadData];
         } setFailBlock:^(NSString *errorStr) {
+            [self.compositeTab headerEndRefresh];
         }];
         
     }];

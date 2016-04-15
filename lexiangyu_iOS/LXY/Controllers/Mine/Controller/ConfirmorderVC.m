@@ -44,7 +44,7 @@
 }
 
 //底部商品共计件数
-@property (weak, nonatomic) IBOutlet UILabel *bootmAllNum;
+//@property (weak, nonatomic) IBOutlet UILabel *bootmAllNum;
 //底部商品合计
 @property (weak, nonatomic) IBOutlet UILabel *bootmMoney;
 
@@ -78,6 +78,9 @@
     
     [self createTableView];
     [self sendRequestData];
+    
+    
+    
     
 }
 -(void)sendRequestData{
@@ -129,8 +132,12 @@
             [_sectionStateArray addObject:mutGoodsArray];
         }
         
-        
-        
+        CGFloat money;
+        for (int i = 0 ; i < _dataArray.count; i++) {
+            AllGoodsOrders *model = _dataArray[i];
+            money += [model.goods_price_total floatValue];
+        }
+        _bootmMoney.text = [NSString stringWithFormat:@"%.2lf",money];
         
         
         [_confirmTableView reloadData];
@@ -247,6 +254,8 @@
     sectionFooterView.shopMoeny.text = [NSString stringWithFormat:@"￥%.2lf",[model.goods_price_total floatValue]];
     
     sectionFooterView.shopNum.text = [NSString stringWithFormat:@"商品共%@件，合计：",model.goods_num_total];
+    
+    
     return sectionFooterView;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -286,6 +295,42 @@
     NSLog(@"银联支付");
 }
 - (IBAction)subMitClick:(id)sender {
+    RequestCenter *request = [RequestCenter shareRequestCenter];
+    /**
+     
+     user_id	是	string	买家id
+     cart_ids	否	string	购物车信息id 多个用逗号分割
+     goods_id	否	string	商品id (立即购买时需要的参数)
+     goods_num	否	string	商品数量 默认为1 (立即购买时需要的参数)
+
+     */
+    NSDictionary *dict = @{
+                           @"user_id":[[SaveInfo shareSaveInfo] user_id],
+                           @"cart_ids":_cartIds,
+                           @"order_ids":_orderIds,
+                           @"goods_id":_goodsIds,
+                           @"goods_num":_goodsNum
+                           };
+    
+    NSMutableString *string = [NSMutableString stringWithString:MY_SUBMIT_ORDERS];
+    
+    [request sendRequestPostUrl:string andDic:dict setSuccessBlock:^(NSDictionary *resultDic) {
+        
+        if ([resultDic[@"code"] intValue]==0) {
+            HUDNormal(@"数据请求失败，请稍后再试");
+            return ;
+        }
+
+        
+        
+
+    } setFailBlock:^(NSString *errorStr) {
+        
+    }];
+    
+    
+    
+    
     //TODO:微信支付
 //    [self bizPay];
 //    TODO:支付宝支付

@@ -113,6 +113,9 @@ hud.mode = MBProgressHUDModeIndeterminate;}
 //数据类型转换
 #define VALUETOSTR(value) [NSString stringWithFormat:@"%d",value]
 
+//刷新
+#define MY_REFRESH(count)  [indexPaths addObject:[NSIndexPath indexPathForRow:0 inSection: count+ i]]
+#define MY_REFRESH_TWO  [_waitPayTableView reloadData]
 
 
 #endif /* Common_h */

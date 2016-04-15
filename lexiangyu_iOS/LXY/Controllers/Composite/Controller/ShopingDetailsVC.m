@@ -61,7 +61,14 @@
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
     NSLog(@"didFailLoadWithError");
 }
-
+- (BOOL)webView: (UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest
+                                                                  *)request navigationType:(UIWebViewNavigationType)navigationType{
+    //http://www.lexianyu.com/index.php/app/goods/confirm?super_key=1&user_id=52267&goods_id=106255&goods_num=1
+    
+    NSLog(@"request.URL.relativeString:%@",request.URL.relativeString);
+    
+    return YES;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -14,19 +14,27 @@
 #import "MyCollectModel.h"
 #import "SaveInfo.h"
 #import "ShopingDetailsVC.h"
+#import "UITableView+MJRefresh.h"
 
 @interface CollectVC ()<UITableViewDataSource,UITableViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UITableView *collectTableView;
 //存储数据
 @property (nonatomic, strong)NSMutableArray *dataArray;
 @property (nonatomic ,strong)UIView *tipView;
 @property (nonatomic ,strong)UILabel *label;
-@property (nonatomic )int page;
 @property (nonatomic ,strong)NSTimer *disappear;
 @end
 
 @implementation CollectVC
+{
 
+    int _page  ;//当前页码
+    int _pageSize ;
+    NSMutableArray *goods_Mtlist ;
+    RequestCenter *requestCenter;
+    NSMutableDictionary *postDic ;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我的收藏" ;
@@ -35,55 +43,100 @@
     [self createTipView];
     _tipView.hidden = YES;
     
-    [self sendRequestData];
+//    [self sendRequestData];
     
     _label = [GHControl createLabelWithFrame:CGRectMake(30, M_HEIGHT/2-20, M_WIDTH-60, 40) Font:15 Text:@"暂时还没有收藏哦、赶紧去逛逛"];
     _label.textColor = RGBCOLOR(99, 100, 101);
     _label.textAlignment = NSTextAlignmentCenter;
     _label.hidden = YES;
     [self.view addSubview:_label];
+    
+    
+    
+    postDic = [NSMutableDictionary dictionaryWithCapacity:0];
+    requestCenter = [RequestCenter shareRequestCenter];
+    [postDic setValue:VALUETOSTR(_page) forKey:@"page"];
+//    [postDic setValue:VALUETOSTR(_pageSize) forKey:@"pageamount"];
+    [postDic setValue:[[SaveInfo shareSaveInfo]user_id] forKey:@"user_id"];
+    [postDic setValue:@"goods" forKey:@"fav_type"];
+    
+    [self addMjHeaderAndFooter];
+    [self.collectTableView headerBeginRefresh];
+    
    
 
 }
--(void)sendRequestData{
-    /**
-     user_id	是	int	用户id
-     fav_type	否	string	查看收藏类型 goods查看商品，store查看店铺
 
-     */
-    RequestCenter * request = [RequestCenter shareRequestCenter];
-    NSDictionary *postDic = @{@"user_id":[[SaveInfo shareSaveInfo]user_id],
-                              @"fav_type":@"goods",
-                              };
-    
-    [request sendRequestPostUrl:MY_COLLECT andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
 
-        if ([resultDic[@"code"] intValue]==0) {
-            HUDNormal(@"获取数据失败，请稍后再试");
-            return ;
-        }
-        
-        NSDictionary *dict = resultDic[@"data"];
-        _page = [dict[@"page"] intValue];
-        NSArray *array = dict[@"list"];
-        for (NSDictionary *subDic in array) {
-            MyCollectModel *model = [MyCollectModel modelWithDic:subDic];
-
-            [_dataArray addObject:model];
+#pragma mark MJRefresh
+- (void)addMjHeaderAndFooter{
+    [self.collectTableView headerAddMJRefresh:^{//添加顶部刷新功能
+        [self.collectTableView footerResetNoMoreData];//重置无数据状态
+        [postDic setValue:@"1" forKey:@"page"];
+        [requestCenter sendRequestPostUrl:MY_COLLECT andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+            [self.collectTableView headerEndRefresh];
+            if ([resultDic[@"code"] intValue]==0) {
+                HUDNormal(@"获取数据失败，请稍后再试");
+                return ;
+            }
             
-        }
-        if (_dataArray.count==0) {
-            _label.hidden = NO;
-            return;
-        }
-//        HUDNormal(@"获取数据成功");
-        [_collectTableView reloadData];
-    } setFailBlock:^(NSString *errorStr) {
-        NSLog(@"");
+
+            NSDictionary *dict = resultDic[@"data"];
+            _page = [dict[@"page"] intValue];
+            NSArray *array = dict[@"list"];
+            for (NSDictionary *subDic in array) {
+                MyCollectModel *model = [MyCollectModel modelWithDic:subDic];
+                
+                [_dataArray addObject:model];
+                
+            }
+            if (_dataArray.count==0) {
+                
+                _label.hidden = NO;
+                return;
+            }
+            _page = 2;
+            [_collectTableView reloadData];
+        } setFailBlock:^(NSString *errorStr) {
+            [self.collectTableView headerEndRefresh];
+        }];
+
         
     }];
+    
+    [self.collectTableView footerAddMJRefresh:^{
+        [postDic setValue:VALUETOSTR(_page) forKey:@"page"];
+        [requestCenter sendRequestPostUrl:MY_COLLECT andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+            
+            if ([[resultDic[@"code"] stringValue] isEqualToString:@"1"]) {
+                NSMutableArray *indexPaths = [NSMutableArray arrayWithCapacity:0];
+                NSInteger count = _dataArray.count ;
+                NSArray *goods_list = resultDic[@"data"] [@"list"];
+                for (int i = 0 ; i <goods_list.count ; i++) {
+                    NSDictionary *dic = goods_list[i] ;
+                    MyCollectModel *model = [[MyCollectModel alloc]init];
+                    [model setValuesForKeysWithDictionary:dic];
+                    [_dataArray addObject:model];
+                    [indexPaths addObject:[NSIndexPath indexPathForRow:count + i inSection:0]];
+                }
+                if (indexPaths.count <= 0) {
+                    [self.collectTableView footerEndRefreshNoMoreData];
+                }else{
+                    _page ++ ;
+                    [self.collectTableView footerEndRefresh];
+                    
+                    [self.collectTableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+                }
+            }else{
+                [self.collectTableView footerEndRefresh ];
+            }
+            
+        } setFailBlock:^(NSString *errorStr) {
+        }];
+   
+        }];
+    
 }
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _dataArray.count;

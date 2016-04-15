@@ -15,6 +15,7 @@
 #import "SaveInfo.h"
 #import "AllGoodsOrders.h"
 #import "MenyGoodsCell.h"
+#import "UITableView+MJRefresh.h"
 
 @interface WaitPayFirstViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic ,strong)UITableView *waitPayTableView;
@@ -22,69 +23,131 @@
 @property (nonatomic ,strong)UIView *footView;
 @property (nonatomic ,strong)NSMutableArray *dataArray;
 @property (nonatomic ,strong)NSMutableArray *subMutArray;
-@property (nonatomic) int page;
+
 @property (nonatomic ,strong)UITableView *specialTableView;
 
 @end
 
 @implementation WaitPayFirstViewController
+{
 
+    int _page  ;//当前页码
+    int _pageSize ;
+    RequestCenter *requestCenter;
+    NSMutableDictionary *postDic ;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"待付款";
     _dataArray = [NSMutableArray array];
     _subMutArray = [NSMutableArray array];
     [self createTableView];
-    [self sendRequestData];
-}
 
--(void)sendRequestData{
-    [_dataArray removeAllObjects];
-    [_subMutArray removeAllObjects];
-    /**
-     *  order_state	否	int	订单状态0已取消，10未付款，20已付款，30已发货，40已收货
-     */
-    RequestCenter * request = [RequestCenter shareRequestCenter];
-    NSDictionary *postDic = @{
-                             @"order_state":@"10",// @"order_state":@"10",
-                              @"user_id":[[SaveInfo shareSaveInfo]user_id],
-                              @"page":@"3"
-                              };
     
-    [request sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
-        if (resultDic[@"code"]==0) {
-            HUDNormal(@"获取数据失败，请稍后再试");
-            return ;
-        }
-//        HUDNormal(@"获取数据成功");
-        
-        NSDictionary *dict = resultDic[@"data"];
-        _page = [dict[@"page"] intValue];
-        NSArray *array = dict[@"list"];
-        for (NSDictionary *subDic in array) {
-            AllGoodsOrders *model = [AllGoodsOrders modelWithDic:subDic];
+
+    postDic = [NSMutableDictionary dictionaryWithCapacity:0];
+    requestCenter = [RequestCenter shareRequestCenter];
+    [postDic setValue:VALUETOSTR(_page) forKey:@"page"];
+    [postDic setValue:[[SaveInfo shareSaveInfo]user_id] forKey:@"user_id"];
+    [postDic setValue:@"10" forKey:@"order_state"];
+    
+    
+    [self addMjHeaderAndFooter];
+    [self.waitPayTableView headerBeginRefresh];
+    
+}
+#pragma mark MJRefresh
+- (void)addMjHeaderAndFooter{
+    [self.waitPayTableView headerAddMJRefresh:^{//添加顶部刷新功能
+        [self.waitPayTableView footerResetNoMoreData];//重置无数据状态
+        [postDic setValue:@"3" forKey:@"page"];
+        [requestCenter sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+            [self.waitPayTableView headerEndRefresh];
             
-            NSArray *subArray = subDic[@"order_goods"];
-            NSMutableArray *mutArray = [NSMutableArray array];
-            for (NSDictionary *smallDic in subArray) {
-                AllGoodsOrders *model = [AllGoodsOrders modelWithDic:smallDic];
-                [mutArray addObject:model];
+            if (resultDic[@"code"]==0) {
+                HUDNormal(@"获取数据失败，请稍后再试");
+                return ;
             }
-            [_subMutArray addObject:mutArray];
+            HUDNormal(@"获取数据成功");
+            NSDictionary *dict = resultDic[@"data"];
+            _page = [dict[@"page"] intValue];
+            NSArray *array = dict[@"list"];
+            for (NSDictionary *subDic in array) {
+                AllGoodsOrders *model = [AllGoodsOrders modelWithDic:subDic];
+                
+                NSArray *subArray = subDic[@"order_goods"];
+                NSMutableArray *mutArray = [NSMutableArray array];
+                for (NSDictionary *smallDic in subArray) {
+                    AllGoodsOrders *model = [AllGoodsOrders modelWithDic:smallDic];
+                    [mutArray addObject:model];
+                }
+                [_subMutArray addObject:mutArray];
+                
+                [_dataArray addObject:model];
+                
+            }
+            _page = 2;
+            [_waitPayTableView reloadData];
             
-            [_dataArray addObject:model];
-            
-        }
-        
-        [_waitPayTableView reloadData];
-    } setFailBlock:^(NSString *errorStr) {
-        NSLog(@"");
+        } setFailBlock:^(NSString *errorStr) {
+            [self.waitPayTableView headerEndRefresh];
+        }];
+
         
     }];
+    
+    [self.waitPayTableView footerAddMJRefresh:^{
+        [postDic setValue:VALUETOSTR(_page) forKey:@"page"];
+        [requestCenter sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+            
+            if ([[resultDic[@"code"] stringValue] isEqualToString:@"1"]) {
+                NSMutableArray *indexPaths = [NSMutableArray arrayWithCapacity:0];
+                NSInteger count = _dataArray.count ;
+                NSArray *goods_list = resultDic[@"data"] [@"list"];
+                
+                
+                for (int i = 0 ; i <goods_list.count ; i++) {
+                    NSDictionary *dic = goods_list[i] ;
+                    AllGoodsOrders *model = [AllGoodsOrders modelWithDic:dic];
+                    [_dataArray addObject:model];
+                    
+                    
+                    
+                    
+                    NSArray *subArray = dic[@"order_goods"];
+                    NSMutableArray *mutArray = [NSMutableArray array];
+                    for (NSDictionary *smallDic in subArray) {
+                        AllGoodsOrders *model = [AllGoodsOrders modelWithDic:smallDic];
+                        [mutArray addObject:model];
+                    }
+                    [_subMutArray addObject:mutArray];
+                    
+                    //                    MY_REFRESH(count);
+                    [_waitPayTableView reloadData];
+                    
+                }
+                if (indexPaths.count <= 0) {
+                    [self.waitPayTableView footerEndRefreshNoMoreData];
+                }else{
+                    _page ++ ;
+                    [self.waitPayTableView footerEndRefresh];
+                    
+                    [self.waitPayTableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+                }
+            }else{
+                [self.waitPayTableView footerEndRefresh ];
+            }
+            
+        } setFailBlock:^(NSString *errorStr) {
+        }];
+        
+    }];
+    
 }
+
 -(void)createTableView{
     
-    _waitPayTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH, M_HEIGHT) style:UITableViewStyleGrouped];
+    _waitPayTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH, M_HEIGHT-95) style:UITableViewStyleGrouped];
     _waitPayTableView.delegate = self;
     _waitPayTableView.dataSource = self;
     _waitPayTableView.tag = 10;
@@ -243,20 +306,20 @@
 -(void)sendRequestDataCancelOrderId:(NSString *)orderId{
     
     RequestCenter * request = [RequestCenter shareRequestCenter];
-    NSDictionary *postDic = @{
+    NSDictionary *postDict = @{
                               @"reason":@"我不想买了",
                               @"user_id":[[SaveInfo shareSaveInfo]user_id],
                               @"order_id":orderId
                               };
     
-    [request sendRequestPostUrl:MY_CANCEL_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+    [request sendRequestPostUrl:MY_CANCEL_REGISTER andDic:postDict setSuccessBlock:^(NSDictionary *resultDic) {
         if (resultDic[@"code"]==0) {
             HUDNormal(@"已付款的订单目前不支持取消订单");
             return ;
         }
-        [self sendRequestData];
+        [self addMjHeaderAndFooter];
         
-        //        [_waitSendtableView reloadData];
+
     } setFailBlock:^(NSString *errorStr) {
         NSLog(@"");
         

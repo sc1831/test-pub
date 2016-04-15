@@ -15,6 +15,7 @@
 #import "AllGoodsOrders.h"
 #import "MenyGoodsCell.h"
 #import "WaiteSendCell.h"
+#import "UITableView+MJRefresh.h"
 
 @interface WaitGetVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic ,strong)UITableView *waitGetTableView;
@@ -22,11 +23,17 @@
 @property (nonatomic ,strong)UIView *footView;
 @property (nonatomic ,strong)NSMutableArray *dataArray;
 @property (nonatomic ,strong)NSMutableArray *subMutArray;
-@property (nonatomic)int page;
+
 @end
 
 @implementation WaitGetVC
+{
 
+    int _page  ;//当前页码
+    int _pageSize ;
+    RequestCenter *requestCenter;
+    NSMutableDictionary *postDic ;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"待收货";
@@ -34,51 +41,112 @@
     _subMutArray = [NSMutableArray array];
     
     [self createTableView];
-    [self sendRequestData];
-}
--(void)sendRequestData{
-    /**
-     *  order_state	否	int	订单状态0已取消，10未付款，20已付款，30已发货，40已收货
-     */
-    RequestCenter * request = [RequestCenter shareRequestCenter];
-    NSDictionary *postDic = @{@"user_id":[[SaveInfo shareSaveInfo]user_id],
-                              @"order_state":@"30"
-                              };
-    
-    [request sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
-        if (resultDic[@"code"]==0) {
-            HUDNormal(@"获取数据失败，请稍后再试");
-            return ;
-        }
-//        HUDNormal(@"获取数据成功");
-        
-        NSDictionary *dict = resultDic[@"data"];
-        _page = [dict[@"page"] intValue];
-        NSArray *array = dict[@"list"];
-        for (NSDictionary *subDic in array) {
-            AllGoodsOrders *model = [AllGoodsOrders modelWithDic:subDic];
-            
-            NSArray *subArray = subDic[@"order_goods"];
-            NSMutableArray *mutArray = [NSMutableArray array];
-            for (NSDictionary *smallDic in subArray) {
-                AllGoodsOrders *model = [AllGoodsOrders modelWithDic:smallDic];
-                [mutArray addObject:model];
-            }
-            [_subMutArray addObject:mutArray];
-            
-            [_dataArray addObject:model];
-            
-        }
 
-        [_waitGetTableView reloadData];
-    } setFailBlock:^(NSString *errorStr) {
-        NSLog(@"");
+    
+    postDic = [NSMutableDictionary dictionaryWithCapacity:0];
+    requestCenter = [RequestCenter shareRequestCenter];
+    [postDic setValue:VALUETOSTR(_page) forKey:@"page"];
+    //    [postDic setValue:VALUETOSTR(_pageSize) forKey:@"pageamount"];
+    [postDic setValue:[[SaveInfo shareSaveInfo]user_id] forKey:@"user_id"];
+    [postDic setValue:@"30" forKey:@"order_state"];
+    
+    
+    [self addMjHeaderAndFooter];
+    [self.waitGetTableView headerBeginRefresh];
+    
+}
+
+#pragma mark MJRefresh
+- (void)addMjHeaderAndFooter{
+    [self.waitGetTableView headerAddMJRefresh:^{//添加顶部刷新功能
+        [self.waitGetTableView footerResetNoMoreData];//重置无数据状态
+        [postDic setValue:@"1" forKey:@"page"];
+        [requestCenter sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+            [self.waitGetTableView headerEndRefresh];
+
+            
+            if (resultDic[@"code"]==0) {
+                HUDNormal(@"获取数据失败，请稍后再试");
+                return ;
+            }
+            HUDNormal(@"获取数据成功");
+            
+            NSDictionary *dict = resultDic[@"data"];
+            _page = [dict[@"page"] intValue];
+            NSArray *array = dict[@"list"];
+            for (NSDictionary *subDic in array) {
+                AllGoodsOrders *model = [AllGoodsOrders modelWithDic:subDic];
+                NSArray *subArray = subDic[@"order_goods"];
+                NSMutableArray *mutArray = [NSMutableArray array];
+                for (NSDictionary *smallDic in subArray) {
+                    AllGoodsOrders *model = [AllGoodsOrders modelWithDic:smallDic];
+                    [mutArray addObject:model];
+                }
+                [_subMutArray addObject:mutArray];
+                
+                [_dataArray addObject:model];
+            }
+            _page = 2;
+            [_waitGetTableView reloadData];
+            
+        } setFailBlock:^(NSString *errorStr) {
+            [self.waitGetTableView headerEndRefresh];
+        }];
         
     }];
+    
+    [self.waitGetTableView footerAddMJRefresh:^{
+        [postDic setValue:VALUETOSTR(_page) forKey:@"page"];
+        [requestCenter sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+            
+            if ([[resultDic[@"code"] stringValue] isEqualToString:@"1"]) {
+                NSMutableArray *indexPaths = [NSMutableArray arrayWithCapacity:0];
+                NSInteger count = _dataArray.count ;
+                NSArray *goods_list = resultDic[@"data"] [@"list"];
+                
+                
+                for (int i = 0 ; i <goods_list.count ; i++) {
+                    NSDictionary *dic = goods_list[i] ;
+                    AllGoodsOrders *model = [AllGoodsOrders modelWithDic:dic];
+                    [_dataArray addObject:model];
+                    
+                    
+                    
+                    
+                    NSArray *subArray = dic[@"order_goods"];
+                    NSMutableArray *mutArray = [NSMutableArray array];
+                    for (NSDictionary *smallDic in subArray) {
+                        AllGoodsOrders *model = [AllGoodsOrders modelWithDic:smallDic];
+                        [mutArray addObject:model];
+                    }
+                    [_subMutArray addObject:mutArray];
+                    
+                    //                    MY_REFRESH(count);
+                    [_waitGetTableView reloadData];
+                    
+                }
+                if (indexPaths.count <= 0) {
+                    [self.waitGetTableView footerEndRefreshNoMoreData];
+                }else{
+                    _page ++ ;
+                    [self.waitGetTableView footerEndRefresh];
+                    
+                    [self.waitGetTableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+                }
+            }else{
+                [self.waitGetTableView footerEndRefresh ];
+            }
+            
+        } setFailBlock:^(NSString *errorStr) {
+        }];
+        
+    }];
+    
 }
+
 -(void)createTableView{
     
-    _waitGetTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH, M_HEIGHT) style:UITableViewStyleGrouped];
+    _waitGetTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH, M_HEIGHT-95) style:UITableViewStyleGrouped];
     _waitGetTableView.delegate = self;
     _waitGetTableView.dataSource = self;
     _waitGetTableView.backgroundColor = [UIColor grayColor];
@@ -186,18 +254,7 @@
         return cell;
     }
 
-    
-    
-//    static NSString *cellName = @"WaiteGetCell";
-//    
-//    WaiteGetCell *cell =
-//    (WaiteGetCell *)[tableView dequeueReusableCellWithIdentifier:cellName];
-//    if (!cell) {
-//        cell = [[[NSBundle mainBundle] loadNibNamed:cellName owner:self options:nil] firstObject];
-//        
-//    }
-//    
-//    return cell;
+ 
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

@@ -13,73 +13,124 @@
 #import "MyFooterModel.h"
 #import "SaveInfo.h"
 #import "ShopingDetailsVC.h"
+#import "UITableView+MJRefresh.h"
 
 @interface MyfootprintVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *myFooterTableView;
 @property (nonatomic ,strong) NSMutableArray *dataArray;
 @property (nonatomic ,strong)NSString *goodIds;
-@property (nonatomic ,assign)int page;
 @property (nonatomic) int pageCount;
 @end
 
 @implementation MyfootprintVC
+{
 
+    int _page  ;//当前页码
+    int _pageSize ;
+    NSMutableArray *goods_Mtlist ;
+    RequestCenter *requestCenter;
+    NSMutableDictionary *postDic ;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我的足迹" ;
     _dataArray = [NSMutableArray array];
-    [self sendRequestData];
     
+    postDic = [NSMutableDictionary dictionaryWithCapacity:0];
+    requestCenter = [RequestCenter shareRequestCenter];
+    [postDic setValue:VALUETOSTR(_page) forKey:@"page"];
+    //    [postDic setValue:VALUETOSTR(_pageSize) forKey:@"pageamount"];
+    [postDic setValue:[[SaveInfo shareSaveInfo]user_id] forKey:@"user_id"];
+
     
+    [self addMjHeaderAndFooter];
+    [self.myFooterTableView headerBeginRefresh];
     
     [GHControl setExtraCellLineHidden:_myFooterTableView];
 
 }
--(void)sendRequestData{
-    
-    RequestCenter * request = [RequestCenter shareRequestCenter];
-    NSDictionary *postDic = @{@"page":@"0",
-                              @"user_id":[[SaveInfo shareSaveInfo]user_id]
-                              };
-    
-    [request sendRequestPostUrl:MY_FOOTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
-        
-        if (resultDic[@"code"]==0) {
-            HUDNormal(@"获取数据失败，请稍后再试");
-            return ;
-        }
-        
-        
-        NSDictionary *dict = resultDic[@"data"];
-        _page = [dict[@"page"] intValue];
-        _pageCount = [dict[@"pageamount"] intValue];
-        NSArray *array = dict[@"list"];
-        NSString *str;
-        for (NSDictionary *subDic in array) {
-            MyFooterModel *model = [MyFooterModel modelWithDic:subDic];
-            if (_dataArray.count<1) {
-                str = [NSString stringWithFormat:@"%@,",model.goods_id];
-                _goodIds = str;
-            }else{
-                 str = [NSString stringWithFormat:@"%@,",model.goods_id];
-                _goodIds = [NSString stringWithFormat:@"%@%@",_goodIds,str];
-                
+#pragma mark MJRefresh
+- (void)addMjHeaderAndFooter{
+    [self.myFooterTableView headerAddMJRefresh:^{//添加顶部刷新功能
+        [self.myFooterTableView footerResetNoMoreData];//重置无数据状态
+        [postDic setValue:@"1" forKey:@"page"];
+        [requestCenter sendRequestPostUrl:MY_FOOTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+            [self.myFooterTableView headerEndRefresh];
+            if ([resultDic[@"code"] intValue]==0) {
+                HUDNormal(@"获取数据失败，请稍后再试");
+                return ;
             }
-           
-            [_dataArray addObject:model];
-        }
+            if (resultDic[@"code"]==0) {
+                HUDNormal(@"获取数据失败，请稍后再试");
+                return ;
+            }
+            
+            
+            NSDictionary *dict = resultDic[@"data"];
+            _page = [dict[@"page"] intValue];
+            NSArray *array = dict[@"list"];
+            NSString *str;
+            for (NSDictionary *subDic in array) {
+                MyFooterModel *model = [MyFooterModel modelWithDic:subDic];
+                if (_dataArray.count<1) {
+                    str = [NSString stringWithFormat:@"%@,",model.goods_id];
+                    _goodIds = str;
+                }else{
+                    str = [NSString stringWithFormat:@"%@,",model.goods_id];
+                    _goodIds = [NSString stringWithFormat:@"%@%@",_goodIds,str];
+                    
+                }
+                
+                [_dataArray addObject:model];
+            }
+            
+            [self isHiddenEmptyButton];
+            if (_dataArray.count==0) {
+                HUDNormal(@"暂时无数据");
+                return;
+            }
+
+            [_myFooterTableView reloadData];
         
-        [self isHiddenEmptyButton];
-        if (_dataArray.count==0) {
-            HUDNormal(@"暂时无数据");
-            return;
-        }
-//        HUDNormal(@"获取数据成功");
-        [_myFooterTableView reloadData];
-    } setFailBlock:^(NSString *errorStr) {
-        NSLog(@"");
+            
+        } setFailBlock:^(NSString *errorStr) {
+            [self.myFooterTableView headerEndRefresh];
+        }];
         
     }];
+    
+    [self.myFooterTableView footerAddMJRefresh:^{
+        [postDic setValue:VALUETOSTR(_page) forKey:@"page"];
+        [requestCenter sendRequestPostUrl:MY_COLLECT andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+            
+            if ([[resultDic[@"code"] stringValue] isEqualToString:@"1"]) {
+                NSMutableArray *indexPaths = [NSMutableArray arrayWithCapacity:0];
+                NSInteger count = _dataArray.count ;
+                NSArray *goods_list = resultDic[@"data"] [@"list"];
+                for (int i = 0 ; i <goods_list.count ; i++) {
+                    NSDictionary *dic = goods_list[i] ;
+                    MyFooterModel *model = [[MyFooterModel alloc]init];
+                    [model setValuesForKeysWithDictionary:dic];
+                    [_dataArray addObject:model];
+                    [indexPaths addObject:[NSIndexPath indexPathForRow:count + i inSection:0]];
+                }
+                if (indexPaths.count <= 0) {
+                    [self.myFooterTableView footerEndRefreshNoMoreData];
+                }else{
+                    _page ++ ;
+                    [self.myFooterTableView footerEndRefresh];
+                    
+                    [self.myFooterTableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+                }
+            }else{
+                [self.myFooterTableView footerEndRefresh ];
+            }
+            
+        } setFailBlock:^(NSString *errorStr) {
+        }];
+        
+    }];
+    
 }
 -(void)isHiddenEmptyButton{
 

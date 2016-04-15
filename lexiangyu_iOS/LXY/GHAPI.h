@@ -31,6 +31,10 @@
 //添加购物数量
 #define ADD_SHOP_GOODS_NUM @"app/cart/edit_cart_num"
 
+//提交订单
+#define MY_SUBMIT_ORDERS  @"app/order/index"
+
+
 
 //登录
 #define LOGIN @"app/Register/login"
