@@ -43,7 +43,7 @@ static NetworkStatus hostReachState=NotReachable;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-
+    
     //TODO: 微信
     [WXApi registerApp:@"wx24728dea6d8b2f08" withDescription:@"lxy"];
     //向微信注册wxd930ea5d5a258f4f

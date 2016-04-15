@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface FeedBackModel : NSObject
-@property (nonatomic ,strong)NSString *type_id;
+@property (nonatomic ,strong)NSNumber *type_id;
 @property (nonatomic ,strong)NSString *type_name;
 +(FeedBackModel *)modelWithDic:(NSDictionary *)dic;
 -(id)initWithDic:(NSDictionary *)dic;

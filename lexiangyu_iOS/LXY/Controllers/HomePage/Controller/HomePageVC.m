@@ -409,7 +409,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     
 }
 //减速结束时调用
-#pragma mark scrollView
+#pragma mark scrollViewDelegate
 
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{

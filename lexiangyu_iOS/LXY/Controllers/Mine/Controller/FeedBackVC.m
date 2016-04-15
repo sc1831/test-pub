@@ -11,47 +11,30 @@
 #import "UIButton+Block.h"
 #import "SaveInfo.h"
 #import "FeedBackModel.h"
-
-@interface FeedBackVC ()<UIActionSheetDelegate>
+#import "GHControl.h"
+@interface FeedBackVC ()<UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *funationTextView;
 //功能意见
 - (IBAction)functionOfOpinion:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *placeholderLab;
 @property (nonatomic ,strong)NSMutableArray *dataArray;
+@property (weak, nonatomic) IBOutlet UILabel *classLab;
 @property (nonatomic ,strong)NSString *feedBackStr;
-@property (weak, nonatomic) IBOutlet UIButton *keepFeedBackButton;
 @end
 
 @implementation FeedBackVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.title = @"意见反馈" ;
     _dataArray = [NSMutableArray array];
     
-    __weak FeedBackVC *weakSelf = self;
-    [_keepFeedBackButton setOnButtonPressedHandler:^{
-        FeedBackVC *strongSelf = weakSelf;
-        if (strongSelf) {
-            if (strongSelf.feedBackStr.length==0) {
-                HUDNormal(@"请选择反馈类型");
-                return ;
-            }else if (_funationTextView.text.length==0){
-            
-                HUDNormal(@"请填写反馈信息");
-                return ;
-            }else{
-            [strongSelf keepFeedBackInformation];
-            }
-            
-            
-        }
-    }];
     
 }
 
 
 - (IBAction)functionOfOpinion:(id)sender {
-//    NSLog(@"功能意见点击");
     [self sendRequestData];
 
 }
@@ -91,9 +74,9 @@
     for (int i =0; i<_dataArray.count; i++) {
          FeedBackModel *model = _dataArray[i];
         UIAlertAction *productProblem = [UIAlertAction actionWithTitle:model.type_name style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
-            _feedBackStr = model.type_id;
+            _feedBackStr = [model.type_id stringValue];
             NSLog(@"_feedBackStr:%@",_feedBackStr);
-
+            self.classLab.text = model.type_name ;
         }];
        [alertController addAction:productProblem];
     }
@@ -124,15 +107,58 @@
             return ;
         }
         
-        [self .navigationController popViewControllerAnimated:YES];
+        [self.navigationController popViewControllerAnimated:YES];
         
     } setFailBlock:^(NSString *errorStr) {
         NSLog(@"");
     }];
 }
+#pragma mark - 代理方法
+//通过代理实现文字隐藏
+- (void)textViewDidChange:(UITextView *)textView{
+    if (textView.text.length == 0 ) {
+        _placeholderLab.text = @"请留下您宝贵意见...";
+    }else{
+        _placeholderLab.text = @"";
+    }
+    
+}
+//textView 键盘的隐藏 通过添加完成按钮实现
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    UIButton *rightNarBtn = [GHControl createButtonWithFrame:CGRectMake(0, 0, 80, 40) ImageName:@"rightBarBtnBg.png" Target:self Action:@selector(leaveEditMode) Title:nil];
+    rightNarBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight ;
+    [rightNarBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    rightNarBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    [rightNarBtn setTitle:@"提交" forState:UIControlStateNormal];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:rightNarBtn];
+    
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    self.navigationItem.rightBarButtonItem = nil;
+    
+}
 
 
-
+//收回键盘
+- (void)leaveEditMode {
+    [_funationTextView resignFirstResponder];
+    //    if (_opinionTextView.text.length > 0) {
+    //        [self submitBtnClick:nil];
+    //    }
+    NSLog(@"确定");
+    
+    if (self.feedBackStr.length==0) {
+        HUDNormal(@"请选择反馈类型");
+        return ;
+    }else if (_funationTextView.text.length==0){
+        
+        HUDNormal(@"请填写反馈信息");
+        return ;
+    }else{
+        [self keepFeedBackInformation];
+    }
+}
 
 
 
