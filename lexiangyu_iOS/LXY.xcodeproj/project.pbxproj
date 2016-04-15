@@ -402,6 +402,7 @@
 		6EC44D3B1CA4E0DE00833567 /* 保存修改_置灰@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EC44D321CA4E0DE00833567 /* 保存修改_置灰@3x.png */; };
 		6EC4F62A1CB5FB97004DBE59 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		6EC4F62D1CB647B6004DBE59 /* NetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC4F62C1CB647B6004DBE59 /* NetManager.m */; };
+		6EC9C0371CC0B6340088F8F4 /* OrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC9C0361CC0B6340088F8F4 /* OrderModel.m */; };
 		6ECB75821C9BA579007FBE7D /* ClassifyTabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECB75801C9BA579007FBE7D /* ClassifyTabCell.m */; };
 		6ECB75831C9BA579007FBE7D /* ClassifyTabCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6ECB75811C9BA579007FBE7D /* ClassifyTabCell.xib */; };
 		6ECB758A1C9BA602007FBE7D /* ClassifyCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECB75881C9BA602007FBE7D /* ClassifyCollectionCell.m */; };
@@ -1054,6 +1055,8 @@
 		6EC44D321CA4E0DE00833567 /* 保存修改_置灰@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "保存修改_置灰@3x.png"; sourceTree = "<group>"; };
 		6EC4F62B1CB647B6004DBE59 /* NetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetManager.h; sourceTree = "<group>"; };
 		6EC4F62C1CB647B6004DBE59 /* NetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetManager.m; sourceTree = "<group>"; };
+		6EC9C0351CC0B6340088F8F4 /* OrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderModel.h; sourceTree = "<group>"; };
+		6EC9C0361CC0B6340088F8F4 /* OrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderModel.m; sourceTree = "<group>"; };
 		6ECB757F1C9BA579007FBE7D /* ClassifyTabCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassifyTabCell.h; sourceTree = "<group>"; };
 		6ECB75801C9BA579007FBE7D /* ClassifyTabCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassifyTabCell.m; sourceTree = "<group>"; };
 		6ECB75811C9BA579007FBE7D /* ClassifyTabCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassifyTabCell.xib; sourceTree = "<group>"; };
@@ -2107,6 +2110,8 @@
 			children = (
 				6EF2A1CA1CAB6C1A00057FC0 /* ShoppingCartModel.h */,
 				6EF2A1CB1CAB6C1A00057FC0 /* ShoppingCartModel.m */,
+				6EC9C0351CC0B6340088F8F4 /* OrderModel.h */,
+				6EC9C0361CC0B6340088F8F4 /* OrderModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3093,6 +3098,7 @@
 				6E7964B61C981B8600EB43B9 /* ShoppingCartVC.m in Sources */,
 				6EBA3BD01CBBC2F0002D6C69 /* RSADataVerifier.m in Sources */,
 				6EBA3BCE1CBBC2F0002D6C69 /* openssl_wrapper.m in Sources */,
+				6EC9C0371CC0B6340088F8F4 /* OrderModel.m in Sources */,
 				6E7964E81C983F5500EB43B9 /* OrderSuccessVC.m in Sources */,
 				6E11D0071CB5FA0A00AEE457 /* CheckTelPhoneNumVC.m in Sources */,
 				6E7964931C97E15200EB43B9 /* ResetPassword.m in Sources */,

@@ -91,6 +91,10 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="area_info" destination="3PO-xt-bio" id="M0L-xB-iNY"/>
+                <outlet property="storeNameAndPhoneLab" destination="wGu-wi-JVy" id="g0s-Si-6k7"/>
+            </connections>
             <point key="canvasLocation" x="205.5" y="-174"/>
         </view>
     </objects>

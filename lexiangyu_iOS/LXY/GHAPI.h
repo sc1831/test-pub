@@ -78,4 +78,5 @@
 
 //-------------------------------------------商品详情
 #define DETAIL_URL @"app/goods/detail_url" //商品详情
+#define ORDER_DETAILS @"app/User/my_order_details" //订单详情
 

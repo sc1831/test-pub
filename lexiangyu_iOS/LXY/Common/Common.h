@@ -96,8 +96,10 @@ hud.mode = MBProgressHUDModeIndeterminate;}
 /**
  *  字符串拼接
  */
-#define STR_a_ADD_b_(str1,str2) [NSString stringWithFormat:@"%@/%@",str1,str2]
+#define STR_a_ADD_b_(rootUrl,subUrl) [NSString stringWithFormat:@"%@/%@",rootUrl,subUrl]
 #define STR_A_B(str1,str2) [NSString stringWithFormat:@"%@%@",str1,str2]
+#define STR_A_B_C(str1,str2,str3) [NSString stringWithFormat:@"%@%@%@",str1,str2,str3]
+
 
 //缓存设置
 

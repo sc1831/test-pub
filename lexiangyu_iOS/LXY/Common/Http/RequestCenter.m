@@ -81,7 +81,7 @@
     
 }
 - (void)sendRequestPostUrl:(NSString *)myUrl andDic:(NSDictionary *)info_dic setSuccessBlock:(void (^)(NSDictionary *))success_block setFailBlock:(void (^)(NSString *))fail_block{
-    HUDSelfStart(@"正在上传数据...");
+    HUDSelfStart(@"正在请求数据...");
     NETWORKVIEW(YES);
     
     AFHTTPSessionManager *session_manager = [AFHTTPSessionManager manager];

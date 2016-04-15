@@ -40,7 +40,7 @@
                               };
     
     [request sendRequestPostUrl:GET_CITY_ADDRESS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
-        HUDNormal(@"获取数据成功");
+//        HUDNormal(@"获取数据成功");
 
         
         NSArray *array = resultDic[@"data"];

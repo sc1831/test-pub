@@ -7,9 +7,13 @@
 //
 
 #import "OrderDetailHeaderView.h"
-
+#import "Common.h"
 @implementation OrderDetailHeaderView
-
+-(void)configWithOrderModel:(OrderModel *)model{
+    ;
+    self.storeNameAndPhoneLab.text = STR_A_B_C(model.store_name, @"    ", model.mob_phone);
+    self.area_info.text = model.area_info ;
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

@@ -74,7 +74,7 @@
             HUDNormal(@"暂时无数据");
             return;
         }
-        HUDNormal(@"获取数据成功");
+//        HUDNormal(@"获取数据成功");
         [_myFooterTableView reloadData];
     } setFailBlock:^(NSString *errorStr) {
         NSLog(@"");

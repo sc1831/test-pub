@@ -76,7 +76,7 @@
             _label.hidden = NO;
             return;
         }
-        HUDNormal(@"获取数据成功");
+//        HUDNormal(@"获取数据成功");
         [_collectTableView reloadData];
     } setFailBlock:^(NSString *errorStr) {
         NSLog(@"");

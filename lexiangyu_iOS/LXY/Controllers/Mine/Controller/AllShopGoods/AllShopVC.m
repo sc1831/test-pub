@@ -53,7 +53,7 @@
             HUDNormal(@"获取数据失败，请稍后再试");
             return ;
         }
-        HUDNormal(@"获取数据成功");
+//        HUDNormal(@"获取数据成功");
         
         NSDictionary *dict = resultDic[@"data"];
         _page = [dict[@"page"] intValue];
@@ -255,8 +255,8 @@
 - (void)cellClick:(UIControl *)control {
     NSLog(@"control.tag : %ld",control.tag);
     OrderDetailsVC *detailVC = [[OrderDetailsVC alloc]init];
-    detailVC.orderModel =  _dataArray[control.tag];
-    detailVC.goodsArray = _subMutArray[control.tag];
+    AllGoodsOrders *model = _dataArray[control.tag];
+    detailVC.order_id = model.order_id ;
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
@@ -271,8 +271,8 @@
     
     
     OrderDetailsVC *detailVC = [[OrderDetailsVC alloc]init];
-    detailVC.orderModel =  _dataArray[indexPath.section];
-    detailVC.goodsArray = _subMutArray[indexPath.section];
+    AllGoodsOrders *model = _dataArray[indexPath.section];
+    detailVC.order_id = model.order_id ;
     [self.navigationController pushViewController:detailVC animated:YES];
     
 }

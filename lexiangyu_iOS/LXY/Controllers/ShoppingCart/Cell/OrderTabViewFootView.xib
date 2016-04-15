@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="OrderTabViewFootView">
             <rect key="frame" x="0.0" y="0.0" width="375" height="178"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -83,6 +83,12 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="addTimeLab" destination="sfS-bH-21g" id="kSe-Iw-mbk"/>
+                <outlet property="orderLab" destination="Cog-m3-9bb" id="Xhi-p0-RTp"/>
+                <outlet property="order_amount2Lab" destination="e3B-H6-dRc" id="ww4-3A-t59"/>
+                <outlet property="order_amountLab" destination="hFW-zl-sPH" id="6yo-2a-8aC"/>
+            </connections>
             <point key="canvasLocation" x="224.5" y="-54"/>
         </view>
     </objects>

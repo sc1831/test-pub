@@ -14,7 +14,7 @@
     [super awakeFromNib];
     // Initialization code
 }
-- (void)configViewGoodsModel:(AllGoodsOrders *)model{
+- (void)configViewGoodsModel:(GoodsModel *)model{
     [self.goodsIcon sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@""]];
     self.goodsName.text = model.goods_name ;
     self.goodsNum.text = STR_A_B(@"数量", model.goods_num);
