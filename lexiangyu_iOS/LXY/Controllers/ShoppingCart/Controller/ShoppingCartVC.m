@@ -15,7 +15,7 @@
 #import "ShoppingCartModel.h"
 #import "SaveInfo.h"
 #import "ShopingDetailsVC.h"
-
+#import "UITableView+MJRefresh.h"
 
 @implementation ShoppingCartSelectModel
 
@@ -90,7 +90,8 @@
 @implementation ShoppingCartVC
 -(void)viewWillAppear:(BOOL)animated{
 
-    [self sendRequestData];
+    [self addMjHeaderAndFooter];
+    [self.shoppingTableView headerBeginRefresh];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -114,10 +115,27 @@
 //    self.tabBarItemOfMessage =[self.tabBarController.tabBar.items objectAtIndex:2];
 //    self.tabBarItemOfMessage.badgeValue = @"99+";
     
+//    [self addMjHeaderAndFooter];
+//    [self.shoppingTableView headerBeginRefresh];
+    
+    [GHControl setExtraCellLineHidden:_shoppingTableView];
+    
+}
+#pragma mark MJRefresh
+- (void)addMjHeaderAndFooter{
+    [self.shoppingTableView headerAddMJRefresh:^{//添加顶部刷新功能
+        [self.shoppingTableView footerResetNoMoreData];//重置无数据状态
+        
+        [self sendRequestData];
+    }];
+    
+    
 }
 -(void)sendRequestData{
     [_sectionStateArray removeAllObjects];
     [_dataArray removeAllObjects];
+    [_goodsSpecArray removeLastObject];
+    
     RequestCenter *request = [RequestCenter shareRequestCenter];
 
     NSDictionary *dict = @{@"buyer_id":[[SaveInfo shareSaveInfo] user_id]};
@@ -126,11 +144,11 @@
     
     [request sendRequestPostUrl:string andDic:dict setSuccessBlock:^(NSDictionary *resultDic) {
         
+        [self.shoppingTableView headerEndRefresh];
         if ([resultDic[@"code"] intValue]==0) {
             HUDNormal(@"数据请求失败，请稍后再试");
             return ;
         }
-        HUDNormal(@"数据请求成功");
         
 
         NSDictionary *data = resultDic[@"data"];

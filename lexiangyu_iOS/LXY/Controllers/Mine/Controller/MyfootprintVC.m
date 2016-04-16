@@ -60,12 +60,7 @@
                 HUDNormal(@"获取数据失败，请稍后再试");
                 return ;
             }
-            if (resultDic[@"code"]==0) {
-                HUDNormal(@"获取数据失败，请稍后再试");
-                return ;
-            }
-            
-            
+                        
             NSDictionary *dict = resultDic[@"data"];
             _page = [dict[@"page"] intValue];
             NSArray *array = dict[@"list"];
