@@ -26,8 +26,6 @@
 -(void)dataWithCell:(ShoppingCartModel *)model andAllGoods:(int)allGoods{
 
     _contentLabel.text = model.goods_name;
-    _shopColor.text = [NSString stringWithFormat:@"颜色：%@",model.sp_value_name];
-    _shopSize.text= [NSString stringWithFormat:@"尺码：%@",model.sp_name];
     _shopMoney.text = [NSString stringWithFormat:@"￥%@",model.goods_price];
     _numberTextField.text = model.goods_num;
     [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@"火影1"]];
@@ -73,8 +71,6 @@
 -(void)dataWithCell:(ShoppingCartModel *)model sectionIndexValue:(int)indexValue andAllGoods:(int)allGoods{
 
     _contentLabel.text = model.goods_name;
-    _shopColor.text = [NSString stringWithFormat:@"颜色：%@",model.sp_value_name];
-    _shopSize.text= [NSString stringWithFormat:@"尺码：%@",model.sp_name];
     _shopMoney.text = [NSString stringWithFormat:@"￥%@",model.goods_price];
     _numberTextField.text = model.goods_num;
     [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@"火影1"]];

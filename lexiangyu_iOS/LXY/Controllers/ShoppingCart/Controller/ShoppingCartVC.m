@@ -23,6 +23,9 @@
 @end
 
 @interface ShoppingCartVC ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
+//全选按钮
+@property (weak, nonatomic) IBOutlet UIButton *allShopButton;
+//合计多少钱
 @property (weak, nonatomic) IBOutlet UILabel *allMoneyPay;
 //全部结算底部view
 @property (weak, nonatomic) IBOutlet UIView *AllView;
@@ -68,6 +71,12 @@
 @property (nonatomic ) BOOL isOnly;
 @property (nonatomic ,strong)NSMutableArray *mutDataArray;
 
+
+
+//存储最内层goods_spec对应的数组
+@property (nonatomic ,strong)NSMutableArray *goodsSpecArray;
+
+
 //删除全部
 - (IBAction)allDeleteClick:(id)sender;
 //删除
@@ -93,6 +102,7 @@
     _allGoods = 0;
     _shopNum = 0;
     _sectionStateArray = [NSMutableArray array];
+    _goodsSpecArray = [NSMutableArray array];
     
     [self createTableView];
 
@@ -101,12 +111,8 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:_rightNarBtn];
     [self.view bringSubviewToFront:_AllView];
     _bottmView.hidden = YES;
-   
-    self.tabBarItemOfMessage =[self.tabBarController.tabBar.items objectAtIndex:2];
-    self.tabBarItemOfMessage.badgeValue = @"99+";
-
-//    [self sendRequestData];
-
+//    self.tabBarItemOfMessage =[self.tabBarController.tabBar.items objectAtIndex:2];
+//    self.tabBarItemOfMessage.badgeValue = @"99+";
     
 }
 -(void)sendRequestData{
@@ -133,6 +139,7 @@
         
         NSArray *keyArray =[cartDic allKeys];
         if (keyArray.count==0) {
+            [_shoppingTableView reloadData];
             HUDNormal(@"暂时还没有购物");
             return;
         }
@@ -149,23 +156,30 @@
                 ShoppingCartModel *model = [ShoppingCartModel modelWithDic:dic];
                 [smallArray addObject:model];
                 
+                NSMutableArray *subGoodsSpecArray = [NSMutableArray array];
+                NSArray *subGoodsSpec = dic[@"goods_spec"];
+                for (NSDictionary *subGoodsSpecDict in subGoodsSpec) {
+                    ShoppingCartModel *model = [ShoppingCartModel modelWithDic:subGoodsSpecDict];
+                    [subGoodsSpecArray addObject:model];
+                }
+                if (subGoodsSpec.count== 0) {
+                    [_goodsSpecArray addObject:subGoodsSpec];
+                }
+                [_goodsSpecArray addObject:subGoodsSpecArray];
+                
             }
             [_dataArray addObject:smallArray];
             
             [_sectionStateArray addObject:@"1"];
             
-           
-            
         }
 
-        
+        [self updateAllButtonState];
+        _allMoneyPay.text = [NSString stringWithFormat:@"合计：%.2lf",0.00];
         [_shoppingTableView reloadData];
     } setFailBlock:^(NSString *errorStr) {
         
     }];
-    
-    
-
 }
 -(void)rightNavBtnClick{
     NSLog(@"编辑点击");
@@ -173,13 +187,42 @@
         [_rightNarBtn setTitle:@"完成" forState:UIControlStateNormal];
         _bottmView.hidden = NO;
         _AllView.hidden = YES;
+        
+        [self updateAllButtonState];
+        
     }else{
     
         [_rightNarBtn setTitle:@"编辑" forState:UIControlStateNormal];
         _bottmView.hidden = YES;
         _AllView.hidden = NO;
+        [self updateAllButtonState];
     }
     
+}
+-(void)updateAllButtonState{
+
+    BOOL allShopClick=YES;
+    for (int i = 0 ; i<_sectionStateArray.count; i++) {
+        if ([_sectionStateArray[i] isEqualToString:@"1"]) {
+            allShopClick = NO;
+            _allPayClick = NO;
+            [_allShopButton setTitle:@"全选" forState:UIControlStateNormal];
+            _bootmAllImageView.image = [UIImage imageNamed:@"未选中"];
+            
+            _allClick = NO;
+            [_allDeleteButton setTitle:@"全选" forState:UIControlStateNormal];
+            _bootmDeleteImageView.image = [UIImage imageNamed:@"未选中"];
+        }
+    }
+    if (allShopClick) {
+        _allPayClick = YES;
+        [_allShopButton setTitle:@"取消全选" forState:UIControlStateNormal];
+        _bootmAllImageView.image = [UIImage imageNamed:@"选中"];
+        _allClick = YES;
+        [_allDeleteButton setTitle:@"取消全选" forState:UIControlStateNormal];
+        _bootmDeleteImageView.image = [UIImage imageNamed:@"选中"];
+        
+    }
 }
 -(void)createTableView{
     
@@ -230,6 +273,21 @@
     int indexValue = [_sectionStateArray[indexPath.section] intValue];
     [cell dataWithCell:model sectionIndexValue:indexValue andAllGoods:_allGoods];
     
+    if ([_goodsSpecArray[indexPath.section] count]!=0) {
+        
+    
+        NSMutableArray *contectArray = [NSMutableArray array];
+        for (int i = 0;  i< [_goodsSpecArray[indexPath.section] count]; i++) {
+            ShoppingCartModel *goodsSpecModel = _goodsSpecArray[indexPath.section][i];
+            
+            [contectArray addObject:[NSString stringWithFormat:@"%@:%@          ",goodsSpecModel.sp_name,goodsSpecModel.sp_value_name]];
+          
+        }
+        cell.shopDetailContent.text = [contectArray componentsJoinedByString:@""];
+        
+    }
+    
+    
     [cell.rightButton addTarget:self action:@selector(rightImageButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     cell.rightButton.tag = indexPath.section;
     
@@ -251,8 +309,6 @@
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    
-
     [self createHeadView];
     NSString *str = nil;
     str = @"选中";
@@ -269,11 +325,7 @@
         if ([_sectionStateArray[section] intValue]==2) {
             str = @"选中";
         }
-        
-        
     }
-    
-    
     UIButton *rightButton = [GHControl createButtonWithFrame:CGRectMake(8, 14,23, 23) ImageName:str Target:self Action:@selector(rightBtnClick:) Title:nil];
         rightButton.tag = section;
     [_headView addSubview:rightButton];
@@ -442,6 +494,7 @@
     [self.shoppingTableView reloadData];
     //显示总价
     [self allMoneyPayStr];
+    
 }
 
 -(UIImage *)buttonBackgroundImage:(UIButton *)button{
@@ -520,12 +573,12 @@
     }
     _allMoneyPay.text = [NSString stringWithFormat:@"合计：%.2lf元",_goodsMucth];
     
+    //刷新全选按钮状态
+    [self updateAllButtonState];
+    
 }
 //去结算
 - (IBAction)settlementButton:(id)sender {
-    NSLog(@"去结算");
-
-    
     _cartIds = @"";
     for (int i = 0 ; i< _sectionStateArray.count; i++) {
         for (int j = 0 ; j < [_dataArray[i] count]; j++) {
@@ -533,15 +586,9 @@
             if (model.isSelected) {
                 NSString *str = [NSString stringWithFormat:@"%@,",model.cart_id];
                 _cartIds = [NSString stringWithFormat:@"%@%@",_cartIds,str];
-
-                
-                
             }
         }
-        
     }
-
-
     ConfirmorderVC *confirmVC = [[ConfirmorderVC alloc]init];
     confirmVC.orderIds = @"";
     confirmVC.cartIds = _cartIds;
@@ -583,14 +630,13 @@
         [button setTitle:@"全选" forState:UIControlStateNormal];
         _bootmDeleteImageView.image = [UIImage imageNamed:@"未选中"];
     }
+    [self allMoneyPayStr];
     [self.shoppingTableView reloadData];
+    
 }
 //删除全部
 - (IBAction)deleteClick:(id)sender {
-   
-    
     _mutDataArray = [NSMutableArray array];
-
     _cartIds = @"";
     for (int i = 0 ; i< _sectionStateArray.count; i++) {
         for (int j = 0 ; j < [_dataArray[i] count]; j++) {
@@ -599,20 +645,13 @@
                        NSString *str = [NSString stringWithFormat:@"%@,",model.cart_id];
                         _cartIds = [NSString stringWithFormat:@"%@%@",_cartIds,str];
                         [_mutDataArray addObject:str];
-
-                    
                 }
             }
 
     }
     
-    
         [self deleteShopDoods:nil cartIds:_cartIds andIsAllDelete:YES];
 
-    
-
- 
-   
 }
 #pragma  mark------删除购物车物品
 -(void)deleteShopDoods:(NSIndexPath *)indexPath cartIds:(NSString *)cartIds andIsAllDelete:(BOOL)isAllDelete{

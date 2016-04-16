@@ -12,10 +12,9 @@
 @interface ShoppingCartCell : UITableViewCell
 //商品名称
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
-//商品颜色
-@property (weak, nonatomic) IBOutlet UILabel *shopColor;
-//商品尺码
-@property (weak, nonatomic) IBOutlet UILabel *shopSize;
+//商品
+@property (weak, nonatomic) IBOutlet UILabel *shopDetailContent;
+
 //商品价位
 @property (weak, nonatomic) IBOutlet UILabel *shopMoney;
 //按钮

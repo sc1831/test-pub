@@ -10,6 +10,7 @@
                 <outlet property="AllView" destination="xAx-l6-bty" id="cH2-Ze-X7I"/>
                 <outlet property="allDeleteButton" destination="hWD-rr-Zx4" id="BtK-XW-2dx"/>
                 <outlet property="allMoneyPay" destination="g2i-p1-YkI" id="x1t-In-v9a"/>
+                <outlet property="allShopButton" destination="LzJ-ws-BSu" id="KxG-Tx-Mma"/>
                 <outlet property="bootmAllImageView" destination="6aj-de-6kd" id="NRc-jb-fuG"/>
                 <outlet property="bootmDeleteImageView" destination="M1F-FK-Ha4" id="d2d-fE-6US"/>
                 <outlet property="bottmView" destination="dIH-fI-Lgs" id="YUw-fp-6Uc"/>

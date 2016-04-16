@@ -63,9 +63,8 @@
 @property (nonatomic ,strong)NSString *shoppingName;
 
 @property (nonatomic ,strong)NSMutableArray *mutArray;
+//存储最外层数据
 @property (nonatomic ,strong)NSMutableArray *dataArray;
-
-
 
 @property (weak, nonatomic) IBOutlet UIControl *subMitBtn;
 
@@ -82,7 +81,8 @@
     _dataArray = [NSMutableArray array];
     _sectionStateArray = [NSMutableArray array];
     _mutArray = [NSMutableArray array];
-    
+
+
     [self createTableView];
     [self sendRequestData];
     
@@ -145,6 +145,8 @@
             for (NSDictionary *goodsDic in goodsArray) {
                 AllGoodsOrders *model = [AllGoodsOrders modelWithDic:goodsDic];
                 [mutGoodsArray addObject:model];
+                
+               
             }
             [_sectionStateArray addObject:mutGoodsArray];
         }
@@ -232,6 +234,9 @@
         cell.shopNum.text = [NSString stringWithFormat:@"X%@",model.goods_num];
         cell.shopMoney.text = [NSString stringWithFormat:@"￥%@",model.goods_price];
        [cell.shopImage sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@"火影1"]];
+    
+    
+
     
     
         

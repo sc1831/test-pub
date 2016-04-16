@@ -46,7 +46,8 @@
                               };
     
     [request sendRequestPostUrl:MY_EDIT_PWD andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
-        [self gonTOLogin];
+//        [self gonTOLogin];
+        [self.navigationController popToRootViewControllerAnimated:YES];
         
     } setFailBlock:^(NSString *errorStr) {
         NSLog(@"");
