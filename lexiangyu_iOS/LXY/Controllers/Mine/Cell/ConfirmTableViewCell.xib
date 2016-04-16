@@ -30,7 +30,7 @@
                                     <constraint firstAttribute="height" constant="30" id="oc6-GH-QCP"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBQ-b2-VaX">
@@ -39,7 +39,7 @@
                                     <constraint firstAttribute="width" constant="102" id="jAZ-yw-L7d"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥130.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdA-14-pzf">
@@ -51,11 +51,21 @@
                                 <color key="textColor" red="0.97254901960784312" green="0.2196078431372549" blue="0.050980392156862744" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Enx-pY-IWW">
+                                <rect key="frame" x="76" y="28" width="236" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="d00-GG-nwR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.38823529411764707" green="0.39215686274509803" blue="0.396078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.90980392156862744" green="0.92941176470588238" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="JBQ-b2-VaX" secondAttribute="trailing" constant="8" id="17a-zX-HH5"/>
                             <constraint firstItem="f5a-aS-E3g" firstAttribute="top" secondItem="8Cz-9t-a1i" secondAttribute="top" constant="7" id="HxU-ZL-AsI"/>
+                            <constraint firstItem="Enx-pY-IWW" firstAttribute="leading" secondItem="8EN-b1-Ff5" secondAttribute="trailing" constant="8" id="Jjq-KL-g0b"/>
                             <constraint firstAttribute="bottom" secondItem="JBQ-b2-VaX" secondAttribute="bottom" constant="2.5" id="LHU-kP-fMa"/>
                             <constraint firstAttribute="bottom" secondItem="8EN-b1-Ff5" secondAttribute="bottom" constant="8" id="RXr-Ov-2a6"/>
                             <constraint firstItem="WdA-14-pzf" firstAttribute="leading" secondItem="8EN-b1-Ff5" secondAttribute="trailing" constant="8" id="Sp2-D3-DyS"/>
@@ -63,6 +73,8 @@
                             <constraint firstItem="JBQ-b2-VaX" firstAttribute="top" secondItem="8Cz-9t-a1i" secondAttribute="top" constant="43" id="Vy0-yB-5qq"/>
                             <constraint firstAttribute="trailing" secondItem="WdA-14-pzf" secondAttribute="trailing" constant="78" id="baf-dO-iyb"/>
                             <constraint firstItem="8EN-b1-Ff5" firstAttribute="top" secondItem="8Cz-9t-a1i" secondAttribute="top" constant="8" id="eJ2-bJ-Qd5"/>
+                            <constraint firstItem="Enx-pY-IWW" firstAttribute="top" secondItem="8Cz-9t-a1i" secondAttribute="top" constant="28" id="eUI-It-v1a"/>
+                            <constraint firstAttribute="trailing" secondItem="Enx-pY-IWW" secondAttribute="trailing" constant="8" id="gi7-p6-lGE"/>
                             <constraint firstItem="f5a-aS-E3g" firstAttribute="leading" secondItem="8EN-b1-Ff5" secondAttribute="trailing" constant="8" id="hAc-GM-0iG"/>
                             <constraint firstItem="8EN-b1-Ff5" firstAttribute="leading" secondItem="8Cz-9t-a1i" secondAttribute="leading" constant="8" id="qws-Rn-aVx"/>
                             <constraint firstAttribute="trailing" secondItem="f5a-aS-E3g" secondAttribute="trailing" constant="14" id="sOq-7o-y7P"/>
@@ -78,6 +90,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="shopImage" destination="8EN-b1-Ff5" id="fDh-9c-r1t"/>
+                <outlet property="shopKilogramp" destination="Enx-pY-IWW" id="TuV-eM-HbA"/>
                 <outlet property="shopMoney" destination="WdA-14-pzf" id="l0q-rt-YaG"/>
                 <outlet property="shopName" destination="f5a-aS-E3g" id="9jp-vs-sJc"/>
                 <outlet property="shopNum" destination="JBQ-b2-VaX" id="exT-Gb-rTu"/>

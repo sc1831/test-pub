@@ -66,6 +66,8 @@
 //存储最外层数据
 @property (nonatomic ,strong)NSMutableArray *dataArray;
 
+@property (nonatomic ,strong)NSMutableArray *goodsSpecArray;
+
 @property (weak, nonatomic) IBOutlet UIControl *subMitBtn;
 
 - (IBAction)subMitClick:(id)sender;
@@ -81,7 +83,7 @@
     _dataArray = [NSMutableArray array];
     _sectionStateArray = [NSMutableArray array];
     _mutArray = [NSMutableArray array];
-
+    _goodsSpecArray = [NSMutableArray array];
 
     [self createTableView];
     [self sendRequestData];
@@ -145,6 +147,19 @@
             for (NSDictionary *goodsDic in goodsArray) {
                 AllGoodsOrders *model = [AllGoodsOrders modelWithDic:goodsDic];
                 [mutGoodsArray addObject:model];
+                
+                
+                NSMutableArray *subGoodsSpecArray = [NSMutableArray array];
+                NSArray *subGoodsSpec = goodsDic[@"goods_spec"];
+                for (NSDictionary *subGoodsSpecDict in subGoodsSpec) {
+                    AllGoodsOrders *model = [AllGoodsOrders modelWithDic:subGoodsSpecDict];
+                    [subGoodsSpecArray addObject:model];
+                }
+                if (subGoodsSpec.count== 0) {
+                    [_goodsSpecArray addObject:subGoodsSpec];
+                }
+                [_goodsSpecArray addObject:subGoodsSpecArray];
+                
                 
                
             }
@@ -235,7 +250,19 @@
         cell.shopMoney.text = [NSString stringWithFormat:@"￥%@",model.goods_price];
        [cell.shopImage sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@"火影1"]];
     
-    
+    if ([_goodsSpecArray[indexPath.section] count]!=0) {
+        
+        
+        NSMutableArray *contectArray = [NSMutableArray array];
+        for (int i = 0;  i< [_goodsSpecArray[indexPath.section] count]; i++) {
+            AllGoodsOrders *goodsSpecModel = _goodsSpecArray[indexPath.section][i];
+            
+            [contectArray addObject:[NSString stringWithFormat:@"%@:%@          ",goodsSpecModel.sp_name,goodsSpecModel.sp_value_name]];
+            
+        }
+        cell.shopKilogramp.text = [contectArray componentsJoinedByString:@""];
+        
+    }
 
     
     

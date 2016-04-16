@@ -27,6 +27,9 @@
 @property (nonatomic ,strong)NSString *goods_image;
 @property (nonatomic ,strong)NSString *goods_price;
 
+@property (nonatomic ,strong)NSString *sp_name;
+@property (nonatomic ,strong)NSString *sp_value_name;
+
 @property (nonatomic ,strong)NSString *goods_num_total;//商品数量
 @property (nonatomic ,strong)NSString *goods_price_total;//商品价格
 +(AllGoodsOrders *)modelWithDic:(NSDictionary *)dic;
