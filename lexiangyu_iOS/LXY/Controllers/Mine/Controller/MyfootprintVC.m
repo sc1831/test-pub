@@ -134,6 +134,8 @@
 }
 -(void)isHiddenEmptyButton{
 
+    
+
     if (_dataArray.count>0) {
         UIButton *rightNarBtn = [GHControl createButtonWithFrame:CGRectMake(0, 0,50,30) ImageName:nil Target:self Action:@selector(rightNavBtnClick) Title:@"清空"];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:rightNarBtn];

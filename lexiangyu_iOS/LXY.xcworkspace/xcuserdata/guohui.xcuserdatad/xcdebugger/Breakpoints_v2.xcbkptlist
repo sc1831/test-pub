@@ -212,22 +212,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
-            timestampString = "482317534.374036"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
-            landmarkName = "-sendRequestData"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
             timestampString = "482327676.742332"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -260,11 +244,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LXY/Controllers/Mine/Controller/ConfirmorderVC.m"
-            timestampString = "482377455.166284"
+            timestampString = "482403437.270653"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "-sendRequestData"
             landmarkType = "5">
          </BreakpointContent>
@@ -276,11 +260,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LXY/Controllers/Mine/Controller/ConfirmorderVC.m"
-            timestampString = "482377455.166284"
+            timestampString = "482403437.270653"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
             landmarkName = "-sendRequestData"
             landmarkType = "5">
          </BreakpointContent>
@@ -292,11 +276,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LXY/Controllers/Mine/Controller/ConfirmorderVC.m"
-            timestampString = "482377455.166284"
+            timestampString = "482403437.270653"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "-sendRequestData"
             landmarkType = "5">
          </BreakpointContent>
@@ -324,11 +308,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LXY/Controllers/Mine/Controller/ConfirmorderVC.m"
-            timestampString = "482382335.308198"
+            timestampString = "482403526.21039"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "315"
-            endingLineNumber = "315"
+            startingLineNumber = "338"
+            endingLineNumber = "338"
             landmarkName = "-subMitClick:"
             landmarkType = "5">
          </BreakpointContent>
@@ -340,11 +324,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LXY/Controllers/Mine/Controller/ConfirmorderVC.m"
-            timestampString = "482382366.807593"
+            timestampString = "482403526.21039"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "319"
-            endingLineNumber = "319"
+            startingLineNumber = "342"
+            endingLineNumber = "342"
             landmarkName = "-subMitClick:"
             landmarkType = "5">
          </BreakpointContent>
@@ -394,6 +378,54 @@
             startingLineNumber = "130"
             endingLineNumber = "130"
             landmarkName = "-addMjHeaderAndFooter"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LXY/Controllers/Mine/Controller/ConfirmorderVC.m"
+            timestampString = "482403437.270653"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "-sendRequestData"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LXY/Controllers/Mine/Controller/ReceiveAddressVC.m"
+            timestampString = "482403437.270653"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
+            landmarkName = "-sendRequestData"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LXY/Controllers/Mine/Controller/MineVC.m"
+            timestampString = "482407007.397582"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "-sendRequestData"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

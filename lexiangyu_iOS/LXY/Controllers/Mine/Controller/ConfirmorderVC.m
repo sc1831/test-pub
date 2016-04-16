@@ -21,6 +21,7 @@
 #import "ShoppingCartModel.h"
 #import "SaveInfo.h"
 
+#import "ReceiveAddressVC.h"
 
 
 //微信
@@ -56,6 +57,10 @@
 //地址
 @property (nonatomic ,strong)NSString *addressStr;
 @property (nonatomic ,strong)NSString *addressId;
+//手机号
+@property (nonatomic ,strong)NSString *phoneNum;
+//商品店名称
+@property (nonatomic ,strong)NSString *shoppingName;
 
 @property (nonatomic ,strong)NSMutableArray *mutArray;
 @property (nonatomic ,strong)NSMutableArray *dataArray;
@@ -68,7 +73,9 @@
 @end
 
 @implementation ConfirmorderVC
-
+{
+    HeadTableView *headTabView;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"确认订单" ;
@@ -79,8 +86,17 @@
     [self createTableView];
     [self sendRequestData];
     
+    //给位置城市赋值
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveAddressCityNameAndPhoneNum:) name:@"receiveAddressCityNameAndPhoneNum" object:nil];
     
     
+}
+-(void)receiveAddressCityNameAndPhoneNum:(NSNotification *)notifition{
+
+    NSDictionary *dict = notifition.object;
+    
+    headTabView.phoneNumLabel.text = dict[@"receiveAddressCityNameAndPhoneNum"];
+    headTabView.addressLabel.text = dict[@"phoneNum"];
     
 }
 -(void)sendRequestData{
@@ -118,7 +134,11 @@
         
         NSDictionary *dic = resultDic[@"data"];
         _addressStr = dic[@"address"][@"address"];
+        _phoneNum = dic[@"address"][@"tel_phone"];
+        _shoppingName = dic[@"address"][@"true_name"];
         
+        headTabView.phoneNumLabel.text = [NSString stringWithFormat:@"%@%@",_shoppingName,_phoneNum];
+        headTabView.addressLabel.text = _addressStr;
         NSArray *array = dic[@"cart"];
         for (NSDictionary *dic in array) {
             AllGoodsOrders *model = [AllGoodsOrders modelWithDic:dic];
@@ -157,12 +177,14 @@
     [self.view addSubview:_confirmTableView];
     
     //添加表头
-    HeadTableView *headTabView =
+    headTabView =
     [[[NSBundle mainBundle] loadNibNamed:@"HeadTableView"
                                    owner:self
                                  options:nil] firstObject];
     _confirmTableView.tableHeaderView = headTabView;
-    
+    [headTabView.changeAddressBtn setBackgroundImage:[UIImage imageNamed:@"编辑_点击"] forState:UIControlStateHighlighted];
+     [headTabView.changeAddressBtn setBackgroundImage:[UIImage imageNamed:@"编辑_默认"] forState:UIControlStateNormal];
+    [headTabView.changeAddressBtn addTarget:self  action:@selector(changeAddressBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
 
     //添加表尾
@@ -174,12 +196,7 @@
   
     
     [footerTabView.payType addTarget:self action:@selector(paryMoneyClick) forControlEvents:UIControlEventTouchUpInside];
-    
-   
-    
-    
-    headTabView.phoneNumLabel.text = @"1234567890-098765";
-    headTabView.addressLabel.text = _addressStr;
+
     
 }
 
@@ -285,8 +302,14 @@
     
     return _headView;
 }
-
-
+//修改收货地址
+-(void)changeAddressBtnClick:(UIButton *)btn{
+    
+    
+    ReceiveAddressVC *receiveVC = [[ReceiveAddressVC alloc]init];
+    receiveVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:receiveVC animated:YES];
+}
 
 
 

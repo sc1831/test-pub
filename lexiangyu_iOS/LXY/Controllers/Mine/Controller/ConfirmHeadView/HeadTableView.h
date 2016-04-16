@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface HeadTableView : UIView
+
+//修改收货地址
+@property (weak, nonatomic) IBOutlet UIButton *changeAddressBtn;
 //手机号
 @property (weak, nonatomic) IBOutlet UILabel *phoneNumLabel;
 //收货地址

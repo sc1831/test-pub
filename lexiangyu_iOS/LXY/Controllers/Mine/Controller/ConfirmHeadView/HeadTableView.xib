@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -46,10 +46,19 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ue-js-fY4">
+                    <rect key="frame" x="345" y="17" width="22" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="22" id="9c9-Wf-mn1"/>
+                        <constraint firstAttribute="height" constant="20" id="buD-2h-TyR"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="编辑_默认.png"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="VDe-HV-6U9" firstAttribute="leading" secondItem="QPE-VC-dbp" secondAttribute="leading" constant="4" id="37k-ME-3X0"/>
+                <constraint firstItem="7ue-js-fY4" firstAttribute="top" secondItem="QPE-VC-dbp" secondAttribute="top" constant="17" id="83E-zw-0Kk"/>
                 <constraint firstItem="VDe-HV-6U9" firstAttribute="top" secondItem="QPE-VC-dbp" secondAttribute="top" constant="12" id="EPK-A7-anj"/>
                 <constraint firstItem="Hrt-fJ-ExV" firstAttribute="leading" secondItem="ShQ-WG-UV5" secondAttribute="trailing" constant="13" id="FjF-ma-vjE"/>
                 <constraint firstAttribute="bottom" secondItem="Hrt-fJ-ExV" secondAttribute="bottom" constant="10" id="H3o-DP-l9M"/>
@@ -57,6 +66,7 @@
                 <constraint firstItem="15a-Bh-qoV" firstAttribute="leading" secondItem="QPE-VC-dbp" secondAttribute="leading" id="Pq6-8z-u2Y"/>
                 <constraint firstItem="Hrt-fJ-ExV" firstAttribute="top" secondItem="UkB-7D-zWc" secondAttribute="bottom" constant="4" id="T9p-cr-6kW"/>
                 <constraint firstItem="ShQ-WG-UV5" firstAttribute="leading" secondItem="QPE-VC-dbp" secondAttribute="leading" constant="4" id="TuU-Ax-PjL"/>
+                <constraint firstAttribute="trailing" secondItem="7ue-js-fY4" secondAttribute="trailing" constant="8" id="Z9P-h0-Dbd"/>
                 <constraint firstItem="UkB-7D-zWc" firstAttribute="leading" secondItem="VDe-HV-6U9" secondAttribute="trailing" constant="13" id="ZzJ-Ng-v8K"/>
                 <constraint firstAttribute="trailing" secondItem="Hrt-fJ-ExV" secondAttribute="trailing" constant="21" id="ed3-fv-YcK"/>
                 <constraint firstItem="15a-Bh-qoV" firstAttribute="top" secondItem="Hrt-fJ-ExV" secondAttribute="bottom" constant="6" id="ggj-A9-YKd"/>
@@ -71,14 +81,16 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="addressLabel" destination="Hrt-fJ-ExV" id="Eyk-TW-xKc"/>
+                <outlet property="changeAddressBtn" destination="7ue-js-fY4" id="OiA-y3-CAd"/>
                 <outlet property="phoneNumLabel" destination="UkB-7D-zWc" id="R7n-ms-vEc"/>
             </connections>
-            <point key="canvasLocation" x="67" y="-30.5"/>
+            <point key="canvasLocation" x="66.5" y="-31"/>
         </view>
     </objects>
     <resources>
         <image name="位置.png" width="15" height="15"/>
         <image name="地址.png" width="15" height="15"/>
         <image name="地址装饰条.png" width="640" height="4"/>
+        <image name="编辑_默认.png" width="20" height="20"/>
     </resources>
 </document>

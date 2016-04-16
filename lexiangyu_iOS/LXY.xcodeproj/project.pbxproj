@@ -339,6 +339,10 @@
 		6EA414A71CBE2A6600A52BA5 /* FooterTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EA414A61CBE2A6600A52BA5 /* FooterTableView.xib */; };
 		6EA414AA1CBE49C900A52BA5 /* SectionFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA414A91CBE49C900A52BA5 /* SectionFooterView.m */; };
 		6EA414AC1CBE49DF00A52BA5 /* SectionFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EA414AB1CBE49DF00A52BA5 /* SectionFooterView.xib */; };
+		6EA414B01CC0E54B00A52BA5 /* DetailAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA414AE1CC0E54B00A52BA5 /* DetailAddressVC.m */; };
+		6EA414B11CC0E54B00A52BA5 /* DetailAddressVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EA414AF1CC0E54B00A52BA5 /* DetailAddressVC.xib */; };
+		6EA414B41CC0E9BD00A52BA5 /* DeatilAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA414B31CC0E9BD00A52BA5 /* DeatilAddressView.m */; };
+		6EA414B61CC0E9CF00A52BA5 /* DeatilAddressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EA414B51CC0E9CF00A52BA5 /* DeatilAddressView.xib */; };
 		6EA503DD1CA232FC00FA19BA /* HomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA503DB1CA232FC00FA19BA /* HomeCollectionViewCell.m */; };
 		6EA503DE1CA232FC00FA19BA /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EA503DC1CA232FC00FA19BA /* HomeCollectionViewCell.xib */; };
 		6EA503E21CA248A300FA19BA /* HomeClassifyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA503E01CA248A300FA19BA /* HomeClassifyVC.m */; };
@@ -899,6 +903,12 @@
 		6EA414A81CBE49C900A52BA5 /* SectionFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionFooterView.h; sourceTree = "<group>"; };
 		6EA414A91CBE49C900A52BA5 /* SectionFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionFooterView.m; sourceTree = "<group>"; };
 		6EA414AB1CBE49DF00A52BA5 /* SectionFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionFooterView.xib; sourceTree = "<group>"; };
+		6EA414AD1CC0E54B00A52BA5 /* DetailAddressVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailAddressVC.h; path = ../../../../../../Documents/DetailAddressVC.h; sourceTree = "<group>"; };
+		6EA414AE1CC0E54B00A52BA5 /* DetailAddressVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailAddressVC.m; path = ../../../../../../Documents/DetailAddressVC.m; sourceTree = "<group>"; };
+		6EA414AF1CC0E54B00A52BA5 /* DetailAddressVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DetailAddressVC.xib; path = ../../../../../../Documents/DetailAddressVC.xib; sourceTree = "<group>"; };
+		6EA414B21CC0E9BD00A52BA5 /* DeatilAddressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeatilAddressView.h; path = ../../../../../../../Documents/DeatilAddressView.h; sourceTree = "<group>"; };
+		6EA414B31CC0E9BD00A52BA5 /* DeatilAddressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeatilAddressView.m; path = ../../../../../../../Documents/DeatilAddressView.m; sourceTree = "<group>"; };
+		6EA414B51CC0E9CF00A52BA5 /* DeatilAddressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DeatilAddressView.xib; path = ../../../../../../../Documents/DeatilAddressView.xib; sourceTree = "<group>"; };
 		6EA503DA1CA232FC00FA19BA /* HomeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCollectionViewCell.h; sourceTree = "<group>"; };
 		6EA503DB1CA232FC00FA19BA /* HomeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionViewCell.m; sourceTree = "<group>"; };
 		6EA503DC1CA232FC00FA19BA /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -1561,6 +1571,9 @@
 				6EA414A81CBE49C900A52BA5 /* SectionFooterView.h */,
 				6EA414A91CBE49C900A52BA5 /* SectionFooterView.m */,
 				6EA414AB1CBE49DF00A52BA5 /* SectionFooterView.xib */,
+				6EA414B21CC0E9BD00A52BA5 /* DeatilAddressView.h */,
+				6EA414B31CC0E9BD00A52BA5 /* DeatilAddressView.m */,
+				6EA414B51CC0E9CF00A52BA5 /* DeatilAddressView.xib */,
 			);
 			path = ConfirmHeadView;
 			sourceTree = "<group>";
@@ -2023,6 +2036,9 @@
 				6EC32C401C990D2200581FDD /* ReceiveAddressVC.h */,
 				6EC32C411C990D2200581FDD /* ReceiveAddressVC.m */,
 				6EC32C421C990D2200581FDD /* ReceiveAddressVC.xib */,
+				6EA414AD1CC0E54B00A52BA5 /* DetailAddressVC.h */,
+				6EA414AE1CC0E54B00A52BA5 /* DetailAddressVC.m */,
+				6EA414AF1CC0E54B00A52BA5 /* DetailAddressVC.xib */,
 				6EC32C4A1C99127000581FDD /* MyfootprintVC.h */,
 				6EC32C4B1C99127000581FDD /* MyfootprintVC.m */,
 				6EC32C4C1C99127000581FDD /* MyfootprintVC.xib */,
@@ -2837,6 +2853,7 @@
 				6E7964E41C983EF100EB43B9 /* CollectionCell.xib in Resources */,
 				6E1031871CB4FC570098D5BD /* 编辑_点击.png in Resources */,
 				6E46B7391CA4E2BC00D5F73B /* 1@2x.png in Resources */,
+				6EA414B61CC0E9CF00A52BA5 /* DeatilAddressView.xib in Resources */,
 				6ECCAFA91CA26A6C00483BC7 /* ShopingDetailsVC.xib in Resources */,
 				6E7964941C97E15200EB43B9 /* ResetPassword.xib in Resources */,
 				6E1032011CB4FCC30098D5BD /* 数量选择3.png in Resources */,
@@ -2947,6 +2964,7 @@
 				6E1031861CB4FC570098D5BD /* 编辑_默认.png in Resources */,
 				6E16E53F1CBF79AF007F96C1 /* OrderDetailHeaderView.xib in Resources */,
 				6EC44CF91CA4DACF00833567 /* 确定_默认@.png in Resources */,
+				6EA414B11CC0E54B00A52BA5 /* DetailAddressVC.xib in Resources */,
 				6E1031BA1CB4FC570098D5BD /* 添加（点击）@2x.png in Resources */,
 				6E1031C61CB4FC570098D5BD /* WhiteStars.png in Resources */,
 				6E1032161CB4FCC30098D5BD /* 添加购物成功@2x.png in Resources */,
@@ -3044,6 +3062,7 @@
 				6ECD26E81CBB906600ED2004 /* WXApiManager.m in Sources */,
 				6E04CE5F1C8FB5C900379F7D /* RequestCenter.m in Sources */,
 				6EF887CF1CBCF383001E6D1F /* AllShopViewController.m in Sources */,
+				6EA414B41CC0E9BD00A52BA5 /* DeatilAddressView.m in Sources */,
 				6EF2A1AF1CAA582400057FC0 /* ChooseCityVC.m in Sources */,
 				6ECB758A1C9BA602007FBE7D /* ClassifyCollectionCell.m in Sources */,
 				6E7964BB1C98210D00EB43B9 /* EvaluateVC.m in Sources */,
@@ -3068,6 +3087,7 @@
 				6EBA3BC91CBBC2F0002D6C69 /* base64.m in Sources */,
 				6EF887D21CBCF383001E6D1F /* WaitPayFirstViewController.m in Sources */,
 				6E1978811C8D737400594CB3 /* ViewController.m in Sources */,
+				6EA414B01CC0E54B00A52BA5 /* DetailAddressVC.m in Sources */,
 				6E7964A21C980D2100EB43B9 /* CompositeVC.m in Sources */,
 				6E7964A71C98108700EB43B9 /* CompositeCell.m in Sources */,
 				6EC4F62D1CB647B6004DBE59 /* NetManager.m in Sources */,

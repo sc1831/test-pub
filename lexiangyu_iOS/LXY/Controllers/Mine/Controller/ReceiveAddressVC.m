@@ -128,10 +128,16 @@
                               @"village":villageName,
                               @"true_name":_getCargoNameTextField.text,
                               @"tel_phone":_getCargoPhoneTextField.text,
-                              @"areainfo":_getCargoAddressTextField.text};
+                              @"areainfo":[NSString stringWithFormat:@"%@%@",_receiveAddressCityName.text,_getCargoAddressTextField.text]};
     
     [request sendRequestPostUrl:REGISTRE_STOR_NAME andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
         HUDNormal(@"修改收货地址成功");
+        if ([resultDic[@"code"] intValue]==0) {
+            HUDNormal(@"修改失败，请稍后再试");
+            return ;
+        }
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"receiveAddressCityNameAndPhoneNum" object:self userInfo:@{@"receiveAddressCityNameAndPhoneNum":[NSString stringWithFormat:@"%@%@",_receiveAddressCityName.text,_getCargoAddressTextField.text],@"phoneNum":_getCargoPhoneTextField.text}];
         
         [self.navigationController popViewControllerAnimated:YES];
     } setFailBlock:^(NSString *errorStr) {

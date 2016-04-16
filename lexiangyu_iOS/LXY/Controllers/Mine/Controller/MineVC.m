@@ -16,7 +16,7 @@
 #import "WaitSendVC.h"
 #import "WaitGetVC.h"
 #import "WaitPayFirstViewController.h"
-#import "ReceiveAddressVC.h"
+#import "DetailAddressVC.h"
 #import "AllShopViewController.h"
 #import "RequestCenter.h"
 #import "SaveInfo.h"
@@ -151,7 +151,7 @@
 //管理账户收货地址
 - (IBAction)ManagementAccountClick:(id)sender {
     NSLog(@"管理账户收货地址点击");
-    ReceiveAddressVC *receiveAddressVC = [[ReceiveAddressVC alloc]init];
+    DetailAddressVC *receiveAddressVC = [[DetailAddressVC alloc]init];
     receiveAddressVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:receiveAddressVC animated:YES];
 }

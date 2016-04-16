@@ -46,6 +46,10 @@
 
 //个人信息
 #define MY_USER_ACCOUNT @"app/user/my_account"
+
+//收货地址
+#define MY_ADDRESS @"address/get_user_address"
+
 //我的收藏
 #define MY_COLLECT @"app/User/my_ollection"
 //删除我的收藏

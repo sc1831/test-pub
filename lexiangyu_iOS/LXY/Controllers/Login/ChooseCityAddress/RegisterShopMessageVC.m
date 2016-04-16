@@ -108,7 +108,7 @@
     request = [RequestCenter shareRequestCenter];
     NSDictionary *postDic = @{@"phone":_phoneNumStr,
                               @"pwd":_passwordStr,
-                              @"shop_name":_storeNameTextField.text,
+                              @"shop_name":[NSString stringWithFormat:@"%@%@",_cityName.text,_storeNameTextField.text],
                               @"province_id":provinceId,
                               @"province":provinceName,
                               @"city_id":cityId,
