@@ -48,11 +48,45 @@
     
     //给位置城市赋值
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveAddressCityName:) name:@"receiveAddressCityName" object:nil];
+    [self sendRequestAddressData];
     
 }
+-(void)sendRequestAddressData{
+    
+    RequestCenter * request = [RequestCenter shareRequestCenter];
+    NSDictionary *postDic = @{
+                              @"user_id":[[SaveInfo shareSaveInfo]user_id]
+                              };
+    
+    [request sendRequestPostUrl:MY_ADDRESS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+        
+        if ([resultDic[@"code"] intValue]==0) {
+            HUDNormal(@"请求失败");
+            return ;
+        }
+        
+        NSDictionary *dic = resultDic[@"data"];
+        
+        _getCargoNameTextField.text = dic[@"true_name"];
+        _getCargoPhoneTextField.text = dic[@"mob_phone"];
+        _receiveAddressCityName.text = dic[@"area_info"];
+        
+        //        _shopName.text = dic[@"shop_name"];
+        //        _phoneNum = dic[@"member_phone"];
+        //        _iphoneMut = [[NSMutableString alloc] initWithString:dic[@"member_phone"]];
+        //        [_iphoneMut replaceCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
+        //        _phoneNumLabel.text = _iphoneMut;
+        
+        
+    } setFailBlock:^(NSString *errorStr) {
+        
+    }];
+}
+
 //提交审核按钮点击
 -(void)submitAuditButtonClick{
     NSLog(@"提交审核按钮点击");
+//    [self.navigationController popViewControllerAnimated:YES];
     [self sendRequestData];
 
 }
@@ -127,23 +161,26 @@
                               @"village_id":villageId,
                               @"village":villageName,
                               @"true_name":_getCargoNameTextField.text,
-                              @"tel_phone":_getCargoPhoneTextField.text,
-                              @"areainfo":[NSString stringWithFormat:@"%@%@",_receiveAddressCityName.text,_getCargoAddressTextField.text]};
+                              @"mob_phone":_getCargoPhoneTextField.text,
+                              @"areainfo":_getCargoAddressTextField.text};
     
-    [request sendRequestPostUrl:REGISTRE_STOR_NAME andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
-        HUDNormal(@"修改收货地址成功");
+    [request sendRequestPostUrl:MY_EDIT_ADDRESS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+
         if ([resultDic[@"code"] intValue]==0) {
             HUDNormal(@"修改失败，请稍后再试");
             return ;
         }
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"receiveAddressCityNameAndPhoneNum" object:self userInfo:@{@"receiveAddressCityNameAndPhoneNum":[NSString stringWithFormat:@"%@%@",_receiveAddressCityName.text,_getCargoAddressTextField.text],@"phoneNum":_getCargoPhoneTextField.text}];
-        
-        [self.navigationController popViewControllerAnimated:YES];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"receiveAddressCityNameAndPhoneNum" object:self userInfo:nil];
+        [self popView];
+
     } setFailBlock:^(NSString *errorStr) {
         NSLog(@"");
         
     }];
 }
 
+-(void)popView{
+[self.navigationController popViewControllerAnimated:YES];
+}
 @end

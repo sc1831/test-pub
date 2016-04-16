@@ -108,7 +108,7 @@
     request = [RequestCenter shareRequestCenter];
     NSDictionary *postDic = @{@"phone":_phoneNumStr,
                               @"pwd":_passwordStr,
-                              @"shop_name":[NSString stringWithFormat:@"%@%@",_cityName.text,_storeNameTextField.text],
+                              @"shop_name":_storeNameTextField.text,
                               @"province_id":provinceId,
                               @"province":provinceName,
                               @"city_id":cityId,
@@ -121,9 +121,14 @@
                               @"village":villageName,
                               @"true_name":_nameTextField.text,
                               @"tel_phone":_phoneNumTextField.text,
-                              @"areainfo":_deatilsAddressTextField.text};
+                              @"areainfo":[NSString stringWithFormat:@"%@%@",_cityName.text,_deatilsAddressTextField.text]
+                              };
     
     [request sendRequestPostUrl:REGISTRE_STOR_NAME andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+        if ([resultDic[@"code"] intValue]==0) {
+            HUDNormal(@"审核失败，请稍后再试");
+            return ;
+        }
         HUDNormal(@"审核成功");
         
         [self dismissViewControllerAnimated:YES completion:nil];

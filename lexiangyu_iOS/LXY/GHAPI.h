@@ -16,6 +16,10 @@
 #define REGISTRE_SEND_AUTH_CODE @"app/Register/check_sms"
 //注册店铺
 #define REGISTRE_STOR_NAME @"app/register/register"
+
+//修改收货地址
+#define  MY_EDIT_ADDRESS @"App/address/edit_address"
+
 //获取省市县
 #define GET_CITY_ADDRESS @"app/Address/get_region"
 //忘记密码
@@ -48,7 +52,7 @@
 #define MY_USER_ACCOUNT @"app/user/my_account"
 
 //收货地址
-#define MY_ADDRESS @"address/get_user_address"
+#define MY_ADDRESS @"app/address/get_user_address"
 
 //我的收藏
 #define MY_COLLECT @"app/User/my_ollection"

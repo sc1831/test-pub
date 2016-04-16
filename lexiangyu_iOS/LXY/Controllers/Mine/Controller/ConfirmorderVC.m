@@ -93,11 +93,8 @@
 }
 -(void)receiveAddressCityNameAndPhoneNum:(NSNotification *)notifition{
 
-    NSDictionary *dict = notifition.object;
     
-    headTabView.phoneNumLabel.text = dict[@"receiveAddressCityNameAndPhoneNum"];
-    headTabView.addressLabel.text = dict[@"phoneNum"];
-    
+    [self sendRequestData];
 }
 -(void)sendRequestData{
     [_sectionStateArray removeAllObjects];
@@ -133,12 +130,12 @@
         
         
         NSDictionary *dic = resultDic[@"data"];
-        _addressStr = dic[@"address"][@"address"];
+        _addressStr = dic[@"address"][@"area_info"];
         _phoneNum = dic[@"address"][@"tel_phone"];
         _shoppingName = dic[@"address"][@"true_name"];
         
         headTabView.phoneNumLabel.text = [NSString stringWithFormat:@"%@%@",_shoppingName,_phoneNum];
-        headTabView.addressLabel.text = _addressStr;
+        headTabView.addressLabel.text =[NSString stringWithFormat:@"%@%@",_addressStr,dic[@"address"][@"address"]] ;
         NSArray *array = dic[@"cart"];
         for (NSDictionary *dic in array) {
             AllGoodsOrders *model = [AllGoodsOrders modelWithDic:dic];

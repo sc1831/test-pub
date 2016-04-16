@@ -66,7 +66,9 @@
 - (IBAction)nextButtonClick:(id)sender {
     [self takeKeyBoard];
     NSLog(@"下一步按钮点击完成");
-    
+    NSUserDefaults *define = [NSUserDefaults standardUserDefaults];
+    [define setObject:@"0" forKey:@"isNewPhone"];
+
     
     if (_verificationCodeTextField.text.length==0) {
         HUDNormal(@"请输入验证码");
@@ -81,7 +83,9 @@
     RequestCenter *request = [RequestCenter shareRequestCenter];
     NSDictionary *postDic = @{@"phone":_phoneTextField.text,@"type":@"1",@"code":_verificationCodeTextField.text};
     
-    [request sendRequestPostUrl:REGISTRE_SEND_SMS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+    [request sendRequestPostUrl:REGISTRE_SEND_AUTH_CODE andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+        
+        
         HUDNormal(@"验证成功");
         RegisterShopMessageVC *shopMessageVC = [[RegisterShopMessageVC alloc]init];
         shopMessageVC.phoneNumStr = _phoneTextField.text;

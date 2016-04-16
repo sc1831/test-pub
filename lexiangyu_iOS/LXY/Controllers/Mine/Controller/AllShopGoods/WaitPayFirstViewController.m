@@ -147,11 +147,11 @@
 
 -(void)createTableView{
     
-    _waitPayTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH, M_HEIGHT-95) style:UITableViewStyleGrouped];
+    _waitPayTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH,self.view.frame.size.height) style:UITableViewStyleGrouped];
     _waitPayTableView.delegate = self;
     _waitPayTableView.dataSource = self;
     _waitPayTableView.tag = 10;
-    _waitPayTableView.backgroundColor = [UIColor whiteColor];
+    _waitPayTableView.backgroundColor = RGBCOLOR(219, 223, 224);
     [self.view addSubview:_waitPayTableView];
     
 }

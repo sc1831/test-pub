@@ -104,9 +104,19 @@
         }else{
             [[NSNotificationCenter defaultCenter] postNotificationName:@"cityName" object:self userInfo:@{@"cityName":allStr}];
         }
+    NSUserDefaults *define = [NSUserDefaults standardUserDefaults];
+   NSString *str =  [define objectForKey:@"isNewPhone"];
+    if ([str isEqualToString:@"1"]) {
+        NSMutableArray *viewsArray = [NSMutableArray arrayWithArray:[self.navigationController viewControllers]];
+        [self.navigationController popToViewController:[viewsArray objectAtIndex:2] animated:YES];
+    }else{
     
         NSMutableArray *viewsArray = [NSMutableArray arrayWithArray:[self.navigationController viewControllers]];
         [self.navigationController popToViewController:[viewsArray objectAtIndex:1] animated:YES];
+        
+    }
+    
+    
     
 }
 @end
