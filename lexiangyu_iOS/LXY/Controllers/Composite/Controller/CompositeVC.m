@@ -12,6 +12,8 @@
 #import "UITableView+MJRefresh.h"
 #import "GoodsModel.h"
 #import "Common.h"
+#import "ShopingDetailsVC.h"
+
 @interface CompositeVC ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 {
     int _page  ;//当前页码
@@ -20,8 +22,14 @@
     RequestCenter *requestCenter;
     int orderByNum ; // 0 综合 1 销量 2 价格
     BOOL orderByPriceFlag ;// yes 从高到低
+
     NSMutableDictionary *postDic ;
 }
+//价格图片
+@property (weak, nonatomic) IBOutlet UIImageView *priceImageView;
+//销量
+@property (weak, nonatomic) IBOutlet UILabel *salesLabel;
+
 - (IBAction)leftNavBarClick:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 - (IBAction)searchClick:(id)sender;
@@ -45,6 +53,7 @@
     _page = 1 ;
     _pageSize = 20 ;
     orderByPriceFlag = YES ;
+
     if (self.goods_name.length > 0) {
         self.searchTextField.text = self.goods_name ;
     }
@@ -91,7 +100,16 @@
     [cell.addShopingCar addTarget:self action:@selector(addBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [self.compositeTab deselectRowAtIndexPath:indexPath animated:YES];
+    ShopingDetailsVC *shoppingDetailsVC = [[ShopingDetailsVC alloc]init];
+    GoodsModel *model = goods_Mtlist[indexPath.row];
+    shoppingDetailsVC.goods_commonid = model.goods_id ;
+    shoppingDetailsVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:shoppingDetailsVC animated:YES];
+    
+}
 #pragma mark TestField Delegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
@@ -180,23 +198,6 @@
 }
 
 
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 - (IBAction)leftNavBarClick:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -227,26 +228,33 @@
         case 0:
         {
             //综合
+            _salesLabel.textColor = [UIColor blackColor];
+
       
         }
             break;
         case 1:
         {
+            
             //销量
-
+            _salesLabel.textColor = [UIColor orangeColor];
             
         }
             break;
         case 2:
         {
+            _salesLabel.textColor = [UIColor blackColor];
+             orderByPriceFlag = !orderByPriceFlag ;
             //价格
             if (orderByPriceFlag == YES) {
                 //价格由高到低
                 [postDic setValue:@"1" forKey:@"order_by_price"];
+                _priceImageView.image = [UIImage imageNamed:@"筛选.png"];
             }else{
                 [postDic setValue:@"2" forKey:@"order_by_price"];
+                _priceImageView.image = [UIImage imageNamed:@"筛选2.png"];
             }
-            orderByPriceFlag = !orderByPriceFlag ;
+           
             
         }
             break;

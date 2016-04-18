@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CompositeVC">
             <connections>
                 <outlet property="compositeTab" destination="Wmi-my-tLH" id="rH6-dN-3wg"/>
+                <outlet property="priceImageView" destination="Why-wB-fUd" id="nYp-wd-D7Y"/>
+                <outlet property="salesLabel" destination="dL5-cg-rhx" id="KM9-dm-BRd"/>
                 <outlet property="searchTextField" destination="FLP-1s-a1u" id="6aU-SJ-gP6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -66,8 +69,8 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="itx-XK-Sd8" customClass="UIControl">
                             <rect key="frame" x="310" y="8" width="57" height="32"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Why-wB-fUd">
-                                    <rect key="frame" x="32" y="5" width="19" height="22"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="筛选.png" translatesAutoresizingMaskIntoConstraints="NO" id="Why-wB-fUd">
+                                    <rect key="frame" x="32" y="8" width="10" height="15"/>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="价格" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Chs-kl-zjX">
                                     <rect key="frame" x="0.0" y="5" width="35" height="21"/>
@@ -103,7 +106,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JHL-3g-GBp" customClass="UIControl">
                             <rect key="frame" x="0.0" y="0.0" width="48" height="49"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="返回icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="xlW-YU-fgd">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="返回.png" translatesAutoresizingMaskIntoConstraints="NO" id="xlW-YU-fgd">
                                     <rect key="frame" x="8" y="14" width="20" height="20"/>
                                 </imageView>
                             </subviews>
@@ -130,9 +133,9 @@
                                     <rect key="frame" x="0.0" y="5" width="32" height="30"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="搜索框搜索按钮.png" translatesAutoresizingMaskIntoConstraints="NO" id="UhK-0X-PdS">
-                                            <rect key="frame" x="8" y="4" width="19" height="22"/>
+                                            <rect key="frame" x="8" y="4" width="19" height="19"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="22" id="Tvb-Bb-KB7"/>
+                                                <constraint firstAttribute="height" constant="19" id="Tvb-Bb-KB7"/>
                                                 <constraint firstAttribute="width" constant="19" id="oFW-pi-LD2"/>
                                             </constraints>
                                         </imageView>
@@ -200,6 +203,7 @@
     </objects>
     <resources>
         <image name="搜索框搜索按钮.png" width="15" height="15"/>
-        <image name="返回icon.png" width="45" height="45"/>
+        <image name="筛选.png" width="11" height="20"/>
+        <image name="返回.png" width="25" height="25"/>
     </resources>
 </document>
