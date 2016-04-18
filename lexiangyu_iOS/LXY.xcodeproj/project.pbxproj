@@ -272,6 +272,10 @@
 		6E46B7531CA4E35200D5F73B /* 固定.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E46B7501CA4E35200D5F73B /* 固定.png */; };
 		6E46B7541CA4E35200D5F73B /* 固定@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E46B7511CA4E35200D5F73B /* 固定@2x.png */; };
 		6E46B7551CA4E35200D5F73B /* 固定@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E46B7521CA4E35200D5F73B /* 固定@3x.png */; };
+		6E51B4EE1CC46E8400D4529C /* DetailAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E51B4EC1CC46E8400D4529C /* DetailAddressVC.m */; };
+		6E51B4EF1CC46E8400D4529C /* DetailAddressVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E51B4ED1CC46E8400D4529C /* DetailAddressVC.xib */; };
+		6E51B4F31CC46EF600D4529C /* DeatilAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E51B4F11CC46EF600D4529C /* DeatilAddressView.m */; };
+		6E51B4F41CC46EF600D4529C /* DeatilAddressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E51B4F21CC46EF600D4529C /* DeatilAddressView.xib */; };
 		6E5391131CBBD04F004D2BB9 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6E5391111CBBD04F004D2BB9 /* AlipaySDK.bundle */; };
 		6E5391141CBBD04F004D2BB9 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5391121CBBD04F004D2BB9 /* AlipaySDK.framework */; };
 		6E53EED91CA906AB00768FA0 /* SaveInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E53EED81CA906AB00768FA0 /* SaveInfo.m */; };
@@ -339,10 +343,6 @@
 		6EA414A71CBE2A6600A52BA5 /* FooterTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EA414A61CBE2A6600A52BA5 /* FooterTableView.xib */; };
 		6EA414AA1CBE49C900A52BA5 /* SectionFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA414A91CBE49C900A52BA5 /* SectionFooterView.m */; };
 		6EA414AC1CBE49DF00A52BA5 /* SectionFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EA414AB1CBE49DF00A52BA5 /* SectionFooterView.xib */; };
-		6EA414B01CC0E54B00A52BA5 /* DetailAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA414AE1CC0E54B00A52BA5 /* DetailAddressVC.m */; };
-		6EA414B11CC0E54B00A52BA5 /* DetailAddressVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EA414AF1CC0E54B00A52BA5 /* DetailAddressVC.xib */; };
-		6EA414B41CC0E9BD00A52BA5 /* DeatilAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA414B31CC0E9BD00A52BA5 /* DeatilAddressView.m */; };
-		6EA414B61CC0E9CF00A52BA5 /* DeatilAddressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EA414B51CC0E9CF00A52BA5 /* DeatilAddressView.xib */; };
 		6EA503DD1CA232FC00FA19BA /* HomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA503DB1CA232FC00FA19BA /* HomeCollectionViewCell.m */; };
 		6EA503DE1CA232FC00FA19BA /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EA503DC1CA232FC00FA19BA /* HomeCollectionViewCell.xib */; };
 		6EA503E21CA248A300FA19BA /* HomeClassifyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA503E01CA248A300FA19BA /* HomeClassifyVC.m */; };
@@ -805,6 +805,12 @@
 		6E46B7501CA4E35200D5F73B /* 固定.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "固定.png"; sourceTree = "<group>"; };
 		6E46B7511CA4E35200D5F73B /* 固定@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "固定@2x.png"; sourceTree = "<group>"; };
 		6E46B7521CA4E35200D5F73B /* 固定@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "固定@3x.png"; sourceTree = "<group>"; };
+		6E51B4EB1CC46E8400D4529C /* DetailAddressVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailAddressVC.h; sourceTree = "<group>"; };
+		6E51B4EC1CC46E8400D4529C /* DetailAddressVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailAddressVC.m; sourceTree = "<group>"; };
+		6E51B4ED1CC46E8400D4529C /* DetailAddressVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailAddressVC.xib; sourceTree = "<group>"; };
+		6E51B4F01CC46EF600D4529C /* DeatilAddressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeatilAddressView.h; sourceTree = "<group>"; };
+		6E51B4F11CC46EF600D4529C /* DeatilAddressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeatilAddressView.m; sourceTree = "<group>"; };
+		6E51B4F21CC46EF600D4529C /* DeatilAddressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeatilAddressView.xib; sourceTree = "<group>"; };
 		6E5391111CBBD04F004D2BB9 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		6E5391121CBBD04F004D2BB9 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		6E53EED71CA906AB00768FA0 /* SaveInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveInfo.h; sourceTree = "<group>"; };
@@ -899,12 +905,6 @@
 		6EA414A81CBE49C900A52BA5 /* SectionFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionFooterView.h; sourceTree = "<group>"; };
 		6EA414A91CBE49C900A52BA5 /* SectionFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionFooterView.m; sourceTree = "<group>"; };
 		6EA414AB1CBE49DF00A52BA5 /* SectionFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionFooterView.xib; sourceTree = "<group>"; };
-		6EA414AD1CC0E54B00A52BA5 /* DetailAddressVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailAddressVC.h; path = ../../../../../../Documents/DetailAddressVC.h; sourceTree = "<group>"; };
-		6EA414AE1CC0E54B00A52BA5 /* DetailAddressVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailAddressVC.m; path = ../../../../../../Documents/DetailAddressVC.m; sourceTree = "<group>"; };
-		6EA414AF1CC0E54B00A52BA5 /* DetailAddressVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DetailAddressVC.xib; path = ../../../../../../Documents/DetailAddressVC.xib; sourceTree = "<group>"; };
-		6EA414B21CC0E9BD00A52BA5 /* DeatilAddressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeatilAddressView.h; path = ../../../../../../../Documents/DeatilAddressView.h; sourceTree = "<group>"; };
-		6EA414B31CC0E9BD00A52BA5 /* DeatilAddressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeatilAddressView.m; path = ../../../../../../../Documents/DeatilAddressView.m; sourceTree = "<group>"; };
-		6EA414B51CC0E9CF00A52BA5 /* DeatilAddressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DeatilAddressView.xib; path = ../../../../../../../Documents/DeatilAddressView.xib; sourceTree = "<group>"; };
 		6EA503DA1CA232FC00FA19BA /* HomeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCollectionViewCell.h; sourceTree = "<group>"; };
 		6EA503DB1CA232FC00FA19BA /* HomeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionViewCell.m; sourceTree = "<group>"; };
 		6EA503DC1CA232FC00FA19BA /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -1555,6 +1555,9 @@
 		6EA4149D1CBE263A00A52BA5 /* ConfirmHeadView */ = {
 			isa = PBXGroup;
 			children = (
+				6E51B4F01CC46EF600D4529C /* DeatilAddressView.h */,
+				6E51B4F11CC46EF600D4529C /* DeatilAddressView.m */,
+				6E51B4F21CC46EF600D4529C /* DeatilAddressView.xib */,
 				6EA4149E1CBE265800A52BA5 /* HeadTableView.h */,
 				6EA4149F1CBE265800A52BA5 /* HeadTableView.m */,
 				6EA414A11CBE266E00A52BA5 /* HeadTableView.xib */,
@@ -1564,9 +1567,6 @@
 				6EA414A81CBE49C900A52BA5 /* SectionFooterView.h */,
 				6EA414A91CBE49C900A52BA5 /* SectionFooterView.m */,
 				6EA414AB1CBE49DF00A52BA5 /* SectionFooterView.xib */,
-				6EA414B21CC0E9BD00A52BA5 /* DeatilAddressView.h */,
-				6EA414B31CC0E9BD00A52BA5 /* DeatilAddressView.m */,
-				6EA414B51CC0E9CF00A52BA5 /* DeatilAddressView.xib */,
 			);
 			path = ConfirmHeadView;
 			sourceTree = "<group>";
@@ -2017,15 +2017,15 @@
 				6E7964DB1C983E4600EB43B9 /* CollectVC.h */,
 				6E7964DC1C983E4600EB43B9 /* CollectVC.m */,
 				6E7964DD1C983E4600EB43B9 /* CollectVC.xib */,
+				6E51B4EB1CC46E8400D4529C /* DetailAddressVC.h */,
+				6E51B4EC1CC46E8400D4529C /* DetailAddressVC.m */,
+				6E51B4ED1CC46E8400D4529C /* DetailAddressVC.xib */,
 				6EC32C271C98F1D100581FDD /* FeedBackVC.h */,
 				6EC32C281C98F1D100581FDD /* FeedBackVC.m */,
 				6EC32C291C98F1D100581FDD /* FeedBackVC.xib */,
 				6EC32C401C990D2200581FDD /* ReceiveAddressVC.h */,
 				6EC32C411C990D2200581FDD /* ReceiveAddressVC.m */,
 				6EC32C421C990D2200581FDD /* ReceiveAddressVC.xib */,
-				6EA414AD1CC0E54B00A52BA5 /* DetailAddressVC.h */,
-				6EA414AE1CC0E54B00A52BA5 /* DetailAddressVC.m */,
-				6EA414AF1CC0E54B00A52BA5 /* DetailAddressVC.xib */,
 				6EC32C4A1C99127000581FDD /* MyfootprintVC.h */,
 				6EC32C4B1C99127000581FDD /* MyfootprintVC.m */,
 				6EC32C4C1C99127000581FDD /* MyfootprintVC.xib */,
@@ -2693,6 +2693,7 @@
 				6E88CE341C97DCA400DB73DA /* guideView_1@2x.png in Resources */,
 				6E10318B1CB4FC570098D5BD /* 收藏产品图.png in Resources */,
 				6E46B73F1CA4E2BC00D5F73B /* 3@2x.png in Resources */,
+				6E51B4EF1CC46E8400D4529C /* DetailAddressVC.xib in Resources */,
 				6E88CE321C97DCA400DB73DA /* guide_bg@2x.png in Resources */,
 				6E46B7491CA4E2BC00D5F73B /* 6@3x.png in Resources */,
 				6E1032061CB4FCC30098D5BD /* 数量选择2@3x.png in Resources */,
@@ -2782,6 +2783,7 @@
 				6E10316F1CB4FC570098D5BD /* 适用列表箭头全部@2x.png in Resources */,
 				6E1031A01CB4FC570098D5BD /* 头像@3x.png in Resources */,
 				6E1032151CB4FCC30098D5BD /* 添加购物成功.png in Resources */,
+				6E51B4F41CC46EF600D4529C /* DeatilAddressView.xib in Resources */,
 				6E1031031CB4FAE80098D5BD /* 分类@2x（选中）.png in Resources */,
 				6E1031981CB4FC570098D5BD /* 待@2x.png in Resources */,
 				6E46B7551CA4E35200D5F73B /* 固定@3x.png in Resources */,
@@ -2840,7 +2842,6 @@
 				6E7964E41C983EF100EB43B9 /* CollectionCell.xib in Resources */,
 				6E1031871CB4FC570098D5BD /* 编辑_点击.png in Resources */,
 				6E46B7391CA4E2BC00D5F73B /* 1@2x.png in Resources */,
-				6EA414B61CC0E9CF00A52BA5 /* DeatilAddressView.xib in Resources */,
 				6ECCAFA91CA26A6C00483BC7 /* ShopingDetailsVC.xib in Resources */,
 				6E7964941C97E15200EB43B9 /* ResetPassword.xib in Resources */,
 				6EC9C03C1CC0E7520088F8F4 /* AboutUsVC.xib in Resources */,
@@ -2950,7 +2951,6 @@
 				6E1031861CB4FC570098D5BD /* 编辑_默认.png in Resources */,
 				6E16E53F1CBF79AF007F96C1 /* OrderDetailHeaderView.xib in Resources */,
 				6EC44CF91CA4DACF00833567 /* 确定_默认@.png in Resources */,
-				6EA414B11CC0E54B00A52BA5 /* DetailAddressVC.xib in Resources */,
 				6E1031BA1CB4FC570098D5BD /* 添加（点击）@2x.png in Resources */,
 				6E1031C61CB4FC570098D5BD /* WhiteStars.png in Resources */,
 				6E1032161CB4FCC30098D5BD /* 添加购物成功@2x.png in Resources */,
@@ -3047,7 +3047,6 @@
 				6ECD26E81CBB906600ED2004 /* WXApiManager.m in Sources */,
 				6E04CE5F1C8FB5C900379F7D /* RequestCenter.m in Sources */,
 				6EF887CF1CBCF383001E6D1F /* AllShopViewController.m in Sources */,
-				6EA414B41CC0E9BD00A52BA5 /* DeatilAddressView.m in Sources */,
 				6EF2A1AF1CAA582400057FC0 /* ChooseCityVC.m in Sources */,
 				6ECB758A1C9BA602007FBE7D /* ClassifyCollectionCell.m in Sources */,
 				6E7964BB1C98210D00EB43B9 /* EvaluateVC.m in Sources */,
@@ -3072,7 +3071,6 @@
 				6EBA3BC91CBBC2F0002D6C69 /* base64.m in Sources */,
 				6EF887D21CBCF383001E6D1F /* WaitPayFirstViewController.m in Sources */,
 				6E1978811C8D737400594CB3 /* ViewController.m in Sources */,
-				6EA414B01CC0E54B00A52BA5 /* DetailAddressVC.m in Sources */,
 				6E7964A21C980D2100EB43B9 /* CompositeVC.m in Sources */,
 				6E7964A71C98108700EB43B9 /* CompositeCell.m in Sources */,
 				6EC4F62D1CB647B6004DBE59 /* NetManager.m in Sources */,
@@ -3100,8 +3098,10 @@
 				6EF887CE1CBCF383001E6D1F /* AllShopVC.m in Sources */,
 				6ED85BDE1CAD18420042AEA0 /* HomeModel.m in Sources */,
 				6EA414A01CBE265800A52BA5 /* HeadTableView.m in Sources */,
+				6E51B4EE1CC46E8400D4529C /* DetailAddressVC.m in Sources */,
 				6E7964B61C981B8600EB43B9 /* ShoppingCartVC.m in Sources */,
 				6EBA3BD01CBBC2F0002D6C69 /* RSADataVerifier.m in Sources */,
+				6E51B4F31CC46EF600D4529C /* DeatilAddressView.m in Sources */,
 				6EBA3BCE1CBBC2F0002D6C69 /* openssl_wrapper.m in Sources */,
 				6EC9C0371CC0B6340088F8F4 /* OrderModel.m in Sources */,
 				6E7964E81C983F5500EB43B9 /* OrderSuccessVC.m in Sources */,
