@@ -19,7 +19,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *placeholderLab;
 @property (nonatomic ,strong)NSMutableArray *dataArray;
 @property (weak, nonatomic) IBOutlet UILabel *classLab;
-@property (nonatomic ,strong)NSString *feedBackStr;
+@property (weak, nonatomic) IBOutlet UILabel *textCountLab;
+@property (nonatomic ,strong)NSString *feedBackStr; //反馈类型
 @end
 
 @implementation FeedBackVC
@@ -43,10 +44,7 @@
         [_dataArray removeAllObjects];
     }
     RequestCenter * request = [RequestCenter shareRequestCenter];
-//    NSDictionary *postDic = @{@"token":[[SaveInfo shareSaveInfo]token],
-//                              @"user_id":[[SaveInfo shareSaveInfo]user_id]
-//                              };
-    
+
     [request sendRequestPostUrl:MY_FEEDBACK_TYPE andDic:nil setSuccessBlock:^(NSDictionary *resultDic) {
         
         if (resultDic[@"code"]==0) {
@@ -93,7 +91,13 @@
 }
 
 -(void)keepFeedBackInformation{
-
+    if (self.funationTextView.text.length < 5) {
+        HUDNormal(@"至少五个字");
+        return ;
+    }else if (self.funationTextView.text.length > 200){
+        HUDNormal(@"之多200字评论,您已超限");
+        return ;
+    }
     RequestCenter * request = [RequestCenter shareRequestCenter];
         NSDictionary *postDic = @{@"user_id":[[SaveInfo shareSaveInfo]user_id],
                                   @"ftype":_feedBackStr,
@@ -120,8 +124,14 @@
         _placeholderLab.text = @"请留下您宝贵意见...";
     }else{
         _placeholderLab.text = @"";
+        if (_funationTextView.text.length <= 200) {
+
+        }else{
+            HUDNormal(@"文字200字以内,您已抄限...");
+        }
+        NSString *strLength = [NSString stringWithFormat:@"%lu", self.funationTextView.text.length];
+        self.textCountLab.text = STR_A_B(strLength, @"/200");
     }
-    
 }
 //textView 键盘的隐藏 通过添加完成按钮实现
 - (void)textViewDidBeginEditing:(UITextView *)textView {
@@ -156,6 +166,7 @@
         HUDNormal(@"请填写反馈信息");
         return ;
     }else{
+        
         [self keepFeedBackInformation];
     }
 }

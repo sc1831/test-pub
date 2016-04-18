@@ -11,7 +11,7 @@
 #import "LoginVC.h"
 #import "RequestCenter.h"
 #import "SaveInfo.h"
-
+#import "AboutUsVC.h"
 @interface SettingVC ()
 @property (weak, nonatomic) IBOutlet UISwitch *handSwitch;
 //意见反馈
@@ -38,7 +38,10 @@
 }
 
 - (IBAction)aboutUs:(id)sender {
-    NSLog(@"关于我们点击");
+//    NSLog(@"关于我们点击");
+    AboutUsVC *aboutUsVC = [[AboutUsVC alloc] init];
+    [self.navigationController pushViewController:aboutUsVC animated:YES];
+    
 }
 
 - (IBAction)loginOut:(id)sender {
