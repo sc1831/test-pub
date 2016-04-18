@@ -11,9 +11,12 @@
 #import "GHAPI.h"
 #import "RequestCenter.h"
 #import "GoodsModel.h"
+#import "ConfirmorderVC.h"
+
 @interface ShopingDetailsVC ()<UIWebViewDelegate>
 {
     NSString *goods_detail_url ;
+
 }
 @property (weak, nonatomic) IBOutlet UIWebView *goodsDetails;
 - (IBAction)leftNavBtnClick:(id)sender;
@@ -29,13 +32,18 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
 //    self.navigationController.navigationBarHidden = YES ;
+    
+
+    
     RequestCenter *request = [RequestCenter shareRequestCenter];
     [request sendRequestPostUrl:DETAIL_URL andDic:@{@"goods_id":self.goods_commonid} setSuccessBlock:^(NSDictionary *resultDic) {
         if ([[resultDic[@"code"] stringValue]isEqualToString:@"1"]) {
             goods_detail_url = STR_A_B(@"http://", resultDic[@"data"][@"goods_detail_url"]);
             [self loadWebView];
+
+            
         }else{
             HUDNormal(@"商品信息正在维护");
             [self.navigationController popViewControllerAnimated:YES];
@@ -69,24 +77,38 @@
     //http://www.lexianyu.com/index.php/app/goods/confirm?super_key=1&user_id=52267&goods_id=106255&goods_num=1
     
     NSLog(@"request.URL.relativeString:%@",request.URL.relativeString);
+
+    
+    if ([request.URL.relativeString rangeOfString:@"super_key"].location == NSNotFound) {
+        
+        NSMutableString *mutStr =[NSMutableString stringWithString:request.URL.relativeString];
+        
+        NSArray *array = [mutStr componentsSeparatedByString:@"?"];
+        NSString *str = array[1];
+        
+        
+        NSArray *subArray = [str componentsSeparatedByString:@"&"];
+        NSMutableArray *mutArray = [NSMutableArray array];
+        for (NSMutableString *subStr in subArray) {
+         NSArray *allArray = [subStr componentsSeparatedByString:@"="];
+            [mutArray addObject:allArray];
+        }
+        ConfirmorderVC *confirmVC = [[ConfirmorderVC alloc]init];
+        confirmVC.orderIds = @"";
+        confirmVC.cartIds = @"";
+        confirmVC.goodsIds = mutArray[0][1];
+        confirmVC.goodsNum = mutArray[1][1];
+        confirmVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:confirmVC animated:YES];
+        
+    }
+    
+   
+    
     
     return YES;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)leftNavBtnClick:(id)sender {
     if (self.goodsDetails.canGoBack) {
