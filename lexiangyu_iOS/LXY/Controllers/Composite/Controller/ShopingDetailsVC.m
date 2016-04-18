@@ -24,10 +24,13 @@
 - (void)viewWillDisappear:(BOOL)animated{
     self.navigationController.navigationBarHidden = NO ;
 }
+- (void)viewWillAppear:(BOOL)animated{
+   self.navigationController.navigationBarHidden = YES ;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.navigationController.navigationBarHidden = YES ;
+//    self.navigationController.navigationBarHidden = YES ;
     RequestCenter *request = [RequestCenter shareRequestCenter];
     [request sendRequestPostUrl:DETAIL_URL andDic:@{@"goods_id":self.goods_commonid} setSuccessBlock:^(NSDictionary *resultDic) {
         if ([[resultDic[@"code"] stringValue]isEqualToString:@"1"]) {

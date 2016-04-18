@@ -149,6 +149,7 @@
             HUDNormal(@"数据请求失败，请稍后再试");
             return ;
         }
+
         
 
         NSDictionary *data = resultDic[@"data"];

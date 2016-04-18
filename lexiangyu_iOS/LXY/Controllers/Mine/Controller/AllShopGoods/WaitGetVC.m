@@ -69,7 +69,7 @@
                 HUDNormal(@"获取数据失败，请稍后再试");
                 return ;
             }
-            HUDNormal(@"获取数据成功");
+//            HUDNormal(@"获取数据成功");
             
             NSDictionary *dict = resultDic[@"data"];
             _page = [dict[@"page"] intValue];

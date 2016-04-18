@@ -62,7 +62,7 @@
                         <constraint firstAttribute="trailing" secondItem="3PO-xt-bio" secondAttribute="trailing" constant="16" id="wl5-4C-bSD"/>
                     </constraints>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="邮箱样式条.png" translatesAutoresizingMaskIntoConstraints="NO" id="LsG-yg-NhE">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="地址装饰条.png" translatesAutoresizingMaskIntoConstraints="NO" id="LsG-yg-NhE">
                     <rect key="frame" x="0.0" y="204" width="375" height="2"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="2" id="ypM-hw-zYJ"/>
@@ -101,7 +101,7 @@
     <resources>
         <image name="位置.png" width="15" height="15"/>
         <image name="地址.png" width="15" height="15"/>
+        <image name="地址装饰条.png" width="640" height="4"/>
         <image name="火影1.png" width="530" height="596"/>
-        <image name="邮箱样式条.png" width="15" height="15"/>
     </resources>
 </document>

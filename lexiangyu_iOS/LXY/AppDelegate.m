@@ -43,15 +43,15 @@ static NetworkStatus hostReachState=NotReachable;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    
+    //TODO: 推送
+    //set AppKey and LaunchOptions
+    [UMessage startWithAppkey:@"56e7735e67e58e3d78001181" launchOptions:launchOptions];
     //TODO: 微信
     [WXApi registerApp:@"wx24728dea6d8b2f08" withDescription:@"lxy"];
     //向微信注册wxd930ea5d5a258f4f
 //    [WXApi registerApp:@"wxb4ba3c02aa476ea1" withDescription:@"demo 2.0"];
     
-    //TODO: 推送
-    //set AppKey and LaunchOptions
-    [UMessage startWithAppkey:@"56e7735e67e58e3d78001181" launchOptions:launchOptions];
+
     
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= _IPHONE80_
     if(UMSYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0"))
