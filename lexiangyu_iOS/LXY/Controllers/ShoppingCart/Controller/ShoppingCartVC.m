@@ -135,10 +135,7 @@
     
 }
 -(void)sendRequestData{
-    [_sectionStateArray removeAllObjects];
-    [_dataArray removeAllObjects];
-    [_goodsSpecArray removeLastObject];
-    [_totalPriceArray removeAllObjects];
+
     
     RequestCenter *request = [RequestCenter shareRequestCenter];
 
@@ -154,7 +151,10 @@
             [self.shoppingTableView headerEndRefresh];
             return ;
         }
-
+        [_sectionStateArray removeAllObjects];
+        [_dataArray removeAllObjects];
+        [_goodsSpecArray removeAllObjects];
+        [_totalPriceArray removeAllObjects];
         
 
         NSDictionary *data = resultDic[@"data"];
@@ -196,17 +196,24 @@
                 [_goodsSpecArray addObject:subGoodsSpecArray];
                 
             }
+            
             [_dataArray addObject:smallArray];
             
             [_sectionStateArray addObject:@"1"];
             
         }
+        
 
         [self updateAllButtonState];
         _allMoneyPay.text = [NSString stringWithFormat:@"合计：%.2lf",0.00];
         
-        [_shoppingTableView reloadData];
         [self.shoppingTableView headerEndRefresh];
+        [_shoppingTableView reloadData];
+        
+        
+        
+        NSLog(@"234567890-=09876854653244567890-098765w678");
+        
     } setFailBlock:^(NSString *errorStr) {
         
     }];
