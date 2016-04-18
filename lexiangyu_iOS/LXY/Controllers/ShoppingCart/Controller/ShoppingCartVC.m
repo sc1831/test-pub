@@ -47,6 +47,8 @@
 @property (nonatomic ,strong)UIButton *rightNarBtn;
 
 @property (nonatomic ,strong)NSMutableArray *dataArray;
+//用来存储每组的总数据
+@property (nonatomic ,strong)NSMutableArray *totalPriceArray;
 
 @property (nonatomic ,strong)NSString *cartStr;
 @property (nonatomic ,strong)NSString *cartIds;
@@ -104,6 +106,7 @@
     _shopNum = 0;
     _sectionStateArray = [NSMutableArray array];
     _goodsSpecArray = [NSMutableArray array];
+    _totalPriceArray = [NSMutableArray array];
     
     [self createTableView];
 
@@ -135,6 +138,7 @@
     [_sectionStateArray removeAllObjects];
     [_dataArray removeAllObjects];
     [_goodsSpecArray removeLastObject];
+    [_totalPriceArray removeAllObjects];
     
     RequestCenter *request = [RequestCenter shareRequestCenter];
 
@@ -144,9 +148,10 @@
     
     [request sendRequestPostUrl:string andDic:dict setSuccessBlock:^(NSDictionary *resultDic) {
         
-        [self.shoppingTableView headerEndRefresh];
+        
         if ([resultDic[@"code"] intValue]==0) {
             HUDNormal(@"数据请求失败，请稍后再试");
+            [self.shoppingTableView headerEndRefresh];
             return ;
         }
 
@@ -160,6 +165,8 @@
         if (keyArray.count==0) {
             [_shoppingTableView reloadData];
             HUDNormal(@"暂时还没有购物");
+            [self allMoneyPayStr];
+            [self.shoppingTableView headerEndRefresh];
             return;
         }
         
@@ -167,7 +174,9 @@
         {
            
             NSDictionary *dic= [cartDic objectForKey:[[cartDic allKeys]objectAtIndex:i]];
-
+            ShoppingCartModel *model = [ShoppingCartModel modelWithDic:dic];
+            [_totalPriceArray addObject:model];
+            
             NSArray *array = dic[@"goods"];
             
              NSMutableArray *smallArray = [NSMutableArray array];
@@ -195,7 +204,9 @@
 
         [self updateAllButtonState];
         _allMoneyPay.text = [NSString stringWithFormat:@"合计：%.2lf",0.00];
+        
         [_shoppingTableView reloadData];
+        [self.shoppingTableView headerEndRefresh];
     } setFailBlock:^(NSString *errorStr) {
         
     }];
@@ -232,6 +243,16 @@
             [_allDeleteButton setTitle:@"全选" forState:UIControlStateNormal];
             _bootmDeleteImageView.image = [UIImage imageNamed:@"未选中"];
         }
+    }
+    if (_sectionStateArray.count==0) {
+        allShopClick = NO;
+        _allPayClick = NO;
+        [_allShopButton setTitle:@"全选" forState:UIControlStateNormal];
+        _bootmAllImageView.image = [UIImage imageNamed:@"未选中"];
+        
+        _allClick = NO;
+        [_allDeleteButton setTitle:@"全选" forState:UIControlStateNormal];
+        _bootmDeleteImageView.image = [UIImage imageNamed:@"未选中"];
     }
     if (allShopClick) {
         _allPayClick = YES;
@@ -360,6 +381,7 @@
 }
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     NSMutableArray *mutArray = _dataArray[section];
+    ShoppingCartModel *sectionModel = _totalPriceArray[section];
     CGFloat goodsPrice ;
     for (int i = 0 ; i<mutArray.count; i++) {
         CGFloat value;
@@ -370,11 +392,11 @@
     }
     
     [self createFootView];
-    UILabel *label = [GHControl createLabelWithFrame:CGRectMake(0,3,M_WIDTH-5,10) Font:10 Text:[NSString stringWithFormat:@"小计(共%ld件):%.2lf",mutArray.count ,goodsPrice]];
+    
+    UILabel *label = [GHControl createLabelWithFrame:CGRectMake(0,3,M_WIDTH-5,10) Font:10 Text:[NSString stringWithFormat:@"小计(共%@件):%.2lf",sectionModel.goods_num_total ,[sectionModel.goods_price_total floatValue]]];
     label.textColor = RGBCOLOR(249, 147, 73);
     label.textAlignment = NSTextAlignmentRight;
     [_footView addSubview:label];
-    
     
     return _footView;
     
@@ -608,6 +630,12 @@
             }
         }
     }
+    if ([_cartIds isEqualToString:@""]) {
+        HUDNormal(@"请选择商品");
+        return;
+    }
+    
+    
     ConfirmorderVC *confirmVC = [[ConfirmorderVC alloc]init];
     confirmVC.orderIds = @"";
     confirmVC.cartIds = _cartIds;
@@ -675,6 +703,10 @@
 #pragma  mark------删除购物车物品
 -(void)deleteShopDoods:(NSIndexPath *)indexPath cartIds:(NSString *)cartIds andIsAllDelete:(BOOL)isAllDelete{
 
+    if ([cartIds isEqualToString:@""]) {
+        HUDNormal(@"请选择要删除的商品");
+        return;
+    }
    
     RequestCenter *request = [RequestCenter shareRequestCenter];
     
@@ -688,7 +720,6 @@
             HUDNormal(@"数据删除失败，请稍后再试");
             return ;
         }
-        HUDNormal(@"数据删除成功");
         
         if (_mutDataArray.count!=0) {
             [self sendRequestData];
@@ -708,9 +739,11 @@
                 
                 [_dataArray[indexPath.section] removeObjectAtIndex:indexPath.row];
             }
-            for (int i = 0 ; i<_dataArray.count; i++) {
-                [_sectionStateArray addObject:@"1"];
-            }
+            [self sendRequestData];
+            
+//            for (int i = 0 ; i<_dataArray.count; i++) {
+//                [_sectionStateArray addObject:@"1"];
+//            }
         }
        
         
@@ -737,13 +770,13 @@
             HUDNormal(@"添加数据失败，请稍后再试");
             return ;
         }
-        if (ismanual) {
-            [self sendRequestData];
-        }else{
-        
-          [_shoppingTableView reloadData];
-        }
-        
+//        if (ismanual) {
+//            [self sendRequestData];
+//        }else{
+//        
+//          [_shoppingTableView reloadData];
+//        }
+        [self sendRequestData];
         
     } setFailBlock:^(NSString *errorStr) {
         

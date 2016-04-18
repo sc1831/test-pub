@@ -16,15 +16,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LXY/Controllers/Mine/Controller/ConfirmorderVC.m"
-            timestampString = "482497177.254583"
+            filePath = "LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
+            timestampString = "482654931.301365"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "-sendRequestData"
             landmarkType = "5">
          </BreakpointContent>
@@ -35,13 +35,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LXY/Controllers/Mine/Controller/ConfirmorderVC.m"
-            timestampString = "482497687.542039"
+            filePath = "LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
+            timestampString = "482656740.683822"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
-            landmarkName = "-sendRequestData"
+            startingLineNumber = "728"
+            endingLineNumber = "728"
+            landmarkName = "-deleteShopDoods:cartIds:andIsAllDelete:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -51,13 +51,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LXY/Controllers/Mine/Controller/ConfirmorderVC.m"
-            timestampString = "482497690.221197"
+            filePath = "LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
+            timestampString = "482656604.370049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
-            landmarkName = "-sendRequestData"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
+            landmarkName = "-updateAllButtonState"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
+            timestampString = "482656740.683822"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
+            landmarkName = "-updateAllButtonState"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

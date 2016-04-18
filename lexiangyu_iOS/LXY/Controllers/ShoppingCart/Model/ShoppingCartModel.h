@@ -31,6 +31,10 @@
 @property (copy,nonatomic) NSString *sp_value_name;//颜色
 @property (copy,nonatomic) NSString *sp_name;//尺码
 
+@property (nonatomic ,copy)NSString  *goods_num_total;//每组总件数
+@property (nonatomic ,copy)NSString  *goods_price_total;//每组总价格
+
+
 @property (nonatomic, assign) BOOL isSelected;
 @property (nonatomic ,assign) int allGoods;
 
