@@ -30,6 +30,8 @@
 //销量
 @property (weak, nonatomic) IBOutlet UILabel *salesLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *allLabel;
+
 - (IBAction)leftNavBarClick:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 - (IBAction)searchClick:(id)sender;
@@ -229,7 +231,7 @@
         {
             //综合
             _salesLabel.textColor = [UIColor blackColor];
-
+            _allLabel.textColor = [UIColor orangeColor];
       
         }
             break;
@@ -238,11 +240,13 @@
             
             //销量
             _salesLabel.textColor = [UIColor orangeColor];
+            _allLabel.textColor = [UIColor blackColor];
             
         }
             break;
         case 2:
         {
+            _allLabel.textColor = [UIColor blackColor];
             _salesLabel.textColor = [UIColor blackColor];
              orderByPriceFlag = !orderByPriceFlag ;
             //价格
