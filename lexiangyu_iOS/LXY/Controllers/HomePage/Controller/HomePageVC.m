@@ -258,6 +258,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
         }
         [_collectionView reloadData];
         
+        
     } setFailBlock:^(NSString *errorStr) {
         
     }];

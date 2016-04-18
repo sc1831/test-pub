@@ -17,14 +17,24 @@
 
 
 @interface LoginVC ()<UITextFieldDelegate>
+{
+    NSString *userName ;
+    NSString *password ;
+    NSString *codeStr ;
+}
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UITextField *messageCodeTextField;
+@property (weak, nonatomic) IBOutlet UIButton *sendMessageBtn; //发送验证码
+@property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 //登录点击
 - (IBAction)login:(id)sender;
 //手机注册
 - (IBAction)phoneRegisteredClick:(id)sender;
 //忘记密码
 - (IBAction)forgotPasswordClick:(id)sender;
+//发送验证码
+- (IBAction)sendMessage:(id)sender;
 
 
 @end
@@ -46,6 +56,86 @@
 }
 
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    self.sendMessageBtn.enabled = NO ;
+    self.loginBtn.enabled = NO ;
+    switch (textField.tag) {
+        case 1000:
+        {
+            userName = [textField.text stringByReplacingCharactersInRange:range withString:string];
+            if (userName.length >10) {
+                self.userNameTextField.text = [userName substringToIndex:11];
+                if (self.passwordTextField.text.length > 5) {
+                    self.sendMessageBtn.enabled = YES ;
+                }
+
+                return NO;
+            }
+            
+        }
+            break;
+        case 2000:
+        {
+            password = [textField.text stringByReplacingCharactersInRange:range withString:string];
+            if (password.length > 5) {
+                if (self.userNameTextField.text.length == 11) {
+                    self.sendMessageBtn.enabled = YES ;
+                }
+            }
+            if ( password.length > 11) {
+                self.passwordTextField.text = [password substringToIndex:12];
+                
+                if (self.messageCodeTextField.text.length > 3) {
+                    self.loginBtn.enabled = YES ;
+                }
+                return NO ;
+            }
+        }
+            break;
+        case 3000:
+        {
+            codeStr = [textField.text stringByReplacingCharactersInRange:range withString:string];
+            if (codeStr.length > 3) {
+                self.messageCodeTextField.text = [codeStr substringToIndex:4];
+                if (self.userNameTextField.text.length == 11 && self.passwordTextField.text.length >5 &&self.passwordTextField.text.length<13) {
+                    self.sendMessageBtn.enabled = YES ;
+                    self.loginBtn.enabled = YES ;
+                }
+                return NO ;
+            }
+            
+        }
+            break;
+            
+        default:
+            
+            break;
+    }
+    return YES ;
+}
+
+- (void)viewState{
+    self.sendMessageBtn.enabled = NO ;
+    self.loginBtn.enabled = NO ;
+    if (userName.length > 10) {
+//        self.userNameTextField.text = [userName substringToIndex:11];
+        if (password.length > 5) {
+            self.sendMessageBtn.enabled = YES ;
+        }
+        if ( password.length > 11) {
+            self.passwordTextField.text = [password substringToIndex:12];
+            
+            if (codeStr.length > 3) {
+                self.messageCodeTextField.text = [codeStr substringToIndex:4];
+                self.loginBtn.enabled = YES ;
+            }
+        }
+        
+    }
+    
+}
+
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
     return YES;
@@ -53,7 +143,7 @@
 
 //登录点击
 - (IBAction)login:(id)sender {
-    [self sendSMS];
+    [self login_httpAndCode:self.messageCodeTextField.text];
     
 //    MainTabBar *mainVC = [[MainTabBar alloc]init];
 //    [self presentViewController:mainVC animated:YES completion:nil];
@@ -68,7 +158,6 @@
     
     [request sendRequestPostUrl:REGISTRE_SEND_SMS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
         HUDNormal(@"短信发送成功,请注意查收");
-        [self showInput];
     } setFailBlock:^(NSString *errorStr) {
         
     }];
@@ -76,8 +165,7 @@
 
 - (void)login_httpAndCode:(NSString *)code{
     RequestCenter *request = [RequestCenter shareRequestCenter];
-    NSDictionary *postDic = @{@"phone":self.userNameTextField.text,@"pwd":self.passwordTextField.text,@"code":code};//1注册，2找回密码，5绑定手机号，6修改手机绑定确认步骤，9登陆
-    
+    NSDictionary *postDic = @{@"phone":self.userNameTextField.text,@"pwd":self.passwordTextField.text,@"code":code};
    
     
     [request sendRequestPostUrl:LOGIN andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
@@ -156,5 +244,9 @@
     
     
     
+}
+
+- (IBAction)sendMessage:(id)sender {
+    [self sendSMS];
 }
 @end

@@ -32,6 +32,8 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"商品详情" ;
+    // Do any additional setup after loading the view from its nib.
 
 //    self.navigationController.navigationBarHidden = YES ;
     

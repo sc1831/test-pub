@@ -236,6 +236,8 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
         head = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:headID forIndexPath:indexPath];
         TitleModel *model = collectionMtTitleArray[indexPath.section];
         head.headLab.text = model.gc_name ;
+        head.control.tag = indexPath.section ;
+        [head.control addTarget:self action:@selector(headclick:) forControlEvents:UIControlEventTouchUpInside];
     }
     return head ;
     
@@ -264,7 +266,14 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
     [self.navigationController pushViewController:compositeVC animated:YES];
 }
 
-
+- (void)headclick:(UIControl *)control {
+    CompositeVC *compositeVC = [[CompositeVC alloc]init];
+    compositeVC.hidesBottomBarWhenPushed = YES ;
+    TitleModel *model = collectionMtTitleArray[control.tag];
+    compositeVC.goods_name = model.gc_name ;
+    compositeVC.gc_ic = model.gc_id ;
+    [self.navigationController pushViewController:compositeVC animated:YES];
+}
 
 
 @end

@@ -77,7 +77,7 @@
 #define MY_EDIT_BING_PHONE @"app/User/edit_bind_phone"
 //图片上传
 #define UPLOAD_AVATAR @"app/image/upload_avatar"
-#define ABOUT_US @"User/about_us"
+#define ABOUT_US @"app/User/about_us"
 //-------------------------------------------首页
 #define HOME_INDEX @"app/index/index"
 //可能感兴趣的商品

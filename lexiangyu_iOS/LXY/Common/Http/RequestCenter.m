@@ -126,8 +126,10 @@
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         GLOG(@"responseObject", responseObject);
         GLOG(@"信息", [responseObject objectForKey:@"msg"]);
+        
         NETWORKVIEW(NO);
         HUDSelfEnd;
+ 
         if (responseObject) {
             success_block(responseObject);
         }else{

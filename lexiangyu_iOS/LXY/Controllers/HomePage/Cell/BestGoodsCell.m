@@ -17,16 +17,16 @@
 - (void)configWithHomemodel:(HomeModel *)model{
     [self.goods_image sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@""]];
     self.goods_name.text = model.goods_name ;
-    self.goods_price.text = model.goods_price ;
+    self.goods_price.text = STR_A_B(@"¥", model.goods_price)  ;
     self.goods_salenum.text = model.goods_salenum ;
     
-    UIImageView *bgStarImageView =[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 170, 28 )];
+    UIImageView *bgStarImageView =[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 120, 20 )];
     bgStarImageView.image = [UIImage imageNamed:@"星星灰.png"];
     bgStarImageView.contentMode=UIViewContentModeLeft;//这个居中是包括了，横向和纵向都是居中。图片不会拉伸或者压缩，就是按照imageView的frame和图片的大小来居中显示的。
     [self.startView addSubview:bgStarImageView];
 
     
-    UIImageView *startImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 170, 28 )];
+    UIImageView *startImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 120, 20 )];
     startImageView.image = [UIImage imageNamed:@"星星.png"];
     startImageView.contentMode=UIViewContentModeLeft;
     //设置裁剪，超出部分裁剪
@@ -34,7 +34,7 @@
     [self.startView addSubview:startImageView] ;
     float x = startImageView.frame.size.width/5.0f*[model.evaluation_good_star floatValue];
     
-    startImageView.frame = CGRectMake(0, 0, x, 28);
+    startImageView.frame = CGRectMake(0, 0, x, 20);
     
 //    self.evaluation_starImageView.contentMode = UIViewContentModeLeft ;
 //    self.evaluation_starImageView.clipsToBounds = YES ;
