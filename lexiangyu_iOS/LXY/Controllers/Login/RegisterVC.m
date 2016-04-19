@@ -116,19 +116,8 @@
 //联系客服
 - (IBAction)customerService:(id)sender {
     NSLog(@"联系客服点击");
-    NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",@"4000880692"];
-    UIWebView * callWebview = [[UIWebView alloc] init];
-    [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
-    [self.view addSubview:callWebview];
     
-//    NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",@"4000880692"];
-//    //            NSLog(@"str======%@",str);
-//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
-
-    
-//    NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",@"400088-692"];
-//    //            NSLog(@"str======%@",str);
-//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+    [self.view addSubview:[GHControl makeTelPhoneNum]];
 
     
 }

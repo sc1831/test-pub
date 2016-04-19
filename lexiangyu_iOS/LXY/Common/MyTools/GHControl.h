@@ -74,7 +74,8 @@ typedef void (^IMAGE_Completion)(id response);
 + (void)performBlockOnGlobalThread:(void (^)())block
                   withDelaySeconds:(float)delayInSeconds;
 
-
+//拨打电话
++(UIWebView*)makeTelPhoneNum;
 
 
 ///手机号码正则法则

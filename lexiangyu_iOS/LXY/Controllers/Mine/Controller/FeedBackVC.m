@@ -21,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *classLab;
 @property (weak, nonatomic) IBOutlet UILabel *textCountLab;
 @property (nonatomic ,strong)NSString *feedBackStr; //反馈类型
+//打电话
+- (IBAction)makePhoneCall:(id)sender;
 @end
 
 @implementation FeedBackVC
@@ -171,9 +173,8 @@
     }
 }
 
-
-
-
-
-
+//打电话
+- (IBAction)makePhoneCall:(id)sender {
+     [self.view addSubview:[GHControl makeTelPhoneNum]];
+}
 @end

@@ -370,7 +370,16 @@
     [defaults setObject:@"" forKey:@"village_name"];
     [defaults setObject:@"" forKey:@"village_id"];
 }
+//拨打电话
++(UIWebView *)makeTelPhoneNum{
 
+    NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",@"4000880692"];
+    UIWebView * callWebview = [[UIWebView alloc] init];
+    [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
+    
+    return callWebview;
+
+}
 #pragma mark - 系统数据
 + (BOOL)isExistNetwork {
     
