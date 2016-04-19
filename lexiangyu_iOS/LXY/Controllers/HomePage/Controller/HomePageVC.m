@@ -209,9 +209,11 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     //分类
     for (int i = 1100 ; i < 1108 ; i ++) {
         UILabel *label = [self.goods_classView viewWithTag:i];
+        UIImageView *imageView = [self.goods_classView viewWithTag:i+100];
         if (goods_class.count + 1100 > i) {
             HomeModel *model = goods_class[i - 1100];
             label.text = model.gc_name ;
+            [imageView sd_setImageWithURL:[NSURL URLWithString:model.gc_image] placeholderImage:[UIImage imageNamed:@""]];
         }
     }
     //超值特价 special

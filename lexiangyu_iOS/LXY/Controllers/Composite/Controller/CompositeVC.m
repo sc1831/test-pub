@@ -134,6 +134,9 @@
 //            }
             NSArray *goods_list = resultDic[@"data"] [@"goods_list"];
             [goods_Mtlist removeAllObjects];
+            if (goods_list.count <= 0) {
+                HUDNormal(@"搜索到0个相关商品")
+            }
             for (NSDictionary *dic in goods_list) {
                 GoodsModel *model = [[GoodsModel alloc]init];
                 [model setValuesForKeysWithDictionary:dic];
@@ -158,6 +161,10 @@
                 NSMutableArray *indexPaths = [NSMutableArray arrayWithCapacity:0];
                 NSInteger count = goods_Mtlist.count ;
                 NSArray *goods_list = resultDic[@"data"] [@"goods_list"];
+                if (goods_list.count <= 0) {
+                    HUDNormal(@"没有更多商品");
+                }
+                
                 for (int i = 0 ; i <goods_list.count ; i++) {
                     NSDictionary *dic = goods_list[i] ;
                     GoodsModel *model = [[GoodsModel alloc]init];
@@ -278,6 +285,7 @@
 }
 #pragma mark search
 - (IBAction)searchClick:(id)sender {
+    [postDic removeObjectForKey:@"gc_id"];
     if (self.searchTextField.text.length > 0) {
         [postDic setValue:self.searchTextField.text forKey:@"goods_name"];
     }else{

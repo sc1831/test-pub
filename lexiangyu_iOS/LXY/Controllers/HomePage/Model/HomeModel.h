@@ -16,6 +16,7 @@
 //商品顶级分类
 @property (nonatomic,copy)NSString *gc_id ;
 @property (nonatomic,copy)NSString *gc_name ;
+@property (nonatomic,copy)NSString *gc_image ;
 
 //商品
 @property (nonatomic,copy)NSString *goods_id ; //商品id
