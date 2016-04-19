@@ -93,7 +93,7 @@
 }
 
 -(void)keepFeedBackInformation{
-    if (self.funationTextView.text.length < 5) {
+    if (self.funationTextView.text.length < 30) {
         HUDNormal(@"至少五个字");
         return ;
     }else if (self.funationTextView.text.length > 200){

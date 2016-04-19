@@ -37,6 +37,11 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.title = @"分类" ;
+    self.navigationController.navigationBarHidden = YES ;
+}
+- (void)viewDidDisappear:(BOOL)animated{
+    
+    self.navigationController.navigationBarHidden = NO ;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -91,6 +96,8 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
             [cell changeFlageby:YES];
             self.selectRow = (int)indexPath.row ;
         }];
+//        [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+//        [tableView scrollToNearestSelectedRowAtScrollPosition:UITableViewScrollPositionBottom animated:YES];
         
         ClassModel *model = classMtArray[indexPath.row];
         
@@ -165,7 +172,6 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
     
 
     if ((int)indexPath.row == _selectRow && indexPath.section == 0) {
-
         [classifyTabCell changeFlageby:YES];
     }else{
         [classifyTabCell changeFlageby:NO];
@@ -281,7 +287,7 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
     compositeVC.hidesBottomBarWhenPushed = YES ;
     TitleModel *model = collectionMtTitleArray[control.tag];
     compositeVC.goods_name = model.gc_name ;
-    compositeVC.gc_ic = model.gc_id ;
+    compositeVC.gc_id = model.gc_id ;
     [self.navigationController pushViewController:compositeVC animated:YES];
 }
 

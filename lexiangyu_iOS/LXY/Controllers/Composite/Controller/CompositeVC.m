@@ -47,11 +47,14 @@
     
     self.navigationController.navigationBarHidden = NO ;
 }
+- (void)viewWillAppear:(BOOL)animated{
+  self.navigationController.navigationBarHidden= YES ;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.navigationController.navigationBarHidden= YES ;
+  
     _page = 1 ;
     _pageSize = 20 ;
     orderByPriceFlag = YES ;
@@ -68,8 +71,8 @@
         [postDic setValue:self.goods_name forKey:@"goods_name"];
         
     }
-    if (self.gc_ic.length > 0) {
-        [postDic setValue:self.gc_ic forKey:@"gc_id"];
+    if (self.gc_id.length > 0) {
+        [postDic setValue:self.gc_id forKey:@"gc_id"];
     }
     
     [self addMjHeaderAndFooter];

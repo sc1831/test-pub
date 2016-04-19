@@ -60,9 +60,10 @@
     
     [request sendRequestPostUrl:REGISTRE_SEND_SMS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue]==0) {
-            HUDNormal(@"短信发送失败，请稍后再试");
+            HUDNormal([resultDic objectForKey:@"msg"]);
             return ;
         }
+        
         HUDNormal(@"短信发送成功,请注意查收");
         
         [self getIdentifyingCodeBtnClick];

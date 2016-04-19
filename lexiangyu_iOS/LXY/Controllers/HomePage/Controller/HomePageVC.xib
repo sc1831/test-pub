@@ -31,29 +31,6 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4lS-eJ-jUc">
                             <rect key="frame" x="0.0" y="146" width="375" height="166"/>
                             <subviews>
-                                <view tag="1000" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K2H-Bw-XAM" customClass="UIControl">
-                                    <rect key="frame" x="21" y="5" width="54" height="63"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="酒水饮料" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVb-zt-Cxo">
-                                            <rect key="frame" x="-3" y="44" width="59" height="19"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" tag="1200" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1.png" translatesAutoresizingMaskIntoConstraints="NO" id="qda-Bp-rpU">
-                                            <rect key="frame" x="6" y="4" width="39" height="35"/>
-                                        </imageView>
-                                    </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" secondItem="K2H-Bw-XAM" secondAttribute="height" multiplier="6:7" id="SJv-pR-Lct"/>
-                                        <constraint firstAttribute="width" constant="54" id="mfN-zl-3Rd"/>
-                                        <constraint firstAttribute="height" constant="63" id="pGu-21-Btx"/>
-                                    </constraints>
-                                    <connections>
-                                        <action selector="gotoController:" destination="-1" eventType="touchUpInside" id="VCM-XO-6Jl"/>
-                                    </connections>
-                                </view>
                                 <view tag="1001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rw0-PQ-KZD" customClass="UIControl">
                                     <rect key="frame" x="116" y="5" width="54" height="63"/>
                                     <subviews>
@@ -178,6 +155,29 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <connections>
                                         <action selector="gotoController:" destination="-1" eventType="touchUpInside" id="nqB-kv-9Aq"/>
+                                    </connections>
+                                </view>
+                                <view tag="1000" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K2H-Bw-XAM" customClass="UIControl">
+                                    <rect key="frame" x="21" y="5" width="54" height="63"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="酒水饮料" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVb-zt-Cxo">
+                                            <rect key="frame" x="-3" y="44" width="59" height="19"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" tag="1200" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1.png" translatesAutoresizingMaskIntoConstraints="NO" id="qda-Bp-rpU">
+                                            <rect key="frame" x="6" y="4" width="39" height="35"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="K2H-Bw-XAM" secondAttribute="height" multiplier="6:7" id="SJv-pR-Lct"/>
+                                        <constraint firstAttribute="width" constant="54" id="mfN-zl-3Rd"/>
+                                        <constraint firstAttribute="height" constant="63" id="pGu-21-Btx"/>
+                                    </constraints>
+                                    <connections>
+                                        <action selector="gotoController:" destination="-1" eventType="touchUpInside" id="VCM-XO-6Jl"/>
                                     </connections>
                                 </view>
                             </subviews>

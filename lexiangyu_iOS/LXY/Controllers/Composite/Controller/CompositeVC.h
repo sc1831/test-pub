@@ -10,5 +10,5 @@
 
 @interface CompositeVC : RootVC
 @property (nonatomic,copy)NSString *goods_name ;
-@property (nonatomic,copy)NSString *gc_ic ;
+@property (nonatomic,copy)NSString *gc_id ;
 @end

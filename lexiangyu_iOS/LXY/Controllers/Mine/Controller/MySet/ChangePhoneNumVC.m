@@ -13,7 +13,7 @@
 #import "SaveInfo.h"
 
 @interface ChangePhoneNumVC ()<UITextFieldDelegate>
-@property (nonatomic,strong)NSString *authNum;
+//@property (nonatomic,strong)NSString *authNum;
 
 
 //修改绑定手机
@@ -47,7 +47,7 @@
         }
         
         HUDNormal(@"短信发送成功,请注意查收");
-        _authNum = resultDic[@"sms"];
+//        _authNum = resultDic[@"sms"];
         [self showInput];
     } setFailBlock:^(NSString *errorStr) {
         
@@ -67,16 +67,13 @@
         UITextField *codeTestField = alertControl.textFields.lastObject;
         [self.view endEditing:YES];
         
-        NSString *authStr = [NSString stringWithFormat:@"%@",_authNum];
-        if ([authStr isEqualToString:codeTestField.text]) {
+
+        
             ChangePhoneAndGetCodeVC *changePhoneAndGetCodeVC = [[ChangePhoneAndGetCodeVC alloc]init];
             changePhoneAndGetCodeVC.accountNameStr = _accountNameStr;
-            changePhoneAndGetCodeVC.authStr = authStr;
+            changePhoneAndGetCodeVC.authStr = codeTestField.text;
             [self.navigationController pushViewController:changePhoneAndGetCodeVC animated:YES];
-        }else{
-            HUDNormal(@"请输入正确的验证码");
-            return ;
-        }
+  
         
     }]];
     

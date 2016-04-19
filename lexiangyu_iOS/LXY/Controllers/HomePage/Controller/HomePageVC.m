@@ -87,14 +87,18 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     //开启定时器
     [_moveTimer setFireDate:[NSDate distantPast]];
     [_middleMoveTimer setFireDate:[NSDate distantPast]];
-    
 }
+
+- (void)viewDidAppear:(BOOL)animated{
+        self.TopView.contentSize = CGSizeMake(self.view.frame.size.width, 1438);
+}
+
 - (void)viewWillDisappear:(BOOL)animated{
   self.navigationController.navigationBarHidden = NO ;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.TopView.contentSize = CGSizeMake(self.view.frame.size.width, 1438);
+
     adv = [NSMutableArray arrayWithCapacity:0];
     discount = [NSMutableArray arrayWithCapacity:0];
     goods_class = [NSMutableArray arrayWithCapacity:0];
@@ -413,21 +417,33 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     [[self.view viewWithTag:10002]addSubview:preImageView];
     
 }
+
+
 //减速结束时调用
 #pragma mark scrollViewDelegate
+//- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
+//    if (scrollView.tag == 10086) {
+//        //1438
+//        [UIView animateWithDuration:0.6 animations:^{
+//      
+//            
+//            NSLog(@"%f-----%f",scrollView.contentOffset.y,(14460 - 2*M_HEIGHT)
+//                  );
+////            NSLog(@"%f",M_HEIGHT);
+//            if ( scrollView.contentOffset.y > 860 && scrollView.contentOffset.y <= 960) {
+//                scrollView.contentOffset = CGPointMake(0, 1438.000000) ;
+//                scrollView.contentSize = CGSizeMake(M_WIDTH, 2471);
+//            }else if (scrollView.contentOffset.y < 1418){
+//                scrollView.contentSize = CGSizeMake(M_WIDTH, 1438);
+//            }
+//        }];
+//        
+//    }
+//    
+//}
 
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-//    if (scrollView.tag == 10086) {
-//        //1438
-//        if (scrollView.contentSize.height > 1436) {
-//            scrollView.contentSize = CGSizeMake(M_WIDTH, 2471);
-//        }else if (scrollView.contentSize.height <= 1442){
-//            scrollView.contentSize = CGSizeMake(M_WIDTH, 1436);
-//        }
-//    }
-    
-    
     if (scrollView.tag == 10001) {
         int index = (float)scrollView.contentOffset.x/M_WIDTH;
 //        NSLog(@"scrollView.tag == 100");
@@ -671,13 +687,22 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 
 
 - (IBAction)gotoController:(UIControl *)sender {
-    HomeClassifyVC *homeClassfiyVC = [[HomeClassifyVC alloc]init];
-    homeClassfiyVC.hidesBottomBarWhenPushed = YES ;
+//    HomeClassifyVC *homeClassfiyVC = [[HomeClassifyVC alloc]init];
+//    homeClassfiyVC.hidesBottomBarWhenPushed = YES ;
     //TODO: ffff
-    homeClassfiyVC.selectRow = (int)sender.tag - 1000;
+//    homeClassfiyVC.selectRow = (int)sender.tag - 1000;
     HomeModel *model = goods_class[sender.tag - 1000];
-    homeClassfiyVC.gc_id = model.gc_id;
-    [self.navigationController pushViewController:homeClassfiyVC animated:YES];
+//    homeClassfiyVC.gc_id = model.gc_id;
+//    [self.navigationController pushViewController:homeClassfiyVC animated:YES];
+    
+    CompositeVC *compositeVC = [[CompositeVC alloc] init];
+    compositeVC.hidesBottomBarWhenPushed = YES ;
+//    if (self.searchTextField.text.length > 0) {
+        compositeVC.goods_name = model.gc_name;
+    compositeVC.gc_id = model.gc_id ;
+//    }
+    [self.navigationController pushViewController:compositeVC animated:YES];
+    
 }
 
 - (IBAction)gotoGoodsDetails:(UIControl *)sender {
