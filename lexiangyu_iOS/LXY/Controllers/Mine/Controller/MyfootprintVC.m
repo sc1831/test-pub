@@ -56,11 +56,15 @@
         [postDic setValue:@"1" forKey:@"page"];
         [requestCenter sendRequestPostUrl:MY_FOOTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
             [self.myFooterTableView headerEndRefresh];
-            if ([resultDic[@"code"] intValue]==0) {
-                HUDNormal(@"获取数据失败，请稍后再试");
+//            if ([resultDic[@"code"] intValue]==0) {
+//                HUDNormal(@"获取数据失败，请稍后再试");
+//                return ;
+//            }
+            if ([resultDic[@"code"] intValue] != 1) {
+                BG_LOGIN ;
                 return ;
             }
-                        
+            
             NSDictionary *dict = resultDic[@"data"];
             _page = [dict[@"page"] intValue];
             NSArray *array = dict[@"list"];
@@ -97,6 +101,10 @@
     [self.myFooterTableView footerAddMJRefresh:^{
         [postDic setValue:VALUETOSTR(_page) forKey:@"page"];
         [requestCenter sendRequestPostUrl:MY_COLLECT andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+            if ([resultDic[@"code"] intValue] != 1) {
+                BG_LOGIN ;
+                return ;
+            }
             
             if ([[resultDic[@"code"] stringValue] isEqualToString:@"1"]) {
                 NSMutableArray *indexPaths = [NSMutableArray arrayWithCapacity:0];

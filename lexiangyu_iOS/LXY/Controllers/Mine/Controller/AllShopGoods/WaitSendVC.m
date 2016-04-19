@@ -37,6 +37,7 @@
     RequestCenter *requestCenter;
     NSMutableDictionary *postDic ;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"待发货";
@@ -63,11 +64,14 @@
         [postDic setValue:@"3" forKey:@"page"];
         [requestCenter sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
             [self.waitSendtableView headerEndRefresh];
-            
-            if (resultDic[@"code"]==0) {
-                HUDNormal(@"获取数据失败，请稍后再试");
+            if ([resultDic[@"code"] intValue] != 1) {
+                BG_LOGIN ;
                 return ;
             }
+//            if (resultDic[@"code"]==0) {
+//                HUDNormal(@"获取数据失败，请稍后再试");
+//                return ;
+//            }
 //            HUDNormal(@"获取数据成功");
             NSDictionary *dict = resultDic[@"data"];
             _page = [dict[@"page"] intValue];
@@ -100,10 +104,13 @@
         [postDic setValue:VALUETOSTR(_page) forKey:@"page"];
         [requestCenter sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
 
-            
+            if ([resultDic[@"code"] intValue] != 1) {
+                BG_LOGIN ;
+                return ;
+            }
             if ([[resultDic[@"code"] stringValue] isEqualToString:@"1"]) {
                 NSMutableArray *indexPaths = [NSMutableArray arrayWithCapacity:0];
-                NSInteger count = _dataArray.count ;
+//                NSInteger count = _dataArray.count ;
                 NSArray *goods_list = resultDic[@"data"] [@"list"];
                 
                 

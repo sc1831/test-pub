@@ -12,7 +12,8 @@
 #import "MBProgressHUD/MBProgressHUD.h"
 #import "AFNetworking/AFHTTPSessionManager.h"
 #import "SDWebImage/UIImageView+WebCache.h"
-
+#import "LoginVC.h"
+#import "SaveInfo.h"
 /** 系统版本 */
 #define isIos7Version  ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f ? 1 : 0)
 
@@ -117,5 +118,12 @@ hud.mode = MBProgressHUDModeIndeterminate;}
 #define MY_REFRESH(count)  [indexPaths addObject:[NSIndexPath indexPathForRow:0 inSection: count+ i]]
 #define MY_REFRESH_TWO  [_waitPayTableView reloadData]
 
+//返回登录
+#define BG_LOGIN {\
+    if ([resultDic[@"msg"] isEqualToString:@"Hacker"]) {\
+    [self presentViewController:[[LoginVC alloc]init] animated:YES completion:nil];\
+    [[SaveInfo shareSaveInfo] logout];\
+    return ;}\
+}
 
 #endif /* Common_h */

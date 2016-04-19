@@ -12,7 +12,7 @@
 #import "RequestCenter.h"
 #import "GoodsModel.h"
 #import "ConfirmorderVC.h"
-
+#import "LoginVC.h"
 @interface ShopingDetailsVC ()<UIWebViewDelegate>
 {
     NSString *goods_detail_url ;
@@ -41,6 +41,11 @@
     
     RequestCenter *request = [RequestCenter shareRequestCenter];
     [request sendRequestPostUrl:DETAIL_URL andDic:@{@"goods_id":self.goods_commonid} setSuccessBlock:^(NSDictionary *resultDic) {
+        if ([resultDic[@"msg"] isEqualToString:@"Hacker"]) {
+            LoginVC *login = [[LoginVC alloc]init];
+            [self presentViewController:login animated:YES completion:nil];
+            return ;
+        }
         if ([[resultDic[@"code"] stringValue]isEqualToString:@"1"]) {
             goods_detail_url = STR_A_B(@"http://", resultDic[@"data"][@"goods_detail_url"]);
             [self loadWebView];
@@ -102,6 +107,7 @@
         confirmVC.goodsNum = mutArray[1][1];
         confirmVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:confirmVC animated:YES];
+        return NO ;
         
     }
     

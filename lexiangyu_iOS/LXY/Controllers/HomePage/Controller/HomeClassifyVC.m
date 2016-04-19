@@ -55,11 +55,13 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
 }
 - (void)loadClassData{
     RequestCenter *requestCenter = [RequestCenter shareRequestCenter];
+    
     [requestCenter sendRequestPostUrl:G_CLASS andDic:nil setSuccessBlock:^(NSDictionary *resultDic) {
-        
         if ([resultDic[@"code"] intValue] != 1) {
+            BG_LOGIN ;
             return ;
         }
+
         NSArray *data = resultDic[@"data"];
         for (NSDictionary *dic in data) {
             ClassModel *classModel = [[ClassModel alloc]init];
@@ -79,9 +81,11 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
     RequestCenter *requestCenter = [RequestCenter shareRequestCenter];
     
     [requestCenter sendRequestPostUrl:SECOND_CLASS andDic:@{@"gc_id":classID} setSuccessBlock:^(NSDictionary *resultDic) {
-        if ([resultDic[@"code" ] intValue] != 1) {
+        if ([resultDic[@"code"] intValue] != 1) {
+            BG_LOGIN ;
             return ;
         }
+
         if (defMtArray.count > 0) {
             [defMtArray removeAllObjects];
         }

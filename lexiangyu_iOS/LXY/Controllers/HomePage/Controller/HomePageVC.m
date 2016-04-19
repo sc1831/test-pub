@@ -246,7 +246,9 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     RequestCenter *requestCenter = [RequestCenter shareRequestCenter];
     NSDictionary *postDic = @{@"buyer_id":[[SaveInfo shareSaveInfo] user_id],@"page":@"1",@"page_num":@"10"};
     [requestCenter sendRequestPostUrl:RECOMMEND_GOODS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
-        if ([[resultDic objectForKey:@"code"] intValue] != 1) {
+
+        if ([resultDic[@"code"] intValue] != 1) {
+            BG_LOGIN ;
             return ;
         }
         NSDictionary *data = resultDic[@"data"];
