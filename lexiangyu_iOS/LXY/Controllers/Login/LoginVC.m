@@ -14,7 +14,7 @@
 #import "CheckTelPhoneNumVC.h"
 #import "SaveInfo.h"
 #import "RequestCenter.h"
-
+#import "UIButton+Block.h"
 
 @interface LoginVC ()<UITextFieldDelegate>
 {
@@ -33,8 +33,6 @@
 - (IBAction)phoneRegisteredClick:(id)sender;
 //忘记密码
 - (IBAction)forgotPasswordClick:(id)sender;
-//发送验证码
-- (IBAction)sendMessage:(id)sender;
 
 
 @end
@@ -51,13 +49,59 @@
         //未赋值
         [[SaveInfo shareSaveInfo]logout];
     }
+    
+    __weak LoginVC *weakSelf = self;
+    [_sendMessageBtn setOnButtonPressedHandler:^{
+        LoginVC *strongSelf = weakSelf;
+        if (strongSelf) {
+            [strongSelf sendSMS];
+        }
+    }];
 
     
 }
-
+//验证码倒计时
+- (void)getIdentifyingCodeBtnClick {
+    [_sendMessageBtn setEnabled:NO];
+    [_sendMessageBtn setBackgroundColor:[UIColor grayColor]];
+    [_sendMessageBtn setTitle:@" " forState:UIControlStateNormal];
+    
+    __block int timeout = 60;  //倒计时时间
+    dispatch_queue_t queue =
+    dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_source_t _timer =
+    dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+    dispatch_source_set_timer(_timer, dispatch_walltime(NULL, 0),
+                              1.0 * NSEC_PER_SEC, 0);  //每秒执行
+    dispatch_source_set_event_handler(_timer, ^{
+        if (timeout <= 0) {  //倒计时结束，关闭
+            dispatch_source_cancel(_timer);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //设置界面的按钮显示
+                [_sendMessageBtn setTitle:@"获取验证码"
+                                 forState:UIControlStateNormal];
+                [_sendMessageBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                [_sendMessageBtn setEnabled:YES];
+                [_sendMessageBtn setBackgroundImage:[UIImage imageNamed:@"下一步_默认"] forState:UIControlStateNormal];
+            });
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //更改按钮名称，提示下载状态
+                [_sendMessageBtn
+                 setTitle:[NSString stringWithFormat:@"重新获取(%ld)", (long)timeout]
+                 forState:UIControlStateNormal];
+                //RGBCOLOR(171, 171, 171)
+                [_sendMessageBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            });
+            timeout--;
+        }
+    });
+    dispatch_resume(_timer);
+}
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    self.sendMessageBtn.enabled = NO ;
+//    self.sendMessageBtn.enabled = NO ;
+//    [self sendMessageButionState];
     self.loginBtn.enabled = NO ;
     switch (textField.tag) {
         case 1000:
@@ -66,10 +110,14 @@
             if (userName.length >10) {
                 self.userNameTextField.text = [userName substringToIndex:11];
                 if (self.passwordTextField.text.length > 5) {
-                    self.sendMessageBtn.enabled = YES ;
+//                    self.sendMessageBtn.enabled = YES ;
+                    [self sendMessageButionStateSuccess];
                 }
 
                 return NO;
+            }else{
+            
+                [self sendMessageButionState];
             }
             
         }
@@ -79,7 +127,8 @@
             password = [textField.text stringByReplacingCharactersInRange:range withString:string];
             if (password.length > 5) {
                 if (self.userNameTextField.text.length == 11) {
-                    self.sendMessageBtn.enabled = YES ;
+//                    self.sendMessageBtn.enabled = YES ;
+                    [self sendMessageButionStateSuccess];
                 }
             }
             if ( password.length > 11) {
@@ -98,10 +147,15 @@
             if (codeStr.length > 3) {
                 self.messageCodeTextField.text = [codeStr substringToIndex:4];
                 if (self.userNameTextField.text.length == 11 && self.passwordTextField.text.length >5 &&self.passwordTextField.text.length<13) {
-                    self.sendMessageBtn.enabled = YES ;
+
+
+//                    [self sendMessageButionStateSuccess];
                     self.loginBtn.enabled = YES ;
                 }
                 return NO ;
+            }else{
+            
+//                [self sendMessageButionStateSuccess];
             }
             
         }
@@ -115,12 +169,13 @@
 }
 
 - (void)viewState{
-    self.sendMessageBtn.enabled = NO ;
+//    self.sendMessageBtn.enabled = NO ;
+    [self sendMessageButionState];
     self.loginBtn.enabled = NO ;
     if (userName.length > 10) {
 //        self.userNameTextField.text = [userName substringToIndex:11];
         if (password.length > 5) {
-            self.sendMessageBtn.enabled = YES ;
+            [self sendMessageButionStateSuccess];
         }
         if ( password.length > 11) {
             self.passwordTextField.text = [password substringToIndex:12];
@@ -135,7 +190,23 @@
     
 }
 
+-(void)sendMessageButionState{
 
+    _sendMessageBtn.userInteractionEnabled = NO;
+    _sendMessageBtn.enabled = NO;
+    [_sendMessageBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
+    [_sendMessageBtn setTitleColor:RGBCOLOR(171,171,171)forState:UIControlStateNormal];
+    [_sendMessageBtn setBackgroundImage:[UIImage imageNamed:@"获取验证码"] forState:UIControlStateNormal];
+}
+-(void)sendMessageButionStateSuccess{
+
+    self.sendMessageBtn.userInteractionEnabled = YES;
+    _sendMessageBtn.enabled = YES;
+    [self.sendMessageBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
+    [self.sendMessageBtn setBackgroundImage:[UIImage imageNamed:@"下一步_默认"] forState:UIControlStateNormal];
+    [self.sendMessageBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+}
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
     return YES;
@@ -158,6 +229,12 @@
     
     [request sendRequestPostUrl:REGISTRE_SEND_SMS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
         HUDNormal(@"短信发送成功,请注意查收");
+        if ([resultDic[@"code"] intValue]==0) {
+            HUDNormal(resultDic[@"msg"]);
+            return ;
+        }
+        [self getIdentifyingCodeBtnClick];
+        
     } setFailBlock:^(NSString *errorStr) {
         
     }];
@@ -246,7 +323,5 @@
     
 }
 
-- (IBAction)sendMessage:(id)sender {
-    [self sendSMS];
-}
+
 @end
