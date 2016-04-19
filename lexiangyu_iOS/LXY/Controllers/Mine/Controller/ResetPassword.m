@@ -67,6 +67,11 @@
     NSDictionary *postDic = @{@"phone":_phoneNumTextField.text,@"type":@"2"};
     
     [request sendRequestPostUrl:REGISTRE_SEND_SMS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+        if ([resultDic[@"code"] intValue]==0) {
+            HUDNormal(resultDic[@"msg"]);
+            return ;
+        }
+        
         HUDNormal(@"短信发送成功,请注意查收");
         
         [self getIdentifyingCodeBtnClick];
@@ -118,6 +123,14 @@
 //}
 
 - (IBAction)nextButtonClick:(id)sender {
+    
+    if ([_phoneNumStr isEqualToString:_phoneNumTextField.text]) {
+        
+    }else{
+    
+        HUDNormal(@"两次输入的手机号不一致");
+        return;
+    }
     
     if (_authTextField.text.length == 0) {
         HUDNormal(@"请输入验证码");

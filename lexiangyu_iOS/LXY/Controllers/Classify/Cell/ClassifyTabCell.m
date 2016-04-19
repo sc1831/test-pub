@@ -7,6 +7,8 @@
 //
 
 #import "ClassifyTabCell.h"
+#import "Common.h"
+
 @interface ClassifyTabCell()
 @property (weak, nonatomic) IBOutlet UIView *selectFlagView;
 
@@ -30,9 +32,11 @@
 }
 - (void)changeFlageby:(BOOL)flag{
     if (flag) {
-        _selectFlagView.backgroundColor = [UIColor redColor] ;
+        _selectFlagView.backgroundColor = RGBCOLOR(255, 135, 31) ;
+        self.titleLabel.textColor = RGBCOLOR(255, 135, 31);
     }else{
         _selectFlagView.backgroundColor = [UIColor whiteColor];
+        self.titleLabel.textColor = RGBCOLOR(36, 37, 38);
     }
 }
 

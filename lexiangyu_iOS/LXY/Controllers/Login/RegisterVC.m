@@ -30,9 +30,14 @@
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 
 @property (nonatomic,strong)UIBarButtonItem *leftBarButton;
+
 @end
 
 @implementation RegisterVC
+{
+
+    NSString *statcPhoneNum;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -69,7 +74,17 @@
     NSUserDefaults *define = [NSUserDefaults standardUserDefaults];
     [define setObject:@"0" forKey:@"isNewPhone"];
 
+    if (![GHControl lengalPhoneNumber:_phoneTextField.text]) {
+        HUDNormal(@"请输入正确的手机号");
+        return;
+    }
+    if ([statcPhoneNum isEqualToString:_phoneTextField.text]) {
+        
+    }else{
     
+        HUDNormal(@"输入的手机号与获取验证码的手机号不一致");
+        return;
+    }
     if (_verificationCodeTextField.text.length==0) {
         HUDNormal(@"请输入验证码");
         return;
@@ -101,6 +116,21 @@
 //联系客服
 - (IBAction)customerService:(id)sender {
     NSLog(@"联系客服点击");
+    NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",@"4000880692"];
+    UIWebView * callWebview = [[UIWebView alloc] init];
+    [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
+    [self.view addSubview:callWebview];
+    
+//    NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",@"4000880692"];
+//    //            NSLog(@"str======%@",str);
+//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+
+    
+//    NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",@"400088-692"];
+//    //            NSLog(@"str======%@",str);
+//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+
+    
 }
 
 
@@ -114,7 +144,7 @@
     
     RequestCenter *request = [RequestCenter shareRequestCenter];
     NSDictionary *postDic = @{@"phone":_phoneTextField.text,@"type":@"1"};
-    
+    statcPhoneNum = _phoneTextField.text;
     [request sendRequestPostUrl:REGISTRE_SEND_SMS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
         HUDNormal(@"短信发送成功,请注意查收");
         

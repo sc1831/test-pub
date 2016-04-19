@@ -238,6 +238,7 @@
 		6E1D9A751CB3AA7800CBA10D /* ChangePhoneSuccessVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1D9A671CB3AA7800CBA10D /* ChangePhoneSuccessVC.m */; };
 		6E2DCBC21CC4EF4B005C9C8A /* 筛选.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E2DCBC01CC4EF4B005C9C8A /* 筛选.png */; };
 		6E2DCBC31CC4EF4B005C9C8A /* 筛选2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E2DCBC11CC4EF4B005C9C8A /* 筛选2.png */; };
+		6E2DCBC51CC50579005C9C8A /* lexianyu.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E2DCBC41CC50579005C9C8A /* lexianyu.png */; };
 		6E2E51451CA281860048A034 /* BestGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2E51431CA281860048A034 /* BestGoodsCell.m */; };
 		6E2E51461CA281860048A034 /* BestGoodsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E2E51441CA281860048A034 /* BestGoodsCell.xib */; };
 		6E32966D1CAE6162008635D7 /* page-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E32966C1CAE6162008635D7 /* page-bg.png */; };
@@ -772,6 +773,7 @@
 		6E1D9A6A1CB3AA7800CBA10D /* ChangePhoneSuccessVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePhoneSuccessVC.h; sourceTree = "<group>"; };
 		6E2DCBC01CC4EF4B005C9C8A /* 筛选.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "筛选.png"; sourceTree = "<group>"; };
 		6E2DCBC11CC4EF4B005C9C8A /* 筛选2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "筛选2.png"; sourceTree = "<group>"; };
+		6E2DCBC41CC50579005C9C8A /* lexianyu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lexianyu.png; sourceTree = "<group>"; };
 		6E2E51421CA281860048A034 /* BestGoodsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BestGoodsCell.h; sourceTree = "<group>"; };
 		6E2E51431CA281860048A034 /* BestGoodsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BestGoodsCell.m; sourceTree = "<group>"; };
 		6E2E51441CA281860048A034 /* BestGoodsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BestGoodsCell.xib; sourceTree = "<group>"; };
@@ -2262,6 +2264,7 @@
 		6EF4F7161C97B00900E1BB18 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				6E2DCBC41CC50579005C9C8A /* lexianyu.png */,
 				6E1030AB1CB4FAE80098D5BD /* 适用列表小箭头全部.png */,
 				6E1030AC1CB4FAE80098D5BD /* 适用列表小箭头全部@2x.png */,
 				6E1030AD1CB4FAE80098D5BD /* 适用列表小箭头全部@3x.png */,
@@ -2783,6 +2786,7 @@
 				6EC44CF81CA4DACF00833567 /* 确定_点击@3x.png in Resources */,
 				6E10316B1CB4FC570098D5BD /* 个人中心白箭头.png in Resources */,
 				6EF2A1C41CAA5E3B00057FC0 /* ChooseVillageVC.xib in Resources */,
+				6E2DCBC51CC50579005C9C8A /* lexianyu.png in Resources */,
 				6E10319A1CB4FC570098D5BD /* 地址.png in Resources */,
 				6E16E5321CBF7092007F96C1 /* OrderDetailsVC.xib in Resources */,
 				6E16E5371CBF733C007F96C1 /* OrderDetailCell.xib in Resources */,

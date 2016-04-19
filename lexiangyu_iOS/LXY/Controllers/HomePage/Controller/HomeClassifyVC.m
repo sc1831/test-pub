@@ -38,6 +38,7 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"分类" ;
     // Do any additional setup after loading the view from its nib.
     if (self.selectRow <= 0) {
         self.selectRow = 0 ;

@@ -36,11 +36,12 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
 @implementation ClassifyVC
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-        self.title = @"分类" ;
+    self.title = @"分类" ;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    
     if (self.selectRow <= 0) {
         self.selectRow = 0 ;
     }
