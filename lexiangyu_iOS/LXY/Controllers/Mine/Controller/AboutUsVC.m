@@ -28,20 +28,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"关于我们" ;
-    RequestCenter *request = [RequestCenter shareRequestCenter];
-    [request sendRequestPostUrl:ABOUT_US andDic:nil setSuccessBlock:^(NSDictionary *resultDic) {
-        if ([[resultDic[@"code"] stringValue]isEqualToString:@"1"]) {
-            webUrlStr = resultDic[@"data"][@"url"];
-            [self loadWebView];
-        }else{
-            HUDNormal(@"商品信息正在维护");
-            [self.navigationController popViewControllerAnimated:YES];
-        }
-    } setFailBlock:^(NSString *errorStr) {
-        HUDNormal(@"商品信息正在维护");
-        [self.navigationController popViewControllerAnimated:YES];
-    }];
-    
+//    RequestCenter *request = [RequestCenter shareRequestCenter];
+//    [request sendRequestPostUrl:ABOUT_US andDic:nil setSuccessBlock:^(NSDictionary *resultDic) {
+//        if ([[resultDic[@"code"] stringValue]isEqualToString:@"1"]) {
+//            webUrlStr = resultDic[@"data"][@"url"];
+//            [self loadWebView];
+//        }else{
+//            HUDNormal(@"商品信息正在维护");
+//            [self.navigationController popViewControllerAnimated:YES];
+//        }
+//    } setFailBlock:^(NSString *errorStr) {
+//        HUDNormal(@"商品信息正在维护");
+//        [self.navigationController popViewControllerAnimated:YES];
+//    }];
+    webUrlStr = ABOUT_US ;
+    [self loadWebView];
 }
 
 - (void)loadWebView{

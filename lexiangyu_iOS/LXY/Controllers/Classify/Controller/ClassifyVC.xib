@@ -75,8 +75,8 @@
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EnV-S7-ZPx">
-                    <rect key="frame" x="0.0" y="63" width="78" height="550"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="0.0" y="63" width="78" height="555"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="78" id="Jj4-8p-R5u"/>
                     </constraints>
@@ -86,7 +86,7 @@
                     </connections>
                 </tableView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="JpP-Ba-0uK">
-                    <rect key="frame" x="79" y="63" width="288" height="550"/>
+                    <rect key="frame" x="79" y="63" width="288" height="555"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CWa-xK-sk5">
                         <size key="itemSize" width="50" height="50"/>
@@ -105,11 +105,11 @@
                 <constraint firstItem="EnV-S7-ZPx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="4j6-fO-a5j"/>
                 <constraint firstItem="JpP-Ba-0uK" firstAttribute="top" secondItem="C56-8u-QX7" secondAttribute="bottom" id="9MV-mb-B0c"/>
                 <constraint firstAttribute="trailing" secondItem="JpP-Ba-0uK" secondAttribute="trailing" constant="8" id="Lgp-aV-1P9"/>
-                <constraint firstAttribute="bottom" secondItem="EnV-S7-ZPx" secondAttribute="bottom" constant="54" id="O0n-63-pOg"/>
+                <constraint firstAttribute="bottom" secondItem="EnV-S7-ZPx" secondAttribute="bottom" constant="49" id="O0n-63-pOg"/>
                 <constraint firstItem="JpP-Ba-0uK" firstAttribute="leading" secondItem="EnV-S7-ZPx" secondAttribute="trailing" constant="1" id="PrD-DC-Rpf"/>
                 <constraint firstItem="C56-8u-QX7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="VhR-Ho-N4o"/>
                 <constraint firstItem="C56-8u-QX7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="ZWP-EZ-luI"/>
-                <constraint firstAttribute="bottom" secondItem="JpP-Ba-0uK" secondAttribute="bottom" constant="54" id="fso-QK-wjX"/>
+                <constraint firstAttribute="bottom" secondItem="JpP-Ba-0uK" secondAttribute="bottom" constant="49" id="fso-QK-wjX"/>
                 <constraint firstAttribute="trailing" secondItem="C56-8u-QX7" secondAttribute="trailing" id="iey-Ce-41s"/>
                 <constraint firstItem="EnV-S7-ZPx" firstAttribute="top" secondItem="C56-8u-QX7" secondAttribute="bottom" id="qGg-uV-4V5"/>
             </constraints>

@@ -90,7 +90,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 }
 
 - (void)viewDidAppear:(BOOL)animated{
-        self.TopView.contentSize = CGSizeMake(self.view.frame.size.width, 1438);
+//        self.TopView.contentSize = CGSizeMake(self.view.frame.size.width, 1438);
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -217,7 +217,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
         if (goods_class.count + 1100 > i) {
             HomeModel *model = goods_class[i - 1100];
             label.text = model.gc_name ;
-            [imageView sd_setImageWithURL:[NSURL URLWithString:model.gc_image] placeholderImage:[UIImage imageNamed:@""]];
+            [imageView sd_setImageWithURL:[NSURL URLWithString:model.gc_image] placeholderImage:[UIImage imageNamed:@"1.png"]];
         }
     }
     //超值特价 special
@@ -442,6 +442,10 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 //    
 //}
 
+- (BOOL)prefersStatusBarHidden
+{
+    return YES; //返回NO表示要显示，返回YES将hiden
+}
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     if (scrollView.tag == 10001) {

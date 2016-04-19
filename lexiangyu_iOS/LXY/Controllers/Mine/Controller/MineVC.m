@@ -35,7 +35,9 @@
 @end
 
 @implementation MineVC
-
+- (void)viewWillAppear:(BOOL)animated{
+     [self sendRequestData];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -46,7 +48,7 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"tabBarBgImage.png"] forBarMetrics:UIBarMetricsDefault];
     //设置字体大小和颜色
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:16],NSForegroundColorAttributeName:[UIColor blackColor]}];
-    [self sendRequestData];
+   
     
     
     _headImage = [UIImage imageNamed:@"火影1"];
