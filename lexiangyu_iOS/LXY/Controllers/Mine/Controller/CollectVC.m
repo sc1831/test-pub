@@ -196,12 +196,12 @@
     MyCollectModel *model = _dataArray[indexPath.row];
     
     RequestCenter * request = [RequestCenter shareRequestCenter];
-    NSDictionary *postDic = @{@"ids":model.goods_id,
+    NSDictionary *postDict = @{@"ids":model.goods_id,
                               @"user_id":[[SaveInfo shareSaveInfo]user_id],
                               @"type":@"goods"
                               };
     
-    [request sendRequestPostUrl:MY_DELLECT_COLLECT andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+    [request sendRequestPostUrl:MY_DELLECT_COLLECT andDic:postDict setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue]==0) {
             HUDNormal(@"删除数据失败，请稍后再试");
             return ;
@@ -241,11 +241,11 @@
     MyCollectModel *model = _dataArray[index];
     
     RequestCenter * request = [RequestCenter shareRequestCenter];
-    NSDictionary *postDic = @{@"goods_id":model.goods_id,
+    NSDictionary *postDict = @{@"goods_id":model.goods_id,
                               @"goods_num":@"1"
                               };
     
-    [request sendRequestPostUrl:ADD_SHOP_GOODS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+    [request sendRequestPostUrl:ADD_SHOP_GOODS andDic:postDict setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] ==0) {
             HUDNormal(@"添加失败，请稍后再试");
             return ;

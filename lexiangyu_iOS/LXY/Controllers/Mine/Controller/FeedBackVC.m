@@ -57,7 +57,7 @@
 
     [request sendRequestPostUrl:MY_FEEDBACK_TYPE andDic:nil setSuccessBlock:^(NSDictionary *resultDic) {
         
-        if (resultDic[@"code"]==0) {
+        if ([resultDic[@"code"] intValue]==0) {
             HUDNormal(@"请求失败");
             return ;
         }
@@ -116,7 +116,7 @@
     
     [request sendRequestPostUrl:MY_FEEDBACK_TYPE andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
         
-        if (resultDic[@"code"]==0) {
+        if ([resultDic[@"code"] intValue]==0) {
             HUDNormal(@"请求失败");
             return ;
         }

@@ -61,7 +61,7 @@
     [request sendRequestPostUrl:MY_ADDRESS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
         
         if ([resultDic[@"code"] intValue]==0) {
-            HUDNormal(@"请求失败");
+            HUDNormal(@"数据请求失败，请稍后再试");
             return ;
         }
         

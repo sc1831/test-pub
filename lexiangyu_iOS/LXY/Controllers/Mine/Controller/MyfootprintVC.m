@@ -159,6 +159,10 @@
                               };
     
     [request sendRequestPostUrl:MY_DELLECT_FOOTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+        if ([resultDic[@"code"] intValue]==0) {
+            HUDNormal(@"数据清空失败，请稍后再试");
+            return ;
+        }
         HUDNormal(@"清空数据成功");
         [_dataArray removeAllObjects];
         [self isHiddenEmptyButton];
