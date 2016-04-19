@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -232,39 +232,8 @@
                         <constraint firstItem="Huj-3N-oNE" firstAttribute="centerX" secondItem="SYv-5I-QKH" secondAttribute="centerX" id="ubK-sR-Uhj"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="spg-Pc-ael" customClass="UIControl">
-                    <rect key="frame" x="0.0" y="310" width="375" height="47"/>
-                    <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="适用列表箭头全部.png" translatesAutoresizingMaskIntoConstraints="NO" id="56j-sg-hGB">
-                            <rect key="frame" x="355" y="15" width="10" height="16"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="10" id="26p-u7-PGh"/>
-                                <constraint firstAttribute="height" constant="16" id="kXa-vk-dwp"/>
-                            </constraints>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="收藏.png" translatesAutoresizingMaskIntoConstraints="NO" id="Sig-pR-gC4">
-                            <rect key="frame" x="13" y="8" width="26" height="26"/>
-                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我的收藏" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIp-Ev-LOA">
-                            <rect key="frame" x="54" y="13" width="118" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.38823529411764707" green="0.39215686274509803" blue="0.396078431372549" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="47" id="QbF-b6-KIh"/>
-                        <constraint firstItem="56j-sg-hGB" firstAttribute="top" secondItem="spg-Pc-ael" secondAttribute="top" constant="15" id="UO8-GZ-Gir"/>
-                        <constraint firstAttribute="trailing" secondItem="56j-sg-hGB" secondAttribute="trailing" constant="10" id="v0K-hh-zSV"/>
-                    </constraints>
-                    <connections>
-                        <action selector="collectionViewClick:" destination="-1" eventType="touchUpInside" id="ohs-SI-ked"/>
-                    </connections>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="biW-nt-uTz" customClass="UIControl">
-                    <rect key="frame" x="0.0" y="358" width="375" height="47"/>
+                    <rect key="frame" x="0.0" y="326" width="375" height="47"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="足迹.png" translatesAutoresizingMaskIntoConstraints="NO" id="6TY-Yt-nno">
                             <rect key="frame" x="12" y="9" width="26" height="26"/>
@@ -296,18 +265,15 @@
             </subviews>
             <color key="backgroundColor" red="0.92941176469999998" green="0.93725490199999995" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="spg-Pc-ael" firstAttribute="top" secondItem="SYv-5I-QKH" secondAttribute="bottom" constant="14" id="0u5-rr-Ay9"/>
                 <constraint firstAttribute="trailing" secondItem="y1T-X0-QVg" secondAttribute="trailing" id="8ha-4a-Yav"/>
                 <constraint firstAttribute="trailing" secondItem="SYv-5I-QKH" secondAttribute="trailing" id="AYN-dG-Exd"/>
-                <constraint firstAttribute="trailing" secondItem="spg-Pc-ael" secondAttribute="trailing" id="GqZ-Im-FJp"/>
+                <constraint firstItem="biW-nt-uTz" firstAttribute="top" secondItem="SYv-5I-QKH" secondAttribute="bottom" constant="30" id="M9U-DC-R3o"/>
                 <constraint firstItem="biW-nt-uTz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="R2I-bp-T6m"/>
-                <constraint firstItem="biW-nt-uTz" firstAttribute="top" secondItem="spg-Pc-ael" secondAttribute="bottom" constant="1" id="XOb-Nk-IV0"/>
                 <constraint firstAttribute="trailing" secondItem="biW-nt-uTz" secondAttribute="trailing" id="YX6-5G-VVO"/>
                 <constraint firstItem="SYv-5I-QKH" firstAttribute="top" secondItem="y1T-X0-QVg" secondAttribute="bottom" constant="3" id="fcH-h4-0dd"/>
                 <constraint firstItem="wf1-1j-Reg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="68" id="iHt-pg-a9q"/>
                 <constraint firstItem="y1T-X0-QVg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mHn-BB-4s6"/>
                 <constraint firstAttribute="trailing" secondItem="wf1-1j-Reg" secondAttribute="trailing" id="mmL-0o-Ih5"/>
-                <constraint firstItem="spg-Pc-ael" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="phK-A3-wLK"/>
                 <constraint firstItem="y1T-X0-QVg" firstAttribute="top" secondItem="wf1-1j-Reg" secondAttribute="bottom" constant="4" id="tss-SA-K0f"/>
                 <constraint firstItem="SYv-5I-QKH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uvs-eA-S4p"/>
                 <constraint firstItem="wf1-1j-Reg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vec-Eb-x2v"/>
@@ -322,7 +288,6 @@
         <image name="待.png" width="23" height="23"/>
         <image name="待发货.png" width="23" height="23"/>
         <image name="待送货.png" width="23" height="23"/>
-        <image name="收藏.png" width="30" height="30"/>
         <image name="更多订单.png" width="20" height="20"/>
         <image name="足迹.png" width="30" height="30"/>
         <image name="适用列表箭头全部.png" width="9" height="14"/>
