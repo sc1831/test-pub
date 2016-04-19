@@ -31,53 +31,78 @@
 }
 
 - (IBAction)keepChangePassword:(id)sender {
+    
     NSLog(@"保存修改");
+    [self finishNextSetUp];
     [self sendRequestData];
 }
+-(void)finishNextSetUp{
+
+    if ([_oldPasswordTextField.text length] == 0) {
+        HUDNormal(@"当前密码不可以为空");
+        return;
+        
+    } else if ([_oldPasswordTextField.text length] < 6) {
+        HUDNormal(@"密码由6-12位字母或数字组成，请重新输入");
+        return;
+        
+    }
+    
+    if ([_newsPasswordTexyField.text length] == 0) {
+        HUDNormal(@"新密码不可以为空");
+        return;
+    } else if ([_newsPasswordTexyField.text length] < 6) {
+        HUDNormal(@"密码由6-12位字母或数字组成，请重新输入");
+        return;
+        
+    }
+    
+    if ([_againTextField.text isEqualToString:_newsPasswordTexyField.text] == NO) {
+        HUDNormal(@"两次输入的密码不一致，请重新输入");
+        return;
+    }
+    if ([_oldPasswordTextField.text isEqualToString:_newsPasswordTexyField.text] == YES) {
+        HUDNormal(@"新密码与当前密码不能一致");
+        _againTextField.text = @"";
+        _newsPasswordTexyField.text = @"";
+        return;
+    }
+
+}
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    self.submitBtn.enabled = [self submitBtnIsEnable] ;
+//    self.submitBtn.enabled = YES;
     
-    if (textField.text.length > 12) {
-        HUDNormal(@"密码长度不能大于12位");
-    }
-
-    return YES ;
-}
--(void)textFieldDidEndEditing:(UITextField *)textField{
-    self.submitBtn.enabled = [self submitBtnIsEnable] ;
-    if (textField.text.length > 12) {
-        HUDNormal(@"密码长度不能大于12位");
-    }
+    //此处容易出问题
+    NSString *toBeString =
+    [textField.text stringByReplacingCharactersInRange:range withString:string];
     
-}
-
-
-
-//- (void)textFieldDidEndEditing:(UITextField *)textField{
-//    self.submitBtn.enabled = [self submitBtnIsEnable] ;
-//    if (textField.text.length > 12) {
-//        HUDNormal(@"密码长度不能大于12位");
-//    }
-//    
-//    
-//}
-- (BOOL)submitBtnIsEnable{
-    NSArray *array = @[self.oldPasswordTextField.text,self.newsPasswordTexyField.text , self.againTextField.text];
-    for (NSString *str in array) {
-        if (str.length >= 5 && str.length <= 12) {
-          
+    if (textField == _againTextField) {
+        if ([toBeString length]>5) {
+            self.submitBtn.enabled = YES;
+            
         }else{
-            return NO ;
+            self.submitBtn.enabled = NO;
+            
         }
     }
-//    if ([array[1] isEqualToString:array[2]]) {
-//        
-//        return YES ;
-//    }else{
-//        HUDNormal(@"两次密码不一致");
-//        return NO ;
-//    }
-      return YES ;
+    
+    ///手机号输入框
+    if (textField == _oldPasswordTextField || textField == _newsPasswordTexyField || textField == _againTextField) {
+            //更改显示效果，设置为输入就可以验证
+            if ([toBeString length] > 11) {
+                textField.text = [toBeString substringToIndex:12];
+                
+                return NO;
+            } else {
+                return YES;
+            }
+        
+       
+    }
+    
+   
+    
+    return YES ;
 }
 
 -(void)sendRequestData{
