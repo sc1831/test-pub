@@ -27,53 +27,6 @@
             endingLineNumber = "147"
             landmarkName = "-sendRequestData"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__40-[RegisterVC getIdentifyingCodeBtnClick]_block_invoke_2"
-                  moduleName = "LXY"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/guohui/Desktop/lexianyu_ios/lexiangyu_iOS/LXY/Controllers/Login/RegisterVC.m"
-                  timestampString = "482725081.113565"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "180"
-                  endingLineNumber = "180"
-                  offsetFromSymbolStart = "468">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__copy_helper_block_.168"
-                  moduleName = "LXY"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/guohui/Desktop/lexianyu_ios/lexiangyu_iOS/LXY/Controllers/Login/RegisterVC.m"
-                  timestampString = "482725081.11636"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "180"
-                  endingLineNumber = "180"
-                  offsetFromSymbolStart = "64">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.169"
-                  moduleName = "LXY"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/guohui/Desktop/lexianyu_ios/lexiangyu_iOS/LXY/Controllers/Login/RegisterVC.m"
-                  timestampString = "482725081.116779"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "180"
-                  endingLineNumber = "180"
-                  offsetFromSymbolStart = "36">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -137,6 +90,22 @@
             startingLineNumber = "253"
             endingLineNumber = "253"
             landmarkName = "-changePostValue"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
+            timestampString = "482739125.076532"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "407"
+            endingLineNumber = "407"
+            landmarkName = "-tableView:viewForFooterInSection:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

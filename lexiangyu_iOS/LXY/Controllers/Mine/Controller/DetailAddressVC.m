@@ -44,8 +44,12 @@
                                    owner:self
                                  options:nil] firstObject];
     headTabView.frame = CGRectMake(0,72,M_WIDTH, 84);
-    [headTabView.changeAdressBtn setBackgroundImage:[UIImage imageNamed:@"编辑_点击"] forState:UIControlStateHighlighted];
-    [headTabView.changeAdressBtn setBackgroundImage:[UIImage imageNamed:@"编辑_默认"] forState:UIControlStateNormal];
+    
+    
+    //收货地址编辑
+    headTabView.changeAdressBtn.userInteractionEnabled = NO;
+//    [headTabView.changeAdressBtn setBackgroundImage:[UIImage imageNamed:@"编辑_点击"] forState:UIControlStateHighlighted];
+//    [headTabView.changeAdressBtn setBackgroundImage:[UIImage imageNamed:@"编辑_默认"] forState:UIControlStateNormal];
     
     __weak DetailAddressVC *weakSelf = self;
     [headTabView.changeAdressBtn setOnButtonPressedHandler:^{

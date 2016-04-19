@@ -36,9 +36,11 @@
 }
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     self.submitBtn.enabled = [self submitBtnIsEnable] ;
+    
     if (textField.text.length > 12) {
         HUDNormal(@"密码长度不能大于12位");
     }
+
     return YES ;
 }
 -(void)textFieldDidEndEditing:(UITextField *)textField{

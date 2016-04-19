@@ -270,6 +270,10 @@
         _bootmDeleteImageView.image = [UIImage imageNamed:@"选中"];
         
     }
+    
+    
+    
+    
 }
 -(void)createTableView{
     
@@ -400,7 +404,7 @@
     
     [self createFootView];
     
-    UILabel *label = [GHControl createLabelWithFrame:CGRectMake(0,3,M_WIDTH-5,10) Font:10 Text:[NSString stringWithFormat:@"小计(共%@件):%.2lf",sectionModel.goods_num_total ,[sectionModel.goods_price_total floatValue]]];
+    UILabel *label = [GHControl createLabelWithFrame:CGRectMake(0,3,M_WIDTH-5,10) Font:10 Text:[NSString stringWithFormat:@"小计(共%@件):￥%.2lf",sectionModel.goods_num_total ,[sectionModel.goods_price_total floatValue]]];
     label.textColor = RGBCOLOR(249, 147, 73);
     label.textAlignment = NSTextAlignmentRight;
     [_footView addSubview:label];
@@ -612,7 +616,7 @@
             ShoppingCartModel *model = _dataArray[i][j];
             CGFloat value;
             if (model.isSelected) {
-                value = [model.goods_price floatValue];
+                value = [model.goods_price floatValue]*[model.goods_num floatValue];
                 _goodsMucth += value;
                 
             }
@@ -620,7 +624,12 @@
         
     }
     _allMoneyPay.text = [NSString stringWithFormat:@"合计：%.2lf元",_goodsMucth];
+    if ([_allMoneyPay.text isEqualToString:@"0.00"]) {
+        _bottmView.backgroundColor = [UIColor grayColor];
+    }else{
     
+        _bottmView.backgroundColor = RGBCOLOR(253, 80, 11);
+    }
     //刷新全选按钮状态
     [self updateAllButtonState];
     

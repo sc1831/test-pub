@@ -52,7 +52,6 @@
                         <constraint firstAttribute="width" constant="22" id="9c9-Wf-mn1"/>
                         <constraint firstAttribute="height" constant="20" id="buD-2h-TyR"/>
                     </constraints>
-                    <state key="normal" backgroundImage="编辑_默认.png"/>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -91,6 +90,5 @@
         <image name="位置.png" width="15" height="15"/>
         <image name="地址.png" width="15" height="15"/>
         <image name="地址装饰条.png" width="640" height="4"/>
-        <image name="编辑_默认.png" width="20" height="20"/>
     </resources>
 </document>

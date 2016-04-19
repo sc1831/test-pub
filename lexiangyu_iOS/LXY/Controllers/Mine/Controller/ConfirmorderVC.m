@@ -69,7 +69,7 @@
 @property (nonatomic ,strong)NSMutableArray *goodsSpecArray;
 
 @property (weak, nonatomic) IBOutlet UIControl *subMitBtn;
-
+//提交订单
 - (IBAction)subMitClick:(id)sender;
 @end
 
@@ -171,7 +171,7 @@
             AllGoodsOrders *model = _dataArray[i];
             money += [model.goods_price_total floatValue];
         }
-        _bootmMoney.text = [NSString stringWithFormat:@"%.2lf",money];
+        _bootmMoney.text = [NSString stringWithFormat:@"%.2lf元",money];
         
         
         [_confirmTableView reloadData];
@@ -196,9 +196,10 @@
                                    owner:self
                                  options:nil] firstObject];
     _confirmTableView.tableHeaderView = headTabView;
-    [headTabView.changeAddressBtn setBackgroundImage:[UIImage imageNamed:@"编辑_点击"] forState:UIControlStateHighlighted];
-     [headTabView.changeAddressBtn setBackgroundImage:[UIImage imageNamed:@"编辑_默认"] forState:UIControlStateNormal];
-//    headTabView.changeAddressBtn.userInteractionEnabled = NO;
+    //地址是否可编辑
+//    [headTabView.changeAddressBtn setBackgroundImage:[UIImage imageNamed:@"编辑_点击"] forState:UIControlStateHighlighted];
+//     [headTabView.changeAddressBtn setBackgroundImage:[UIImage imageNamed:@"编辑_默认"] forState:UIControlStateNormal];
+    headTabView.changeAddressBtn.userInteractionEnabled = NO;
     [headTabView.changeAddressBtn addTarget:self  action:@selector(changeAddressBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
 
