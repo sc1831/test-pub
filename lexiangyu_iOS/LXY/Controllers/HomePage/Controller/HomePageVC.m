@@ -136,6 +136,10 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 - (void)loadHomeData{
     RequestCenter *request = [RequestCenter shareRequestCenter];
     [request sendRequestPostUrl:HOME_INDEX andDic:nil setSuccessBlock:^(NSDictionary *resultDic) {
+        if ([resultDic[@"code"] intValue] != 1) {
+            BG_LOGIN ;
+            return ;
+        }
         if ([[resultDic objectForKey:@"code"] intValue] == 1) {
             // 成功获取数据
             NSDictionary *dataDic = [resultDic objectForKey:@"data"];

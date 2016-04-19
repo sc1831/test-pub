@@ -145,6 +145,10 @@
     
     [request sendRequestPostUrl:string andDic:dict setSuccessBlock:^(NSDictionary *resultDic) {
         
+        if ([resultDic[@"code"] intValue] != 1) {
+            BG_LOGIN ;
+            return ;
+        }
         
         if ([resultDic[@"code"] intValue]==0) {
             HUDNormal(@"数据请求失败，请稍后再试");
@@ -736,7 +740,10 @@
     NSMutableString *string = [NSMutableString stringWithString:DELLECT_SHOP_GOODS];
     
     [request sendRequestPostUrl:string andDic:dict setSuccessBlock:^(NSDictionary *resultDic) {
-        
+        if ([resultDic[@"code"] intValue] != 1) {
+            BG_LOGIN ;
+            return ;
+        }
         if ([resultDic[@"code"] intValue]==0) {
             HUDNormal(@"数据删除失败，请稍后再试");
             return ;
@@ -786,7 +793,10 @@
     
     
     [request sendRequestPostUrl:ADD_SHOP_GOODS_NUM andDic:dict setSuccessBlock:^(NSDictionary *resultDic) {
-        
+        if ([resultDic[@"code"] intValue] != 1) {
+            BG_LOGIN ;
+            return ;
+        }
         if ([resultDic[@"code"] intValue]==0) {
             HUDNormal(@"添加数据失败，请稍后再试");
             return ;

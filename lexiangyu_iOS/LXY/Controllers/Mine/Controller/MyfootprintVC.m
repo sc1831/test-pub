@@ -154,11 +154,11 @@
 -(void)sendDelleteRequestData{
     
     RequestCenter * request = [RequestCenter shareRequestCenter];
-    NSDictionary *postDic = @{
+    NSDictionary *postDics = @{
                               @"user_id":[[SaveInfo shareSaveInfo]user_id]
                               };
     
-    [request sendRequestPostUrl:MY_DELLECT_FOOTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+    [request sendRequestPostUrl:MY_DELLECT_FOOTER andDic:postDics setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue]==0) {
             HUDNormal(@"数据清空失败，请稍后再试");
             return ;

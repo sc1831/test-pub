@@ -23,7 +23,8 @@
 
 #import "ReceiveAddressVC.h"
 
-
+#import "OrderIsOverVC.h"
+#import "OrderModel.h"
 //微信
 #import "WXApiRequestHandler.h"
 //支付宝
@@ -38,6 +39,7 @@
 #define kConfirm          @"确定"
 #define kErrorNet         @"网络错误"
 #define kResult           @"支付结果：%@"
+
 @interface ConfirmorderVC ()<UITableViewDataSource,UITableViewDelegate>
 {
     UIAlertView* _alertView;
@@ -176,11 +178,7 @@
         
         [_confirmTableView reloadData];
     } setFailBlock:^(NSString *errorStr) {
-        
     }];
-    
-    
-    
 }
 -(void)createTableView{
     
@@ -370,12 +368,21 @@
     
     [request sendRequestPostUrl:string andDic:dict setSuccessBlock:^(NSDictionary *resultDic) {
         
-        if ([resultDic[@"code"] intValue]==0) {
-            HUDNormal(@"数据请求失败，请稍后再试");
+//        if ([resultDic[@"code"] intValue]==0) {
+//            HUDNormal(@"数据请求失败，请稍后再试");
+//            return ;
+//        }
+        if ([resultDic[@"code"] intValue] != 1) {
+            BG_LOGIN ;
             return ;
         }
-
+        NSDictionary *orderDic = resultDic[@"data"][@"order"];
+        OrderModel *orderModel = [OrderModel alloc];
+        [orderModel setValuesForKeysWithDictionary:orderDic];
         
+        OrderIsOverVC *orderOvewVC = [[OrderIsOverVC alloc]init];
+        orderOvewVC.orderModel = orderModel ;
+        [self.navigationController pushViewController:orderOvewVC animated:YES];
         
 
     } setFailBlock:^(NSString *errorStr) {
@@ -388,7 +395,7 @@
     //TODO:微信支付
 //    [self bizPay];
 //    TODO:支付宝支付
-    [self zhifubao];
+//    [self zhifubao];
     //TODO:银联支付
 //    [self startNetWithURL:[NSURL URLWithString:kURL_TN_Normal]];
     

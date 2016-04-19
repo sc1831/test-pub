@@ -64,6 +64,7 @@
         [postDic setValue:@"3" forKey:@"page"];
         [requestCenter sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
             [self.waitSendtableView headerEndRefresh];
+      
             if ([resultDic[@"code"] intValue] != 1) {
                 BG_LOGIN ;
                 return ;

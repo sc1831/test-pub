@@ -39,6 +39,13 @@
     
     [request sendRequestPostUrl:GET_CITY_ADDRESS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
 
+        if ([resultDic[@"code"] intValue] != 1) {
+            BG_LOGIN ;
+            return ;
+        }
+        
+//        HUDNormal(@"获取数据成功");
+
         GLOG(@"---------post:", resultDic);
         if ([resultDic[@"code"] intValue]==0) {
             HUDNormal(@"数据请求失败，请稍后再试");

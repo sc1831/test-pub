@@ -67,6 +67,7 @@
     NSDictionary *postDic = @{@"phone":_phoneNumTextField.text,@"type":@"2"};
     
     [request sendRequestPostUrl:REGISTRE_SEND_SMS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+        
         if ([resultDic[@"code"] intValue]==0) {
             HUDNormal(resultDic[@"msg"]);
             return ;

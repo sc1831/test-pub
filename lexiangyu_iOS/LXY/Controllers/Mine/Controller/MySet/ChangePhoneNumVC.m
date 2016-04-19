@@ -41,10 +41,14 @@
     NSDictionary *postDic = @{@"phone":_accountNameStr,@"type":@"5"};//1注册，2找回密码，5绑定手机号，6修改手机绑定确认步骤，9登陆
     
     [request sendRequestPostUrl:REGISTRE_SEND_SMS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
-        if ([resultDic[@"code"] intValue]==0) {
-            HUDNormal(@"发送失败，请稍后再试");
+        if ([resultDic[@"code"] intValue] != 1) {
+            BG_LOGIN ;
             return ;
         }
+//        if ([resultDic[@"code"] intValue]==0) {
+//            HUDNormal(@"发送失败，请稍后再试");
+//            return ;
+//        }
         
         HUDNormal(@"短信发送成功,请注意查收");
 //        _authNum = resultDic[@"sms"];

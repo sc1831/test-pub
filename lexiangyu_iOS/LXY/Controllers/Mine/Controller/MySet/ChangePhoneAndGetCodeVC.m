@@ -59,10 +59,14 @@
     NSDictionary *postDic = @{@"phone":_phoneNumTextField.text,@"type":@"6"};
     
     [request sendRequestPostUrl:REGISTRE_SEND_SMS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
-        if ([resultDic[@"code"] intValue]==0) {
-            HUDNormal([resultDic objectForKey:@"msg"]);
+        if ([resultDic[@"code"] intValue] != 1) {
+            BG_LOGIN ;
             return ;
         }
+//        if ([resultDic[@"code"] intValue]==0) {
+//            HUDNormal([resultDic objectForKey:@"msg"]);
+//            return ;
+//        }
         
         HUDNormal(@"短信发送成功,请注意查收");
         
@@ -189,10 +193,14 @@ replacementString:(NSString *)string {
                               };
     
     [request sendRequestPostUrl:MY_EDIT_BING_PHONE andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
-        if ([resultDic[@"code"] intValue]==0) {
-            HUDNormal(@"修改失败，请稍后再试");
+        if ([resultDic[@"code"] intValue] != 1) {
+            BG_LOGIN ;
             return ;
         }
+//        if ([resultDic[@"code"] intValue]==0) {
+//            HUDNormal(@"修改失败，请稍后再试");
+//            return ;
+//        }
         HUDNormal(@"修改绑定手机成功");
         ChangePhoneSuccessVC *changePhoneSuccessVC = [[ChangePhoneSuccessVC alloc]init];
         [self.navigationController pushViewController:changePhoneSuccessVC animated:YES];

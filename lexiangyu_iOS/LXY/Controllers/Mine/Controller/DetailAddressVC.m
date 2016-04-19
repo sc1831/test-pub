@@ -81,7 +81,10 @@
                               };
     
     [request sendRequestPostUrl:MY_ADDRESS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
-        
+        if ([resultDic[@"code"] intValue] != 1) {
+            BG_LOGIN ;
+            return ;
+        }
         if ([resultDic[@"code"] intValue]==0) {
             HUDNormal(@"请求失败");
             return ;

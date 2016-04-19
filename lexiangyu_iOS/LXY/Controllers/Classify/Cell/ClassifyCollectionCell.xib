@@ -46,6 +46,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="产品图片.png" width="39" height="25"/>
+        <image name="产品图片.png" width="1256" height="1134"/>
     </resources>
 </document>

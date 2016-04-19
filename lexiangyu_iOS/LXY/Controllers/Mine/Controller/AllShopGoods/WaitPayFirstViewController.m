@@ -108,7 +108,7 @@
             }
             if ([[resultDic[@"code"] stringValue] isEqualToString:@"1"]) {
                 NSMutableArray *indexPaths = [NSMutableArray arrayWithCapacity:0];
-                NSInteger count = _dataArray.count ;
+//                NSInteger count = _dataArray.count ;
                 NSArray *goods_list = resultDic[@"data"] [@"list"];
                 
                 
@@ -319,6 +319,10 @@
                               };
     
     [request sendRequestPostUrl:MY_CANCEL_REGISTER andDic:postDict setSuccessBlock:^(NSDictionary *resultDic) {
+        if ([resultDic[@"code"] intValue] != 1) {
+            BG_LOGIN ;
+            return ;
+        }
         if (resultDic[@"code"]==0) {
             HUDNormal(@"已付款的订单目前不支持取消订单");
             return ;

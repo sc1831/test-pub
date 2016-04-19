@@ -99,10 +99,12 @@
     NSDictionary *postDic = @{@"phone":_phoneTextField.text,@"type":@"1",@"code":_verificationCodeTextField.text};
     
     [request sendRequestPostUrl:REGISTRE_SEND_AUTH_CODE andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
-        if ([resultDic[@"code"] intValue]==0) {
-            HUDNormal(@"数据验证失败，请稍后再试");
+
+        if ([resultDic[@"code"] intValue] != 1) {
+            BG_LOGIN ;
             return ;
         }
+
         
         HUDNormal(@"验证成功");
         RegisterShopMessageVC *shopMessageVC = [[RegisterShopMessageVC alloc]init];
@@ -138,10 +140,12 @@
     NSDictionary *postDic = @{@"phone":_phoneTextField.text,@"type":@"1"};
     statcPhoneNum = _phoneTextField.text;
     [request sendRequestPostUrl:REGISTRE_SEND_SMS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
-        if ([resultDic[@"code"] intValue]==0) {
-            HUDNormal(@"数据请求失败，请稍后再试");
+
+        if ([resultDic[@"code"] intValue] != 1) {
+            BG_LOGIN ;
             return ;
         }
+
         HUDNormal(@"短信发送成功,请注意查收");
         
         [self getIdentifyingCodeBtnClick];
@@ -183,7 +187,7 @@
                 //RGBCOLOR(171, 171, 171)
                 [_AuthCodeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             });
-            timeout--;
+            timeout -- ;
         }
     });
     dispatch_resume(_timer);
