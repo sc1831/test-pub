@@ -197,11 +197,20 @@
 
 #pragma mark - 登录http请求 -
 - (void)sendSMS{
+    
+    if ([_userNameTextField.text length] == 0) {
+        HUDNormal(@"手机号不可以为空");
+        return;
+    }else if (![GHControl lengalPhoneNumber:_userNameTextField.text]){
+        HUDNormal(@"请输入正确的手机号");
+        return;
+        
+    }
     RequestCenter *request = [RequestCenter shareRequestCenter];
     NSDictionary *postDic = @{@"phone":self.userNameTextField.text,@"type":@"9"};//1注册，2找回密码，5绑定手机号，6修改手机绑定确认步骤，9登陆
     
     [request sendRequestPostUrl:REGISTRE_SEND_SMS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
-        HUDNormal(@"短信发送成功,请注意查收");
+
         if ([resultDic[@"code"] intValue]==0) {
             HUDNormal(resultDic[@"msg"]);
             return ;
