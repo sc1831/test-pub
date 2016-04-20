@@ -7,8 +7,11 @@
 //
 
 #import "OrderIsOverVC.h"
-
+#import "OrderModel.h"
 @interface OrderIsOverVC ()
+@property (weak, nonatomic) IBOutlet UILabel *name_phoneLab;
+@property (weak, nonatomic) IBOutlet UILabel *addressLab;
+@property (weak, nonatomic) IBOutlet UILabel *moneyLab;
 
 @end
 
@@ -17,6 +20,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.title = @"下单完成" ;
+    self.name_phoneLab.text = _orderOverModel.userName_phone ;
+    self.addressLab.text = _orderOverModel.user_address ;
+    self.moneyLab.text = _orderOverModel.order_goods_price_total ;
+    
 }
 
 - (void)didReceiveMemoryWarning {

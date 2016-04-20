@@ -6,9 +6,9 @@
 //  Copyright © 2016年 guohui. All rights reserved.
 //
 
-#import "RootVC.h"
+#import <UIKit/UIKit.h>
 
-@interface CompositeVC : RootVC
+@interface CompositeVC : UIViewController
 @property (nonatomic,copy)NSString *goods_name ;
 @property (nonatomic,copy)NSString *gc_id ;
 @end

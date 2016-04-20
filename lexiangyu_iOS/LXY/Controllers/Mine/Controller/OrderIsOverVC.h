@@ -7,7 +7,7 @@
 //
 
 #import "RootVC.h"
-#import "OrderModel.h"
+#import "OrderOverModel.h"
 @interface OrderIsOverVC : RootVC
-@property (nonatomic,strong) OrderModel *orderModel ;
+@property (nonatomic,strong) OrderOverModel *orderOverModel ;
 @end

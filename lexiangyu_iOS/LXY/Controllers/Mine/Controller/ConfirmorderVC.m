@@ -24,7 +24,8 @@
 #import "ReceiveAddressVC.h"
 
 #import "OrderIsOverVC.h"
-#import "OrderModel.h"
+//#import "OrderModel.h"
+#import "OrderOverModel.h"
 //微信
 #import "WXApiRequestHandler.h"
 //支付宝
@@ -368,22 +369,23 @@
     
     [request sendRequestPostUrl:string andDic:dict setSuccessBlock:^(NSDictionary *resultDic) {
         
-//        if ([resultDic[@"code"] intValue]==0) {
-//            HUDNormal(@"数据请求失败，请稍后再试");
-//            return ;
-//        }
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
         }
-        NSDictionary *orderDic = resultDic[@"data"][@"order"];
-        OrderModel *orderModel = [OrderModel alloc];
-        [orderModel setValuesForKeysWithDictionary:orderDic];
         
+        
+        NSArray *orderArray = resultDic[@"data"][@"order"];
+        NSDictionary *dic = orderArray.lastObject ;
+        NSDictionary *postOrderOverDic = @{@"order_goods_price_total":resultDic[@"data"][@"order_goods_price_total"],@"pay_sn":dic[@"pay_sn"],@"userName_phone":headTabView.phoneNumLabel.text,@"user_address":headTabView.addressLabel.text} ;
+
+        unsigned int a = 11 ;
+        OrderOverModel *orderOverModel = [[OrderOverModel alloc]init];
+        [orderOverModel setValuesForKeysWithDictionary:postOrderOverDic ];
+    
         OrderIsOverVC *orderOvewVC = [[OrderIsOverVC alloc]init];
-        orderOvewVC.orderModel = orderModel ;
+        orderOvewVC.orderOverModel = orderOverModel ;
         [self.navigationController pushViewController:orderOvewVC animated:YES];
         
-
     } setFailBlock:^(NSString *errorStr) {
         
     }];

@@ -29,10 +29,15 @@
     
     
     self.tabBarItemOfMessage =[self.tabBarController.tabBar.items objectAtIndex:2];
+    
+
     self.tabBarItemOfMessage.badgeValue = @"99+";
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(isReferredClick) name:@"isReferred" object:nil];
      // postNotificationName:@"isReferred" object:self userInfo:nil];
+}
+- (void)isReferredClick{
+    [self setSelectedIndex:0];
 }
 
 #pragma mark - createNav
@@ -65,6 +70,7 @@
     self.viewControllers = @[nc1,nc2,nc3,nc4] ;
     
 }
+
 #pragma mark - createTabBarItems
 - (void)createTabBarItems{
     //创建三个数组

@@ -39,10 +39,10 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
     self.title = @"分类" ;
     self.navigationController.navigationBarHidden = YES ;
 }
-- (void)viewDidDisappear:(BOOL)animated{
-    
-    self.navigationController.navigationBarHidden = NO ;
-}
+//- (void)viewDidDisappear:(BOOL)animated{
+//    
+//    self.navigationController.navigationBarHidden = NO ;
+//}
 - (void)viewDidLoad {
     [super viewDidLoad];
 

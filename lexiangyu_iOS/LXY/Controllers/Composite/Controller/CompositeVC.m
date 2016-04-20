@@ -54,7 +54,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-  
+//    self.navigationController.navigationBarHidden= YES ;
     _page = 1 ;
     _pageSize = 20 ;
     orderByPriceFlag = YES ;

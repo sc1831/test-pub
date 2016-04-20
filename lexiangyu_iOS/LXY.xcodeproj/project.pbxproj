@@ -357,6 +357,7 @@
 		6EA503DE1CA232FC00FA19BA /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EA503DC1CA232FC00FA19BA /* HomeCollectionViewCell.xib */; };
 		6EA503E21CA248A300FA19BA /* HomeClassifyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA503E01CA248A300FA19BA /* HomeClassifyVC.m */; };
 		6EA503E31CA248A300FA19BA /* HomeClassifyVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EA503E11CA248A300FA19BA /* HomeClassifyVC.xib */; };
+		6EB359CB1CC785970082B578 /* OrderOverModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB359CA1CC785970082B578 /* OrderOverModel.m */; };
 		6EBA3BAB1CBBACD4002D6C69 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EBA3BAA1CBBACD4002D6C69 /* CoreText.framework */; };
 		6EBA3BAD1CBBACDC002D6C69 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EBA3BAC1CBBACDC002D6C69 /* CoreGraphics.framework */; };
 		6EBA3BAF1CBBACE6002D6C69 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EBA3BAE1CBBACE6002D6C69 /* UIKit.framework */; };
@@ -934,6 +935,8 @@
 		6EA503DF1CA248A300FA19BA /* HomeClassifyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeClassifyVC.h; sourceTree = "<group>"; };
 		6EA503E01CA248A300FA19BA /* HomeClassifyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeClassifyVC.m; sourceTree = "<group>"; };
 		6EA503E11CA248A300FA19BA /* HomeClassifyVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeClassifyVC.xib; sourceTree = "<group>"; };
+		6EB359C91CC785970082B578 /* OrderOverModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderOverModel.h; path = ../../Composite/Model/OrderOverModel.h; sourceTree = "<group>"; };
+		6EB359CA1CC785970082B578 /* OrderOverModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderOverModel.m; path = ../../Composite/Model/OrderOverModel.m; sourceTree = "<group>"; };
 		6EBA3BAA1CBBACD4002D6C69 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		6EBA3BAC1CBBACDC002D6C69 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6EBA3BAE1CBBACE6002D6C69 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -2080,6 +2083,8 @@
 			children = (
 				6EF887D51CBCF3ED001E6D1F /* AllGoodsOrders.h */,
 				6EF887D61CBCF3ED001E6D1F /* AllGoodsOrders.m */,
+				6EB359C91CC785970082B578 /* OrderOverModel.h */,
+				6EB359CA1CC785970082B578 /* OrderOverModel.m */,
 				6EF2A1CD1CAB788000057FC0 /* MyCollectModel.h */,
 				6EF2A1CE1CAB788000057FC0 /* MyCollectModel.m */,
 				6EF2A1D01CABBF3600057FC0 /* MyFooterModel.h */,
@@ -3076,6 +3081,7 @@
 				6EEB88EB1C96ACDB0043E8AA /* RootVC.m in Sources */,
 				6E00375B1C9CFE6600F592FB /* HeadCollectionReusableView.m in Sources */,
 				6EEB88F51C96B59B0043E8AA /* GuiteVC.m in Sources */,
+				6EB359CB1CC785970082B578 /* OrderOverModel.m in Sources */,
 				6EEB89041C96B6370043E8AA /* HomePageVC.m in Sources */,
 				6EEB891B1C96B6C80043E8AA /* MineVC.m in Sources */,
 				6E7964E31C983EF100EB43B9 /* CollectionCell.m in Sources */,
