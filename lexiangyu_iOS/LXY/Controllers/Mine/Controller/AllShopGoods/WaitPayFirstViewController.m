@@ -65,7 +65,6 @@
             [self.waitPayTableView headerEndRefresh];
             if ([resultDic[@"code"] intValue] != 1) {
                 BG_LOGIN ;
-                return ;
             }
 //            if (resultDic[@"code"]==0) {
 //                HUDNormal(@"获取数据失败，请稍后再试");
@@ -104,7 +103,6 @@
         [requestCenter sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
             if ([resultDic[@"code"] intValue] != 1) {
                 BG_LOGIN ;
-                return ;
             }
             if ([[resultDic[@"code"] stringValue] isEqualToString:@"1"]) {
                 NSMutableArray *indexPaths = [NSMutableArray arrayWithCapacity:0];
@@ -321,8 +319,8 @@
     [request sendRequestPostUrl:MY_CANCEL_REGISTER andDic:postDict setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
-            return ;
         }
+
         if (resultDic[@"code"]==0) {
             HUDNormal(@"已付款的订单目前不支持取消订单");
             return ;

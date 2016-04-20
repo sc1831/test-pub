@@ -41,6 +41,13 @@
     
     RequestCenter *request = [RequestCenter shareRequestCenter];
     [request sendRequestPostUrl:DETAIL_URL andDic:@{@"goods_id":self.goods_commonid} setSuccessBlock:^(NSDictionary *resultDic) {
+        
+        if ([resultDic[@"code"] intValue] != 1) {
+            BG_LOGIN ;
+        }
+
+        
+        
         if ([resultDic[@"msg"] isEqualToString:@"Hacker"]) {
             LoginVC *login = [[LoginVC alloc]init];
             [self presentViewController:login animated:YES completion:nil];

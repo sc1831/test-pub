@@ -26,7 +26,7 @@
 //减少按钮
 @property (weak, nonatomic) IBOutlet UIButton *reductionButton;
 //数量
-@property (weak, nonatomic) IBOutlet UITextField *numberTextField;
+@property (weak, nonatomic) IBOutlet UIButton *numberBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *goodsImageView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *goodsImageViewHeight;
 -(void)dataWithCell:(ShoppingCartModel *)model andAllGoods:(int)allGoods;

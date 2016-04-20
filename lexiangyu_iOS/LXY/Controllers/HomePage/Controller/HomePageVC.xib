@@ -597,7 +597,7 @@
                             </connections>
                         </view>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="3月16日  乐6集潮流数码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="trq-Rn-HOK">
-                            <rect key="frame" x="51" y="4" width="260" height="30"/>
+                            <rect key="frame" x="51" y="4" width="234" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="ga5-EJ-l9e"/>
                             </constraints>
@@ -607,16 +607,31 @@
                                 <outlet property="delegate" destination="-1" id="dYg-5g-Zoc"/>
                             </connections>
                         </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cjN-cv-u09">
+                            <rect key="frame" x="287" y="0.0" width="48" height="36"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="48" id="Srb-pz-4eG"/>
+                            </constraints>
+                            <state key="normal" title="搜索">
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="searchButClick:" destination="-1" eventType="touchUpInside" id="asS-Bc-SNK"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <gestureRecognizers/>
                     <constraints>
                         <constraint firstItem="6X5-rt-Lx9" firstAttribute="leading" secondItem="4dn-v9-UnM" secondAttribute="leading" constant="8" id="1RP-DD-UOs"/>
-                        <constraint firstAttribute="trailing" secondItem="trq-Rn-HOK" secondAttribute="trailing" constant="24" id="66m-7Y-fud"/>
+                        <constraint firstItem="cjN-cv-u09" firstAttribute="top" secondItem="4dn-v9-UnM" secondAttribute="top" id="9qL-DK-3cw"/>
                         <constraint firstItem="trq-Rn-HOK" firstAttribute="leading" secondItem="6X5-rt-Lx9" secondAttribute="trailing" constant="3" id="Tzg-4c-bLe"/>
                         <constraint firstAttribute="height" constant="36" id="Wxd-1P-wRB"/>
                         <constraint firstItem="6X5-rt-Lx9" firstAttribute="top" secondItem="4dn-v9-UnM" secondAttribute="top" id="elw-OX-0x1"/>
+                        <constraint firstAttribute="trailing" secondItem="cjN-cv-u09" secondAttribute="trailing" id="g8y-hC-gx6"/>
+                        <constraint firstItem="cjN-cv-u09" firstAttribute="leading" secondItem="trq-Rn-HOK" secondAttribute="trailing" constant="2" id="mpz-a9-uzC"/>
                         <constraint firstItem="trq-Rn-HOK" firstAttribute="top" secondItem="4dn-v9-UnM" secondAttribute="top" constant="4" id="rZm-T5-kDQ"/>
+                        <constraint firstAttribute="bottom" secondItem="cjN-cv-u09" secondAttribute="bottom" id="stg-kP-7gt"/>
                     </constraints>
                 </view>
             </subviews>

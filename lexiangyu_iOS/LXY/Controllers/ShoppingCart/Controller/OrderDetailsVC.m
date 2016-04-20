@@ -36,7 +36,6 @@
     [requsetCenter sendRequestPostUrl:ORDER_DETAILS andDic:@{@"order_id":self.order_id} setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
-            return ;
         }
         if ([[resultDic[@"code"] stringValue] isEqualToString:@"1"]) {
             NSDictionary *dataDic = resultDic[@"data"];

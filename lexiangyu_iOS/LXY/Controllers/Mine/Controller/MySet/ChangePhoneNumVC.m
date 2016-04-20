@@ -43,15 +43,9 @@
     [request sendRequestPostUrl:REGISTRE_SEND_SMS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
-            return ;
         }
-//        if ([resultDic[@"code"] intValue]==0) {
-//            HUDNormal(@"发送失败，请稍后再试");
-//            return ;
-//        }
-        
+
         HUDNormal(@"短信发送成功,请注意查收");
-//        _authNum = resultDic[@"sms"];
         [self showInput];
     } setFailBlock:^(NSString *errorStr) {
         
@@ -71,12 +65,9 @@
         UITextField *codeTestField = alertControl.textFields.lastObject;
         [self.view endEditing:YES];
         
-
+        [self checkSMS_byCodeStr:codeTestField.text];
         
-            ChangePhoneAndGetCodeVC *changePhoneAndGetCodeVC = [[ChangePhoneAndGetCodeVC alloc]init];
-            changePhoneAndGetCodeVC.accountNameStr = _accountNameStr;
-            changePhoneAndGetCodeVC.authStr = codeTestField.text;
-            [self.navigationController pushViewController:changePhoneAndGetCodeVC animated:YES];
+       
   
         
     }]];
@@ -92,6 +83,29 @@
     [self presentViewController:alertControl animated:YES completion:nil];
     
 }
+
+- (void)checkSMS_byCodeStr:(NSString *)codeStr{
+    RequestCenter *request = [RequestCenter shareRequestCenter];
+    [request sendRequestPostUrl:CHECK_SMS andDic:@{@"phone":_accountNameStr,@"code":codeStr,@"type":@"5"} setSuccessBlock:^(NSDictionary *resultDic) {
+        HUDNormal([resultDic objectForKey:@"msg"]);
+        if ([resultDic[@"code"] intValue] != 1) {
+            [self showInput];
+        }else if ([resultDic[@"code"] intValue] == 1){
+            ChangePhoneAndGetCodeVC *changePhoneAndGetCodeVC = [[ChangePhoneAndGetCodeVC alloc]init];
+            changePhoneAndGetCodeVC.accountNameStr = _accountNameStr;
+            changePhoneAndGetCodeVC.authStr = codeStr;
+            [self.navigationController pushViewController:changePhoneAndGetCodeVC animated:YES];
+        
+        }
+        
+    } setFailBlock:^(NSString *errorStr) {
+        
+    }];
+    
+    
+   
+}
+
 - (void)alertTextFieldDidChange:(NSNotification *)notification{
     UIAlertController *alertController = (UIAlertController *)self.presentedViewController;  // 不要错写为self.presentedViewController
     if (alertController) {

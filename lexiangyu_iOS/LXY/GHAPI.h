@@ -15,7 +15,7 @@
 //注册验证验证码
 #define REGISTRE_SEND_AUTH_CODE @"app/Register/check_sms"
 //注册店铺
-#define REGISTRE_STOR_NAME @"app/register/register"
+#define REGISTRE_STOR_NAME @"app/Register/register"
 
 //修改收货地址
 #define  MY_EDIT_ADDRESS @"App/address/edit_address"
@@ -93,4 +93,11 @@
 //-------------------------------------------商品详情
 #define DETAIL_URL @"app/goods/detail_url" //商品详情
 #define ORDER_DETAILS @"app/User/my_order_details" //订单详情
+
+
+//-------------------------------------------公共接口
+//校验验证码
+#define CHECK_SMS @"app/Register/check_sms"
+
+
 

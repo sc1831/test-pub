@@ -374,7 +374,6 @@
 //        }
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
-            return ;
         }
         NSDictionary *orderDic = resultDic[@"data"][@"order"];
         OrderModel *orderModel = [OrderModel alloc];

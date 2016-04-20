@@ -102,8 +102,8 @@
 
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
-            return ;
         }
+
 
         
         HUDNormal(@"验证成功");
@@ -143,8 +143,8 @@
 
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
-            return ;
         }
+
 
         HUDNormal(@"短信发送成功,请注意查收");
         

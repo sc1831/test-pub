@@ -58,7 +58,6 @@
     [request sendRequestPostUrl:MY_FEEDBACK_TYPE andDic:nil setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
-            return ;
         }
         if ([resultDic[@"code"] intValue]==0) {
             HUDNormal(@"请求失败");
@@ -120,7 +119,6 @@
     [request sendRequestPostUrl:MY_FEEDBACK_TYPE andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
-            return ;
         }
         if ([resultDic[@"code"] intValue]==0) {
             HUDNormal(@"请求失败");

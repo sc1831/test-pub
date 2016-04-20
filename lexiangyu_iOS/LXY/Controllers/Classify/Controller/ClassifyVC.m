@@ -66,7 +66,6 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
         
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
-            return ;
         }
         NSArray *data = resultDic[@"data"];
         for (NSDictionary *dic in data) {
@@ -112,7 +111,6 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
  
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
-            return ;
         }
         if (defMtArray.count > 0) {
             [defMtArray removeAllObjects];

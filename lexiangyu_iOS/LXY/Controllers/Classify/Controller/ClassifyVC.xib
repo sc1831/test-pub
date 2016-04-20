@@ -33,7 +33,7 @@
                             <rect key="frame" x="88" y="4" width="279" height="35"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="3月16 乐六集潮流数码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bkU-7P-3cM">
-                                    <rect key="frame" x="44" y="2" width="227" height="30"/>
+                                    <rect key="frame" x="44" y="2" width="185" height="30"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
@@ -51,15 +51,30 @@
                                         <action selector="searchBtnClick:" destination="-1" eventType="touchUpInside" id="a47-tE-4lN"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWb-cq-Nep">
+                                    <rect key="frame" x="231" y="0.0" width="48" height="35"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="48" id="1a4-GQ-Z2u"/>
+                                    </constraints>
+                                    <state key="normal" title="搜索">
+                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="searchBtnClick:" destination="-1" eventType="touchUpInside" id="b2b-om-V0b"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstAttribute="trailing" secondItem="bWb-cq-Nep" secondAttribute="trailing" id="7p7-0U-njY"/>
+                                <constraint firstItem="bWb-cq-Nep" firstAttribute="top" secondItem="KQM-8T-AmB" secondAttribute="top" id="9I1-de-UMQ"/>
                                 <constraint firstItem="bkU-7P-3cM" firstAttribute="top" secondItem="KQM-8T-AmB" secondAttribute="top" constant="2" id="Dow-Jm-EVG"/>
                                 <constraint firstItem="iek-rP-Igs" firstAttribute="leading" secondItem="KQM-8T-AmB" secondAttribute="leading" id="Fdf-LL-3Ot"/>
                                 <constraint firstItem="bkU-7P-3cM" firstAttribute="leading" secondItem="iek-rP-Igs" secondAttribute="trailing" constant="8" id="JwC-vf-WA1"/>
+                                <constraint firstAttribute="bottom" secondItem="bWb-cq-Nep" secondAttribute="bottom" id="SzE-dg-1ge"/>
                                 <constraint firstAttribute="bottom" secondItem="bkU-7P-3cM" secondAttribute="bottom" constant="3" id="b2T-WR-Qdw"/>
+                                <constraint firstItem="bWb-cq-Nep" firstAttribute="leading" secondItem="bkU-7P-3cM" secondAttribute="trailing" constant="2" id="c5B-3c-NBO"/>
                                 <constraint firstItem="iek-rP-Igs" firstAttribute="top" secondItem="KQM-8T-AmB" secondAttribute="top" constant="2" id="pzQ-3S-IjD"/>
-                                <constraint firstAttribute="trailing" secondItem="bkU-7P-3cM" secondAttribute="trailing" constant="8" id="uyz-WH-0g9"/>
                             </constraints>
                         </view>
                     </subviews>

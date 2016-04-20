@@ -82,7 +82,6 @@
             
             if ([resultDic[@"code"] intValue] != 1) {
                 BG_LOGIN ;
-                return ;
             }
 
             NSDictionary *dict = resultDic[@"data"];
@@ -114,7 +113,6 @@
             
             if ([resultDic[@"code"] intValue] != 1) {
                 BG_LOGIN ;
-                return ;
             }
             
             if ([[resultDic[@"code"] stringValue] isEqualToString:@"1"]) {
@@ -207,7 +205,6 @@
     [request sendRequestPostUrl:MY_DELLECT_COLLECT andDic:postDics setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
-            return ;
         }
         
 

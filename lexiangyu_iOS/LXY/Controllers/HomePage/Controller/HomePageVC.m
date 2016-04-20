@@ -138,7 +138,6 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     [request sendRequestPostUrl:HOME_INDEX andDic:nil setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
-            return ;
         }
         if ([[resultDic objectForKey:@"code"] intValue] == 1) {
             // 成功获取数据
@@ -259,7 +258,6 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
-            return ;
         }
         NSDictionary *data = resultDic[@"data"];
         NSArray *recommendgoods = data[@"recommend_goods"];
@@ -706,7 +704,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     CompositeVC *compositeVC = [[CompositeVC alloc] init];
     compositeVC.hidesBottomBarWhenPushed = YES ;
 //    if (self.searchTextField.text.length > 0) {
-        compositeVC.goods_name = model.gc_name;
+//        compositeVC.goods_name = model.gc_name;
     compositeVC.gc_id = model.gc_id ;
 //    }
     [self.navigationController pushViewController:compositeVC animated:YES];

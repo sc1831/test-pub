@@ -27,7 +27,8 @@
 
     _contentLabel.text = model.goods_name;
     _shopMoney.text = [NSString stringWithFormat:@"￥%@",model.goods_price];
-    _numberTextField.text = model.goods_num;
+
+    [_numberBtn setTitle:model.goods_num forState:UIControlStateNormal];
     [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@"火影1"]];
     _goodsImageView.layer.masksToBounds = YES;
     _goodsImageView.layer.cornerRadius = 3;
@@ -72,7 +73,8 @@
 
     _contentLabel.text = model.goods_name;
     _shopMoney.text = [NSString stringWithFormat:@"￥%@",model.goods_price];
-    _numberTextField.text = model.goods_num;
+    [_numberBtn setTitle:model.goods_num forState:UIControlStateNormal];
+    
     [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@"火影1"]];
     _goodsImageView.layer.masksToBounds = YES;
     _goodsImageView.layer.cornerRadius = 3;

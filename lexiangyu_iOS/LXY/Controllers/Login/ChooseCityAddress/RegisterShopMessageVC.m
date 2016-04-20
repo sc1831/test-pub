@@ -127,8 +127,8 @@
     [request sendRequestPostUrl:REGISTRE_STOR_NAME andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
-            return ;
         }
+
         if ([resultDic[@"code"] intValue]==0) {
             HUDNormal(@"审核失败，请稍后再试");
             return ;

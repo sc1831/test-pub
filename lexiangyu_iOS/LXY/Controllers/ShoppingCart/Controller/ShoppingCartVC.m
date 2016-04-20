@@ -146,6 +146,7 @@
     [request sendRequestPostUrl:string andDic:dict setSuccessBlock:^(NSDictionary *resultDic) {
         
         if ([resultDic[@"code"] intValue] != 1) {
+            [self.shoppingTableView headerEndRefresh];
             BG_LOGIN ;
             return ;
         }
@@ -358,8 +359,9 @@
     //减少商品数量按钮
     [cell.reductionButton addTarget:self action:@selector(reductionButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     cell.reductionButton.tag = indexPath.section*1000 + indexPath.row ;
-    cell.numberTextField.delegate = self;
-    cell.numberTextField.tag = indexPath.section*10000 + indexPath.row ;
+//    cell.numberTextField.delegate = self;
+    cell.numberBtn.tag = indexPath.section*10000 + indexPath.row ;
+    [cell.numberBtn addTarget:self action:@selector(changeCellNumLab:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
 
@@ -742,8 +744,10 @@
     [request sendRequestPostUrl:string andDic:dict setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
-            return ;
         }
+
+       
+
         if ([resultDic[@"code"] intValue]==0) {
             HUDNormal(@"数据删除失败，请稍后再试");
             return ;
@@ -795,8 +799,10 @@
     [request sendRequestPostUrl:ADD_SHOP_GOODS_NUM andDic:dict setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
-            return ;
         }
+
+      
+
         if ([resultDic[@"code"] intValue]==0) {
             HUDNormal(@"添加数据失败，请稍后再试");
             return ;
@@ -816,14 +822,11 @@
    
 
 }
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField;{
-    
-    
-    ShoppingCartModel *model = _dataArray[textField.tag/10000][textField.tag%10000];
-    
+- (void)changeCellNumLab:(UIButton *)button{
+    ShoppingCartModel *model = _dataArray[button.tag/10000][button.tag%10000];
     _cart_ids = model.cart_id;
     [self showInput];
-    return YES;
+    
 }
 - (void)showInput{
     //文本框只能是alert风格

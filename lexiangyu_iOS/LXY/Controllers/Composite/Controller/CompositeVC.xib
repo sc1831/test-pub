@@ -122,14 +122,6 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mue-yT-GpR">
                             <rect key="frame" x="48" y="5" width="307" height="40"/>
                             <subviews>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入商品/品牌名称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FLP-1s-a1u">
-                                    <rect key="frame" x="32" y="5" width="267" height="30"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                    <connections>
-                                        <outlet property="delegate" destination="-1" id="MNV-MZ-a5x"/>
-                                    </connections>
-                                </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g1v-ij-5Vl" customClass="UIControl">
                                     <rect key="frame" x="0.0" y="5" width="32" height="30"/>
                                     <subviews>
@@ -152,12 +144,35 @@
                                         <action selector="searchClick:" destination="-1" eventType="touchUpInside" id="yNd-8K-61P"/>
                                     </connections>
                                 </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhk-UB-vok">
+                                    <rect key="frame" x="259" y="0.0" width="48" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="48" id="XAi-Va-jZd"/>
+                                    </constraints>
+                                    <state key="normal" title="搜索">
+                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="searchClick:" destination="-1" eventType="touchUpInside" id="YB0-md-nme"/>
+                                    </connections>
+                                </button>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入商品/品牌名称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FLP-1s-a1u">
+                                    <rect key="frame" x="32" y="5" width="225" height="30"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="MNV-MZ-a5x"/>
+                                    </connections>
+                                </textField>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="g1v-ij-5Vl" firstAttribute="top" secondItem="Mue-yT-GpR" secondAttribute="top" constant="5" id="349-2S-59b"/>
-                                <constraint firstAttribute="trailing" secondItem="FLP-1s-a1u" secondAttribute="trailing" constant="8" id="D9j-LV-XnI"/>
+                                <constraint firstAttribute="bottom" secondItem="xhk-UB-vok" secondAttribute="bottom" id="7mS-Ai-LH6"/>
+                                <constraint firstAttribute="trailing" secondItem="xhk-UB-vok" secondAttribute="trailing" id="8g1-kv-k3c"/>
+                                <constraint firstItem="xhk-UB-vok" firstAttribute="top" secondItem="Mue-yT-GpR" secondAttribute="top" id="EYd-WT-Veq"/>
                                 <constraint firstAttribute="bottom" secondItem="FLP-1s-a1u" secondAttribute="bottom" constant="5" id="EmF-Ch-1f8"/>
+                                <constraint firstItem="xhk-UB-vok" firstAttribute="leading" secondItem="FLP-1s-a1u" secondAttribute="trailing" constant="2" id="WEQ-zA-Rd8"/>
                                 <constraint firstItem="FLP-1s-a1u" firstAttribute="leading" secondItem="g1v-ij-5Vl" secondAttribute="trailing" id="ajL-6c-cb4"/>
                                 <constraint firstItem="g1v-ij-5Vl" firstAttribute="leading" secondItem="Mue-yT-GpR" secondAttribute="leading" id="qmk-UL-JOk"/>
                                 <constraint firstItem="FLP-1s-a1u" firstAttribute="top" secondItem="Mue-yT-GpR" secondAttribute="top" constant="5" id="s8V-U7-HwK"/>

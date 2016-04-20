@@ -34,7 +34,7 @@
     
     NSLog(@"保存修改");
     [self finishNextSetUp];
-    [self sendRequestData];
+    
 }
 -(void)finishNextSetUp{
 
@@ -67,6 +67,8 @@
         _newsPasswordTexyField.text = @"";
         return;
     }
+    
+    [self sendRequestData];
 
 }
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
@@ -106,12 +108,11 @@
 }
 
 -(void)sendRequestData{
-    NSArray *array = @[self.oldPasswordTextField.text,self.newsPasswordTexyField.text , self.againTextField.text];
-    if ([array[1] isEqualToString:array[2]]) {
-    }else{
-        HUDNormal(@"两次密码不一致,请重新输入");
-        return ;
-    }
+//    NSArray *array = @[self.oldPasswordTextField.text,self.newsPasswordTexyField.text , self.againTextField.text];
+//    if (![array[1] isEqualToString:array[2]]) {
+//        HUDNormal(@"两次密码不一致,请重新输入");
+//        return ;
+//    }
     RequestCenter * request = [RequestCenter shareRequestCenter];
     NSLog(@"%@",[[SaveInfo shareSaveInfo]loginName]);
     NSDictionary *postDic = @{@"phone":[[SaveInfo shareSaveInfo]loginName],
@@ -123,7 +124,6 @@
     [request sendRequestPostUrl:MY_EDIT_PWD andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
-            return ;
         }
         if ([[resultDic[@"code"] stringValue] isEqualToString:@"1"]) {
             

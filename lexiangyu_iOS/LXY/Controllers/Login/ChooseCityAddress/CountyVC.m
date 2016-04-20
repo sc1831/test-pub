@@ -41,7 +41,6 @@
 
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
-            return ;
         }
         
 //        HUDNormal(@"获取数据成功");

@@ -44,7 +44,6 @@
 
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
-            return ;
         }
 
         NSArray *array = resultDic[@"data"];

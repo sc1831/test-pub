@@ -61,7 +61,6 @@
     [request sendRequestPostUrl:REGISTRE_SEND_SMS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
-            return ;
         }
 //        if ([resultDic[@"code"] intValue]==0) {
 //            HUDNormal([resultDic objectForKey:@"msg"]);
@@ -195,7 +194,6 @@ replacementString:(NSString *)string {
     [request sendRequestPostUrl:MY_EDIT_BING_PHONE andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
-            return ;
         }
 //        if ([resultDic[@"code"] intValue]==0) {
 //            HUDNormal(@"修改失败，请稍后再试");

@@ -120,9 +120,9 @@ hud.mode = MBProgressHUDModeIndeterminate;}
 
 //返回登录
 #define BG_LOGIN {\
-    if ([resultDic[@"msg"] isEqualToString:@"Hacker"]) {\
-    [self presentViewController:[[LoginVC alloc]init] animated:YES completion:nil];\
+    if ([resultDic[@"msg"] isEqualToString:@"Hacker!"]) {\
     [[SaveInfo shareSaveInfo] logout];\
+    [self presentViewController:[[LoginVC alloc]init] animated:YES completion:nil];\
     return ;}\
 }
 
