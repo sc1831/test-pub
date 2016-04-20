@@ -872,7 +872,7 @@
         NSLog(@"确定");
        UITextField *codeTestField = alertControl.textFields.lastObject;
         
-        if (_shopAllNum>[codeTestField.text intValue]) {
+        if (_shopAllNum < [codeTestField.text intValue]) {
             HUDNormal(@"抱歉哦、没那么多库存");
             return;
         }

@@ -52,7 +52,7 @@
                   moduleName = "LXY"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/guohui/Desktop/newlexianyu_last_ios/lexiangyu_iOS/LXY/Controllers/Mine/Controller/MyfootprintVC.m"
-                  timestampString = "482839164.911695"
+                  timestampString = "482840090.608748"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "54"
@@ -67,7 +67,7 @@
                   moduleName = "LXY"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/guohui/Desktop/newlexianyu_last_ios/lexiangyu_iOS/LXY/Controllers/Mine/Controller/MyfootprintVC.m"
-                  timestampString = "482839164.911963"
+                  timestampString = "482840090.608998"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "54"
@@ -84,11 +84,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
-            timestampString = "482839094.059965"
+            timestampString = "482839696.978702"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "497"
-            endingLineNumber = "497"
+            startingLineNumber = "504"
+            endingLineNumber = "504"
             landmarkName = "-addButtonClickOrReductionButtonClick:andButton:"
             landmarkType = "5">
          </BreakpointContent>
@@ -100,12 +100,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
-            timestampString = "482839406.165682"
+            timestampString = "482839696.978702"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "851"
-            endingLineNumber = "851"
+            startingLineNumber = "853"
+            endingLineNumber = "853"
             landmarkName = "-changeCellNumLab:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
+            timestampString = "482839742.233575"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "875"
+            endingLineNumber = "875"
+            landmarkName = "-showInput"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LXY/Controllers/ShoppingCart/Controller/ShoppingCartVC.m"
+            timestampString = "482840261.565735"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "497"
+            endingLineNumber = "497"
+            landmarkName = "-addButtonClickOrReductionButtonClick:andButton:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
