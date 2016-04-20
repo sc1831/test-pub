@@ -68,6 +68,8 @@
 @property (nonatomic ,strong) NSMutableArray *sectionStateArray;
 //购物车每个商品的数量
 @property (nonatomic ,assign) int shopNum;
+//购物数量
+@property (nonatomic ,assign) int shopAllNum;
 //选择需要添加或减少的cart——id
 @property (nonatomic ,strong) NSString *cart_ids;
 //收货地址
@@ -485,14 +487,19 @@
     _cart_ids = nil;
     ShoppingCartModel *model = _dataArray[addButton.tag/1000][addButton.tag%1000];
     _shopNum =  [model.goods_num intValue];
+   
     if (isAddButtonClick) {
       _shopNum++;
     }else{
     
       _shopNum--;
     }
-    
+    if (_shopNum>[model.goods_storage intValue]) {
+        HUDNormal(@"抱歉哦、没那么多库存");
+        return;
+    }
     model.goods_num = [NSString stringWithFormat:@"%d",_shopNum];
+    
 
     [self sendAddShopGoodsCartId:model.cart_id andGoodsNum:model.goods_num isManual:NO];
     
@@ -807,6 +814,7 @@
 }
 #pragma mark----更改商品数量
 -(void)sendAddShopGoodsCartId:(NSString *)cartId  andGoodsNum:(NSString *)goodsNum isManual:(BOOL)ismanual{
+    
 
     RequestCenter *request = [RequestCenter shareRequestCenter];
     
@@ -844,6 +852,10 @@
 }
 - (void)changeCellNumLab:(UIButton *)button{
     ShoppingCartModel *model = _dataArray[button.tag/10000][button.tag%10000];
+
+    _shopAllNum = [model.goods_storage intValue];
+    
+    
     _cart_ids = model.cart_id;
     [self showInput];
     
@@ -859,6 +871,11 @@
     [alertControl addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSLog(@"确定");
        UITextField *codeTestField = alertControl.textFields.lastObject;
+        
+        if (_shopAllNum>[codeTestField.text intValue]) {
+            HUDNormal(@"抱歉哦、没那么多库存");
+            return;
+        }
 
         [self sendAddShopGoodsCartId:_cart_ids andGoodsNum:codeTestField.text isManual:YES];
     }]];

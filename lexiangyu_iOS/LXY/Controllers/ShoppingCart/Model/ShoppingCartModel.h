@@ -33,7 +33,7 @@
 
 @property (nonatomic ,copy)NSString  *goods_num_total;//每组总件数
 @property (nonatomic ,copy)NSString  *goods_price_total;//每组总价格
-
+@property (nonatomic ,copy)NSString  *goods_storage;//库存
 
 @property (nonatomic, assign) BOOL isSelected;
 @property (nonatomic ,assign) int allGoods;
