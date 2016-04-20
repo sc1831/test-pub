@@ -15,6 +15,7 @@
 #import "SaveInfo.h"
 #import "RequestCenter.h"
 #import "UIButton+Block.h"
+#import "GHControl.h"
 
 @interface LoginVC ()<UITextFieldDelegate>
 {
@@ -57,6 +58,10 @@
             [strongSelf sendSMS];
         }
     }];
+    self.sendMessageBtn.enabled = YES ;
+
+    self.loginBtn.enabled = YES ;
+    [self sendMessageButionStateSuccess];
 
     
 }
@@ -100,104 +105,49 @@
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-//    self.sendMessageBtn.enabled = NO ;
-//    [self sendMessageButionState];
-    self.loginBtn.enabled = NO ;
-    switch (textField.tag) {
-        case 1000:
-        {
-            userName = [textField.text stringByReplacingCharactersInRange:range withString:string];
-            if (userName.length >10) {
-                self.userNameTextField.text = [userName substringToIndex:11];
-                if (self.passwordTextField.text.length > 5) {
-//                    self.sendMessageBtn.enabled = YES ;
-                    [self sendMessageButionStateSuccess];
-                }
-
-                return NO;
-            }else{
+    
+    
+    NSString *toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
+    if (textField== _userNameTextField) {
+        if ([toBeString length] > 10) {
+            textField.text = [toBeString substringToIndex:11];
             
-                [self sendMessageButionState];
-            }
-            
+            return NO;
+        } else {
+            return YES;
         }
-            break;
-        case 2000:
-        {
-            password = [textField.text stringByReplacingCharactersInRange:range withString:string];
-            if (password.length > 5) {
-                if (self.userNameTextField.text.length == 11) {
-//                    self.sendMessageBtn.enabled = YES ;
-                    [self sendMessageButionStateSuccess];
-                }
-            }
-            if ( password.length > 11) {
-                self.passwordTextField.text = [password substringToIndex:12];
-                
-                if (self.messageCodeTextField.text.length > 3) {
-                    self.loginBtn.enabled = YES ;
-                }
-                return NO ;
-            }
-        }
-            break;
-        case 3000:
-        {
-            codeStr = [textField.text stringByReplacingCharactersInRange:range withString:string];
-            if (codeStr.length > 3) {
-                self.messageCodeTextField.text = [codeStr substringToIndex:4];
-                if (self.userNameTextField.text.length == 11 && self.passwordTextField.text.length >5 &&self.passwordTextField.text.length<13) {
 
-
-//                    [self sendMessageButionStateSuccess];
-                    self.loginBtn.enabled = YES ;
-                }
-                return NO ;
-            }else{
-            
-//                [self sendMessageButionStateSuccess];
-            }
-            
-        }
-            break;
-            
-        default:
-            
-            break;
     }
-    return YES ;
-}
-
-- (void)viewState{
-//    self.sendMessageBtn.enabled = NO ;
-    [self sendMessageButionState];
-    self.loginBtn.enabled = NO ;
-    if (userName.length > 10) {
-//        self.userNameTextField.text = [userName substringToIndex:11];
-        if (password.length > 5) {
-            [self sendMessageButionStateSuccess];
-        }
-        if ( password.length > 11) {
-            self.passwordTextField.text = [password substringToIndex:12];
+    
+    
+    if (textField== _passwordTextField) {
+        if ([toBeString length] > 11) {
+            textField.text = [toBeString substringToIndex:12];
             
-            if (codeStr.length > 3) {
-                self.messageCodeTextField.text = [codeStr substringToIndex:4];
-                self.loginBtn.enabled = YES ;
-            }
+            return NO;
+        } else {
+            return YES;
         }
         
     }
-    
+    if (textField== _messageCodeTextField) {
+        if ([toBeString length] > 3) {
+            textField.text = [toBeString substringToIndex:4];
+            
+            return NO;
+        } else {
+            return YES;
+        }
+        
+    }
+
+
+    return YES ;
 }
 
--(void)sendMessageButionState{
 
-    _sendMessageBtn.userInteractionEnabled = NO;
-    _sendMessageBtn.enabled = NO;
-    [_sendMessageBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
-    [_sendMessageBtn setTitleColor:RGBCOLOR(171,171,171)forState:UIControlStateNormal];
-    [_sendMessageBtn setBackgroundImage:[UIImage imageNamed:@"获取验证码"] forState:UIControlStateNormal];
-}
+
 -(void)sendMessageButionStateSuccess{
 
     self.sendMessageBtn.userInteractionEnabled = YES;
@@ -214,10 +164,33 @@
 
 //登录点击
 - (IBAction)login:(id)sender {
-    [self login_httpAndCode:self.messageCodeTextField.text];
     
-//    MainTabBar *mainVC = [[MainTabBar alloc]init];
-//    [self presentViewController:mainVC animated:YES completion:nil];
+    if ([_userNameTextField.text length] == 0) {
+        HUDNormal(@"手机号不可以为空");
+        return;
+    }else if (![GHControl lengalPhoneNumber:_userNameTextField.text]){
+        HUDNormal(@"请输入正确的手机号");
+        return;
+    
+    }
+    else if ([_passwordTextField.text length] < 6) {
+        HUDNormal(@"密码由6-12位字母或数字组成，请重新输入");
+        return;
+        
+    }
+    
+    if ([_messageCodeTextField.text length] == 0) {
+        HUDNormal(@"请输入验证码");
+        return;
+    }
+    if ([_messageCodeTextField.text length] < 4) {
+        HUDNormal(@"请输入正确的验证码");
+        return;
+    }
+    
+    
+    [self login_httpAndCode:self.messageCodeTextField.text];
+
 }
 
 
