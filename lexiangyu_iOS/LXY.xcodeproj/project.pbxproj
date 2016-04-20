@@ -208,6 +208,8 @@
 		6E1032271CB4FCC30098D5BD /* 选中.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1031F71CB4FCC30098D5BD /* 选中.png */; };
 		6E1032281CB4FCC30098D5BD /* 选中@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1031F81CB4FCC30098D5BD /* 选中@3x.png */; };
 		6E10322A1CB500D20098D5BD /* 促销商品“标题”.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1032291CB500D20098D5BD /* 促销商品“标题”.png */; };
+		6E10A0691CC732BE0080F4D9 /* TipVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E10A0671CC732BE0080F4D9 /* TipVC.m */; };
+		6E10A06A1CC732BE0080F4D9 /* TipVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E10A0681CC732BE0080F4D9 /* TipVC.xib */; };
 		6E11D0071CB5FA0A00AEE457 /* CheckTelPhoneNumVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E11D0051CB5FA0A00AEE457 /* CheckTelPhoneNumVC.m */; };
 		6E11D0081CB5FA0A00AEE457 /* CheckTelPhoneNumVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E11D0061CB5FA0A00AEE457 /* CheckTelPhoneNumVC.xib */; };
 		6E11D00B1CB60CCF00AEE457 /* FeedBackModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E11D00A1CB60CCF00AEE457 /* FeedBackModel.m */; };
@@ -726,6 +728,9 @@
 		6E1031F71CB4FCC30098D5BD /* 选中.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "选中.png"; sourceTree = "<group>"; };
 		6E1031F81CB4FCC30098D5BD /* 选中@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "选中@3x.png"; sourceTree = "<group>"; };
 		6E1032291CB500D20098D5BD /* 促销商品“标题”.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "促销商品“标题”.png"; sourceTree = "<group>"; };
+		6E10A0661CC732BE0080F4D9 /* TipVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipVC.h; sourceTree = "<group>"; };
+		6E10A0671CC732BE0080F4D9 /* TipVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipVC.m; sourceTree = "<group>"; };
+		6E10A0681CC732BE0080F4D9 /* TipVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TipVC.xib; sourceTree = "<group>"; };
 		6E11D0041CB5FA0A00AEE457 /* CheckTelPhoneNumVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckTelPhoneNumVC.h; sourceTree = "<group>"; };
 		6E11D0051CB5FA0A00AEE457 /* CheckTelPhoneNumVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckTelPhoneNumVC.m; sourceTree = "<group>"; };
 		6E11D0061CB5FA0A00AEE457 /* CheckTelPhoneNumVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckTelPhoneNumVC.xib; sourceTree = "<group>"; };
@@ -1270,6 +1275,7 @@
 		6E04CE5A1C8FB4C400379F7D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				6E10A05E1CC7216C0080F4D9 /* 提示框 */,
 				6E352F161CAA32DF0012A1A2 /* 缓存 */,
 				6E352F151CAA32CE0012A1A2 /* 加密 */,
 				6EF4F70D1C979E5200E1BB18 /* MyTools */,
@@ -1320,6 +1326,16 @@
 				6E1030911CB4F73D0098D5BD /* 关闭@2x.png */,
 			);
 			path = LoginImage;
+			sourceTree = "<group>";
+		};
+		6E10A05E1CC7216C0080F4D9 /* 提示框 */ = {
+			isa = PBXGroup;
+			children = (
+				6E10A0661CC732BE0080F4D9 /* TipVC.h */,
+				6E10A0671CC732BE0080F4D9 /* TipVC.m */,
+				6E10A0681CC732BE0080F4D9 /* TipVC.xib */,
+			);
+			path = "提示框";
 			sourceTree = "<group>";
 		};
 		6E19786D1C8D737400594CB3 = {
@@ -2744,6 +2760,7 @@
 				6E1030DC1CB4FAE80098D5BD /* 适用列表小箭头全部.png in Resources */,
 				6E32966D1CAE6162008635D7 /* page-bg.png in Resources */,
 				6E1031B71CB4FC570098D5BD /* 返回@2x.png in Resources */,
+				6E10A06A1CC732BE0080F4D9 /* TipVC.xib in Resources */,
 				6EC44D3A1CA4E0DE00833567 /* 保存修改_置灰@2x.png in Resources */,
 				6E1030981CB4F73D0098D5BD /* page-lexianyu-logo@.png in Resources */,
 				6E1031C41CB4FC570098D5BD /* 地址装饰条@3x.png in Resources */,
@@ -3053,6 +3070,7 @@
 				6E11D00B1CB60CCF00AEE457 /* FeedBackModel.m in Sources */,
 				6E53EEDC1CA9262000768FA0 /* Encryption.m in Sources */,
 				6EEB890D1C96B6690043E8AA /* ClassifyVC.m in Sources */,
+				6E10A0691CC732BE0080F4D9 /* TipVC.m in Sources */,
 				6ED85BD51CAD0AB00042AEA0 /* RootModel.m in Sources */,
 				6E1D9A711CB3AA7800CBA10D /* SettingVC.m in Sources */,
 				6E88CE3F1C97F13000DB73DA /* UIButton+Block.m in Sources */,

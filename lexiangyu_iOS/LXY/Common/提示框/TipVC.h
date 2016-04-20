@@ -7,21 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIButton+Block.h"
-
 typedef NS_ENUM(NSUInteger, CusTipType) {
-  /** 提示框评测 */
-  CusTipTypeVerificate = 1,
-  /** 提示框申购 */
-  CusTipTypePurchase,
+    /** 提示框评测 */
+    CusTipTypeVerificate = 1,
+    /** 提示框申购 */
+    CusTipTypePurchase,
 };
 typedef void (^TextFieldCallback)(NSString *callbackStr);
 
-@interface TipViewController : UIViewController {
-  /** 提示框回调 */
-  TextFieldCallback currentCallback;
-  /** 提示框类型 */
-  CusTipType tipType;
+@interface TipVC : UIViewController {
+    /** 提示框回调 */
+    TextFieldCallback currentCallback;
+    /** 提示框类型 */
+    CusTipType tipType;
 }
 
 /** 提示框背景 */
