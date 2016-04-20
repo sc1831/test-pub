@@ -223,7 +223,9 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
 }
 //定义每个UICollectionView 的 margin //设置左右上下的边距
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    return UIEdgeInsetsMake(5, 5, 5, 5); //上左下右
+    
+    int s = (int)(M_WIDTH - 78 - 68 * ((M_WIDTH - 78) / 68 - 1)) / ((M_WIDTH - 78) / 68) ;
+    return UIEdgeInsetsMake(5, s, 5, s); //上左下右
 }
 
 // foot Size

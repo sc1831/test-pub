@@ -220,7 +220,7 @@
          mimeType: 上传图片类型
          */
         GLOG(@"formData", formData);
-        [formData appendPartWithFileData:myDate name:@"image" fileName:@".png" mimeType:@"image/jpeg"];
+        [formData appendPartWithFileData:myDate name:@"img" fileName:@".png" mimeType:@"image/jpeg"];
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         GLOG(@"uploadProgress", uploadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
