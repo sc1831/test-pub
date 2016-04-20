@@ -26,7 +26,7 @@
 
 
 @interface AppDelegate ()
-
+@property (nonatomic ,strong)Reachability *conn;
 @end
 /**
  Reachability 的网络判断
@@ -38,7 +38,6 @@ static NetworkStatus hostReachState=NotReachable;
  */
 //static AFNetworkReachabilityStatus wifi = AFNetworkReachabilityStatusReachableViaWiFi;
 @implementation AppDelegate
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -105,23 +104,16 @@ static NetworkStatus hostReachState=NotReachable;
     if (isIos7Version==1) {
         [[UITextField appearance]setTintColor:RGBCOLOR(255, 115, 0)];
     }
-    // 使用通知中心监听kReachabilityChangedNotification通知
+
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-     
-                                             selector:@selector(reachabilityChanged:)
-     
-                                                 name:kReachabilityChangedNotification object:nil];
+    // 监听网络状态改变的通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkStateChange) name:kReachabilityChangedNotification object:nil];
     
-    // 获取访问指定站点的Reachability对象
-    
-    Reachability* reach = [Reachability
-                           
-                           reachabilityWithHostName:@"www.baidu.com"];
-    
-    // 让Reachability对象开启被监听状态
-    
-    [reach startNotifier];
+    // 创建Reachability
+    self.conn = [Reachability reachabilityForInternetConnection];
+   self.conn = [Reachability reachabilityWithHostName:@"www.lexianyu.com"];
+    // 开始监控网络(一旦网络状态发生改变, 就会发出通知kReachabilityChangedNotification)
+    [self.conn startNotifier];
     
     
     
@@ -154,33 +146,29 @@ static NetworkStatus hostReachState=NotReachable;
     [self.window makeKeyAndVisible];
     return YES;
 }
-- (void)reachabilityChanged:(NSNotification *)note
-
+// 处理网络状态改变
+- (void)networkStateChange
 {
+    // 1.检测wifi状态
+    Reachability *wifi = [Reachability reachabilityForLocalWiFi];
     
-    // 通过通知对象获取被监听的Reachability对象
+    // 2.检测手机是否能上网络(WIFI\3G\2.5G)
+    Reachability *conn = [Reachability reachabilityForInternetConnection];
     
-    Reachability *curReach = [note object];
-    
-    // 获取Reachability对象的网络状态
-    
-    NetworkStatus status = [curReach currentReachabilityStatus];
-    
-    if (status == NotReachable)
-        
-    {
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提醒"
-                              
-                                                        message:@"不能访问www.baidu.com" delegate:nil
-                              
-                                              cancelButtonTitle:@"YES" otherButtonTitles:nil];
-        
-        [alert show];
-        
+    // 3.判断网络状态
+    if ([wifi currentReachabilityStatus] != NotReachable) { // 有wifi
+        NSLog(@"有wifi");
+        internetActive = YES;
+    } else if ([conn currentReachabilityStatus] != NotReachable) { // 没有使用wifi, 使用手机自带网络进行上网
+        NSLog(@"使用手机自带网络进行上网");
+        internetActive = YES;
+    } else { // 没有网络
+        NSLog(@"没有网络");
+        internetActive = NO;
     }
-
 }
+
+
 //2.进入新手引导界面
 - (void)intoGuite{
     GuiteVC *guiteVC = [[GuiteVC alloc]init];
@@ -433,9 +421,6 @@ static NetworkStatus hostReachState=NotReachable;
 
 
 }
-
-
-
 
 
 - (BOOL)isExistNetwork {

@@ -50,6 +50,7 @@
 
 }
 -(void)sendRequestData{
+    
     if (_dataArray.count>0) {
         [_dataArray removeAllObjects];
     }
@@ -104,12 +105,14 @@
 
 -(void)keepFeedBackInformation{
     if (self.funationTextView.text.length < 30) {
-        HUDNormal(@"至少五个字");
+        HUDNormal(@"至少30个字");
         return ;
     }else if (self.funationTextView.text.length > 200){
         HUDNormal(@"之多200字评论,您已超限");
         return ;
     }
+    
+   
     RequestCenter * request = [RequestCenter shareRequestCenter];
         NSDictionary *postDic = @{@"user_id":[[SaveInfo shareSaveInfo]user_id],
                                   @"ftype":_feedBackStr,
@@ -135,20 +138,26 @@
 //通过代理实现文字隐藏
 - (void)textViewDidChange:(UITextView *)textView{
     if (textView.text.length == 0 ) {
-        _placeholderLab.text = @"请留下您宝贵意见...";
+        _placeholderLab.text = @"请留下您的宝贵意见...";
     }else{
         _placeholderLab.text = @"";
         if (_funationTextView.text.length <= 200) {
 
         }else{
-            HUDNormal(@"文字200字以内,您已抄限...");
+            HUDNormal(@"文字200字以内,您已超限...");
+            textView.text = [textView.text substringToIndex:200];
+            return;
         }
         NSString *strLength = [NSString stringWithFormat:@"%lu", self.funationTextView.text.length];
+        
         self.textCountLab.text = STR_A_B(strLength, @"/200");
     }
 }
 //textView 键盘的隐藏 通过添加完成按钮实现
 - (void)textViewDidBeginEditing:(UITextView *)textView {
+    
+   
+    
     UIButton *rightNarBtn = [GHControl createButtonWithFrame:CGRectMake(0, 0, 80, 40) ImageName:@"rightBarBtnBg.png" Target:self Action:@selector(leaveEditMode) Title:nil];
     rightNarBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight ;
     [rightNarBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];

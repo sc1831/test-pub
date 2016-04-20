@@ -39,7 +39,7 @@
                             <rect key="frame" x="350" y="13" width="20" height="20"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="反馈类型" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTi-sD-kxl">
-                            <rect key="frame" x="10" y="13" width="118" height="21"/>
+                            <rect key="frame" x="15" y="13" width="118" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <color key="textColor" red="0.41176470588235292" green="0.41568627450980389" blue="0.41960784313725491" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -60,7 +60,7 @@
                     </connections>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="客服电话:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xC9-o1-hZu">
-                    <rect key="frame" x="0.0" y="278" width="68" height="21"/>
+                    <rect key="frame" x="15" y="278" width="68" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="6x2-jX-Xt6"/>
                         <constraint firstAttribute="width" constant="68" id="ndt-E1-fPb"/>
@@ -70,7 +70,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Svv-y4-UBc">
-                    <rect key="frame" x="70" y="274" width="195" height="30"/>
+                    <rect key="frame" x="85" y="274" width="195" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="ZKF-x9-6fD"/>
                         <constraint firstAttribute="width" constant="195" id="b69-tp-FJ5"/>
@@ -83,7 +83,7 @@
                         <action selector="makePhoneCall:" destination="-1" eventType="touchUpInside" id="bB3-cy-Pe7"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请留下您宝贵意见..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xV-uq-cgS">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请留下您的宝贵意见..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xV-uq-cgS">
                     <rect key="frame" x="7" y="133" width="170" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="KX0-yo-weZ"/>
@@ -128,7 +128,7 @@
                 <constraint firstAttribute="trailing" secondItem="VfN-4W-7MW" secondAttribute="trailing" constant="44" id="oWI-qX-8We"/>
                 <constraint firstItem="QsM-wb-U3K" firstAttribute="top" secondItem="Bvu-7C-JdI" secondAttribute="bottom" constant="8" id="q9n-7b-VaS"/>
                 <constraint firstItem="QsM-wb-U3K" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tpu-ka-KPG"/>
-                <constraint firstItem="xC9-o1-hZu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wiC-rz-ysm"/>
+                <constraint firstItem="xC9-o1-hZu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="wiC-rz-ysm"/>
                 <constraint firstItem="VfN-4W-7MW" firstAttribute="top" secondItem="Svv-y4-UBc" secondAttribute="bottom" constant="62" id="yQg-cU-x0e"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>

@@ -9,6 +9,8 @@
 #import "RequestCenter.h"
 #import "Encryption.h"
 #import "SaveInfo.h"
+#import "GHControl.h"
+
 #define MD5KEY @"mk"
 // mk   加密的数据
 @implementation RequestCenter
@@ -83,6 +85,11 @@
 - (void)sendRequestPostUrl:(NSString *)myUrl andDic:(NSDictionary *)info_dic setSuccessBlock:(void (^)(NSDictionary *))success_block setFailBlock:(void (^)(NSString *))fail_block{
     HUDSelfStart(@"正在请求数据...");
     NETWORKVIEW(YES);
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"无网络、请稍后再试");
+
+        return;
+    }
     
     AFHTTPSessionManager *session_manager = [AFHTTPSessionManager manager];
     session_manager.requestSerializer.timeoutInterval = 8 ;//
