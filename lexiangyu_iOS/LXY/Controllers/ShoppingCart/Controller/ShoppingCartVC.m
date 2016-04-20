@@ -16,6 +16,9 @@
 #import "SaveInfo.h"
 #import "ShopingDetailsVC.h"
 #import "UITableView+MJRefresh.h"
+#import "ShoppingCartBackView.h"
+#import "HomePageVC.h"
+#import "MainTabBar.h"
 
 @implementation ShoppingCartSelectModel
 
@@ -72,7 +75,7 @@
 //记录是否是单个侧滑删除
 @property (nonatomic ) BOOL isOnly;
 @property (nonatomic ,strong)NSMutableArray *mutDataArray;
-
+@property (nonatomic ,strong)ShoppingCartBackView *shopBackView;
 
 
 //存储最内层goods_spec对应的数组
@@ -117,13 +120,29 @@
     _bottmView.hidden = YES;
 //    self.tabBarItemOfMessage =[self.tabBarController.tabBar.items objectAtIndex:2];
 //    self.tabBarItemOfMessage.badgeValue = @"99+";
-    
-//    [self addMjHeaderAndFooter];
-//    [self.shoppingTableView headerBeginRefresh];
+    [self createBackView];
     
     [GHControl setExtraCellLineHidden:_shoppingTableView];
     
 }
+-(void)createBackView{
+
+    _shopBackView = [[[NSBundle mainBundle] loadNibNamed:@"ShoppingCartBackView"
+                                                   owner:self
+                                                 options:nil] firstObject];
+    _shopBackView.frame = CGRectMake(0,64, M_WIDTH, M_HEIGHT-64-49 - 56);
+    [self.view addSubview:_shopBackView];
+    
+    [_shopBackView.goLookButton addTarget:self action:@selector(goLookButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    _shopBackView.hidden = YES;
+}
+-(void)goLookButtonClick{
+
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"isReferred" object:self userInfo:nil];
+    
+}
+
 #pragma mark MJRefresh
 - (void)addMjHeaderAndFooter{
     [self.shoppingTableView headerAddMJRefresh:^{//添加顶部刷新功能
@@ -167,6 +186,7 @@
         NSDictionary *cartDic = data[@"cart"];
         
         NSArray *keyArray =[cartDic allKeys];
+        _shopBackView.hidden = YES;
         if (keyArray.count==0) {
             [_shoppingTableView reloadData];
             HUDNormal(@"暂时还没有购物");
@@ -175,7 +195,7 @@
             [_rightNarBtn setTitle:@"编辑" forState:UIControlStateNormal];
             _bottmView.hidden = YES;
             _AllView.hidden = NO;
-
+             _shopBackView.hidden = NO;
             [self.shoppingTableView headerEndRefresh];
             return;
         }

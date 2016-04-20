@@ -210,6 +210,9 @@
 		6E10322A1CB500D20098D5BD /* 促销商品“标题”.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1032291CB500D20098D5BD /* 促销商品“标题”.png */; };
 		6E10A0691CC732BE0080F4D9 /* TipVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E10A0671CC732BE0080F4D9 /* TipVC.m */; };
 		6E10A06A1CC732BE0080F4D9 /* TipVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E10A0681CC732BE0080F4D9 /* TipVC.xib */; };
+		6E10A06C1CC759180080F4D9 /* nodata_shopcar.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E10A06B1CC759180080F4D9 /* nodata_shopcar.png */; };
+		6E10A06F1CC75BF90080F4D9 /* ShoppingCartBackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E10A06E1CC75BF90080F4D9 /* ShoppingCartBackView.m */; };
+		6E10A0711CC75C100080F4D9 /* ShoppingCartBackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E10A0701CC75C100080F4D9 /* ShoppingCartBackView.xib */; };
 		6E11D0071CB5FA0A00AEE457 /* CheckTelPhoneNumVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E11D0051CB5FA0A00AEE457 /* CheckTelPhoneNumVC.m */; };
 		6E11D0081CB5FA0A00AEE457 /* CheckTelPhoneNumVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E11D0061CB5FA0A00AEE457 /* CheckTelPhoneNumVC.xib */; };
 		6E11D00B1CB60CCF00AEE457 /* FeedBackModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E11D00A1CB60CCF00AEE457 /* FeedBackModel.m */; };
@@ -731,6 +734,10 @@
 		6E10A0661CC732BE0080F4D9 /* TipVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipVC.h; sourceTree = "<group>"; };
 		6E10A0671CC732BE0080F4D9 /* TipVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipVC.m; sourceTree = "<group>"; };
 		6E10A0681CC732BE0080F4D9 /* TipVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TipVC.xib; sourceTree = "<group>"; };
+		6E10A06B1CC759180080F4D9 /* nodata_shopcar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nodata_shopcar.png; sourceTree = "<group>"; };
+		6E10A06D1CC75BF90080F4D9 /* ShoppingCartBackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCartBackView.h; sourceTree = "<group>"; };
+		6E10A06E1CC75BF90080F4D9 /* ShoppingCartBackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartBackView.m; sourceTree = "<group>"; };
+		6E10A0701CC75C100080F4D9 /* ShoppingCartBackView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShoppingCartBackView.xib; sourceTree = "<group>"; };
 		6E11D0041CB5FA0A00AEE457 /* CheckTelPhoneNumVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckTelPhoneNumVC.h; sourceTree = "<group>"; };
 		6E11D0051CB5FA0A00AEE457 /* CheckTelPhoneNumVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckTelPhoneNumVC.m; sourceTree = "<group>"; };
 		6E11D0061CB5FA0A00AEE457 /* CheckTelPhoneNumVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckTelPhoneNumVC.xib; sourceTree = "<group>"; };
@@ -2139,6 +2146,9 @@
 				6E7964E51C983F5500EB43B9 /* OrderSuccessVC.h */,
 				6E7964E61C983F5500EB43B9 /* OrderSuccessVC.m */,
 				6E7964E71C983F5500EB43B9 /* OrderSuccessVC.xib */,
+				6E10A06D1CC75BF90080F4D9 /* ShoppingCartBackView.h */,
+				6E10A06E1CC75BF90080F4D9 /* ShoppingCartBackView.m */,
+				6E10A0701CC75C100080F4D9 /* ShoppingCartBackView.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2379,6 +2389,7 @@
 		6EF4F7181C97B01400E1BB18 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				6E10A06B1CC759180080F4D9 /* nodata_shopcar.png */,
 				6E1031C91CB4FCC30098D5BD /* 选中全选@3x.png */,
 				6E1031CA1CB4FCC30098D5BD /* 选中全选.png */,
 				6E1031CB1CB4FCC30098D5BD /* 选中全选@2x.png */,
@@ -2728,6 +2739,7 @@
 				6E46B73F1CA4E2BC00D5F73B /* 3@2x.png in Resources */,
 				6E51B4EF1CC46E8400D4529C /* DetailAddressVC.xib in Resources */,
 				6E88CE321C97DCA400DB73DA /* guide_bg@2x.png in Resources */,
+				6E10A0711CC75C100080F4D9 /* ShoppingCartBackView.xib in Resources */,
 				6E46B7491CA4E2BC00D5F73B /* 6@3x.png in Resources */,
 				6E1032061CB4FCC30098D5BD /* 数量选择2@3x.png in Resources */,
 				6EF887D41CBCF383001E6D1F /* WaitSendVC.xib in Resources */,
@@ -2937,6 +2949,7 @@
 				6EC44D171CA4DE4C00833567 /* 地址选项跳转@3x.png in Resources */,
 				6E10317F1CB4FC570098D5BD /* 评价商品_默认@2x.png in Resources */,
 				6EC44D391CA4E0DE00833567 /* 保存修改_置灰@.png in Resources */,
+				6E10A06C1CC759180080F4D9 /* nodata_shopcar.png in Resources */,
 				6E10316E1CB4FC570098D5BD /* 适用列表箭头全部.png in Resources */,
 				6E88CE391C97DCA400DB73DA /* guideView_4.png in Resources */,
 				6E10320B1CB4FCC30098D5BD /* 数量选择_点击1.png in Resources */,
@@ -3138,6 +3151,7 @@
 				6ED85BDE1CAD18420042AEA0 /* HomeModel.m in Sources */,
 				6EA414A01CBE265800A52BA5 /* HeadTableView.m in Sources */,
 				6E51B4EE1CC46E8400D4529C /* DetailAddressVC.m in Sources */,
+				6E10A06F1CC75BF90080F4D9 /* ShoppingCartBackView.m in Sources */,
 				6E7964B61C981B8600EB43B9 /* ShoppingCartVC.m in Sources */,
 				6EBA3BD01CBBC2F0002D6C69 /* RSADataVerifier.m in Sources */,
 				6E51B4F31CC46EF600D4529C /* DeatilAddressView.m in Sources */,

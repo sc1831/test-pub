@@ -30,6 +30,9 @@
     
     self.tabBarItemOfMessage =[self.tabBarController.tabBar.items objectAtIndex:2];
     self.tabBarItemOfMessage.badgeValue = @"99+";
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(isReferredClick) name:@"isReferred" object:nil];
+     // postNotificationName:@"isReferred" object:self userInfo:nil];
 }
 
 #pragma mark - createNav

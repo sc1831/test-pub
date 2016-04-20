@@ -278,7 +278,7 @@
     
     AllGoodsOrders *model = _dataArray[section];
     
-    UILabel *label = [GHControl createLabelWithFrame:CGRectMake(45,11,60, 30) Font:14 Text:model.store_name];
+    UILabel *label = [GHControl createLabelWithFrame:CGRectMake(45,11,M_WIDTH-45, 30) Font:14 Text:model.store_name];
     label.textColor = RGBCOLOR(99, 100, 101);
     [_headView addSubview:label];
     
