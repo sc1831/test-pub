@@ -289,6 +289,7 @@
 - (IBAction)searchClick:(id)sender {
     if (_searchTextField.text.length <= 0) {
         HUDNormal(@"请您输入关键字");
+        return ;
     }
     
     [postDic removeObjectForKey:@"gc_id"];
