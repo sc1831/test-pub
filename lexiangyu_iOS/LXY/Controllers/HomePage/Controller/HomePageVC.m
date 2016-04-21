@@ -290,7 +290,8 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     _specialTableView.center = CGPointMake(specialView.frame.size.width / 2, specialView.frame.size.height / 2);
     //逆时针旋转90°
     _specialTableView.transform = CGAffineTransformMakeRotation(-M_PI / 2);
-    
+    _specialTableView.showsVerticalScrollIndicator = NO;
+
     [GHControl setExtraCellLineHidden:_specialTableView];
     [specialView addSubview:_specialTableView];
 }
