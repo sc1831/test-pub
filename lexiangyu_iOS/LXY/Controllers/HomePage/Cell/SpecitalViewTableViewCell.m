@@ -20,6 +20,7 @@
 - (void)configWithHomeModel:(HomeModel *)homemodel{
     self.describeLabel.text = homemodel.goods_name ;
     self.priceLabel.text = [NSString stringWithFormat:@"¥%@",homemodel.goods_price];
+    self.goods_imageView.contentMode = UIViewContentModeScaleAspectFit ;
     [self.goods_imageView sd_setImageWithURL:[NSURL URLWithString:homemodel.goods_image] placeholderImage:[UIImage imageNamed:@""]];
     
     

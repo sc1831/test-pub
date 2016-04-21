@@ -34,7 +34,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="产品图片.png" translatesAutoresizingMaskIntoConstraints="NO" id="2YE-rI-jg3">
-                        <rect key="frame" x="109" y="48" width="64" height="47"/>
+                        <rect key="frame" x="112" y="8" width="64" height="90.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="64" id="fQR-gj-9XR"/>
                         </constraints>
@@ -57,7 +57,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="lp1-la-8sU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Ezj-k3-j2g"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="2YE-rI-jg3" secondAttribute="bottom" constant="3.5" id="Idh-8I-xLJ"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="2YE-rI-jg3" secondAttribute="bottom" id="Idh-8I-xLJ"/>
                     <constraint firstAttribute="trailingMargin" secondItem="nel-iU-9K3" secondAttribute="trailing" constant="94" id="TWi-Qu-wqy"/>
                     <constraint firstItem="EXy-1K-6WV" firstAttribute="top" secondItem="lp1-la-8sU" secondAttribute="bottom" constant="5" id="e7D-U8-Sau"/>
                     <constraint firstAttribute="bottomMargin" secondItem="EXy-1K-6WV" secondAttribute="bottom" constant="3.5" id="fd6-9k-4ll"/>
@@ -66,9 +66,9 @@
                     <constraint firstItem="nel-iU-9K3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="oGf-0u-UmC"/>
                     <constraint firstItem="nel-iU-9K3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="4" id="rKm-J9-yMa"/>
                     <constraint firstItem="lp1-la-8sU" firstAttribute="top" secondItem="lbR-fh-c20" secondAttribute="bottom" constant="10" id="vyL-NJ-N6j"/>
-                    <constraint firstItem="2YE-rI-jg3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="40" id="w9t-TM-mwD"/>
+                    <constraint firstItem="2YE-rI-jg3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="w9t-TM-mwD"/>
                     <constraint firstItem="lbR-fh-c20" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="wzp-Pv-8mY"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="2YE-rI-jg3" secondAttribute="trailing" constant="3" id="x6d-sd-Y0y"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="2YE-rI-jg3" secondAttribute="trailing" id="x6d-sd-Y0y"/>
                     <constraint firstItem="EXy-1K-6WV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="z1R-TY-vds"/>
                     <constraint firstAttribute="trailingMargin" secondItem="lbR-fh-c20" secondAttribute="trailing" constant="94" id="zid-9U-Fzg"/>
                 </constraints>

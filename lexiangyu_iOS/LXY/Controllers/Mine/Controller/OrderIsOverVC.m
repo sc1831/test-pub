@@ -8,6 +8,7 @@
 
 #import "OrderIsOverVC.h"
 #import "OrderModel.h"
+#import "Common.h"
 @interface OrderIsOverVC ()
 @property (weak, nonatomic) IBOutlet UILabel *name_phoneLab;
 @property (weak, nonatomic) IBOutlet UILabel *addressLab;
@@ -23,7 +24,7 @@
     self.title = @"下单完成" ;
     self.name_phoneLab.text = _orderOverModel.userName_phone ;
     self.addressLab.text = _orderOverModel.user_address ;
-    self.moneyLab.text = _orderOverModel.order_goods_price_total ;
+    self.moneyLab.text = STR_A_B(@"¥ ", _orderOverModel.order_goods_price_total)  ;
     
 }
 
