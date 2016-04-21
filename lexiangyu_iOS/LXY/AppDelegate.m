@@ -22,8 +22,12 @@
 //银联支付
 #import "UPPaymentControl.h"
 #import "RSA.h"
+#import "MobClick.h"
+
 #import <CommonCrypto/CommonDigest.h>
 
+
+#define UMENG_APPKEY @"56e7735e67e58e3d78001181"
 
 @interface AppDelegate ()
 @property (nonatomic ,strong)Reachability *conn;
@@ -45,6 +49,16 @@ static NetworkStatus hostReachState=NotReachable;
     //TODO: 推送
     //set AppKey and LaunchOptions
     [UMessage startWithAppkey:@"56e7735e67e58e3d78001181" launchOptions:launchOptions];
+    
+    //TODO:友盟统计
+    //  友盟的方法本身是异步执行，所以不需要再异步调用
+    [self umengTrack];
+    //    [MobClick setCrashReportEnabled:NO]; // 如果不需要捕捉异常，注释掉此行
+    [MobClick setLogEnabled:YES];  // 打开友盟sdk调试，注意Release发布时需要注释掉此行,减少io消耗
+    [MobClick setAppVersion:XcodeAppVersion]; //参数为NSString * 类型,自定义app版本信息，如果不设置，默认从CFBundleVersion里取
+    [MobClick startWithAppkey:@"56e7735e67e58e3d78001181" reportPolicy:BATCH   channelId:nil];
+    
+    
     //TODO: 微信
     [WXApi registerApp:@"wx24728dea6d8b2f08" withDescription:@"lxy"];
     //向微信注册wxd930ea5d5a258f4f
@@ -146,6 +160,17 @@ static NetworkStatus hostReachState=NotReachable;
     [self.window makeKeyAndVisible];
     return YES;
 }
+
+- (void)umengTrack {
+    //    [MobClick setCrashReportEnabled:NO]; // 如果不需要捕捉异常，注释掉此行
+    [MobClick setLogEnabled:YES];  // 打开友盟sdk调试，注意Release发布时需要注释掉此行,减少io消耗
+    [MobClick setAppVersion:XcodeAppVersion]; //参数为NSString * 类型,自定义app版本信息，如果不设置，默认从CFBundleVersion里取
+    //
+    [MobClick startWithAppkey:UMENG_APPKEY reportPolicy:(ReportPolicy) REALTIME channelId:nil];
+    //   reportPolicy为枚举类型,可以为 REALTIME, BATCH,SENDDAILY,SENDWIFIONLY几种
+    //   channelId 为NSString * 类型，channelId 为nil或@""时,默认会被被当作@"App Store"渠道
+}
+
 // 处理网络状态改变
 - (void)networkStateChange
 {

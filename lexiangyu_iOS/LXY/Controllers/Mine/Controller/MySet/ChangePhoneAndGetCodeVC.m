@@ -60,7 +60,9 @@
     
     [request sendRequestPostUrl:REGISTRE_SEND_SMS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
-            BG_LOGIN ;
+            HUDNormal([resultDic objectForKey:@"msg"]);
+            return ;
+
         }
 //        if ([resultDic[@"code"] intValue]==0) {
 //            HUDNormal([resultDic objectForKey:@"msg"]);

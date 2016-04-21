@@ -290,6 +290,7 @@
 		6E5391141CBBD04F004D2BB9 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5391121CBBD04F004D2BB9 /* AlipaySDK.framework */; };
 		6E53EED91CA906AB00768FA0 /* SaveInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E53EED81CA906AB00768FA0 /* SaveInfo.m */; };
 		6E53EEDC1CA9262000768FA0 /* Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E53EEDB1CA9262000768FA0 /* Encryption.m */; };
+		6E56987C1CC865F2000D6387 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5698791CC865F2000D6387 /* libMobClickLibrary.a */; };
 		6E589EBE1CA248C800E569DB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E589EBD1CA248C800E569DB /* QuartzCore.framework */; };
 		6E589EC01CA2494C00E569DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E589EBF1CA2494C00E569DB /* Foundation.framework */; };
 		6E6921491CA4E24400022004 /* SpecitalViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6921471CA4E24400022004 /* SpecitalViewTableViewCell.m */; };
@@ -841,6 +842,9 @@
 		6E53EED81CA906AB00768FA0 /* SaveInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveInfo.m; sourceTree = "<group>"; };
 		6E53EEDA1CA9262000768FA0 /* Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Encryption.h; sourceTree = "<group>"; };
 		6E53EEDB1CA9262000768FA0 /* Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Encryption.m; sourceTree = "<group>"; };
+		6E5698791CC865F2000D6387 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
+		6E56987A1CC865F2000D6387 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
+		6E56987B1CC865F2000D6387 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
 		6E589EBD1CA248C800E569DB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6E589EBF1CA2494C00E569DB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6E6921461CA4E24400022004 /* SpecitalViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecitalViewTableViewCell.h; sourceTree = "<group>"; };
@@ -1235,6 +1239,7 @@
 				6ECD26CB1CBB895900ED2004 /* CoreTelephony.framework in Frameworks */,
 				6EBA3BAB1CBBACD4002D6C69 /* CoreText.framework in Frameworks */,
 				6EBA3C6B1CBBC82F002D6C69 /* libssl.a in Frameworks */,
+				6E56987C1CC865F2000D6387 /* libMobClickLibrary.a in Frameworks */,
 				6EBA3C6A1CBBC82F002D6C69 /* libcrypto.a in Frameworks */,
 				6E9668511CBC9038008B6E25 /* libUMessage_Sdk_1.2.6.a in Frameworks */,
 				6ECD26C71CBB82BD00ED2004 /* libsqlite3.0.tbd in Frameworks */,
@@ -1465,6 +1470,16 @@
 				6E796F211C99566200F677E3 /* UIScrollAllView.m */,
 			);
 			path = UIScrollView;
+			sourceTree = "<group>";
+		};
+		6E5698781CC865F2000D6387 /* UMAnalytics_Sdk_3.6.6 */ = {
+			isa = PBXGroup;
+			children = (
+				6E5698791CC865F2000D6387 /* libMobClickLibrary.a */,
+				6E56987A1CC865F2000D6387 /* MobClick.h */,
+				6E56987B1CC865F2000D6387 /* MobClickSocialAnalytics.h */,
+			);
+			path = UMAnalytics_Sdk_3.6.6;
 			sourceTree = "<group>";
 		};
 		6E79649A1C980C1100EB43B9 /* Composite */ = {
@@ -2172,6 +2187,7 @@
 		6ECD26B91CBB825F00ED2004 /* 3RD */ = {
 			isa = PBXGroup;
 			children = (
+				6E5698781CC865F2000D6387 /* UMAnalytics_Sdk_3.6.6 */,
 				6E9668521CBCD0DA008B6E25 /* UPPaySDK */,
 				6E96684E1CBC9038008B6E25 /* UMessage_Sdk_1.2.6 */,
 				6ECD26BA1CBB827B00ED2004 /* WechatSDK1.6.2 */,
@@ -3356,6 +3372,7 @@
 					"$(PROJECT_DIR)/LXY/Rescource/3RD/AlipaySDK",
 					"$(PROJECT_DIR)/LXY/Rescource/3RD/UMessage_Sdk_1.2.6",
 					"$(PROJECT_DIR)/LXY/Rescource/3RD/UPPaySDK/libs",
+					"$(PROJECT_DIR)/LXY/Rescource/3RD/UMAnalytics_Sdk_3.6.6",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lecuntao.lxy;
@@ -3385,6 +3402,7 @@
 					"$(PROJECT_DIR)/LXY/Rescource/3RD/AlipaySDK",
 					"$(PROJECT_DIR)/LXY/Rescource/3RD/UMessage_Sdk_1.2.6",
 					"$(PROJECT_DIR)/LXY/Rescource/3RD/UPPaySDK/libs",
+					"$(PROJECT_DIR)/LXY/Rescource/3RD/UMAnalytics_Sdk_3.6.6",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lecuntao.lxy;

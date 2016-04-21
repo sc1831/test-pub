@@ -121,6 +121,7 @@
     return YES;
 }
 
+
 #pragma mark MJRefresh
 - (void)addMjHeaderAndFooter{
     [self.compositeTab headerAddMJRefresh:^{//添加顶部刷新功能
@@ -286,6 +287,10 @@
 }
 #pragma mark search
 - (IBAction)searchClick:(id)sender {
+    if (_searchTextField.text.length <= 0) {
+        HUDNormal(@"请您输入关键字");
+    }
+    
     [postDic removeObjectForKey:@"gc_id"];
     if (self.searchTextField.text.length > 0) {
         [postDic setValue:self.searchTextField.text forKey:@"goods_name"];
