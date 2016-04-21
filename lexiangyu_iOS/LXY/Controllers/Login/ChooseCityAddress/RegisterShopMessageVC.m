@@ -130,10 +130,6 @@
             return ;
         }
 
-        if ([resultDic[@"code"] intValue]==0) {
-            HUDNormal(resultDic[@"msg"]);
-            return ;
-        }
         HUDNormal(@"审核成功");
         
         [self dismissViewControllerAnimated:YES completion:nil];
