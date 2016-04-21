@@ -13,7 +13,7 @@
 #define USER_ID @"user_id"
 #define USER_INFO @"userInfo"
 #define SHOP_NAME @"shop_name"
-#define USER_IMAGE @"userImage"
+#define USER_IMAGE_Url @"userImage_url"
 @implementation SaveInfo
 + (SaveInfo *)shareSaveInfo{
     static SaveInfo *saveInfo = nil ;
@@ -85,11 +85,11 @@
     return RETURE_MESSAGE(SHOP_NAME);
 }
 
-- (void)setUserImage:(UIImage *)userImage{
-    SAVE_MESSAGE(userImage, USER_IMAGE);
+- (void)setUserImageUrl:(NSString *)userImageUrl{
+    SAVE_MESSAGE(userImageUrl, USER_IMAGE_Url);
 }
-- (UIImage *)userImage{
-    return RETURE_MESSAGE(USER_IMAGE);
+- (NSString *)userImageUrl{
+    return RETURE_MESSAGE(USER_IMAGE_Url);
 }
 
 
@@ -100,7 +100,7 @@
     self.user_id = nil ;
     self.userInfo = nil ;
     self.shop_name = nil ;
-    self.userImage = nil ; 
+    self.userImageUrl = nil ; 
 }
 
 

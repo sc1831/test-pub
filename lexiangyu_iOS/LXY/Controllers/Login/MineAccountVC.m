@@ -30,6 +30,15 @@
 @end
 
 @implementation MineAccountVC
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if ([[SaveInfo shareSaveInfo]userImageUrl]) {
+        
+        [_headImageView sd_setImageWithURL:[NSURL URLWithString:[[SaveInfo shareSaveInfo]userImageUrl]] placeholderImage:[UIImage imageNamed:@"火影1"]] ;
+    }
+    
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -104,17 +113,22 @@
     NSLog(@"info～～～～%@",info);
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     NSLog(@"\n\nimage%@",image);
+    [self dismissViewControllerAnimated:YES completion:nil];
     [[RequestCenter shareRequestCenter]sendRequestImageUrl:UPLOAD_AVATAR andImage:image setSuccessBlock:^(NSDictionary *resultDic) {
-        
+        if ([resultDic[@"code"] intValue] != 1) {
+            BG_LOGIN ;
+        }
         HUDNormal(@"头像上传成功");
+        
+        [[SaveInfo shareSaveInfo]setUserImageUrl:resultDic[@"data"][@"img_path"]];
         _headImageView.image = image ;
-//        SaveInfo
+
         
     } setFailBlock:^(NSString *errorStr) {
         
         HUDNormal(@"头像上传失败");
     }];
-     [self dismissViewControllerAnimated:YES completion:nil];
+    
     
     
 }

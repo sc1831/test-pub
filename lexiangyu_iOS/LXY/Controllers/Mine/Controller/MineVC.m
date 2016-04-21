@@ -25,7 +25,7 @@
 @interface MineVC ()
 //头像
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
-@property (nonatomic ,strong) UIImage *headImage;
+//@property (nonatomic ,strong) UIImage *headImage;
 @property (weak, nonatomic) IBOutlet UILabel *phoneNumLabel;
 @property (weak, nonatomic) IBOutlet UILabel *shopName;
 @property (weak, nonatomic) IBOutlet UIImageView *mineImageView;
@@ -37,7 +37,12 @@
 @implementation MineVC
 - (void)viewWillAppear:(BOOL)animated{
      [self sendRequestData];
+    if ([[SaveInfo shareSaveInfo]userImageUrl]) {
+        [_headImageView sd_setImageWithURL:[NSURL URLWithString:[[SaveInfo shareSaveInfo]userImageUrl]] placeholderImage:[UIImage imageNamed:@"火影1"]] ;
+    }
 }
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -51,8 +56,8 @@
    
     
     
-    _headImage = [UIImage imageNamed:@"火影1"];
-    _headImageView.image = _headImage;
+//    _headImage = [UIImage imageNamed:@"火影1"];
+    _headImageView.image = [UIImage imageNamed:@"火影1"];
     _headImageView.layer.masksToBounds = YES;
     _headImageView.layer.cornerRadius = 39;
     
@@ -168,7 +173,7 @@
     mineAccountVC.shopNameStr = _shopName.text;
     mineAccountVC.accountNameStr = _iphoneMut;
     mineAccountVC.phoneNum = _phoneNum;
-    mineAccountVC.image = _headImage;
+    mineAccountVC.image = _headImageView.image;
     [self.navigationController pushViewController:mineAccountVC animated:YES];
     self.hidesBottomBarWhenPushed = NO;
 }
