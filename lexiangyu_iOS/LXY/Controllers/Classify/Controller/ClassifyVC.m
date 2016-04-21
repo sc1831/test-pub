@@ -38,6 +38,11 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
     [super viewWillAppear:animated];
     self.title = @"分类" ;
     self.navigationController.navigationBarHidden = YES ;
+    
+    if (classMtArray.count <= 0) {
+        [self loadClassData];
+    }
+    
 }
 //- (void)viewDidDisappear:(BOOL)animated{
 //    

@@ -11,6 +11,7 @@
 #import "ChangePasswordVC.h"
 #import "RequestCenter.h"
 #import "Common.h"
+#import "SaveInfo.h"
 @interface MineAccountVC ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 //头像图片
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
@@ -107,6 +108,8 @@
         
         HUDNormal(@"头像上传成功");
         _headImageView.image = image ;
+//        SaveInfo
+        
     } setFailBlock:^(NSString *errorStr) {
         
         HUDNormal(@"头像上传失败");

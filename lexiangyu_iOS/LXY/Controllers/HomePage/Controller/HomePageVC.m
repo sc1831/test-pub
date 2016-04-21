@@ -84,13 +84,15 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 }
 -(void)viewWillAppear:(BOOL)animated{
      self.navigationController.navigationBarHidden = YES ;
+    [self loadHomeData];
+    [self loadRecommend_goods];
     //开启定时器
     [_moveTimer setFireDate:[NSDate distantPast]];
     [_middleMoveTimer setFireDate:[NSDate distantPast]];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
-//        self.TopView.contentSize = CGSizeMake(self.view.frame.size.width, 1438);
+        self.TopView.contentSize = CGSizeMake(self.view.frame.size.width, 1438);
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -110,8 +112,8 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     recommend_goods = [NSMutableArray arrayWithCapacity:0];
 
     
-    [self loadHomeData];
-    [self loadRecommend_goods];
+//    [self loadHomeData];
+//    [self loadRecommend_goods];
     
     self.view.backgroundColor = RGBCOLOR(241, 245, 246);
     
@@ -423,7 +425,34 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 
 //减速结束时调用
 #pragma mark scrollViewDelegate
-//- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
+//上拉加载更多
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    if (recommend_goods.count > 0) {
+        return ;
+    }
+    float offset=scrollView.contentOffset.y;
+    float contentHeight=scrollView.contentSize.height;
+    float sub=contentHeight-offset;
+
+    if ((scrollView.frame.size.height-sub)>20) {//如果上拉距离超过20p，则加载更多数据
+        [self loadRecommend_goods];
+        if (recommend_goods.count <= 0) {
+            HUDNormal(@"暂时没有信息...");
+            return ;
+        }
+        //[self loadMoreData];//此处在view底部加载更多数据
+    }
+}
+
+
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
+    if (recommend_goods.count <= 0) {
+        return ;
+    }
+    if (scrollView.contentSize.height <= 2470) {
+        scrollView.contentSize = CGSizeMake(M_WIDTH, 2471);
+    }
+
 //    if (scrollView.tag == 10086) {
 //        //1438
 //        [UIView animateWithDuration:0.6 animations:^{
@@ -441,8 +470,8 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 //        }];
 //        
 //    }
-//    
-//}
+    
+}
 
 - (BOOL)prefersStatusBarHidden
 {

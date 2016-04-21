@@ -12,7 +12,8 @@
 #define TOKEN @"token"
 #define USER_ID @"user_id"
 #define USER_INFO @"userInfo"
-
+#define SHOP_NAME @"shop_name"
+#define USER_IMAGE @"userImage"
 @implementation SaveInfo
 + (SaveInfo *)shareSaveInfo{
     static SaveInfo *saveInfo = nil ;
@@ -77,6 +78,20 @@
 - (NSDictionary *)userInfo{
     return RETURE_MESSAGE(USER_INFO);
 }
+- (void)setShop_name:(NSString *)shop_name{
+    SAVE_MESSAGE(shop_name, SHOP_NAME);
+}
+- (NSString *)shop_name{
+    return RETURE_MESSAGE(SHOP_NAME);
+}
+
+- (void)setUserImage:(UIImage *)userImage{
+    SAVE_MESSAGE(userImage, USER_IMAGE);
+}
+- (UIImage *)userImage{
+    return RETURE_MESSAGE(USER_IMAGE);
+}
+
 
 - (void)logout{
     self.loginName = nil ;
@@ -84,6 +99,8 @@
     self.token = nil ;
     self.user_id = nil ;
     self.userInfo = nil ;
+    self.shop_name = nil ;
+    self.userImage = nil ; 
 }
 
 

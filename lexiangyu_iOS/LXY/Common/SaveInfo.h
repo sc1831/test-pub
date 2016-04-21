@@ -20,7 +20,8 @@
 @property (nonatomic,copy)NSString *token ;
 @property (nonatomic,copy)NSString *user_id ;
 @property (nonatomic,strong)NSDictionary *userInfo ;
-
+@property (nonatomic,copy)NSString *shop_name;
+@property (nonatomic,strong)UIImage *userImage ;
 + (SaveInfo *)shareSaveInfo;//全局共享
 - (void)logout;
 - (BOOL)isFistStart ;

@@ -238,12 +238,12 @@
         [[SaveInfo shareSaveInfo]setUser_id:[[resultDic objectForKey:@"data"] objectForKey:@"member_id"]];
         [[SaveInfo shareSaveInfo]setUserInfo:[resultDic objectForKey:@"data"]];
         [[SaveInfo shareSaveInfo]setLoginName:[[resultDic objectForKey:@"data"] objectForKey:@"member_phone"]];
+        [[SaveInfo shareSaveInfo]setShop_name:[[resultDic objectForKey:@"data"] objectForKey:@"shop_name"]];
         [[SaveInfo shareSaveInfo]setPassWord:_passwordTextField.text];
         MainTabBar *mainVC = [[MainTabBar alloc]init];
         [self presentViewController:mainVC animated:YES completion:nil];
-        
+
     } setFailBlock:^(NSString *errorStr) {
-        
     }];
     
 }

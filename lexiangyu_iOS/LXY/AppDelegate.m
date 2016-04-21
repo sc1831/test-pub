@@ -53,10 +53,7 @@ static NetworkStatus hostReachState=NotReachable;
     //TODO:友盟统计
     //  友盟的方法本身是异步执行，所以不需要再异步调用
     [self umengTrack];
-    //    [MobClick setCrashReportEnabled:NO]; // 如果不需要捕捉异常，注释掉此行
-    [MobClick setLogEnabled:YES];  // 打开友盟sdk调试，注意Release发布时需要注释掉此行,减少io消耗
-    [MobClick setAppVersion:XcodeAppVersion]; //参数为NSString * 类型,自定义app版本信息，如果不设置，默认从CFBundleVersion里取
-    [MobClick startWithAppkey:@"56e7735e67e58e3d78001181" reportPolicy:BATCH   channelId:nil];
+
     
     
     //TODO: 微信
@@ -422,7 +419,20 @@ static NetworkStatus hostReachState=NotReachable;
         [request sendRequestPostUrl:EDIT_USER_TOKEN andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
             if ([[resultDic objectForKey:@"code"] intValue]== 1) {
                 //成功 token 替换成功
-                [[SaveInfo shareSaveInfo]setToken:[resultDic objectForKey:@"token"]];
+//                if (!resultDic[@"token"]) {
+//                    [[SaveInfo shareSaveInfo]setToken:[resultDic objectForKey:@"token"]];
+//                }else{
+//                    
+//                }
+                
+                [[SaveInfo shareSaveInfo]setToken:[[resultDic objectForKey:@"data"] objectForKey:@"token"]];
+                [[SaveInfo shareSaveInfo]setUser_id:[[resultDic objectForKey:@"data"] objectForKey:@"member_id"]];
+                [[SaveInfo shareSaveInfo]setUserInfo:[resultDic objectForKey:@"data"]];
+                [[SaveInfo shareSaveInfo]setLoginName:[[resultDic objectForKey:@"data"] objectForKey:@"member_phone"]];
+                [[SaveInfo shareSaveInfo]setShop_name:[[resultDic objectForKey:@"data"] objectForKey:@"shop_name"]];
+                
+                
+                
                 MainTabBar *mainVC = [[MainTabBar alloc]init];
                 self.window.rootViewController = mainVC ;
             }else{
