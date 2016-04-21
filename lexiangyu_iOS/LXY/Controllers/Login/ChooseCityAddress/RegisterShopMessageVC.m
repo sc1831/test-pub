@@ -126,7 +126,8 @@
     
     [request sendRequestPostUrl:REGISTRE_STOR_NAME andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
-            BG_LOGIN ;
+            HUDNormal([resultDic objectForKey:@"msg"]);
+            return ;
         }
 
         if ([resultDic[@"code"] intValue]==0) {

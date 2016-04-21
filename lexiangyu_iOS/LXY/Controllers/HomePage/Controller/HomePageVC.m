@@ -84,8 +84,12 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 }
 -(void)viewWillAppear:(BOOL)animated{
      self.navigationController.navigationBarHidden = YES ;
-    [self loadHomeData];
-    [self loadRecommend_goods];
+    if (goods_class.count <= 0) {
+        [self loadHomeData];
+    }
+    if (recommend_goods.count <= 0) {
+        [self loadRecommend_goods];
+    }
     //开启定时器
     [_moveTimer setFireDate:[NSDate distantPast]];
     [_middleMoveTimer setFireDate:[NSDate distantPast]];
@@ -459,7 +463,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     NSLog(@"scrollView.contentSize.height:%f",scrollView.contentSize.height);
     if (scrollView.contentSize.height > 1400) {
 
-    scrollView.contentSize = CGSizeMake(M_WIDTH, 1460+allNum*(M_WIDTH/2+11));
+    scrollView.contentSize = CGSizeMake(M_WIDTH, 1460+allNum*(M_WIDTH/2+15));
     
     }
     

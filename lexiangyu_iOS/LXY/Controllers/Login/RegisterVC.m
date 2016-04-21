@@ -101,9 +101,10 @@
     [request sendRequestPostUrl:REGISTRE_SEND_AUTH_CODE andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
 
         if ([resultDic[@"code"] intValue] != 1) {
-            BG_LOGIN ;
+            HUDNormal([resultDic objectForKey:@"msg"]);
+            return ;
         }
-
+        
 
         
         HUDNormal(@"验证成功");
@@ -141,10 +142,11 @@
     statcPhoneNum = _phoneTextField.text;
     [request sendRequestPostUrl:REGISTRE_SEND_SMS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
 
+       
         if ([resultDic[@"code"] intValue] != 1) {
-            BG_LOGIN ;
+            HUDNormal([resultDic objectForKey:@"msg"]);
+            return ;
         }
-
 
         HUDNormal(@"短信发送成功,请注意查收");
         
