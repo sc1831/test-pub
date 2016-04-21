@@ -32,6 +32,10 @@
 
 @property (nonatomic ,strong)NSString *goods_num_total;//商品数量
 @property (nonatomic ,strong)NSString *goods_price_total;//商品价格
+
+@property (nonatomic ,strong)NSString *order_goods_price_total;
+@property (nonatomic ,strong)NSString *order_goods_num_total;
+
 +(AllGoodsOrders *)modelWithDic:(NSDictionary *)dic;
 -(id)initWithDic:(NSDictionary *)dic;
 @end

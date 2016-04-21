@@ -154,7 +154,7 @@
 
 -(void)createTableView{
     
-    _waitSendtableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH,self.view.frame.size.height) style:UITableViewStyleGrouped];
+    _waitSendtableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH,M_HEIGHT-94) style:UITableViewStyleGrouped];
     _waitSendtableView.delegate = self;
     _waitSendtableView.dataSource = self;
     _waitSendtableView.backgroundColor = RGBCOLOR(219, 223, 224);

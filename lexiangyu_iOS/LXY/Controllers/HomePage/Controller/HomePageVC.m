@@ -456,7 +456,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     if (num > recommend_goods.count/2) {
         ++allNum;
     }
-    
+    NSLog(@"scrollView.contentSize.height:%f",scrollView.contentSize.height);
     if (scrollView.contentSize.height > 1400) {
 
     scrollView.contentSize = CGSizeMake(M_WIDTH, 1460+allNum*(M_WIDTH/2+11));

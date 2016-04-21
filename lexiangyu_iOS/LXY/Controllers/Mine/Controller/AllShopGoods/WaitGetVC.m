@@ -150,7 +150,7 @@
 
 -(void)createTableView{
     
-    _waitGetTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH, self.view.frame.size.height) style:UITableViewStyleGrouped];
+    _waitGetTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH, M_HEIGHT-94) style:UITableViewStyleGrouped];
     _waitGetTableView.delegate = self;
     _waitGetTableView.dataSource = self;
     _waitGetTableView.backgroundColor = RGBCOLOR(219, 223, 224);

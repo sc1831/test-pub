@@ -141,10 +141,16 @@
         
         headTabView.phoneNumLabel.text = [NSString stringWithFormat:@"%@%@",_shoppingName,_phoneNum];
         headTabView.addressLabel.text =[NSString stringWithFormat:@"%@%@",_addressStr,dic[@"address"][@"address"]] ;
+        
+        _bootmMoney.text = [NSString stringWithFormat:@"￥%@元",dic[@"order_goods_price_total"]];
+        
         NSArray *array = dic[@"cart"];
         for (NSDictionary *dic in array) {
+            
+            
             AllGoodsOrders *model = [AllGoodsOrders modelWithDic:dic];
             [_dataArray addObject:model];
+            
             NSArray *goodsArray = dic[@"goods"];
             NSMutableArray *mutGoodsArray = [NSMutableArray array];
             for (NSDictionary *goodsDic in goodsArray) {
@@ -168,13 +174,6 @@
             }
             [_sectionStateArray addObject:mutGoodsArray];
         }
-        
-        CGFloat money;
-        for (int i = 0 ; i < _dataArray.count; i++) {
-            AllGoodsOrders *model = _dataArray[i];
-            money += [model.goods_price_total floatValue];
-        }
-        _bootmMoney.text = [NSString stringWithFormat:@"￥%.2lf元",money];
         
         
         [_confirmTableView reloadData];

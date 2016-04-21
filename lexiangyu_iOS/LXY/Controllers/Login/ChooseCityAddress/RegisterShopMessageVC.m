@@ -130,7 +130,7 @@
         }
 
         if ([resultDic[@"code"] intValue]==0) {
-            HUDNormal(@"审核失败，请稍后再试");
+            HUDNormal(resultDic[@"msg"]);
             return ;
         }
         HUDNormal(@"审核成功");
