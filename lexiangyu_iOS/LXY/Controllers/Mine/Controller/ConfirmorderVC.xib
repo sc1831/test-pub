@@ -31,10 +31,10 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="93H-99-yLk" customClass="UIControl">
-                            <rect key="frame" x="223" y="0.0" width="152" height="58"/>
+                            <rect key="frame" x="241" y="0.0" width="134" height="58"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提交订单" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JK4-Pv-2rF">
-                                    <rect key="frame" x="46" y="19.5" width="60" height="18"/>
+                                    <rect key="frame" x="37" y="19.5" width="60" height="18"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -50,9 +50,9 @@
                             </connections>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OvO-t7-4tS">
-                            <rect key="frame" x="51" y="18" width="150" height="21"/>
+                            <rect key="frame" x="51" y="18" width="190" height="21"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="150" id="Zvg-ux-AfG"/>
+                                <constraint firstAttribute="width" constant="190" id="Zvg-ux-AfG"/>
                                 <constraint firstAttribute="height" constant="21" id="ofX-jQ-fw0"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -68,7 +68,7 @@
                         <constraint firstItem="93H-99-yLk" firstAttribute="top" secondItem="fvU-tG-GVd" secondAttribute="top" id="ALF-tA-Ewy"/>
                         <constraint firstItem="8Nv-oo-j0I" firstAttribute="leading" secondItem="fvU-tG-GVd" secondAttribute="leading" constant="20" id="UVd-bH-gFh"/>
                         <constraint firstItem="8Nv-oo-j0I" firstAttribute="top" secondItem="fvU-tG-GVd" secondAttribute="top" constant="18" id="Xd9-DF-ygG"/>
-                        <constraint firstItem="93H-99-yLk" firstAttribute="leading" secondItem="OvO-t7-4tS" secondAttribute="trailing" constant="22" id="b0S-s9-aKe"/>
+                        <constraint firstItem="93H-99-yLk" firstAttribute="leading" secondItem="OvO-t7-4tS" secondAttribute="trailing" id="b0S-s9-aKe"/>
                         <constraint firstAttribute="trailing" secondItem="93H-99-yLk" secondAttribute="trailing" id="ih0-0C-sGw"/>
                         <constraint firstItem="OvO-t7-4tS" firstAttribute="top" secondItem="fvU-tG-GVd" secondAttribute="top" constant="18" id="jJY-Bd-Ivu"/>
                     </constraints>

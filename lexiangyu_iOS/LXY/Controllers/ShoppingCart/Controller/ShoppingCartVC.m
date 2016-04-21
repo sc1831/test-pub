@@ -857,12 +857,12 @@
     
     
     _cart_ids = model.cart_id;
-    [self showInput];
+    [self showInputBidNum:model.goods_storage];
     
 }
-- (void)showInput{
+- (void)showInputBidNum:(NSString *)num{
     //文本框只能是alert风格
-    UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:nil message:@"请输入要购物的数量" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:nil message:@"请输入要购买的数量" preferredStyle:UIAlertControllerStyleAlert];
     
     
     [alertControl addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -882,7 +882,7 @@
 
     
     [alertControl addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        textField.placeholder = @"请输入购物数量" ;
+        textField.placeholder = [NSString stringWithFormat:@"库存量为%@",num];
     }];
     [self presentViewController:alertControl animated:YES completion:nil];
 }

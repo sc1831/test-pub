@@ -62,7 +62,29 @@
 
     self.loginBtn.enabled = YES ;
     [self sendMessageButionStateSuccess];
+    
+    ///添加手势
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(takeTheKeyboard)];
+    [self.view addGestureRecognizer:tap];
+    
 
+    
+}
+-(void)takeTheKeyboard{
+
+    [_userNameTextField resignFirstResponder];
+    [_passwordTextField resignFirstResponder];
+    [_messageCodeTextField resignFirstResponder];
+    
+    if (M_HEIGHT<=568) {
+        [UIView animateWithDuration:0.3f
+                         animations:^{
+                             
+                             self.view.frame = CGRectMake(0,0, M_WIDTH, M_HEIGHT);
+                         }];
+    }
     
 }
 //验证码倒计时
@@ -103,7 +125,19 @@
     });
     dispatch_resume(_timer);
 }
-
+#pragma mark----delagete
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+    if (M_HEIGHT<=568) {
+        [UIView animateWithDuration:0.3f
+                         animations:^{
+                             
+                             self.view.frame = CGRectMake(0, -130, M_WIDTH, M_HEIGHT);
+                         }];
+    }
+    
+    
+}
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     
     
@@ -164,6 +198,8 @@
 
 //登录点击
 - (IBAction)login:(id)sender {
+    
+    [self takeTheKeyboard];
     
     if ([_userNameTextField.text length] == 0) {
         HUDNormal(@"手机号不可以为空");
