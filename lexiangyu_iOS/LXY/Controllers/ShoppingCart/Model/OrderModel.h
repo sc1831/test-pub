@@ -24,6 +24,8 @@
 @property (nonatomic,copy)NSString *payment_time ;//支付时间
 @property (nonatomic,copy)NSString *store_name ;//店铺名
 
+@property (nonatomic,copy)NSString *order_goods_price_total;
 
-
++(OrderModel *)modelWithDic:(NSDictionary *)dic;
+-(id)initWithDic:(NSDictionary *)dic;
 @end

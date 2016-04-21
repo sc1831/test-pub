@@ -237,7 +237,7 @@
         
 
         [self updateAllButtonState];
-        _allMoneyPay.text = [NSString stringWithFormat:@"合计：%.2lf",0.00];
+        _allMoneyPay.text = [NSString stringWithFormat:@"合计:￥%.2lf",0.00];
         
         [self.shoppingTableView headerEndRefresh];
         [_shoppingTableView reloadData];
@@ -661,7 +661,7 @@
         }
         
     }
-    _allMoneyPay.text = [NSString stringWithFormat:@"合计：%.2lf元",_goodsMucth];
+    _allMoneyPay.text = [NSString stringWithFormat:@"合计:￥%.2lf元",_goodsMucth];
     if ([_allMoneyPay.text isEqualToString:@"0.00"]) {
         _bottmView.backgroundColor = [UIColor grayColor];
     }else{

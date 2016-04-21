@@ -29,8 +29,9 @@
                             <rect key="frame" x="0.0" y="0.0" width="86" height="51"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LzJ-ws-BSu">
-                                    <rect key="frame" x="30" y="14" width="56" height="21"/>
+                                    <rect key="frame" x="0.0" y="14" width="86" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <inset key="contentEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     <state key="normal" title="全选"/>
                                     <connections>
                                         <action selector="allFutureButton:" destination="-1" eventType="touchUpInside" id="tBC-SZ-STD"/>
@@ -43,7 +44,7 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="合计:0.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2i-p1-YkI">
-                            <rect key="frame" x="94" y="8" width="111" height="35"/>
+                            <rect key="frame" x="85" y="8" width="150" height="35"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -85,8 +86,9 @@
                                     <rect key="frame" x="8" y="13" width="23" height="23"/>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWD-rr-Zx4">
-                                    <rect key="frame" x="32" y="10" width="53" height="30"/>
+                                    <rect key="frame" x="0.0" y="10" width="85" height="30"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     <state key="normal" title="全选"/>
                                     <connections>
                                         <action selector="allDeleteClick:" destination="-1" eventType="touchUpInside" id="mvc-np-Njx"/>

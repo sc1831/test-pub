@@ -174,7 +174,7 @@
             AllGoodsOrders *model = _dataArray[i];
             money += [model.goods_price_total floatValue];
         }
-        _bootmMoney.text = [NSString stringWithFormat:@"%.2lf元",money];
+        _bootmMoney.text = [NSString stringWithFormat:@"￥%.2lf元",money];
         
         
         [_confirmTableView reloadData];
@@ -372,20 +372,20 @@
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
         }
-        
+
         
         NSArray *orderArray = resultDic[@"data"][@"order"];
         NSDictionary *dic = orderArray.lastObject ;
         NSDictionary *postOrderOverDic = @{@"order_goods_price_total":resultDic[@"data"][@"order_goods_price_total"],@"pay_sn":dic[@"pay_sn"],@"userName_phone":headTabView.phoneNumLabel.text,@"user_address":headTabView.addressLabel.text} ;
 
-        unsigned int a = 11 ;
+
         OrderOverModel *orderOverModel = [[OrderOverModel alloc]init];
         [orderOverModel setValuesForKeysWithDictionary:postOrderOverDic ];
     
         OrderIsOverVC *orderOvewVC = [[OrderIsOverVC alloc]init];
         orderOvewVC.orderOverModel = orderOverModel ;
         [self.navigationController pushViewController:orderOvewVC animated:YES];
-        
+
     } setFailBlock:^(NSString *errorStr) {
         
     }];

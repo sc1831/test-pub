@@ -23,6 +23,7 @@
 @property (nonatomic ,strong)UIView *footView;
 @property (nonatomic ,strong)NSMutableArray *dataArray;
 @property (nonatomic ,strong)NSMutableArray *subMutArray;
+@property (nonatomic ,strong)NSString *orderIds;
 
 @property (nonatomic ,strong)UITableView *specialTableView;
 
@@ -303,15 +304,41 @@
 
 -(void)btnClick:(UIButton *)btn{
     NSLog(@"订单取消");
+    [self createFeedBackView];
     AllGoodsOrders *model = _dataArray[btn.tag];
-    [self sendRequestDataCancelOrderId:model.order_id];
+    _orderIds = model.order_id;
+
     
 }
--(void)sendRequestDataCancelOrderId:(NSString *)orderId{
+-(void)createFeedBackView{
+    
+    
+    NSMutableArray *mutArray = [NSMutableArray arrayWithObjects:@"我不想买了",@"信息填写错误、重新拍",@"配送时差问题",@"其他", nil];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:(UIAlertControllerStyleActionSheet)];
+    for (int i =0; i<mutArray.count; i++) {
+       
+        UIAlertAction *productProblem = [UIAlertAction actionWithTitle:mutArray[i] style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
+
+            [self sendRequestDataCancelOrderId:_orderIds andReason:mutArray[i]];
+        }];
+        [alertController addAction:productProblem];
+    }
+    
+    // 创建按钮
+    // 注意取消按钮只能添加一个
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action) {
+        // 点击按钮后的方法直接在这里面写
+        NSLog(@"取消");
+    }];
+    [alertController addAction:cancelAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+}
+-(void)sendRequestDataCancelOrderId:(NSString *)orderId andReason:(NSString *)reasonStr{
     
     RequestCenter * request = [RequestCenter shareRequestCenter];
     NSDictionary *postDict = @{
-                              @"reason":@"我不想买了",
+                              @"reason":reasonStr,
                               @"user_id":[[SaveInfo shareSaveInfo]user_id],
                               @"order_id":orderId
                               };
@@ -321,10 +348,11 @@
             BG_LOGIN ;
         }
 
-        if (resultDic[@"code"]==0) {
+        if ([resultDic[@"code"] intValue]==0) {
             HUDNormal(@"已付款的订单目前不支持取消订单");
             return ;
         }
+        HUDNormal(@"取消订单成功");
         [self addMjHeaderAndFooter];
         
 

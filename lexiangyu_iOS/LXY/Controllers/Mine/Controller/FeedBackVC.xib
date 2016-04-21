@@ -60,7 +60,7 @@
                     </connections>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="客服电话:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xC9-o1-hZu">
-                    <rect key="frame" x="15" y="278" width="68" height="21"/>
+                    <rect key="frame" x="15" y="367" width="68" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="6x2-jX-Xt6"/>
                         <constraint firstAttribute="width" constant="68" id="ndt-E1-fPb"/>
@@ -69,20 +69,6 @@
                     <color key="textColor" red="0.65490196078431373" green="0.6588235294117647" blue="0.66274509803921566" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Svv-y4-UBc">
-                    <rect key="frame" x="85" y="274" width="195" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="ZKF-x9-6fD"/>
-                        <constraint firstAttribute="width" constant="195" id="b69-tp-FJ5"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="400-088-0692">
-                        <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="makePhoneCall:" destination="-1" eventType="touchUpInside" id="bB3-cy-Pe7"/>
-                    </connections>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请留下您的宝贵意见..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xV-uq-cgS">
                     <rect key="frame" x="7" y="133" width="170" height="21"/>
                     <constraints>
@@ -104,11 +90,25 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VfN-4W-7MW">
-                    <rect key="frame" x="44" y="366" width="287" height="40"/>
+                    <rect key="frame" x="15" y="319" width="345" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="BuV-p5-ZqA"/>
                     </constraints>
                     <state key="normal" title="提交" backgroundImage="下一步_默认.png"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Svv-y4-UBc">
+                    <rect key="frame" x="85" y="363" width="195" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="ZKF-x9-6fD"/>
+                        <constraint firstAttribute="width" constant="195" id="b69-tp-FJ5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="400-088-0692">
+                        <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="makePhoneCall:" destination="-1" eventType="touchUpInside" id="bB3-cy-Pe7"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.94117647058823528" green="0.95686274509803915" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
@@ -118,20 +118,30 @@
                 <constraint firstItem="Bvu-7C-JdI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="72" id="4gP-Lg-24i"/>
                 <constraint firstItem="xC9-o1-hZu" firstAttribute="top" secondItem="QsM-wb-U3K" secondAttribute="bottom" constant="14" id="84j-go-b4e"/>
                 <constraint firstItem="3xV-uq-cgS" firstAttribute="top" secondItem="Bvu-7C-JdI" secondAttribute="bottom" constant="14" id="ARA-Ob-zln"/>
-                <constraint firstItem="VfN-4W-7MW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="44" id="E4Z-42-KUH"/>
+                <constraint firstItem="xC9-o1-hZu" firstAttribute="top" secondItem="VfN-4W-7MW" secondAttribute="bottom" constant="8" id="Cgh-GI-Tkf"/>
+                <constraint firstItem="VfN-4W-7MW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="E4Z-42-KUH"/>
                 <constraint firstItem="3xV-uq-cgS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="7" id="GlF-aW-zFq"/>
                 <constraint firstItem="Bvu-7C-JdI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Suq-ua-hiG"/>
                 <constraint firstItem="Svv-y4-UBc" firstAttribute="leading" secondItem="xC9-o1-hZu" secondAttribute="trailing" constant="2" id="YrB-Hc-zDM"/>
                 <constraint firstAttribute="trailing" secondItem="Bvu-7C-JdI" secondAttribute="trailing" id="ZsO-xM-2rq"/>
                 <constraint firstAttribute="trailing" secondItem="FVJ-uk-BUd" secondAttribute="trailing" constant="13" id="dcJ-fz-Jxk"/>
                 <constraint firstItem="FVJ-uk-BUd" firstAttribute="top" secondItem="Bvu-7C-JdI" secondAttribute="bottom" constant="111" id="iVb-ar-ieT"/>
-                <constraint firstAttribute="trailing" secondItem="VfN-4W-7MW" secondAttribute="trailing" constant="44" id="oWI-qX-8We"/>
+                <constraint firstItem="Svv-y4-UBc" firstAttribute="top" secondItem="VfN-4W-7MW" secondAttribute="bottom" constant="4" id="lZh-Lk-WcY"/>
+                <constraint firstAttribute="trailing" secondItem="VfN-4W-7MW" secondAttribute="trailing" constant="15" id="oWI-qX-8We"/>
                 <constraint firstItem="QsM-wb-U3K" firstAttribute="top" secondItem="Bvu-7C-JdI" secondAttribute="bottom" constant="8" id="q9n-7b-VaS"/>
                 <constraint firstItem="QsM-wb-U3K" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tpu-ka-KPG"/>
+                <constraint firstItem="VfN-4W-7MW" firstAttribute="top" secondItem="QsM-wb-U3K" secondAttribute="bottom" constant="55" id="uG7-hS-VYW"/>
                 <constraint firstItem="xC9-o1-hZu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="wiC-rz-ysm"/>
                 <constraint firstItem="VfN-4W-7MW" firstAttribute="top" secondItem="Svv-y4-UBc" secondAttribute="bottom" constant="62" id="yQg-cU-x0e"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="yQg-cU-x0e"/>
+                    <exclude reference="84j-go-b4e"/>
+                    <exclude reference="1CK-Xl-EiH"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="221.5" y="247.5"/>
         </view>
     </objects>

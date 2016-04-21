@@ -127,7 +127,7 @@
             HUDNormal(@"请求失败");
             return ;
         }
-        
+        HUDNormal(@"您的反馈已成功");
         [self.navigationController popViewControllerAnimated:YES];
         
     } setFailBlock:^(NSString *errorStr) {
@@ -158,12 +158,12 @@
     
    
     
-    UIButton *rightNarBtn = [GHControl createButtonWithFrame:CGRectMake(0, 0, 80, 40) ImageName:@"rightBarBtnBg.png" Target:self Action:@selector(leaveEditMode) Title:nil];
-    rightNarBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight ;
-    [rightNarBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    rightNarBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-    [rightNarBtn setTitle:@"提交" forState:UIControlStateNormal];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:rightNarBtn];
+//    UIButton *rightNarBtn = [GHControl createButtonWithFrame:CGRectMake(0, 0, 80, 40) ImageName:@"rightBarBtnBg.png" Target:self Action:@selector(leaveEditMode) Title:nil];
+//    rightNarBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight ;
+//    [rightNarBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    rightNarBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+//    [rightNarBtn setTitle:@"提交" forState:UIControlStateNormal];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:rightNarBtn];
     
 }
 
