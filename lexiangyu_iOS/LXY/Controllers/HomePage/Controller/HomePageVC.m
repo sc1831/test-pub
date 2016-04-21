@@ -279,14 +279,14 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 //创建specialTableView
 -(void)createSpecialTableView{
 
-    _specialTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,107,M_WIDTH) style:UITableViewStylePlain];
+    _specialTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,107,specialView.frame.size.width) style:UITableViewStylePlain];
     _specialTableView.delegate = self;
     _specialTableView.dataSource = self;
     _specialTableView.tag = 30000;
     _specialTableView.center = CGPointMake(specialView.frame.size.width / 2, specialView.frame.size.height / 2);
     //逆时针旋转90°
     _specialTableView.transform = CGAffineTransformMakeRotation(-M_PI / 2);
-    _specialTableView.showsVerticalScrollIndicator = NO;
+    
     [GHControl setExtraCellLineHidden:_specialTableView];
     [specialView addSubview:_specialTableView];
 }
@@ -449,27 +449,19 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     if (recommend_goods.count <= 0) {
         return ;
     }
-    if (scrollView.contentSize.height <= 2470) {
-        scrollView.contentSize = CGSizeMake(M_WIDTH, 2471);
+    
+    
+    CGFloat num = (float)recommend_goods.count/2;
+    int allNum= (int)recommend_goods.count/2;
+    if (num > recommend_goods.count/2) {
+        ++allNum;
     }
+    
+    if (scrollView.contentSize.height > 1400) {
 
-//    if (scrollView.tag == 10086) {
-//        //1438
-//        [UIView animateWithDuration:0.6 animations:^{
-//      
-//            
-//            NSLog(@"%f-----%f",scrollView.contentOffset.y,(14460 - 2*M_HEIGHT)
-//                  );
-////            NSLog(@"%f",M_HEIGHT);
-//            if ( scrollView.contentOffset.y > 860 && scrollView.contentOffset.y <= 960) {
-//                scrollView.contentOffset = CGPointMake(0, 1438.000000) ;
-//                scrollView.contentSize = CGSizeMake(M_WIDTH, 2471);
-//            }else if (scrollView.contentOffset.y < 1418){
-//                scrollView.contentSize = CGSizeMake(M_WIDTH, 1438);
-//            }
-//        }];
-//        
-//    }
+    scrollView.contentSize = CGSizeMake(M_WIDTH, 1460+allNum*(M_WIDTH/2+11));
+    
+    }
     
 }
 
