@@ -12,40 +12,50 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nodata_shopcar.png" translatesAutoresizingMaskIntoConstraints="NO" id="DhQ-xb-Ybo">
-                    <rect key="frame" x="87" y="180" width="201" height="138"/>
+                    <rect key="frame" x="30" y="100" width="315" height="190"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="138" id="flG-KB-cDF"/>
+                        <constraint firstAttribute="height" constant="190" id="flG-KB-cDF"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="偶遇总会有惊喜麻溜下单、一起" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaf-3Q-wSb">
-                    <rect key="frame" x="101" y="326" width="144" height="21"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i9H-29-tTe">
+                    <rect key="frame" x="30" y="300" width="310" height="33"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="偶遇总会有惊喜麻溜下单、一起" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaf-3Q-wSb">
+                            <rect key="frame" x="0.0" y="6" width="244" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.62352941176470589" green="0.62745098039215685" blue="0.63137254901960782" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gD5-fI-mfP">
+                            <rect key="frame" x="246" y="1" width="62" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="62" id="Hgk-th-2TX"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <state key="normal" title="去逛逛" backgroundImage="下一步_默认.png"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="144" id="A1i-G1-6PP"/>
-                        <constraint firstAttribute="height" constant="21" id="Xe2-O4-yUf"/>
+                        <constraint firstAttribute="trailing" secondItem="gD5-fI-mfP" secondAttribute="trailing" constant="2" id="9DG-vl-7bD"/>
+                        <constraint firstItem="gD5-fI-mfP" firstAttribute="top" secondItem="i9H-29-tTe" secondAttribute="top" constant="1" id="HDU-RP-QmB"/>
+                        <constraint firstAttribute="bottom" secondItem="gaf-3Q-wSb" secondAttribute="bottom" constant="6" id="c8S-6h-hHz"/>
+                        <constraint firstAttribute="bottom" secondItem="gD5-fI-mfP" secondAttribute="bottom" constant="2" id="cfQ-SL-UDs"/>
+                        <constraint firstItem="gaf-3Q-wSb" firstAttribute="top" secondItem="i9H-29-tTe" secondAttribute="top" constant="6" id="ed1-hK-18u"/>
+                        <constraint firstItem="gD5-fI-mfP" firstAttribute="leading" secondItem="gaf-3Q-wSb" secondAttribute="trailing" constant="2" id="f5J-vi-LNZ"/>
+                        <constraint firstItem="gaf-3Q-wSb" firstAttribute="leading" secondItem="i9H-29-tTe" secondAttribute="leading" id="nCL-LJ-iav"/>
+                        <constraint firstAttribute="height" constant="33" id="v7R-p6-TKl"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                    <color key="textColor" red="0.62352941176470589" green="0.62745098039215685" blue="0.63137254901960782" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gD5-fI-mfP">
-                    <rect key="frame" x="245" y="322" width="62" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="62" id="qVt-tp-jV9"/>
-                        <constraint firstAttribute="height" constant="30" id="rJJ-lc-Snh"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <state key="normal" title="去逛逛" backgroundImage="下一步_默认.png"/>
-                </button>
+                </view>
             </subviews>
-            <color key="backgroundColor" red="0.85882352941176465" green="0.87450980392156863" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="gD5-fI-mfP" firstAttribute="top" secondItem="DhQ-xb-Ybo" secondAttribute="bottom" constant="4" id="7mm-Zf-l7y"/>
-                <constraint firstAttribute="trailing" secondItem="DhQ-xb-Ybo" secondAttribute="trailing" constant="87" id="GcD-bn-H9N"/>
-                <constraint firstItem="gD5-fI-mfP" firstAttribute="leading" secondItem="gaf-3Q-wSb" secondAttribute="trailing" id="OB8-gH-W7b"/>
-                <constraint firstItem="gaf-3Q-wSb" firstAttribute="leading" secondItem="fgM-hv-dup" secondAttribute="leading" constant="101" id="Qwb-ZN-L73"/>
-                <constraint firstItem="DhQ-xb-Ybo" firstAttribute="top" secondItem="fgM-hv-dup" secondAttribute="top" constant="180" id="cCd-12-xlp"/>
-                <constraint firstItem="gaf-3Q-wSb" firstAttribute="top" secondItem="DhQ-xb-Ybo" secondAttribute="bottom" constant="8" id="krx-pk-iq7"/>
-                <constraint firstItem="DhQ-xb-Ybo" firstAttribute="leading" secondItem="fgM-hv-dup" secondAttribute="leading" constant="87" id="xGE-QX-CXC"/>
+                <constraint firstAttribute="trailing" secondItem="i9H-29-tTe" secondAttribute="trailing" constant="35" id="FNB-TW-Ynk"/>
+                <constraint firstAttribute="trailing" secondItem="DhQ-xb-Ybo" secondAttribute="trailing" constant="30" id="GcD-bn-H9N"/>
+                <constraint firstItem="DhQ-xb-Ybo" firstAttribute="top" secondItem="fgM-hv-dup" secondAttribute="top" constant="100" id="cCd-12-xlp"/>
+                <constraint firstItem="i9H-29-tTe" firstAttribute="top" secondItem="DhQ-xb-Ybo" secondAttribute="bottom" constant="10" id="e0e-C4-YSw"/>
+                <constraint firstItem="i9H-29-tTe" firstAttribute="leading" secondItem="fgM-hv-dup" secondAttribute="leading" constant="30" id="fPg-DS-gzZ"/>
+                <constraint firstItem="DhQ-xb-Ybo" firstAttribute="leading" secondItem="fgM-hv-dup" secondAttribute="leading" constant="30" id="xGE-QX-CXC"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

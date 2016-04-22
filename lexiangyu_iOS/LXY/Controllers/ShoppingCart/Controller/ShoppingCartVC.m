@@ -150,6 +150,11 @@
     [self.shoppingTableView headerAddMJRefresh:^{//添加顶部刷新功能
         [self.shoppingTableView footerResetNoMoreData];//重置无数据状态
         
+        if (![GHControl isExistNetwork]) {
+            HUDNormal(@"无网络、请稍后再试");
+           [self.shoppingTableView headerEndRefresh];
+            return ;
+        }
         [self sendRequestData];
     }];
     
@@ -189,6 +194,9 @@
         
         NSArray *keyArray =[cartDic allKeys];
         _shopBackView.hidden = YES;
+        _rightNarBtn.hidden = NO;
+        _AllView.hidden = NO;
+        self.view.backgroundColor = RGBCOLOR(219, 223, 224);
         if (keyArray.count==0) {
             [_shoppingTableView reloadData];
             HUDNormal(@"暂时还没有购物");
@@ -198,6 +206,10 @@
             _bottmView.hidden = YES;
             _AllView.hidden = NO;
              _shopBackView.hidden = NO;
+            _rightNarBtn.hidden = YES;
+            _AllView.hidden = YES;
+            self.view.backgroundColor = [UIColor whiteColor];
+
             [self.shoppingTableView headerEndRefresh];
             return;
         }
@@ -498,10 +510,10 @@
         HUDNormal(@"抱歉哦、没那么多库存");
         return;
     }
-    model.goods_num = [NSString stringWithFormat:@"%d",_shopNum];
+//    model.goods_num = [NSString stringWithFormat:@"%d",_shopNum];
     
 
-    [self sendAddShopGoodsCartId:model.cart_id andGoodsNum:model.goods_num isManual:NO];
+    [self sendAddShopGoodsCartId:model.cart_id andGoodsNum:[NSString stringWithFormat:@"%d",_shopNum] isManual:NO];
     
 }
 #pragma mark------点击cell对勾按钮
@@ -827,6 +839,7 @@
     [request sendRequestPostUrl:ADD_SHOP_GOODS_NUM andDic:dict setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
+            return;
         }
 
       
