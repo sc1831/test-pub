@@ -291,7 +291,7 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
     CompositeVC *compositeVC = [[CompositeVC alloc]init];
     compositeVC.hidesBottomBarWhenPushed = YES ;
     TitleModel *model = collectionMtTitleArray[control.tag];
-    compositeVC.goods_name = model.gc_name ;
+//    compositeVC.goods_name = model.gc_name ;
     compositeVC.gc_id = model.gc_id ;
     [self.navigationController pushViewController:compositeVC animated:YES];
 }

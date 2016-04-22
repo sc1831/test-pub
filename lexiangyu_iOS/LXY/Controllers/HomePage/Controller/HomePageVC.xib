@@ -306,7 +306,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" tag="3100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="电水壶.png" translatesAutoresizingMaskIntoConstraints="NO" id="W1b-DJ-fLb">
-                                            <rect key="frame" x="16" y="4" width="94" height="137"/>
+                                            <rect key="frame" x="0.0" y="4" width="123" height="137"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="137" id="ham-zu-efd"/>
                                             </constraints>
@@ -332,7 +332,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="W1b-DJ-fLb" firstAttribute="leading" secondItem="5i4-a0-bJJ" secondAttribute="leading" constant="16" id="0Hk-aJ-b5u"/>
+                                        <constraint firstItem="W1b-DJ-fLb" firstAttribute="leading" secondItem="5i4-a0-bJJ" secondAttribute="leading" id="0Hk-aJ-b5u"/>
                                         <constraint firstAttribute="trailing" secondItem="0e6-GP-hOx" secondAttribute="trailing" constant="1" id="3sI-ZB-Eqk"/>
                                         <constraint firstItem="DKY-nG-QUa" firstAttribute="leading" secondItem="5i4-a0-bJJ" secondAttribute="leading" constant="11" id="B7N-RA-SCO"/>
                                         <constraint firstItem="0e6-GP-hOx" firstAttribute="top" secondItem="W1b-DJ-fLb" secondAttribute="bottom" constant="8" id="BMp-5o-2lC"/>
@@ -341,7 +341,7 @@
                                         <constraint firstItem="DKY-nG-QUa" firstAttribute="top" secondItem="0e6-GP-hOx" secondAttribute="bottom" constant="1" id="bCN-Eg-XFg"/>
                                         <constraint firstItem="Fjp-bM-tpg" firstAttribute="top" secondItem="DKY-nG-QUa" secondAttribute="bottom" id="cmW-aB-9O3"/>
                                         <constraint firstItem="W1b-DJ-fLb" firstAttribute="top" secondItem="5i4-a0-bJJ" secondAttribute="top" constant="4" id="fNl-IU-f0Z"/>
-                                        <constraint firstAttribute="trailing" secondItem="W1b-DJ-fLb" secondAttribute="trailing" constant="13" id="gQF-5U-pzr"/>
+                                        <constraint firstAttribute="trailing" secondItem="W1b-DJ-fLb" secondAttribute="trailing" id="gQF-5U-pzr"/>
                                         <constraint firstAttribute="trailing" secondItem="DKY-nG-QUa" secondAttribute="trailing" constant="13" id="hR1-Bq-nnb"/>
                                         <constraint firstItem="Fjp-bM-tpg" firstAttribute="leading" secondItem="5i4-a0-bJJ" secondAttribute="leading" constant="11" id="obk-97-fgD"/>
                                     </constraints>
