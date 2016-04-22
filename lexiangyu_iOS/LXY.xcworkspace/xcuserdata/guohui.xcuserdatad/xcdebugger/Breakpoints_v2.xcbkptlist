@@ -52,7 +52,7 @@
                   moduleName = "LXY"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/guohui/Desktop/newlexianyu_last_ios/lexiangyu_iOS/LXY/Controllers/Mine/Controller/MyfootprintVC.m"
-                  timestampString = "482998088.794051"
+                  timestampString = "483004053.205088"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "54"
@@ -67,7 +67,7 @@
                   moduleName = "LXY"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/guohui/Desktop/newlexianyu_last_ios/lexiangyu_iOS/LXY/Controllers/Mine/Controller/MyfootprintVC.m"
-                  timestampString = "482998088.794618"
+                  timestampString = "483004053.205309"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "54"
@@ -282,6 +282,22 @@
             startingLineNumber = "166"
             endingLineNumber = "166"
             landmarkName = "-sendRequestData"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LXY/Controllers/Mine/Controller/AllShopGoods/AllShopVC.m"
+            timestampString = "483004053.06288"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "-addMjHeaderAndFooter"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
