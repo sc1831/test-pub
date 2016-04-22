@@ -12,9 +12,9 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nodata_shopcar.png" translatesAutoresizingMaskIntoConstraints="NO" id="DhQ-xb-Ybo">
-                    <rect key="frame" x="30" y="100" width="315" height="190"/>
+                    <rect key="frame" x="30" y="70" width="315" height="220"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="190" id="flG-KB-cDF"/>
+                        <constraint firstAttribute="height" constant="220" id="flG-KB-cDF"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i9H-29-tTe">
@@ -52,7 +52,7 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="i9H-29-tTe" secondAttribute="trailing" constant="35" id="FNB-TW-Ynk"/>
                 <constraint firstAttribute="trailing" secondItem="DhQ-xb-Ybo" secondAttribute="trailing" constant="30" id="GcD-bn-H9N"/>
-                <constraint firstItem="DhQ-xb-Ybo" firstAttribute="top" secondItem="fgM-hv-dup" secondAttribute="top" constant="100" id="cCd-12-xlp"/>
+                <constraint firstItem="DhQ-xb-Ybo" firstAttribute="top" secondItem="fgM-hv-dup" secondAttribute="top" constant="70" id="cCd-12-xlp"/>
                 <constraint firstItem="i9H-29-tTe" firstAttribute="top" secondItem="DhQ-xb-Ybo" secondAttribute="bottom" constant="10" id="e0e-C4-YSw"/>
                 <constraint firstItem="i9H-29-tTe" firstAttribute="leading" secondItem="fgM-hv-dup" secondAttribute="leading" constant="30" id="fPg-DS-gzZ"/>
                 <constraint firstItem="DhQ-xb-Ybo" firstAttribute="leading" secondItem="fgM-hv-dup" secondAttribute="leading" constant="30" id="xGE-QX-CXC"/>

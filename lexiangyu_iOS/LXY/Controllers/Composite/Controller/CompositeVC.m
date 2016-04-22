@@ -32,6 +32,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *salesLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *allLabel;
+@property (nonatomic ,strong)UIView *tipView;
+@property (nonatomic ,strong)NSTimer *disappear;
 
 - (IBAction)leftNavBarClick:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
@@ -59,6 +61,9 @@
     _page = 1 ;
     _pageSize = 20 ;
     orderByPriceFlag = YES ;
+    
+    [self createTipView];
+    _tipView.hidden = YES;
 
     if (self.goods_name.length > 0) {
         self.searchTextField.text = self.goods_name ;
@@ -210,12 +215,35 @@
             HUDNormal(@"添加失败，请稍后再试");
             return ;
         }
-        HUDNormal(@"添加购物车成功");
+        _tipView.hidden = NO;
+        _disappear = [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(animalMoveImage) userInfo:nil repeats:YES];
     } setFailBlock:^(NSString *errorStr) {
         NSLog(@"");
         
     }];
     
+}
+-(void)animalMoveImage{
+
+    _tipView.hidden = YES;
+}
+//添加购物车成功提示
+-(void)createTipView{
+    
+    _tipView = [[UIView alloc]initWithFrame:CGRectMake(90,M_HEIGHT/2-M_HEIGHT/8,M_WIDTH-180, M_HEIGHT/5)];
+    _tipView.backgroundColor = [UIColor blackColor];
+    _tipView.alpha = 0.8;
+    _tipView.layer.masksToBounds = YES;
+    _tipView.layer.cornerRadius = 5.0f;
+    [self.view addSubview:_tipView];
+    
+    UILabel *label = [GHControl createLabelWithFrame:CGRectMake(0, _tipView.frame.size.height-60, _tipView.frame.size.width, 40) Font:16 Text:@"加入购物车成功"];
+    label.textColor = [UIColor whiteColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    [_tipView addSubview:label];
+    
+    UIImageView *imageView = [GHControl createImageViewWithFrame:CGRectMake(_tipView.frame.size.width/2-30,10, 59, 59) ImageName:@"添加购物成功"];
+    [_tipView addSubview:imageView];
 }
 
 
