@@ -74,11 +74,8 @@
             if ([resultDic[@"code"] intValue] != 1) {
                 BG_LOGIN ;
             }
-//            if (resultDic[@"code"]==0) {
-//                HUDNormal(@"获取数据失败，请稍后再试");
-//                return ;
-//            }
-//            HUDNormal(@"获取数据成功");
+            [_subMutArray removeAllObjects];
+            [_dataArray removeAllObjects];
             
             NSDictionary *dict = resultDic[@"data"];
             _page = [dict[@"page"] intValue];
