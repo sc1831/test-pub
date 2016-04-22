@@ -9,5 +9,5 @@
 #import "RootVC.h"
 
 @interface WaitSendVC : RootVC
-
+@property (nonatomic) BOOL isMineSendPush;
 @end

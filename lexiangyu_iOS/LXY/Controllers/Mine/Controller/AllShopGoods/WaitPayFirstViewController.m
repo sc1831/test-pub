@@ -151,8 +151,14 @@
 }
 
 -(void)createTableView{
+    if (_isMinePush) {
+        _isMinePush = NO;
+        _waitPayTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH,M_HEIGHT) style:UITableViewStyleGrouped];
+    }else{
     
-    _waitPayTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH,M_HEIGHT-94) style:UITableViewStyleGrouped];
+         _waitPayTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH,M_HEIGHT-94) style:UITableViewStyleGrouped];
+    }
+    
     _waitPayTableView.delegate = self;
     _waitPayTableView.dataSource = self;
     _waitPayTableView.tag = 10;

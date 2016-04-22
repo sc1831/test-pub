@@ -9,5 +9,5 @@
 #import "RootVC.h"
 
 @interface WaitPayFirstViewController : RootVC
-
+@property (nonatomic) BOOL isMinePush;
 @end

@@ -131,6 +131,7 @@
     //如果有待付款单
     WaitPayFirstViewController *waitPayVC = [[WaitPayFirstViewController alloc]init];
     waitPayVC.hidesBottomBarWhenPushed = YES;
+    waitPayVC.isMinePush = YES;
     [self.navigationController pushViewController:waitPayVC animated:YES];
     
     
@@ -140,6 +141,7 @@
     NSLog(@"代发货点击");
     WaitSendVC *waitSendVC = [[WaitSendVC alloc]init];
     waitSendVC.hidesBottomBarWhenPushed = YES;
+    waitSendVC.isMineSendPush = YES;
     [self.navigationController pushViewController:waitSendVC animated:YES];
 }
 //代收货
@@ -147,6 +149,7 @@
     NSLog(@"代收货点击");
     WaitGetVC *waitGetVC = [[WaitGetVC alloc]init];
     waitGetVC.hidesBottomBarWhenPushed = YES;
+    waitGetVC.isMineGetPush = YES;
     [self.navigationController pushViewController:waitGetVC animated:YES];
 }
 //查看全部订单

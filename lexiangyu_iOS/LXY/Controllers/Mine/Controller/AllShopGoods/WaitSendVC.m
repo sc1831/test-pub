@@ -153,8 +153,14 @@
 }
 
 -(void)createTableView{
+    if (_isMineSendPush) {
+        _isMineSendPush = NO;
+        _waitSendtableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH,M_HEIGHT) style:UITableViewStyleGrouped];
+    }else{
     
-    _waitSendtableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH,M_HEIGHT-94) style:UITableViewStyleGrouped];
+       _waitSendtableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH,M_HEIGHT-94) style:UITableViewStyleGrouped];
+    }
+    
     _waitSendtableView.delegate = self;
     _waitSendtableView.dataSource = self;
     _waitSendtableView.backgroundColor = RGBCOLOR(219, 223, 224);

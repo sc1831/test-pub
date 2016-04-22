@@ -9,5 +9,5 @@
 #import "RootVC.h"
 
 @interface WaitGetVC : RootVC
-
+@property (nonatomic) BOOL isMineGetPush;
 @end
