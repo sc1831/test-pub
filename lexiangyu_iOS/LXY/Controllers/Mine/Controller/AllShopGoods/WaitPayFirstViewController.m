@@ -198,11 +198,11 @@
     
     [self createFootView];
     AllGoodsOrders *model = _dataArray[section];
-    UILabel *label = [GHControl createLabelWithFrame:CGRectMake(18,5,60, 30) Font:14 Text:@"付款:"];
+    UILabel *label = [GHControl createLabelWithFrame:CGRectMake(18,5,40, 30) Font:14 Text:@"付款:"];
     label.textColor = RGBCOLOR(99, 100, 101);
     [_footView addSubview:label];
     
-    UILabel *moneyLabel = [GHControl createLabelWithFrame:CGRectMake(78, 5,M_WIDTH-150, 30) Font:14 Text:model.order_amount];
+    UILabel *moneyLabel = [GHControl createLabelWithFrame:CGRectMake(58, 5,M_WIDTH-150, 30) Font:14 Text:model.order_amount];
     moneyLabel.font = [UIFont boldSystemFontOfSize:14];
     moneyLabel.textColor = RGBCOLOR(249, 147, 73);
     [_footView addSubview:moneyLabel];

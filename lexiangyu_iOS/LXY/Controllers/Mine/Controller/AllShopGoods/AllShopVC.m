@@ -18,6 +18,7 @@
 #import "MenyGoodsCell.h"
 #import "UITableView+MJRefresh.h"
 #import "OrderIsOverVC.h"
+#import "UIButton+Block.h"
 
 @interface AllShopVC ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -222,7 +223,7 @@
     [_footView addSubview:label];
     
     //商品价格
-    UILabel *moneyLabel = [GHControl createLabelWithFrame:CGRectMake(78, 5,M_WIDTH-150, 30) Font:14 Text:model.order_amount];
+    UILabel *moneyLabel = [GHControl createLabelWithFrame:CGRectMake(70, 5,M_WIDTH-150, 30) Font:14 Text:model.order_amount];
     moneyLabel.font = [UIFont boldSystemFontOfSize:14];
     moneyLabel.textColor = RGBCOLOR(249, 147, 73);
     [_footView addSubview:moneyLabel];
@@ -238,6 +239,7 @@
         [againPayBtn setTitleColor:RGBCOLOR(249, 147, 73) forState:UIControlStateNormal];
         [againPayBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
         [againPayBtn setBackgroundImage:[UIImage imageNamed:@"保存修改_点击"] forState:UIControlStateHighlighted];
+        
 
         againPayBtn.tag = section;
         [_footView addSubview:againPayBtn];
