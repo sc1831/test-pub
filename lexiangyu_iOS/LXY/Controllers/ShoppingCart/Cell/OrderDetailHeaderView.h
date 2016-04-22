@@ -10,7 +10,8 @@
 #import "OrderModel.h"
 @interface OrderDetailHeaderView : UIView
 @property (weak, nonatomic) IBOutlet UILabel *storeNameAndPhoneLab;
-@property (weak, nonatomic) IBOutlet UILabel *area_info;
+
+@property (weak, nonatomic) IBOutlet UITextView *area_infoTextView;
 
 - (void)configWithOrderModel:(OrderModel *)model ;
 @end

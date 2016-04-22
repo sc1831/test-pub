@@ -62,7 +62,7 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
     //注册复用的cell和head
     [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([ClassifyCollectionCell class]) bundle:nil] forCellWithReuseIdentifier:cellID];
     [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([HeadCollectionReusableView class]) bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headID];
-    [self loadClassData];
+//    [self loadClassData];
 }
 
 - (void)loadClassData{

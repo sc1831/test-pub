@@ -358,7 +358,6 @@
 }
 
 -(void)payBtnClick:(UIButton *)btn{
-    NSLog(@"去支付:%ld",btn.tag);
    AllGoodsOrders *model = _dataArray[btn.tag];
     [self gotoPayWebView:model];
     
