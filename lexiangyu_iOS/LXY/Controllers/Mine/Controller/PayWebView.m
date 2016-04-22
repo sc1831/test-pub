@@ -8,7 +8,7 @@
 
 #import "PayWebView.h"
 
-@interface PayWebView ()
+@interface PayWebView ()<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *payWebView;
 - (IBAction)leftNavClick:(id)sender;
 
@@ -54,34 +54,30 @@
     
     NSLog(@"request.URL.relativeString:%@",request.URL.relativeString);
     
-    
-    if ([request.URL.relativeString rangeOfString:@"super_key"].location == NSNotFound) {
-        
-        NSMutableString *mutStr =[NSMutableString stringWithString:request.URL.relativeString];
-        
-        NSArray *array = [mutStr componentsSeparatedByString:@"?"];
-        NSString *str = array[1];
-        
-        
-        NSArray *subArray = [str componentsSeparatedByString:@"&"];
-        NSMutableArray *mutArray = [NSMutableArray array];
-        for (NSMutableString *subStr in subArray) {
-            NSArray *allArray = [subStr componentsSeparatedByString:@"="];
-            [mutArray addObject:allArray];
-        }
-//        ConfirmorderVC *confirmVC = [[ConfirmorderVC alloc]init];
-//        confirmVC.orderIds = @"";
-//        confirmVC.cartIds = @"";
-//        confirmVC.goodsIds = mutArray[0][1];
-//        confirmVC.goodsNum = mutArray[1][1];
-//        confirmVC.hidesBottomBarWhenPushed = YES;
-//        [self.navigationController pushViewController:confirmVC animated:YES];
-        return NO ;
-        
-    }
-    
-    
-    
+//    if ([request.URL.relativeString rangeOfString:@"super_key"].location == NSNotFound) {
+//        
+//        NSMutableString *mutStr =[NSMutableString stringWithString:request.URL.relativeString];
+//        
+//        NSArray *array = [mutStr componentsSeparatedByString:@"?"];
+//        NSString *str = array[1];
+//        
+//        
+//        NSArray *subArray = [str componentsSeparatedByString:@"&"];
+//        NSMutableArray *mutArray = [NSMutableArray array];
+//        for (NSMutableString *subStr in subArray) {
+//            NSArray *allArray = [subStr componentsSeparatedByString:@"="];
+//            [mutArray addObject:allArray];
+//        }
+////        ConfirmorderVC *confirmVC = [[ConfirmorderVC alloc]init];
+////        confirmVC.orderIds = @"";
+////        confirmVC.cartIds = @"";
+////        confirmVC.goodsIds = mutArray[0][1];
+////        confirmVC.goodsNum = mutArray[1][1];
+////        confirmVC.hidesBottomBarWhenPushed = YES;
+////        [self.navigationController pushViewController:confirmVC animated:YES];
+//        return NO ;
+//        
+//    }
     
     return YES;
 }
