@@ -16,7 +16,7 @@
 #import "AllGoodsOrders.h"
 #import "MenyGoodsCell.h"
 #import "UITableView+MJRefresh.h"
-
+#import "PayWebView.h"
 @interface WaitPayFirstViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic ,strong)UITableView *waitPayTableView;
 @property (nonatomic,strong)UIView *headView;
@@ -292,13 +292,27 @@
 -(void)payBtnClick:(UIButton *)btn{
     NSLog(@"去支付");
     AllGoodsOrders *model = _dataArray[btn.tag];
-   
-    ConfirmorderVC *confirmVC = [[ConfirmorderVC alloc]init];
-    confirmVC.orderIds = model.order_id;
-    confirmVC.cartIds = @"";
-    confirmVC.goodsIds = @"";
-    confirmVC.goodsNum = @"";
-    [self.navigationController pushViewController:confirmVC animated:YES];
+    [requestCenter sendRequestPostUrl:APP_PAY andDic:@{@"t":@"3",@"pay_sn":model.pay_sn} setSuccessBlock:^(NSDictionary *resultDic) {
+        if ([resultDic[@"code"] intValue] != 1) {
+            HUDNormal(resultDic[@"msg"]);
+            BG_LOGIN ;
+        }
+        PayWebView *payWebView = [[PayWebView alloc]init];
+        payWebView.urlStr = resultDic[@"url"];
+        [self.navigationController pushViewController:payWebView animated:YES];
+        
+    } setFailBlock:^(NSString *errorStr) {
+        
+    }];
+    
+    
+    
+//    ConfirmorderVC *confirmVC = [[ConfirmorderVC alloc]init];
+//    confirmVC.orderIds = model.order_id;
+//    confirmVC.cartIds = @"";
+//    confirmVC.goodsIds = @"";
+//    confirmVC.goodsNum = @"";
+//    [self.navigationController pushViewController:confirmVC animated:YES];
     
 }
 

@@ -19,13 +19,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="火影1.png" translatesAutoresizingMaskIntoConstraints="NO" id="ovw-cz-2Xp">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
+                    <rect key="frame" x="0.0" y="72" width="375" height="128"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="128" id="YHQ-z4-KpX"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FzF-1u-RrC">
-                    <rect key="frame" x="0.0" y="130" width="375" height="74"/>
+                    <rect key="frame" x="0.0" y="202" width="375" height="74"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="地址.png" translatesAutoresizingMaskIntoConstraints="NO" id="jsK-sL-BhD">
                             <rect key="frame" x="12" y="6" width="20" height="20"/>
@@ -82,13 +82,13 @@
                     </variation>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="地址装饰条.png" translatesAutoresizingMaskIntoConstraints="NO" id="XTs-45-TgQ">
-                    <rect key="frame" x="0.0" y="204" width="375" height="2"/>
+                    <rect key="frame" x="0.0" y="276" width="375" height="2"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="2" id="frZ-RA-LDH"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KI6-cb-9hT" customClass="UIControl">
-                    <rect key="frame" x="0.0" y="214" width="375" height="47"/>
+                    <rect key="frame" x="0.0" y="286" width="375" height="47"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="实付金额" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4AG-ui-ady">
                             <rect key="frame" x="8" y="13" width="118" height="21"/>
@@ -109,14 +109,17 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AyO-fE-WFf">
-                    <rect key="frame" x="19" y="297" width="336" height="44"/>
+                    <rect key="frame" x="19" y="369" width="336" height="44"/>
                     <color key="backgroundColor" red="0.97254901959999995" green="0.21960784310000001" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="M6d-k1-0dg"/>
                     </constraints>
-                    <state key="normal" title="提交评价">
+                    <state key="normal" title="去支付">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="gotoPay:" destination="-1" eventType="touchUpInside" id="4pl-wC-QTd"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -135,7 +138,7 @@
                 <constraint firstItem="XTs-45-TgQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uHy-Dl-lZx"/>
                 <constraint firstItem="FzF-1u-RrC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vFq-dt-5nY"/>
                 <constraint firstItem="ovw-cz-2Xp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vUG-10-Sje"/>
-                <constraint firstItem="ovw-cz-2Xp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="zbT-vW-89Y"/>
+                <constraint firstItem="ovw-cz-2Xp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="72" id="zbT-vW-89Y"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
         </view>

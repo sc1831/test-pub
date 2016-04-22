@@ -28,6 +28,7 @@
 @property (nonatomic ,strong)NSString *goods_price;
 
 @property (nonatomic ,strong)NSString *sp_name;
+@property (nonatomic ,strong)NSString *pay_sn; //支付订单号
 @property (nonatomic ,strong)NSString *sp_value_name;
 
 @property (nonatomic ,strong)NSString *goods_num_total;//商品数量

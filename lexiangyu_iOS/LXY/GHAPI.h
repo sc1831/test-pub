@@ -99,6 +99,6 @@
 //-------------------------------------------公共接口
 //校验验证码
 #define CHECK_SMS @"app/Register/check_sms"
-
+#define APP_PAY @"app/pay"
 
 

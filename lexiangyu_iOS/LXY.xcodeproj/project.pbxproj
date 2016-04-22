@@ -291,6 +291,8 @@
 		6E53EED91CA906AB00768FA0 /* SaveInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E53EED81CA906AB00768FA0 /* SaveInfo.m */; };
 		6E53EEDC1CA9262000768FA0 /* Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E53EEDB1CA9262000768FA0 /* Encryption.m */; };
 		6E56987C1CC865F2000D6387 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5698791CC865F2000D6387 /* libMobClickLibrary.a */; };
+		6E5698851CC8D71C000D6387 /* PayWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5698831CC8D71C000D6387 /* PayWebView.m */; };
+		6E5698861CC8D71C000D6387 /* PayWebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E5698841CC8D71C000D6387 /* PayWebView.xib */; };
 		6E589EBE1CA248C800E569DB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E589EBD1CA248C800E569DB /* QuartzCore.framework */; };
 		6E589EC01CA2494C00E569DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E589EBF1CA2494C00E569DB /* Foundation.framework */; };
 		6E6921491CA4E24400022004 /* SpecitalViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6921471CA4E24400022004 /* SpecitalViewTableViewCell.m */; };
@@ -845,6 +847,9 @@
 		6E5698791CC865F2000D6387 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		6E56987A1CC865F2000D6387 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		6E56987B1CC865F2000D6387 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
+		6E5698821CC8D71C000D6387 /* PayWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayWebView.h; sourceTree = "<group>"; };
+		6E5698831CC8D71C000D6387 /* PayWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayWebView.m; sourceTree = "<group>"; };
+		6E5698841CC8D71C000D6387 /* PayWebView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayWebView.xib; sourceTree = "<group>"; };
 		6E589EBD1CA248C800E569DB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6E589EBF1CA2494C00E569DB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6E6921461CA4E24400022004 /* SpecitalViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecitalViewTableViewCell.h; sourceTree = "<group>"; };
@@ -2068,6 +2073,9 @@
 				6E34E3FA1CC624660003950E /* OrderIsOverVC.h */,
 				6E34E3FB1CC624660003950E /* OrderIsOverVC.m */,
 				6E34E3FC1CC624660003950E /* OrderIsOverVC.xib */,
+				6E5698821CC8D71C000D6387 /* PayWebView.h */,
+				6E5698831CC8D71C000D6387 /* PayWebView.m */,
+				6E5698841CC8D71C000D6387 /* PayWebView.xib */,
 				6E7964C21C982A0700EB43B9 /* CashierDesk.h */,
 				6E7964C31C982A0700EB43B9 /* CashierDesk.m */,
 				6E7964C41C982A0700EB43B9 /* CashierDesk.xib */,
@@ -2934,6 +2942,7 @@
 				6E796F2B1C99611A00F677E3 /* 火影4.png in Resources */,
 				6E1D9A6C1CB3AA7800CBA10D /* ChangePhoneNumVC.xib in Resources */,
 				6E1031021CB4FAE80098D5BD /* 我的@3x（选中）.png in Resources */,
+				6E5698861CC8D71C000D6387 /* PayWebView.xib in Resources */,
 				6E1030961CB4F73D0098D5BD /* 输入框@3x.png in Resources */,
 				6E10309E1CB4F73D0098D5BD /* 获取验证码@2x.png in Resources */,
 				6E1030991CB4F73D0098D5BD /* page-lexianyu-logo@2x.png in Resources */,
@@ -3131,6 +3140,7 @@
 				6E16E53A1CBF7981007F96C1 /* OrderDetailHeaderView.m in Sources */,
 				6E7964C01C98248800EB43B9 /* ConfirmorderVC.m in Sources */,
 				6EF2A1CC1CAB6C1A00057FC0 /* ShoppingCartModel.m in Sources */,
+				6E5698851CC8D71C000D6387 /* PayWebView.m in Sources */,
 				6ECD26EB1CBB906600ED2004 /* GetMessageFromWXResp+responseWithTextOrMediaMessage.m in Sources */,
 				6EBA3BB61CBBC163002D6C69 /* Order.m in Sources */,
 				6EC32C431C990D2200581FDD /* ReceiveAddressVC.m in Sources */,
