@@ -27,6 +27,8 @@
 @property (nonatomic ,strong)NSMutableArray *dataArray;
 @property (nonatomic ,strong)NSMutableArray *subMutArray;
 @property (nonatomic)int page;
+
+@property (nonatomic ,strong)NSString *orderIds;
 @end
 
 @implementation AllShopVC
@@ -220,7 +222,7 @@
     [_footView addSubview:label];
     
     //商品价格
-    UILabel *moneyLabel = [GHControl createLabelWithFrame:CGRectMake(70, 5,M_WIDTH-150, 30) Font:14 Text:model.order_amount];
+    UILabel *moneyLabel = [GHControl createLabelWithFrame:CGRectMake(70, 5,M_WIDTH-150, 30) Font:14 Text:[NSString stringWithFormat:@"￥%@",model.order_amount]];
     moneyLabel.font = [UIFont boldSystemFontOfSize:14];
     moneyLabel.textColor = RGBCOLOR(249, 147, 73);
     [_footView addSubview:moneyLabel];
@@ -256,13 +258,19 @@
         [_footView addSubview:payBtn];
         
         
+        UIButton *btn = [GHControl createButtonWithFrame:CGRectMake(M_WIDTH-90-80,5,75, 30) ImageName:@"评价商品_默认" Target:self Action:@selector(cancelBtnClick:) Title:@"取消订单"];
+        btn.titleLabel.font = [UIFont systemFontOfSize:14];
+        btn.tag = section;
+        [btn setTitleColor:RGBCOLOR(249, 147, 73) forState:UIControlStateNormal];
+        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+        [btn setBackgroundImage:[UIImage imageNamed:@"保存修改_点击"] forState:UIControlStateHighlighted];
+        [_footView addSubview:btn];
+        
+        
+        
     }else if ([model.order_state intValue] == 20){
     //等待发货
-        UIButton *cancelBtn = [GHControl createButtonWithFrame:CGRectMake(M_WIDTH-90,5,75, 30) ImageName:@"评价商品_默认" Target:self Action:@selector(cancelBtnClick:) Title:@"取消订单"];
-        [cancelBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-        [cancelBtn setBackgroundImage:[UIImage imageNamed:@"保存修改_点击"] forState:UIControlStateHighlighted];
-        cancelBtn.tag = section;
-        [_footView addSubview:cancelBtn];
+        
         
     }else if ([model.order_state intValue] == 40){
         
@@ -389,7 +397,62 @@
 
     NSLog(@"取消订单:%ld",cancelBtn.tag);
     
+    [self createFeedBackView];
+    AllGoodsOrders *model = _dataArray[cancelBtn.tag];
+    _orderIds = model.order_id;
     
+    
+}
+-(void)createFeedBackView{
+    
+    
+    NSMutableArray *mutArray = [NSMutableArray arrayWithObjects:@"我不想买了",@"信息填写错误、重新拍",@"配送时差问题",@"其他", nil];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:(UIAlertControllerStyleActionSheet)];
+    for (int i =0; i<mutArray.count; i++) {
+        
+        UIAlertAction *productProblem = [UIAlertAction actionWithTitle:mutArray[i] style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
+            
+            [self sendRequestDataCancelOrderId:_orderIds andReason:mutArray[i]];
+        }];
+        [alertController addAction:productProblem];
+    }
+    
+    // 创建按钮
+    // 注意取消按钮只能添加一个
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction *action) {
+        // 点击按钮后的方法直接在这里面写
+        NSLog(@"取消");
+    }];
+    [alertController addAction:cancelAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+}
+-(void)sendRequestDataCancelOrderId:(NSString *)orderId andReason:(NSString *)reasonStr{
+    
+    RequestCenter * request = [RequestCenter shareRequestCenter];
+    NSDictionary *postDict = @{
+                               @"reason":reasonStr,
+                               @"user_id":[[SaveInfo shareSaveInfo]user_id],
+                               @"order_id":orderId
+                               };
+    
+    [request sendRequestPostUrl:MY_CANCEL_REGISTER andDic:postDict setSuccessBlock:^(NSDictionary *resultDic) {
+        if ([resultDic[@"code"] intValue] != 1) {
+            BG_LOGIN ;
+        }
+        
+        if ([resultDic[@"code"] intValue]==0) {
+            HUDNormal(@"已付款的订单目前不支持取消订单");
+            return ;
+        }
+        HUDNormal(@"取消订单成功");
+        [self addMjHeaderAndFooter];
+        
+        
+    } setFailBlock:^(NSString *errorStr) {
+        NSLog(@"");
+        
+    }];
 }
 -(void)pushConfirmVC:(UIButton *)btn{
 

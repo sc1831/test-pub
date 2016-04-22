@@ -228,6 +228,8 @@
     btn.titleLabel.font = [UIFont systemFontOfSize:14];
     btn.tag = section;
     [btn setTitleColor:RGBCOLOR(249, 147, 73) forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    [btn setBackgroundImage:[UIImage imageNamed:@"保存修改_点击"] forState:UIControlStateHighlighted];
     [_footView addSubview:btn];
     
     return _footView;
