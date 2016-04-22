@@ -75,7 +75,7 @@
             NSArray *array = dict[@"list"];
             for (NSDictionary *subDic in array) {
                 AllGoodsOrders *model = [AllGoodsOrders modelWithDic:subDic];
-                NSArray *subArray = subDic[@"order_goods"];
+                NSArray *subArray = subDic[@"order_list"];
                 NSMutableArray *mutArray = [NSMutableArray array];
                 for (NSDictionary *smallDic in subArray) {
                     AllGoodsOrders *model = [AllGoodsOrders modelWithDic:smallDic];
@@ -115,7 +115,7 @@
                     
                     
                     
-                    NSArray *subArray = dic[@"order_goods"];
+                    NSArray *subArray = dic[@"order_list"];
                     NSMutableArray *mutArray = [NSMutableArray array];
                     for (NSDictionary *smallDic in subArray) {
                         AllGoodsOrders *model = [AllGoodsOrders modelWithDic:smallDic];
