@@ -31,7 +31,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="319" height="44"/>
                         </imageView>
                         <textField opaque="NO" clipsSubviews="YES" tag="1000" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="MrX-FE-uYy">
-                            <rect key="frame" x="0.0" y="0.0" width="319" height="44"/>
+                            <rect key="frame" x="7" y="0.0" width="312" height="44"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                             <connections>
@@ -47,7 +47,7 @@
                         <constraint firstAttribute="trailing" secondItem="MrX-FE-uYy" secondAttribute="trailing" id="Hmv-Qh-ZCm"/>
                         <constraint firstAttribute="bottom" secondItem="PbG-VY-YKM" secondAttribute="bottom" id="Rt1-fc-pJC"/>
                         <constraint firstAttribute="bottom" secondItem="MrX-FE-uYy" secondAttribute="bottom" id="Wl6-hK-WJx"/>
-                        <constraint firstItem="MrX-FE-uYy" firstAttribute="leading" secondItem="CjF-kH-xHf" secondAttribute="leading" id="a7E-ug-uqv"/>
+                        <constraint firstItem="MrX-FE-uYy" firstAttribute="leading" secondItem="CjF-kH-xHf" secondAttribute="leading" constant="7" id="a7E-ug-uqv"/>
                         <constraint firstAttribute="trailing" secondItem="PbG-VY-YKM" secondAttribute="trailing" id="hoE-4p-b8b"/>
                         <constraint firstAttribute="width" secondItem="CjF-kH-xHf" secondAttribute="height" multiplier="80:11" id="ii7-81-AdE"/>
                     </constraints>
@@ -59,7 +59,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         </imageView>
                         <textField opaque="NO" clipsSubviews="YES" tag="2000" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码(6-12位)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="DdH-5V-ggV">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <rect key="frame" x="7" y="0.0" width="313" height="44"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                             <connections>
@@ -73,7 +73,7 @@
                         <constraint firstAttribute="trailing" secondItem="8wi-pB-hMV" secondAttribute="trailing" id="Cqg-GL-cg2"/>
                         <constraint firstAttribute="trailing" secondItem="DdH-5V-ggV" secondAttribute="trailing" id="Ste-qm-sEb"/>
                         <constraint firstItem="8wi-pB-hMV" firstAttribute="top" secondItem="FCL-76-57p" secondAttribute="top" id="WAg-mF-TVd"/>
-                        <constraint firstItem="DdH-5V-ggV" firstAttribute="leading" secondItem="FCL-76-57p" secondAttribute="leading" id="bya-ff-erX"/>
+                        <constraint firstItem="DdH-5V-ggV" firstAttribute="leading" secondItem="FCL-76-57p" secondAttribute="leading" constant="7" id="bya-ff-erX"/>
                         <constraint firstItem="DdH-5V-ggV" firstAttribute="top" secondItem="FCL-76-57p" secondAttribute="top" id="erQ-sD-73b"/>
                         <constraint firstAttribute="bottom" secondItem="DdH-5V-ggV" secondAttribute="bottom" id="mC4-jx-QCG"/>
                         <constraint firstItem="8wi-pB-hMV" firstAttribute="leading" secondItem="FCL-76-57p" secondAttribute="leading" id="uDQ-ki-ZWS"/>

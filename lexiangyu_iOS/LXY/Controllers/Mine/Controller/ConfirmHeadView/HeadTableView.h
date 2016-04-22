@@ -15,5 +15,5 @@
 //手机号
 @property (weak, nonatomic) IBOutlet UILabel *phoneNumLabel;
 //收货地址
-@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+@property (weak, nonatomic) IBOutlet UITextView *addressTextView;
 @end

@@ -19,7 +19,7 @@
 #import "UITableView+MJRefresh.h"
 #import "OrderIsOverVC.h"
 #import "UIButton+Block.h"
-
+#import "PayWebView.h"
 @interface AllShopVC ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong)UIView *headView;
@@ -355,15 +355,31 @@
     AllGoodsOrders *model = _dataArray[indexPath.section];
     detailVC.order_id = model.order_id ;
     [self.navigationController pushViewController:detailVC animated:YES];
-    
 }
 
 -(void)payBtnClick:(UIButton *)btn{
     NSLog(@"去支付:%ld",btn.tag);
-   
-    [self pushConfirmVC:btn];
+   AllGoodsOrders *model = _dataArray[btn.tag];
+    [self gotoPayWebView:model];
     
 }
+- (void)gotoPayWebView:(AllGoodsOrders *)model{
+    
+    [requestCenter sendRequestPostUrl:APP_PAY andDic:@{@"t":@"3",@"pay_sn":model.pay_sn} setSuccessBlock:^(NSDictionary *resultDic) {
+        if ([resultDic[@"code"] intValue] != 1) {
+            HUDNormal(resultDic[@"msg"]);
+            BG_LOGIN ;
+        }
+        PayWebView *payWebView = [[PayWebView alloc]init];
+        payWebView.urlStr = resultDic[@"url"];
+        [self.navigationController pushViewController:payWebView animated:YES];
+        
+    } setFailBlock:^(NSString *errorStr) {
+        
+    }];
+
+}
+
 -(void)againPayBtnClick:(UIButton *)againPayBtn{
 
     NSLog(@"再次购买:%ld",(long)againPayBtn.tag);

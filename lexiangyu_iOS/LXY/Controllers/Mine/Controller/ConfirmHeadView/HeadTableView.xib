@@ -1,40 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="QPE-VC-dbp" customClass="HeadTableView">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="102"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="位置.png" translatesAutoresizingMaskIntoConstraints="NO" id="ShQ-WG-UV5">
-                    <rect key="frame" x="4" y="51" width="14" height="14"/>
+                    <rect key="frame" x="4" y="39" width="14" height="14"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="14" id="Bs6-fM-iPz"/>
                         <constraint firstAttribute="height" constant="14" id="D9Q-1t-nvo"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="山西省吕梁市玉兰便民店山西省吕梁市玉兰便民店山西省吕梁市玉兰便民店" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hrt-fJ-ExV">
-                    <rect key="frame" x="31" y="33" width="323" height="61"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="地址.png" translatesAutoresizingMaskIntoConstraints="NO" id="VDe-HV-6U9">
                     <rect key="frame" x="4" y="12" width="14" height="14"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="14" id="ibi-cx-gkM"/>
                         <constraint firstAttribute="width" constant="14" id="k2z-5g-jxa"/>
-                    </constraints>
-                </imageView>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="地址装饰条.png" translatesAutoresizingMaskIntoConstraints="NO" id="15a-Bh-qoV">
-                    <rect key="frame" x="0.0" y="98" width="375" height="2"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="2" id="NxZ-dy-aw1"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 158****7638" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UkB-7D-zWc">
@@ -53,24 +41,35 @@
                         <constraint firstAttribute="height" constant="20" id="buD-2h-TyR"/>
                     </constraints>
                 </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUT-Xu-1zY">
+                    <rect key="frame" x="20" y="27" width="355" height="63"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="地址装饰条.png" translatesAutoresizingMaskIntoConstraints="NO" id="15a-Bh-qoV">
+                    <rect key="frame" x="0.0" y="86" width="375" height="2"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="NxZ-dy-aw1"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="VDe-HV-6U9" firstAttribute="leading" secondItem="QPE-VC-dbp" secondAttribute="leading" constant="4" id="37k-ME-3X0"/>
                 <constraint firstItem="7ue-js-fY4" firstAttribute="top" secondItem="QPE-VC-dbp" secondAttribute="top" constant="17" id="83E-zw-0Kk"/>
+                <constraint firstAttribute="trailing" secondItem="WUT-Xu-1zY" secondAttribute="trailing" id="A9u-7a-ALd"/>
+                <constraint firstItem="WUT-Xu-1zY" firstAttribute="leading" secondItem="ShQ-WG-UV5" secondAttribute="trailing" constant="2" id="E5r-Oe-fhV"/>
                 <constraint firstItem="VDe-HV-6U9" firstAttribute="top" secondItem="QPE-VC-dbp" secondAttribute="top" constant="12" id="EPK-A7-anj"/>
-                <constraint firstItem="Hrt-fJ-ExV" firstAttribute="leading" secondItem="ShQ-WG-UV5" secondAttribute="trailing" constant="13" id="FjF-ma-vjE"/>
-                <constraint firstAttribute="bottom" secondItem="Hrt-fJ-ExV" secondAttribute="bottom" constant="8" id="H3o-DP-l9M"/>
                 <constraint firstAttribute="trailing" secondItem="15a-Bh-qoV" secondAttribute="trailing" id="Hpm-gn-Vdf"/>
                 <constraint firstItem="15a-Bh-qoV" firstAttribute="leading" secondItem="QPE-VC-dbp" secondAttribute="leading" id="Pq6-8z-u2Y"/>
-                <constraint firstItem="Hrt-fJ-ExV" firstAttribute="top" secondItem="UkB-7D-zWc" secondAttribute="bottom" constant="4" id="T9p-cr-6kW"/>
                 <constraint firstItem="ShQ-WG-UV5" firstAttribute="leading" secondItem="QPE-VC-dbp" secondAttribute="leading" constant="4" id="TuU-Ax-PjL"/>
                 <constraint firstAttribute="trailing" secondItem="7ue-js-fY4" secondAttribute="trailing" constant="8" id="Z9P-h0-Dbd"/>
                 <constraint firstItem="UkB-7D-zWc" firstAttribute="leading" secondItem="VDe-HV-6U9" secondAttribute="trailing" constant="13" id="ZzJ-Ng-v8K"/>
-                <constraint firstAttribute="trailing" secondItem="Hrt-fJ-ExV" secondAttribute="trailing" constant="21" id="ed3-fv-YcK"/>
-                <constraint firstItem="15a-Bh-qoV" firstAttribute="top" secondItem="Hrt-fJ-ExV" secondAttribute="bottom" constant="4" id="ggj-A9-YKd"/>
                 <constraint firstItem="UkB-7D-zWc" firstAttribute="top" secondItem="QPE-VC-dbp" secondAttribute="top" constant="8" id="l5T-tL-ydw"/>
-                <constraint firstItem="ShQ-WG-UV5" firstAttribute="top" secondItem="VDe-HV-6U9" secondAttribute="bottom" constant="25" id="r0S-HC-9d9"/>
+                <constraint firstItem="WUT-Xu-1zY" firstAttribute="top" secondItem="UkB-7D-zWc" secondAttribute="bottom" constant="-2" id="mvR-b1-8NF"/>
+                <constraint firstItem="15a-Bh-qoV" firstAttribute="top" secondItem="WUT-Xu-1zY" secondAttribute="bottom" constant="-4" id="psp-dj-iKf"/>
+                <constraint firstItem="ShQ-WG-UV5" firstAttribute="top" secondItem="VDe-HV-6U9" secondAttribute="bottom" constant="13" id="r0S-HC-9d9"/>
                 <constraint firstAttribute="bottom" secondItem="15a-Bh-qoV" secondAttribute="bottom" constant="2" id="xml-we-z1x"/>
                 <constraint firstAttribute="trailing" secondItem="UkB-7D-zWc" secondAttribute="trailing" constant="146" id="y26-H1-pw7"/>
             </constraints>
@@ -79,11 +78,11 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="addressLabel" destination="Hrt-fJ-ExV" id="Eyk-TW-xKc"/>
+                <outlet property="addressTextView" destination="WUT-Xu-1zY" id="O4U-1J-Z0G"/>
                 <outlet property="changeAddressBtn" destination="7ue-js-fY4" id="OiA-y3-CAd"/>
                 <outlet property="phoneNumLabel" destination="UkB-7D-zWc" id="R7n-ms-vEc"/>
             </connections>
-            <point key="canvasLocation" x="66.5" y="-31"/>
+            <point key="canvasLocation" x="74.5" y="-120"/>
         </view>
     </objects>
     <resources>

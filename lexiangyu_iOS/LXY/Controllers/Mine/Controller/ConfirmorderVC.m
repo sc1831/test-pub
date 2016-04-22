@@ -140,7 +140,7 @@
         _shoppingName = dic[@"address"][@"true_name"];
         
         headTabView.phoneNumLabel.text = [NSString stringWithFormat:@"%@%@",_shoppingName,_phoneNum];
-        headTabView.addressLabel.text =[NSString stringWithFormat:@"%@%@",_addressStr,dic[@"address"][@"address"]] ;
+        headTabView.addressTextView.text =[NSString stringWithFormat:@"%@%@",_addressStr,dic[@"address"][@"address"]] ;
         
         _bootmMoney.text = [NSString stringWithFormat:@"￥%@元",dic[@"order_goods_price_total"]];
         
@@ -200,7 +200,7 @@
     headTabView.changeAddressBtn.userInteractionEnabled = NO;
     [headTabView.changeAddressBtn addTarget:self  action:@selector(changeAddressBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
-    headTabView.addressLabel.contentMode = UIViewContentModeTopLeft ;
+//    headTabView.addressLabel.contentMode = UIViewContentModeTopLeft ;
     //添加表尾
     FooterTableView *footerTabView =
     [[[NSBundle mainBundle] loadNibNamed:@"FooterTableView"
@@ -375,7 +375,7 @@
         
         NSArray *orderArray = resultDic[@"data"][@"order"];
         NSDictionary *dic = orderArray.lastObject ;
-        NSDictionary *postOrderOverDic = @{@"order_goods_price_total":resultDic[@"data"][@"order_goods_price_total"],@"pay_sn":dic[@"pay_sn"],@"userName_phone":headTabView.phoneNumLabel.text,@"user_address":headTabView.addressLabel.text} ;
+        NSDictionary *postOrderOverDic = @{@"order_goods_price_total":resultDic[@"data"][@"order_goods_price_total"],@"pay_sn":dic[@"pay_sn"],@"userName_phone":headTabView.phoneNumLabel.text,@"user_address":headTabView.addressTextView.text} ;
 
 
         OrderOverModel *orderOverModel = [[OrderOverModel alloc]init];

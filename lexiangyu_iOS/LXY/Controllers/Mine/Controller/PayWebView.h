@@ -6,8 +6,7 @@
 //  Copyright © 2016年 guohui. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
-@interface PayWebView : UIViewController
+#import "RootVC.h"
+@interface PayWebView : RootVC
 @property (nonatomic,copy)NSString *urlStr ;
 @end

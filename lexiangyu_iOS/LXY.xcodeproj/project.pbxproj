@@ -282,6 +282,7 @@
 		6E46B7531CA4E35200D5F73B /* 固定.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E46B7501CA4E35200D5F73B /* 固定.png */; };
 		6E46B7541CA4E35200D5F73B /* 固定@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E46B7511CA4E35200D5F73B /* 固定@2x.png */; };
 		6E46B7551CA4E35200D5F73B /* 固定@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E46B7521CA4E35200D5F73B /* 固定@3x.png */; };
+		6E4715851CCA0E4B0065D004 /* OrderOver.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E4715841CCA0E4B0065D004 /* OrderOver.png */; };
 		6E51B4EE1CC46E8400D4529C /* DetailAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E51B4EC1CC46E8400D4529C /* DetailAddressVC.m */; };
 		6E51B4EF1CC46E8400D4529C /* DetailAddressVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E51B4ED1CC46E8400D4529C /* DetailAddressVC.xib */; };
 		6E51B4F31CC46EF600D4529C /* DeatilAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E51B4F11CC46EF600D4529C /* DeatilAddressView.m */; };
@@ -832,6 +833,7 @@
 		6E46B7501CA4E35200D5F73B /* 固定.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "固定.png"; sourceTree = "<group>"; };
 		6E46B7511CA4E35200D5F73B /* 固定@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "固定@2x.png"; sourceTree = "<group>"; };
 		6E46B7521CA4E35200D5F73B /* 固定@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "固定@3x.png"; sourceTree = "<group>"; };
+		6E4715841CCA0E4B0065D004 /* OrderOver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OrderOver.png; sourceTree = "<group>"; };
 		6E51B4EB1CC46E8400D4529C /* DetailAddressVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailAddressVC.h; sourceTree = "<group>"; };
 		6E51B4EC1CC46E8400D4529C /* DetailAddressVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailAddressVC.m; sourceTree = "<group>"; };
 		6E51B4ED1CC46E8400D4529C /* DetailAddressVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailAddressVC.xib; sourceTree = "<group>"; };
@@ -1783,6 +1785,7 @@
 			children = (
 				6E10307C1CB4F7030098D5BD /* LoginImage */,
 				6EC44CEA1CA4D9DD00833567 /* 再次购买&去支付_默认@2x.png */,
+				6E4715841CCA0E4B0065D004 /* OrderOver.png */,
 				6EC44CEB1CA4D9DD00833567 /* 再次购买&去支付_默认@3x.png */,
 				6EC44CEC1CA4D9DD00833567 /* 再次购买&去支付@.png */,
 				6EC44CF01CA4DACF00833567 /* 确定_点击@.png */,
@@ -2976,6 +2979,7 @@
 				6E1030A81CB4F73D0098D5BD /* 关闭@2x.png in Resources */,
 				6E7964B21C981A5D00EB43B9 /* ShoppingCartCell.xib in Resources */,
 				6E10310A1CB4FAE80098D5BD /* 首页@3x.png in Resources */,
+				6E4715851CCA0E4B0065D004 /* OrderOver.png in Resources */,
 				6EC44D171CA4DE4C00833567 /* 地址选项跳转@3x.png in Resources */,
 				6E10317F1CB4FC570098D5BD /* 评价商品_默认@2x.png in Resources */,
 				6EC44D391CA4E0DE00833567 /* 保存修改_置灰@.png in Resources */,

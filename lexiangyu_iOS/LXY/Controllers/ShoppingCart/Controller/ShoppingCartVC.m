@@ -259,7 +259,7 @@
         NSLog(@"234567890-=09876854653244567890-098765w678");
         
     } setFailBlock:^(NSString *errorStr) {
-        
+         [self.shoppingTableView headerEndRefresh];
     }];
 }
 -(void)rightNavBtnClick{

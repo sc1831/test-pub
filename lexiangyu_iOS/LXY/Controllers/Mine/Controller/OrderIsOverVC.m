@@ -13,8 +13,11 @@
 //#import "OrderSuccessVC.h"
 #import "PayWebView.h"
 @interface OrderIsOverVC ()
+{
+    NSString *payUrl ;
+}
 @property (weak, nonatomic) IBOutlet UILabel *name_phoneLab;
-@property (weak, nonatomic) IBOutlet UILabel *addressLab;
+@property (weak, nonatomic) IBOutlet UITextView *addressTextView;
 @property (weak, nonatomic) IBOutlet UILabel *moneyLab;
 - (IBAction)gotoPay:(id)sender;
 
@@ -27,7 +30,7 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"下单完成" ;
     self.name_phoneLab.text = _orderOverModel.userName_phone ;
-    self.addressLab.text = _orderOverModel.user_address ;
+    self.addressTextView.text = _orderOverModel.user_address ;
     self.moneyLab.text = [NSString stringWithFormat:@"¥ %.2f",[_orderOverModel.order_goods_price_total floatValue]];
     
 }
@@ -54,11 +57,18 @@
             HUDNormal(resultDic[@"msg"]);
             BG_LOGIN ;
         }
+        payUrl = resultDic[@"url"];
         PayWebView *payWebView = [[PayWebView alloc]init];
-        payWebView.urlStr = resultDic[@"url"];
+        payWebView.urlStr = payUrl ;
         [self.navigationController pushViewController:payWebView animated:YES];
         
     } setFailBlock:^(NSString *errorStr) {
+        if (payUrl.length > 6) {
+            PayWebView *payWebView = [[PayWebView alloc]init];
+            payWebView.urlStr = payUrl ;
+            [self.navigationController pushViewController:payWebView animated:YES];
+        }
+        
         
     }];
     

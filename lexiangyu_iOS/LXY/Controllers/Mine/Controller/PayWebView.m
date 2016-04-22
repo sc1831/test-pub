@@ -15,12 +15,12 @@
 @end
 
 @implementation PayWebView
-- (void)viewWillDisappear:(BOOL)animated{
-    self.navigationController.navigationBarHidden = NO ;
-}
-- (void)viewWillAppear:(BOOL)animated{
-    self.navigationController.navigationBarHidden = YES ;
-}
+//- (void)viewWillDisappear:(BOOL)animated{
+//    self.navigationController.navigationBarHidden = NO ;
+//}
+//- (void)viewWillAppear:(BOOL)animated{
+//    self.navigationController.navigationBarHidden = YES ;
+//}
 
 
 - (void)viewDidLoad {
@@ -105,4 +105,13 @@
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
+
+- (void)leftNavBtnClick:(UIButton *)sender{
+    if (self.payWebView.canGoBack) {
+        [self.payWebView goBack];
+    }else{
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+}
+
 @end
