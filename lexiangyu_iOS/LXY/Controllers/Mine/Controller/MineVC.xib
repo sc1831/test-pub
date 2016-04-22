@@ -42,7 +42,7 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4EL-tn-nVi" customClass="UIControl">
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4EL-tn-nVi" customClass="UIControl">
                             <rect key="frame" x="200" y="77" width="175" height="23"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="个人中心白箭头.png" translatesAutoresizingMaskIntoConstraints="NO" id="95e-SB-eJc">
