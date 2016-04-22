@@ -33,7 +33,7 @@
 }
 - (void)loadOrderData{
     RequestCenter *requsetCenter = [RequestCenter shareRequestCenter];
-    [requsetCenter sendRequestPostUrl:ORDER_DETAILS andDic:@{@"order_id":self.order_id} setSuccessBlock:^(NSDictionary *resultDic) {
+    [requsetCenter sendRequestPostUrl:ORDER_DETAILS andDic:@{@"pay_sn":self.order_id} setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
         }

@@ -182,7 +182,7 @@
     UILabel *label = [GHControl createLabelWithFrame:CGRectMake(45,11, 60, 30) Font:14 Text:[NSString stringWithFormat:@"订单号：%ld",140112212155]];
     label.textColor = RGBCOLOR(99, 100, 101);
     [_headView addSubview:label];
-    UILabel *labelNum = [GHControl createLabelWithFrame:CGRectMake(95,11, M_WIDTH-90, 30) Font:14 Text:model.order_sn];
+    UILabel *labelNum = [GHControl createLabelWithFrame:CGRectMake(95,11, M_WIDTH-90, 30) Font:14 Text:model.pay_sn];
     labelNum.textColor = RGBCOLOR(204,204,204);
     [_headView addSubview:labelNum];
     
@@ -353,7 +353,7 @@
     
     OrderDetailsVC *detailVC = [[OrderDetailsVC alloc]init];
     AllGoodsOrders *model = _dataArray[indexPath.section];
-    detailVC.order_id = model.order_id ;
+    detailVC.order_id = model.pay_sn ;
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
