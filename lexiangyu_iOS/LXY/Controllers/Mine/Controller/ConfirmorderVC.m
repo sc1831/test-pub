@@ -200,7 +200,7 @@
     headTabView.changeAddressBtn.userInteractionEnabled = NO;
     [headTabView.changeAddressBtn addTarget:self  action:@selector(changeAddressBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
-
+    headTabView.addressLabel.contentMode = UIViewContentModeTopLeft ;
     //添加表尾
     FooterTableView *footerTabView =
     [[[NSBundle mainBundle] loadNibNamed:@"FooterTableView"
