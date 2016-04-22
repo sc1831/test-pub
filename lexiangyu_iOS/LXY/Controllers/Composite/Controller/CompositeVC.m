@@ -210,7 +210,7 @@
             HUDNormal(@"添加失败，请稍后再试");
             return ;
         }
-        HUDNormal(@"添加成功");
+        HUDNormal(@"添加购物车成功");
     } setFailBlock:^(NSString *errorStr) {
         NSLog(@"");
         
