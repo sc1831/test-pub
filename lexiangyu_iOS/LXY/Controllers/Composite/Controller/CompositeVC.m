@@ -13,6 +13,7 @@
 #import "GoodsModel.h"
 #import "Common.h"
 #import "ShopingDetailsVC.h"
+#import "GHControl.h"
 
 @interface CompositeVC ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 {
@@ -77,6 +78,7 @@
     
     [self addMjHeaderAndFooter];
     [self.compositeTab headerBeginRefresh];
+    [GHControl setExtraCellLineHidden:_compositeTab];
 
 
 //    self.compositeTab.estimatedRowHeight = 100 ; //预估tableView的高度
