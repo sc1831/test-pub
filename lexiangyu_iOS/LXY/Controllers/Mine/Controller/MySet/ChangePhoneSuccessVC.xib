@@ -39,7 +39,7 @@
                         <constraint firstAttribute="width" constant="83" id="Gvu-gz-WRg"/>
                         <constraint firstAttribute="height" constant="30" id="zzc-jL-6Hf"/>
                     </constraints>
-                    <state key="normal" title="首页" backgroundImage="redBtnBg.png">
+                    <state key="normal" title="返回" backgroundImage="redBtnBg.png">
                         <color key="titleColor" red="0.92549019607843142" green="0.60392156862745094" blue="0.4823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>

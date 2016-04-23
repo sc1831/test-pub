@@ -73,6 +73,7 @@
     [request sendRequestPostUrl:MY_USER_ACCOUNT andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
+            return ;
         }
         if ([resultDic[@"code"] intValue]==0) {
             HUDNormal(@"请求失败");
@@ -87,8 +88,9 @@
         _phoneNumLabel.text = _iphoneMut;
         
         
-//        _mineImageView.image =  [imageView setImageWithURL:[NSURL URLWithString:model.originalUrl]];
-//        [_mineImageView sd_setImageWithURL:[NSURL URLWithString:dic[@"member_avatar"]] placeholderImage:[UIImage imageNamed:@"产品图片"]];
+
+        [[SaveInfo shareSaveInfo]setUserImageUrl:dic[@"member_avatar"]];
+        [_headImageView sd_setImageWithURL:[NSURL URLWithString:dic[@"member_avatar"]] placeholderImage:[UIImage imageNamed:@"产品图片"]];
         
     } setFailBlock:^(NSString *errorStr) {
         _mineImageView.image = [UIImage imageNamed:@"产品图片"];

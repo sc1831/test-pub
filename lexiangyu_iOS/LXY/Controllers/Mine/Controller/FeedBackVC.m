@@ -59,11 +59,10 @@
     [request sendRequestPostUrl:MY_FEEDBACK_TYPE andDic:nil setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
-        }
-        if ([resultDic[@"code"] intValue]==0) {
-            HUDNormal(@"请求失败");
+             HUDNormal(@"请求失败");
             return ;
         }
+
         
         NSArray *array = resultDic[@"data"];
         
@@ -122,11 +121,10 @@
     [request sendRequestPostUrl:MY_FEEDBACK_TYPE andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
-        }
-        if ([resultDic[@"code"] intValue]==0) {
             HUDNormal(@"请求失败");
             return ;
         }
+
         HUDNormal(@"您的反馈已成功");
         [self.navigationController popViewControllerAnimated:YES];
         

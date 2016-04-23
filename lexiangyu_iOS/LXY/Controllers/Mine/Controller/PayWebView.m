@@ -54,32 +54,24 @@
     
     NSLog(@"request.URL.relativeString:%@",request.URL.relativeString);
     
-//    if ([request.URL.relativeString rangeOfString:@"super_key"].location == NSNotFound) {
-//        
-//        NSMutableString *mutStr =[NSMutableString stringWithString:request.URL.relativeString];
-//        
-//        NSArray *array = [mutStr componentsSeparatedByString:@"?"];
-//        NSString *str = array[1];
-//        
-//        
-//        NSArray *subArray = [str componentsSeparatedByString:@"&"];
-//        NSMutableArray *mutArray = [NSMutableArray array];
-//        for (NSMutableString *subStr in subArray) {
-//            NSArray *allArray = [subStr componentsSeparatedByString:@"="];
-//            [mutArray addObject:allArray];
-//        }
-////        ConfirmorderVC *confirmVC = [[ConfirmorderVC alloc]init];
-////        confirmVC.orderIds = @"";
-////        confirmVC.cartIds = @"";
-////        confirmVC.goodsIds = mutArray[0][1];
-////        confirmVC.goodsNum = mutArray[1][1];
-////        confirmVC.hidesBottomBarWhenPushed = YES;
-////        [self.navigationController pushViewController:confirmVC animated:YES];
-//        return NO ;
-//        
-//    }
     
-    return YES;
+    if ([request.URL.relativeString isEqualToString:@"http://www.lexianyu.com/index.php/app/Return/yee_webcallback"]) {
+        
+        
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        
+        NSLog(@"\n\n\n返回首root页面\n\n\n\n");
+        
+        
+        return NO ;
+        
+    }else{
+        return YES;
+    }
+    
+
+    
+ 
 }
 
 

@@ -264,11 +264,11 @@
    
     
     [request sendRequestPostUrl:LOGIN andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
-       
         if ([resultDic[@"code"] intValue]==0) {
-            HUDNormal(@"用户名或密码错误");
-            return;
+            HUDNormal(resultDic[@"msg"]);
+            return ;
         }
+
          HUDNormal(@"登录成功");
         [[SaveInfo shareSaveInfo]setToken:[[resultDic objectForKey:@"data"] objectForKey:@"token"]];
         [[SaveInfo shareSaveInfo]setUser_id:[[resultDic objectForKey:@"data"] objectForKey:@"member_id"]];

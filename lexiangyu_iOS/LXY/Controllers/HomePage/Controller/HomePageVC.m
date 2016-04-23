@@ -29,7 +29,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     //特价view
     __weak IBOutlet UIView *specialView;
     
-    
+  
 }
 
 @property (nonatomic ,strong)UITableView *specialTableView; //超值特价
@@ -46,6 +46,8 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 
 @implementation HomePageVC
 {
+//        //无网络界面
+//      UIView *noNetView ;
     //  记录当前第几页
     int _currentIndex;
     
@@ -144,6 +146,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     [request sendRequestPostUrl:HOME_INDEX andDic:nil setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
+            return ;
         }
         if ([[resultDic objectForKey:@"code"] intValue] == 1) {
             // 成功获取数据
@@ -186,7 +189,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
             //获取数据失败
         }
     } setFailBlock:^(NSString *errorStr) {
-
+        
     }];
 }
 #pragma mark 刷新
@@ -233,6 +236,9 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     [_specialTableView reloadData];
     //促销商品 discount
     for (int i = 0 ; i < 4; i++) {
+        if (i >= discount.count) {
+            break ;
+        }
         HomeModel *model = discount[i];
         if (i == 0) {
             UILabel *jingle = [self.view viewWithTag:3500 + i];
@@ -264,6 +270,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
+            return ;
         }
         NSDictionary *data = resultDic[@"data"];
         NSArray *recommendgoods = data[@"recommend_goods"];
@@ -442,7 +449,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     if ((scrollView.frame.size.height-sub)>20) {//如果上拉距离超过20p，则加载更多数据
         [self loadRecommend_goods];
         if (recommend_goods.count <= 0) {
-            HUDNormal(@"暂时没有信息...");
+//            HUDNormal(@"暂时没有信息...");
             return ;
         }
         //[self loadMoreData];//此处在view底部加载更多数据
@@ -718,26 +725,26 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 
 
 
+
+
 - (IBAction)gotoController:(UIControl *)sender {
-//    HomeClassifyVC *homeClassfiyVC = [[HomeClassifyVC alloc]init];
-//    homeClassfiyVC.hidesBottomBarWhenPushed = YES ;
-    //TODO: ffff
-//    homeClassfiyVC.selectRow = (int)sender.tag - 1000;
-    HomeModel *model = goods_class[sender.tag - 1000];
-//    homeClassfiyVC.gc_id = model.gc_id;
-//    [self.navigationController pushViewController:homeClassfiyVC animated:YES];
+    if (sender.tag - 1000 >= goods_class.count) {
+        return ;
+    }
     
+    HomeModel *model = goods_class[sender.tag - 1000];
+
     CompositeVC *compositeVC = [[CompositeVC alloc] init];
     compositeVC.hidesBottomBarWhenPushed = YES ;
-//    if (self.searchTextField.text.length > 0) {
-//        compositeVC.goods_name = model.gc_name;
     compositeVC.gc_id = model.gc_id ;
-//    }
     [self.navigationController pushViewController:compositeVC animated:YES];
     
 }
 
 - (IBAction)gotoGoodsDetails:(UIControl *)sender {
+    if (sender.tag - 3000 >= discount.count) {
+        return ;
+    }
     //  3000 促销商品
     ShopingDetailsVC *shoppingDetailsVC = [[ShopingDetailsVC alloc]init];
     HomeModel *model = discount[sender.tag - 3000];

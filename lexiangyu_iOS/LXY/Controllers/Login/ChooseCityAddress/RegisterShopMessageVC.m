@@ -125,12 +125,13 @@
                               };
     
     [request sendRequestPostUrl:REGISTRE_STOR_NAME andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+        HUDNormal([resultDic objectForKey:@"msg"]);
         if ([resultDic[@"code"] intValue] != 1) {
-            HUDNormal([resultDic objectForKey:@"msg"]);
+            
             return ;
         }
 
-        HUDNormal(@"审核成功");
+        
         
         [self dismissViewControllerAnimated:YES completion:nil];
     } setFailBlock:^(NSString *errorStr) {

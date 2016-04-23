@@ -61,6 +61,7 @@
     [request sendRequestPostUrl:MY_ADDRESS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
+            return ;
         }
 
         if ([resultDic[@"code"] intValue]==0) {
@@ -170,12 +171,10 @@
     [request sendRequestPostUrl:MY_EDIT_ADDRESS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
-        }
-
-        if ([resultDic[@"code"] intValue]==0) {
             HUDNormal(@"修改失败，请稍后再试");
             return ;
         }
+
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"receiveAddressCityNameAndPhoneNum" object:self userInfo:nil];
         [self popView];

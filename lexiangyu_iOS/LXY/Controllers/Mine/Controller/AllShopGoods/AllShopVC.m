@@ -75,6 +75,7 @@
             [self.waitPayTableView headerEndRefresh];
             if ([resultDic[@"code"] intValue] != 1) {
                 BG_LOGIN ;
+                return ;
             }
             [_subMutArray removeAllObjects];
             [_dataArray removeAllObjects];
@@ -110,6 +111,7 @@
             
             if ([resultDic[@"code"] intValue] != 1) {
                 BG_LOGIN ;
+                return ;
             }
             
             if ([[resultDic[@"code"] stringValue] isEqualToString:@"1"]) {
@@ -345,7 +347,7 @@
     NSLog(@"control.tag : %ld",control.tag);
     OrderDetailsVC *detailVC = [[OrderDetailsVC alloc]init];
     AllGoodsOrders *model = _dataArray[control.tag];
-    detailVC.order_id = model.order_id ;
+    detailVC.order_id = model.pay_sn ;
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
@@ -357,8 +359,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     [self.waitPayTableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    
     OrderDetailsVC *detailVC = [[OrderDetailsVC alloc]init];
     AllGoodsOrders *model = _dataArray[indexPath.section];
     detailVC.order_id = model.pay_sn ;
@@ -376,6 +376,7 @@
         if ([resultDic[@"code"] intValue] != 1) {
             HUDNormal(resultDic[@"msg"]);
             BG_LOGIN ;
+            return ;
         }
         PayWebView *payWebView = [[PayWebView alloc]init];
         payWebView.urlStr = resultDic[@"url"];
@@ -399,19 +400,16 @@
     
     [self createFeedBackView];
     AllGoodsOrders *model = _dataArray[cancelBtn.tag];
-    _orderIds = model.order_id;
+    _orderIds = model.pay_sn;
     
     
 }
 -(void)createFeedBackView{
-    
-    
     NSMutableArray *mutArray = [NSMutableArray arrayWithObjects:@"我不想买了",@"信息填写错误、重新拍",@"配送时差问题",@"其他", nil];
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:(UIAlertControllerStyleActionSheet)];
     for (int i =0; i<mutArray.count; i++) {
         
         UIAlertAction *productProblem = [UIAlertAction actionWithTitle:mutArray[i] style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
-            
             [self sendRequestDataCancelOrderId:_orderIds andReason:mutArray[i]];
         }];
         [alertController addAction:productProblem];
@@ -433,12 +431,14 @@
     NSDictionary *postDict = @{
                                @"reason":reasonStr,
                                @"user_id":[[SaveInfo shareSaveInfo]user_id],
-                               @"order_id":orderId
+                               @"pay_sn":orderId
                                };
     
     [request sendRequestPostUrl:MY_CANCEL_REGISTER andDic:postDict setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
+            HUDNormal(resultDic[@"msg"]);
+            return ;
         }
         
         if ([resultDic[@"code"] intValue]==0) {
@@ -446,8 +446,7 @@
             return ;
         }
         HUDNormal(@"取消订单成功");
-        [self addMjHeaderAndFooter];
-        
+        [self.waitPayTableView headerBeginRefresh];
         
     } setFailBlock:^(NSString *errorStr) {
         NSLog(@"");
@@ -458,7 +457,7 @@
 
     AllGoodsOrders *model = _dataArray[btn.tag];
     ConfirmorderVC *confirmVC = [[ConfirmorderVC alloc]init];
-    confirmVC.orderIds = model.order_id;
+    confirmVC.orderIds = model.pay_sn;
     confirmVC.cartIds = @"";
     confirmVC.goodsIds = @"";
     confirmVC.goodsNum = @"";

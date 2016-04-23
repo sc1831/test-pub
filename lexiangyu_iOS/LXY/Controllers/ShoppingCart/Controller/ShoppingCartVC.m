@@ -17,8 +17,8 @@
 #import "ShopingDetailsVC.h"
 #import "UITableView+MJRefresh.h"
 #import "ShoppingCartBackView.h"
-#import "HomePageVC.h"
-#import "MainTabBar.h"
+
+
 
 @implementation ShoppingCartSelectModel
 
@@ -118,7 +118,7 @@
     self.automaticallyAdjustsScrollViewInsets = false ;
     _rightNarBtn = [GHControl createButtonWithFrame:CGRectMake(0, 0,50,30) ImageName:nil Target:self Action:@selector(rightNavBtnClick) Title:@"编辑"];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:_rightNarBtn];
-    [self.view bringSubviewToFront:_AllView];
+//    [self.view bringSubviewToFront:_AllView];
     _bottmView.hidden = YES;
 //    self.tabBarItemOfMessage =[self.tabBarController.tabBar.items objectAtIndex:2];
 //    self.tabBarItemOfMessage.badgeValue = @"99+";
@@ -174,14 +174,11 @@
         if ([resultDic[@"code"] intValue] != 1) {
             [self.shoppingTableView headerEndRefresh];
             BG_LOGIN ;
+            HUDNormal(resultDic[@"msg"])
+             [self.shoppingTableView headerEndRefresh];
             return ;
         }
         
-        if ([resultDic[@"code"] intValue]==0) {
-            HUDNormal(@"数据请求失败，请稍后再试");
-            [self.shoppingTableView headerEndRefresh];
-            return ;
-        }
         [_sectionStateArray removeAllObjects];
         [_dataArray removeAllObjects];
         [_goodsSpecArray removeAllObjects];
@@ -676,6 +673,7 @@
     _allMoneyPay.text = [NSString stringWithFormat:@"合计:￥%.2lf元",_goodsMucth];
     if ([_allMoneyPay.text isEqualToString:@"0.00"]) {
         _bottmView.backgroundColor = [UIColor grayColor];
+        
     }else{
     
         _bottmView.backgroundColor = RGBCOLOR(253, 80, 11);
@@ -783,14 +781,13 @@
     [request sendRequestPostUrl:string andDic:dict setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
+            HUDNormal(@"数据删除失败，请稍后再试");
+            return ;
         }
 
        
 
-        if ([resultDic[@"code"] intValue]==0) {
-            HUDNormal(@"数据删除失败，请稍后再试");
-            return ;
-        }
+     
         
         if (_mutDataArray.count!=0) {
             [self sendRequestData];
@@ -839,15 +836,11 @@
     [request sendRequestPostUrl:ADD_SHOP_GOODS_NUM andDic:dict setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
-            return;
-        }
-
-      
-
-        if ([resultDic[@"code"] intValue]==0) {
-            HUDNormal(@"添加数据失败，请稍后再试");
+            HUDNormal(resultDic[@"msg"]);
             return ;
         }
+
+
 //        if (ismanual) {
 //            [self sendRequestData];
 //        }else{

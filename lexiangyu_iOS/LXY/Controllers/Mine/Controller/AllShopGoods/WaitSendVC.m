@@ -67,6 +67,7 @@
       
             if ([resultDic[@"code"] intValue] != 1) {
                 BG_LOGIN ;
+                return ;
             }
 
             [_subMutArray removeAllObjects];
@@ -105,6 +106,7 @@
 
             if ([resultDic[@"code"] intValue] != 1) {
                 BG_LOGIN ;
+                return ;
             }
             if ([[resultDic[@"code"] stringValue] isEqualToString:@"1"]) {
                 NSMutableArray *indexPaths = [NSMutableArray arrayWithCapacity:0];

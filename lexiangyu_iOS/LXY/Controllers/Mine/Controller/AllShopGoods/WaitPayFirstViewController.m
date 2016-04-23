@@ -17,6 +17,7 @@
 #import "MenyGoodsCell.h"
 #import "UITableView+MJRefresh.h"
 #import "PayWebView.h"
+#import "OrderDetailsVC.h"
 @interface WaitPayFirstViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic ,strong)UITableView *waitPayTableView;
 @property (nonatomic,strong)UIView *headView;
@@ -66,6 +67,7 @@
             [self.waitPayTableView headerEndRefresh];
             if ([resultDic[@"code"] intValue] != 1) {
                 BG_LOGIN ;
+                return ;
             }
 
             [_subMutArray removeAllObjects];
@@ -103,6 +105,7 @@
         [requestCenter sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
             if ([resultDic[@"code"] intValue] != 1) {
                 BG_LOGIN ;
+                return ;
             }
             if ([[resultDic[@"code"] stringValue] isEqualToString:@"1"]) {
                 NSMutableArray *indexPaths = [NSMutableArray arrayWithCapacity:0];
@@ -260,7 +263,7 @@
         cell.shopName.text = model.goods_name;
         cell.shopNum.text = [NSString stringWithFormat:@"X%@",model.goods_num];
         AllGoodsOrders *dataModel = _dataArray[indexPath.section];
-        cell.shopTime.text = dataModel.add_time;
+        cell.shopTime.text = dataModel.add_time; //pay_sn
          [cell.shopImage sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@"火影1"]];
         
         
@@ -292,7 +295,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    [self.waitPayTableView deselectRowAtIndexPath:indexPath animated:YES];
+//    [self.waitPayTableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    OrderDetailsVC *detailVC = [[OrderDetailsVC alloc]init];
+    AllGoodsOrders *model = _dataArray[indexPath.row];
+    detailVC.order_id = model.pay_sn ;
+    [self.navigationController pushViewController:detailVC animated:YES];
     
 }
 
@@ -303,7 +311,9 @@
         if ([resultDic[@"code"] intValue] != 1) {
             HUDNormal(resultDic[@"msg"]);
             BG_LOGIN ;
+            return ;
         }
+        
         PayWebView *payWebView = [[PayWebView alloc]init];
         payWebView.urlStr = resultDic[@"url"];
         [self.navigationController pushViewController:payWebView animated:YES];
@@ -327,7 +337,7 @@
     NSLog(@"订单取消");
     [self createFeedBackView];
     AllGoodsOrders *model = _dataArray[btn.tag];
-    _orderIds = model.order_id;
+    _orderIds = model.pay_sn;
 
     
 }
@@ -367,6 +377,7 @@
     [request sendRequestPostUrl:MY_CANCEL_REGISTER andDic:postDict setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
+            return ;
         }
 
         if ([resultDic[@"code"] intValue]==0) {

@@ -65,6 +65,7 @@
             [self.waitGetTableView headerEndRefresh];
             if ([resultDic[@"code"] intValue] != 1) {
                 BG_LOGIN ;
+                return ;
             }
             
             [_subMutArray removeAllObjects];
@@ -99,6 +100,7 @@
         [requestCenter sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
             if ([resultDic[@"code"] intValue] != 1) {
                 BG_LOGIN ;
+                return ;
             }
             
             if ([[resultDic[@"code"] stringValue] isEqualToString:@"1"]) {

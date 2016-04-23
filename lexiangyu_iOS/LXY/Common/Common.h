@@ -50,9 +50,9 @@ alpha:1.0]
 #define HUDNormal(msg) {MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[[UIApplication sharedApplication].delegate window] animated:NO];\
 hud.mode = MBProgressHUDModeText;\
 hud.detailsLabelText = msg ;\
-hud.minShowTime = 2;\
+hud.minShowTime = 0.5;\
 hud.detailsLabelFont = [UIFont systemFontOfSize:gFTHUDFontSize];\
-[hud hide:YES afterDelay:0.5];\
+[hud hide:YES afterDelay:1];\
 }
 
 //类似于alertView的 警示

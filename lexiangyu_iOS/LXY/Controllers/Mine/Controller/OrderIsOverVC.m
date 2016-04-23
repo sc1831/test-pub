@@ -56,6 +56,7 @@
         if ([resultDic[@"code"] intValue] != 1) {
             HUDNormal(resultDic[@"msg"]);
             BG_LOGIN ;
+            return ;
         }
         payUrl = resultDic[@"url"];
         PayWebView *payWebView = [[PayWebView alloc]init];

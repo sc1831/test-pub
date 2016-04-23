@@ -44,6 +44,8 @@
         
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
+            HUDNormal(@"修改失败，请稍后再试");
+            return ;
         }
 
         
@@ -114,6 +116,7 @@
         confirmVC.goodsNum = mutArray[1][1];
         confirmVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:confirmVC animated:YES];
+        
         return NO ;
         
     }

@@ -105,7 +105,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <connections>
-                                        <action selector="gotoController:" destination="-1" eventType="valueChanged" id="Q5L-eM-syo"/>
+                                        <action selector="gotoController:" destination="-1" eventType="touchUpInside" id="tm3-y0-tzm"/>
                                     </connections>
                                 </view>
                                 <view tag="1004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bji-mo-6vG" customClass="UIControl">
@@ -728,7 +728,7 @@
                 <constraint firstItem="j9P-XM-G0P" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="tcS-lq-R8L"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="258.5" y="1113.5"/>
+            <point key="canvasLocation" x="258.5" y="1113"/>
         </view>
     </objects>
     <resources>

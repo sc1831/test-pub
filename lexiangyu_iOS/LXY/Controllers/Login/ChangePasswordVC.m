@@ -124,6 +124,7 @@
     [request sendRequestPostUrl:MY_EDIT_PWD andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
+            return ;
         }
         if ([[resultDic[@"code"] stringValue] isEqualToString:@"1"]) {
             

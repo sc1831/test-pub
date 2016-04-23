@@ -62,6 +62,7 @@
 //            }
             if ([resultDic[@"code"] intValue] != 1) {
                 BG_LOGIN ;
+                return ;
             }
             
             NSDictionary *dict = resultDic[@"data"];
@@ -102,6 +103,7 @@
         [requestCenter sendRequestPostUrl:MY_COLLECT andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
             if ([resultDic[@"code"] intValue] != 1) {
                 BG_LOGIN ;
+                return ;
             }
             
             if ([[resultDic[@"code"] stringValue] isEqualToString:@"1"]) {

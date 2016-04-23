@@ -60,6 +60,7 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
     [requestCenter sendRequestPostUrl:G_CLASS andDic:nil setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
+            return ;
         }
 
         NSArray *data = resultDic[@"data"];
@@ -83,6 +84,7 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
     [requestCenter sendRequestPostUrl:SECOND_CLASS andDic:@{@"gc_id":classID} setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
+            return ;
         }
 
         if (defMtArray.count > 0) {

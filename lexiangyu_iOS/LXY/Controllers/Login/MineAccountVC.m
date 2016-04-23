@@ -90,7 +90,7 @@
 #pragma mark - UIAlertViewDelegate -
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     // 0 相机 1相册 2取消
-    if (buttonIndex == 3 ) {
+    if (buttonIndex == 2 ) {
         return ;
     }
     //实例化controller
@@ -117,6 +117,7 @@
     [[RequestCenter shareRequestCenter]sendRequestImageUrl:UPLOAD_AVATAR andImage:image setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
+            return ;
         }
         HUDNormal(@"头像上传成功");
         

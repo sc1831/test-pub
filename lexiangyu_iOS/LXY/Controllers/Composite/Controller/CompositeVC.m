@@ -138,6 +138,7 @@
             [self.compositeTab headerEndRefresh];
             if ([resultDic[@"code"] intValue] != 1) {
                 BG_LOGIN ;
+                return ;
             }
 //            if ([resultDic[@"code"] intValue] != 1) {
 //                return ;
@@ -165,6 +166,7 @@
         [requestCenter sendRequestPostUrl:COMPOSITE andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
             if ([resultDic[@"code"] intValue] != 1) {
                 BG_LOGIN ;
+                return ;
             }
             if ([[resultDic[@"code"] stringValue] isEqualToString:@"1"]) {
                 NSMutableArray *indexPaths = [NSMutableArray arrayWithCapacity:0];
@@ -216,7 +218,7 @@
             return ;
         }
         _tipView.hidden = NO;
-        _disappear = [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(animalMoveImage) userInfo:nil repeats:YES];
+        _disappear = [NSTimer scheduledTimerWithTimeInterval:0.8 target:self selector:@selector(animalMoveImage) userInfo:nil repeats:NO];
     } setFailBlock:^(NSString *errorStr) {
         NSLog(@"");
         
@@ -224,7 +226,8 @@
     
 }
 -(void)animalMoveImage{
-
+    
+    
     _tipView.hidden = YES;
 }
 //添加购物车成功提示
