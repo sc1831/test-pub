@@ -11,7 +11,8 @@
 #import "MainTabBar.h"
 #import "LoginVC.h"
 
-#define num 4
+#define num 2
+#define YINDAOYE_COUNT 3
 @interface GuiteVC ()<UIScrollViewDelegate>
 @property(nonatomic,strong)UIPageControl *pageControl;
 @end
@@ -29,16 +30,16 @@
     
     for (int i = 0; i<num; i++) {
         //背景图
-        UIImage *backImage = [UIImage imageNamed:@"guide_bg"];
-        
-        UIImageView *backImageView = [[UIImageView alloc]initWithImage:backImage];
-        
-        backImageView.frame = CGRectMake(M_WIDTH*i, 0, M_WIDTH, M_HEIGHT);
-        
-        [scrollView addSubview:backImageView];
+//        UIImage *backImage = [UIImage imageNamed:@"guide_bg"];
+//        
+//        UIImageView *backImageView = [[UIImageView alloc]initWithImage:backImage];
+//        
+//        backImageView.frame = CGRectMake(M_WIDTH*i, 0, M_WIDTH, M_HEIGHT);
+//        
+//        [scrollView addSubview:backImageView];
         
         //前置图
-        NSString *string = [NSString stringWithFormat:@"guideView_%i",i+1];
+        NSString *string = [NSString stringWithFormat:@"index%i",i+1];
         UIImage *forImage = [UIImage imageNamed:string];
         
         UIImageView *forImageView = [[UIImageView alloc]initWithImage:forImage];
@@ -57,33 +58,45 @@
     scrollView.pagingEnabled = YES;
     
     
-    //建立进入最后一个页面的按钮
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(M_WIDTH*(num-1) + 100,M_HEIGHT-140, 120, 50);
-    [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    //添加到滚动视图
-    [scrollView addSubview:button];
+//    //建立进入最后一个页面的按钮
+//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+//    button.frame = CGRectMake(M_WIDTH*(num-1) + 100,M_HEIGHT-140, 120, 50);
+//    [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+//    //添加到滚动视图
+//    [scrollView addSubview:button];
     
     
     //分页控制
-    self.pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake((M_WIDTH-120)/2, M_HEIGHT-40, 120, 0)];
+    self.pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake((M_WIDTH-120)/2, M_HEIGHT-40, 120,0)];
     //分页的页数
     self.pageControl.numberOfPages = num;
+    self.pageControl.pageIndicatorTintColor = [UIColor grayColor];
+    self.pageControl.currentPageIndicatorTintColor = [UIColor redColor];
     //当前显示分页
     self.pageControl.currentPage = 0;
     //将分页控建加在本视图上面
     [self.view addSubview:self.pageControl];
-    // Do any additional setup after loading the view, typically from a nib.
+
 }
 
 //分页控制
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     int gap = scrollView.contentOffset.x/M_WIDTH;
     self.pageControl.currentPage = gap;
+
+
+
 }
 
-
--(void)buttonClicked:(UIButton *)button{
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
+    
+    if (scrollView.contentOffset.x > scrollView.frame.size.width+30) {
+        [self buttonClicked];
+    }
+    
+    
+}
+-(void)buttonClicked{
     NSLog(@"进来了");
     if (true) {
         LoginVC *login = [[LoginVC alloc]init];
