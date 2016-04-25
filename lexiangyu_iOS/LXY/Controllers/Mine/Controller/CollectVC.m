@@ -71,15 +71,18 @@
 #pragma mark MJRefresh
 - (void)addMjHeaderAndFooter{
     
-    if (![GHControl isExistNetwork]) {
-        HUDNormal(@"服务器无响应，请稍后重试");
-        [self.collectTableView headerEndRefresh];
-        return;
-    }
+   
     
     [self.collectTableView headerAddMJRefresh:^{//添加顶部刷新功能
         [self.collectTableView footerResetNoMoreData];//重置无数据状态
         [postDic setValue:@"1" forKey:@"page"];
+        
+        if (![GHControl isExistNetwork]) {
+            HUDNormal(@"服务器无响应，请稍后重试");
+            [self.collectTableView headerEndRefresh];
+            return;
+        }
+        
         [requestCenter sendRequestPostUrl:MY_COLLECT andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
             [self.collectTableView headerEndRefresh];
 //            if ([resultDic[@"code"] intValue]==0) {
@@ -116,6 +119,12 @@
     }];
     
     [self.collectTableView footerAddMJRefresh:^{
+        
+        if (![GHControl isExistNetwork]) {
+            HUDNormal(@"服务器无响应，请稍后重试");
+            [self.collectTableView headerEndRefresh];
+            return;
+        }
         [postDic setValue:VALUETOSTR(_page) forKey:@"page"];
         [requestCenter sendRequestPostUrl:MY_COLLECT andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
             

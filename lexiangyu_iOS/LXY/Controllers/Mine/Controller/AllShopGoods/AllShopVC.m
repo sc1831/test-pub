@@ -69,16 +69,17 @@
 #pragma mark MJRefresh
 - (void)addMjHeaderAndFooter{
     
-    if (![GHControl isExistNetwork]) {
-        HUDNormal(@"服务器无响应，请稍后重试");
-        [self.waitPayTableView headerEndRefresh];
-        return;
-    }
     
     [self.waitPayTableView headerAddMJRefresh:^{//添加顶部刷新功能
         [self.waitPayTableView footerResetNoMoreData];//重置无数据状态
+        if (![GHControl isExistNetwork]) {
+            HUDNormal(@"服务器无响应，请稍后重试");
+            [self.waitPayTableView headerEndRefresh];
+            return;
+        }
         [postDic setValue:@"1" forKey:@"page"];
         [requestCenter sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+            
             [self.waitPayTableView headerEndRefresh];
             if ([resultDic[@"code"] intValue] != 1) {
                 BG_LOGIN ;
@@ -113,6 +114,13 @@
     }];
     
     [self.waitPayTableView footerAddMJRefresh:^{
+        
+        if (![GHControl isExistNetwork]) {
+            HUDNormal(@"服务器无响应，请稍后重试");
+            [self.waitPayTableView headerEndRefresh];
+            return;
+        }
+        
         [postDic setValue:VALUETOSTR(_page) forKey:@"page"];
         [requestCenter sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
             
