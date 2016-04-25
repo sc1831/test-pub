@@ -421,7 +421,7 @@
             return ;
         }
         HUDNormal(@"取消订单成功");
-        [self addMjHeaderAndFooter];
+        [self.waitPayTableView headerBeginRefresh];
         
 
     } setFailBlock:^(NSString *errorStr) {

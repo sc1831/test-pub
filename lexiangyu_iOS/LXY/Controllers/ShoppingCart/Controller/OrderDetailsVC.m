@@ -47,15 +47,22 @@
             BG_LOGIN ;
             return ;
         }
+        HUDNormal(resultDic[@"msg"]);
         if ([[resultDic[@"code"] stringValue] isEqualToString:@"1"]) {
             NSDictionary *dataDic = resultDic[@"data"];
             [addressModel setValuesForKeysWithDictionary:dataDic[@"address_info"]];
-            NSArray *goods_list = dataDic[@"order"];
-            for (NSDictionary *dic in goods_list) {
-                GoodsModel *goodsModel = [[GoodsModel alloc]init];
-                [goodsModel setValuesForKeysWithDictionary:dic];
-                [goods_Mutlist addObject:goodsModel];
-            }
+            NSArray *order = dataDic[@"order"];
+//            for (NSDictionary *orderDic in order) {
+//                for (<#type *object#> in <#collection#>) {
+//                    <#statements#>
+//                }
+//            }
+            
+//            for (NSDictionary *dic in order) {
+//                GoodsModel *goodsModel = [[GoodsModel alloc]init];
+//                [goodsModel setValuesForKeysWithDictionary:dic];
+//                [goods_Mutlist addObject:goodsModel];
+//            }
             [self.orderDetalsTableView reloadData];
         }
         
@@ -81,12 +88,12 @@
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     OrderDetailHeaderView *headerView = [[[NSBundle mainBundle]loadNibNamed:@"OrderDetailHeaderView" owner:self options:nil]firstObject];
-//    [headerView configWithOrderModel:orderModel];
+    [headerView configWithOrderModel:orderModel];
     return headerView ;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     OrderTabViewFootView *footView =[[[NSBundle mainBundle]loadNibNamed:@"OrderTabViewFootView" owner:self options:nil]firstObject];
-//    [footView configWithOrderModel:orderModel];
+    [footView configWithOrderModel:orderModel];
     return footView ;
 
 }

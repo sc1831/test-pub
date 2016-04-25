@@ -457,7 +457,8 @@
             HUDNormal(@"已付款的订单目前不支持取消订单");
             return ;
         }
-        HUDNormal(@"取消订单成功");
+        
+        HUDNormal(resultDic[@"msg"]);
         [self.waitPayTableView headerBeginRefresh];
         
     } setFailBlock:^(NSString *errorStr) {

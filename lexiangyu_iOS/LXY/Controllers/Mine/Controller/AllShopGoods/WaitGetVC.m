@@ -234,6 +234,7 @@
     [_footView addSubview:moneyLabel];
     
     UIButton *btn = [GHControl createButtonWithFrame:CGRectMake(M_WIDTH-90,5,75, 30) ImageName:@"评价商品_默认" Target:self Action:@selector(btnClick:) Title:@"确认收货"];
+    btn.tag = section ;
     btn.titleLabel.font = [UIFont systemFontOfSize:14];
     [btn setTitleColor:RGBCOLOR(249, 147, 73) forState:UIControlStateNormal];
     [_footView addSubview:btn];
@@ -315,7 +316,16 @@
 
 
 -(void)btnClick:(UIButton *)btn{
-    requestCenter sendRequestPostUrl:<#(NSString *)#> andDic:<#(NSDictionary *)#> setSuccessBlock:<#^(NSDictionary *resultDic)success_block#> setFailBlock:<#^(NSString *errorStr)fail_block#>
+        AllGoodsOrders *model = _dataArray[btn.tag];
+    [requestCenter sendRequestPostUrl:CONFIRM_RECEIPT andDic:@{@"pay_sn":model.pay_sn} setSuccessBlock:^(NSDictionary *resultDic) {
+        if ([resultDic[@"code"] intValue] != 1) {
+            BG_LOGIN ;
+            return ;
+        }
+        HUDNormal(resultDic[@"msg"]);
+        [self.waitGetTableView headerBeginRefresh];
+    } setFailBlock:^(NSString *errorStr) {
+    }];
     NSLog(@"确认收货");
 }
 
