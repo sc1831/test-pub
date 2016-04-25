@@ -21,7 +21,7 @@
                             <constraint firstAttribute="width" constant="2" id="NQP-Dq-tpM"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="食品生鲜" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rvw-Gl-2XH">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rvw-Gl-2XH">
                         <rect key="frame" x="6" y="4.5" width="68" height="24"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="68" id="0YA-EF-GOI"/>

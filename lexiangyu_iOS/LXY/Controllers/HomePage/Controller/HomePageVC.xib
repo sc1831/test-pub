@@ -296,7 +296,7 @@
                                 <view tag="3000" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5i4-a0-bJJ" customClass="UIControl">
                                     <rect key="frame" x="0.0" y="40" width="123" height="230"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="3300" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥110.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fjp-bM-tpg">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="3300" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fjp-bM-tpg">
                                             <rect key="frame" x="11" y="202" width="99" height="15"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="15" id="efh-Ib-NoO"/>
@@ -311,7 +311,7 @@
                                                 <constraint firstAttribute="height" constant="137" id="ham-zu-efd"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="3200" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="食品级光滑细腻食品级光滑细腻" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKY-nG-QUa">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="3200" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKY-nG-QUa">
                                             <rect key="frame" x="11" y="171" width="99" height="31"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="31" id="T4C-vS-JlX"/>
@@ -320,7 +320,7 @@
                                             <color key="textColor" red="0.41176470590000003" green="0.41568627450000001" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="3500" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="双层防烫电水壶" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0e6-GP-hOx">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="3500" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0e6-GP-hOx">
                                             <rect key="frame" x="1" y="149" width="121" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="uEU-F7-Ygc"/>
@@ -358,7 +358,7 @@
                                                 <constraint firstAttribute="height" constant="66" id="BH8-SJ-hhE"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="3201" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="双层防烫电水壶" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h40-VC-a5o">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="3201" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h40-VC-a5o">
                                             <rect key="frame" x="0.0" y="74" width="124" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="laf-85-88H"/>
@@ -367,7 +367,7 @@
                                             <color key="textColor" red="0.41176470590000003" green="0.41568627450000001" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="3300" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥110.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apZ-Ub-m9o">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="3300" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apZ-Ub-m9o">
                                             <rect key="frame" x="8" y="98" width="107.5" height="15"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="15" id="ULb-IP-wyg"/>
@@ -402,7 +402,7 @@
                                                 <constraint firstAttribute="height" constant="66" id="lKr-pm-Jvf"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="3202" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="双层防烫电水壶" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58K-ze-0bW">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="3202" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58K-ze-0bW">
                                             <rect key="frame" x="0.0" y="74" width="124" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="7Oo-zQ-HP4"/>
@@ -411,7 +411,7 @@
                                             <color key="textColor" red="0.41176470590000003" green="0.41568627450000001" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="3300" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥110.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDb-J1-jJW">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="3300" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDb-J1-jJW">
                                             <rect key="frame" x="8" y="98" width="99" height="15"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="15" id="wOL-Hi-vho"/>
@@ -448,7 +448,7 @@
                                                 <constraint firstAttribute="height" constant="87" id="avY-UK-OgU"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="3300" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥110.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6Q-No-UHf">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="3300" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6Q-No-UHf">
                                             <rect key="frame" x="22" y="62" width="119" height="15"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="15" id="780-f8-mvw"/>
@@ -457,7 +457,7 @@
                                             <color key="textColor" red="0.97647058819999999" green="0.23921568630000001" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="3203" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="双层防烫电水壶" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cX-eb-aXN">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="3203" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cX-eb-aXN">
                                             <rect key="frame" x="0.0" y="38" width="143" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="RYP-c5-i6B"/>

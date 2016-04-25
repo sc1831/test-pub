@@ -15,7 +15,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="184" height="106.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="多款种类任你选" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lp1-la-8sU">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lp1-la-8sU">
                         <rect key="frame" x="8" y="40" width="103" height="29"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="103" id="Nl9-hm-xFf"/>
@@ -24,7 +24,7 @@
                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每斤4元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXy-1K-6WV">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXy-1K-6WV">
                         <rect key="frame" x="8" y="74" width="103" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="103" id="jFL-X0-cLZ"/>
@@ -90,7 +90,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="产品图片.png" width="1256" height="1134"/>
+        <image name="产品图片.png" width="25" height="25"/>
         <image name="超值特价板块“快来抢购”标签.png" width="100" height="56"/>
     </resources>
 </document>

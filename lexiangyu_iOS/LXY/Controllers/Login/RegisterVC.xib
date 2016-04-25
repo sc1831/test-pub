@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterVC">
@@ -67,7 +67,7 @@
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="huk-cO-vFJ">
-                            <rect key="frame" x="263" y="57" width="99" height="28"/>
+                            <rect key="frame" x="263" y="53" width="99" height="38"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="99" id="k3z-gF-ffw"/>
                             </constraints>
@@ -87,13 +87,13 @@
                         <constraint firstItem="aQa-vH-IZI" firstAttribute="leading" secondItem="yuT-4M-cKF" secondAttribute="leading" constant="13" id="Qgn-NC-grV"/>
                         <constraint firstItem="Gid-FC-3ih" firstAttribute="top" secondItem="yuT-4M-cKF" secondAttribute="top" constant="11" id="VJo-Bl-jUc"/>
                         <constraint firstItem="HqA-F3-IIQ" firstAttribute="top" secondItem="3qf-Y7-MA9" secondAttribute="bottom" constant="6" id="Xxx-Rk-PTA"/>
-                        <constraint firstAttribute="bottom" secondItem="huk-cO-vFJ" secondAttribute="bottom" constant="10" id="an8-cv-bof"/>
+                        <constraint firstAttribute="bottom" secondItem="huk-cO-vFJ" secondAttribute="bottom" constant="4" id="an8-cv-bof"/>
                         <constraint firstItem="3qf-Y7-MA9" firstAttribute="leading" secondItem="yuT-4M-cKF" secondAttribute="leading" constant="6" id="bO6-aA-RCz"/>
                         <constraint firstAttribute="height" constant="95" id="d12-Re-Mrm"/>
                         <constraint firstAttribute="trailing" secondItem="3qf-Y7-MA9" secondAttribute="trailing" constant="6" id="gNB-cj-Zjw"/>
                         <constraint firstItem="aQa-vH-IZI" firstAttribute="top" secondItem="3qf-Y7-MA9" secondAttribute="bottom" constant="10" id="jyW-ac-Z5O"/>
                         <constraint firstItem="HqA-F3-IIQ" firstAttribute="leading" secondItem="aQa-vH-IZI" secondAttribute="trailing" id="tZ0-bs-V8M"/>
-                        <constraint firstItem="huk-cO-vFJ" firstAttribute="top" secondItem="3qf-Y7-MA9" secondAttribute="bottom" constant="8" id="uD5-9n-2Vu"/>
+                        <constraint firstItem="huk-cO-vFJ" firstAttribute="top" secondItem="3qf-Y7-MA9" secondAttribute="bottom" constant="4" id="uD5-9n-2Vu"/>
                         <constraint firstItem="3qf-Y7-MA9" firstAttribute="top" secondItem="yuT-4M-cKF" secondAttribute="top" constant="48" id="v4g-1Q-FJw"/>
                     </constraints>
                 </view>

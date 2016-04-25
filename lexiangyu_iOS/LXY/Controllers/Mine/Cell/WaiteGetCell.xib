@@ -21,7 +21,7 @@
                             <constraint firstAttribute="width" constant="57" id="GPz-ck-U2R"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="泰国进口芒果新鲜青芒果  8斤起卖非常好吃" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rvc-Gi-G6T">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rvc-Gi-G6T">
                         <rect key="frame" x="73" y="8" width="239" height="37"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="37" id="TMU-Pd-VhS"/>
@@ -30,7 +30,7 @@
                         <color key="textColor" red="0.38431372549019605" green="0.38823529411764707" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016-03-19  08:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hof-3A-Z5o">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hof-3A-Z5o">
                         <rect key="frame" x="73" y="50" width="177" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="nUv-pb-1iW"/>
@@ -55,6 +55,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="产品图片.png" width="310" height="268"/>
+        <image name="产品图片.png" width="25" height="25"/>
     </resources>
 </document>
