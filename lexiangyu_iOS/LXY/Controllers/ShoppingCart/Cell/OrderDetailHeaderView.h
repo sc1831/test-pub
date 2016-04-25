@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "OrderModel.h"
+#import "AddressModel.h"
 @interface OrderDetailHeaderView : UIView
 @property (weak, nonatomic) IBOutlet UILabel *storeNameAndPhoneLab;
 
 @property (weak, nonatomic) IBOutlet UITextView *area_infoTextView;
 
-- (void)configWithOrderModel:(OrderModel *)model ;
+- (void)configWithOrderModel:(AddressModel *)model ;
 @end

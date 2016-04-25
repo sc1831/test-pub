@@ -17,7 +17,7 @@
 @interface OrderDetailsVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     AddressModel *addressModel ;
-    NSMutableArray *goods_Mutlist ;
+    NSMutableArray *goods_Mutlist ; //cellarray
 }
 @property (weak, nonatomic) IBOutlet UITableView *orderDetalsTableView;
 
@@ -53,10 +53,21 @@
             [addressModel setValuesForKeysWithDictionary:dataDic[@"address_info"]];
             NSArray *order = dataDic[@"order"];
 //            for (NSDictionary *orderDic in order) {
-//                for (<#type *object#> in <#collection#>) {
-//                    <#statements#>
+//                NSMutableArray *order_mtArray = [NSMutableArray arrayWithCapacity:0];
+//                for (NSDictionary *goodsDic in orderDic[@"goods"]) {
+//                    GoodsModel *model = [[GoodsModel alloc]init];
+//                    [model setValuesForKeysWithDictionary:goodsDic];
+//                    [order_mtArray addObject:model];
 //                }
+//                [goods_Mutlist addObject:order_mtArray];
 //            }
+            for (NSDictionary *orderDic in order) {
+                for (NSDictionary *goodsDic in orderDic[@"goods"]) {
+                    GoodsModel *model = [[GoodsModel alloc]init];
+                    [model setValuesForKeysWithDictionary:goodsDic];
+                    [goods_Mutlist addObject:model];
+                }
+            }
             
 //            for (NSDictionary *dic in order) {
 //                GoodsModel *goodsModel = [[GoodsModel alloc]init];
@@ -88,12 +99,12 @@
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     OrderDetailHeaderView *headerView = [[[NSBundle mainBundle]loadNibNamed:@"OrderDetailHeaderView" owner:self options:nil]firstObject];
-    [headerView configWithOrderModel:orderModel];
+    [headerView configWithOrderModel:addressModel];
     return headerView ;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     OrderTabViewFootView *footView =[[[NSBundle mainBundle]loadNibNamed:@"OrderTabViewFootView" owner:self options:nil]firstObject];
-    [footView configWithOrderModel:orderModel];
+//    [footView configWithOrderModel:orderModel];
     return footView ;
 
 }

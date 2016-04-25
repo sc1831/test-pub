@@ -9,10 +9,10 @@
 #import "OrderDetailHeaderView.h"
 #import "Common.h"
 @implementation OrderDetailHeaderView
--(void)configWithOrderModel:(OrderModel *)model{
+-(void)configWithOrderModel:(AddressModel *)model{
     ;
-    self.storeNameAndPhoneLab.text = STR_A_B_C(model.store_name, @"    ", model.mob_phone);
-    self.area_infoTextView.text = model.area_info ;
+//    self.storeNameAndPhoneLab.text = STR_A_B_C(model.store_name, @"    ", model.mob_phone);
+//    self.area_infoTextView.text = model.area_info ;
 }
 /*
 // Only override drawRect: if you perform custom drawing.
