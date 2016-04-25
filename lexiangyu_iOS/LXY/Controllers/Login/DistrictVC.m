@@ -57,6 +57,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+     CELLSELECTANIMATE ;
     NSLog(@"%@",_dataArray[indexPath.row]);
     DistrictVC *districtVC = [[DistrictVC alloc]init];
     [self.navigationController pushViewController:districtVC animated:YES];

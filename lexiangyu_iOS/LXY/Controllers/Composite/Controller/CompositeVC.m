@@ -113,7 +113,7 @@
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    CELLSELECTANIMATE ;
     [self.compositeTab deselectRowAtIndexPath:indexPath animated:YES];
     ShopingDetailsVC *shoppingDetailsVC = [[ShopingDetailsVC alloc]init];
     GoodsModel *model = goods_Mtlist[indexPath.row];

@@ -18,9 +18,10 @@
 #import "UITableView+MJRefresh.h"
 
 #import "OrderDetailsVC.h"
+#import "ShopingDetailsVC.h"
 @interface WaitGetVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic ,strong)UITableView *waitGetTableView;
-@property (nonatomic ,strong)UIView *headView;
+@property (nonatomic ,strong)UIControl *headView;
 @property (nonatomic ,strong)UIView *footView;
 @property (nonatomic ,strong)NSMutableArray *dataArray;
 @property (nonatomic ,strong)NSMutableArray *subMutArray;
@@ -206,8 +207,16 @@
     [_headView addSubview:waitLabel];
     
     
+    _headView.tag = section ;
+    [_headView addTarget:self action:@selector(headerClick:) forControlEvents:UIControlEventTouchUpInside];
     return _headView;
     
+}
+- (void)headerClick:(UIControl *)control{
+    AllGoodsOrders *model = _dataArray[control.tag];
+    OrderDetailsVC *detailVC = [[OrderDetailsVC alloc]init];
+    detailVC.order_id = model.pay_sn ;
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     
@@ -269,10 +278,7 @@
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:cellName owner:self options:nil] firstObject];
         }
-        UIControl *control = [[UIControl alloc]initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
-        control.tag = indexPath.section ;
-        [control addTarget:self action:@selector(cellClick:) forControlEvents:UIControlEventTouchUpInside];
-        [cell addSubview:control];
+
         
         [cell modelWithArray:_subMutArray[indexPath.section]];
         
@@ -282,13 +288,13 @@
  
 }
 
-- (void)cellClick:(UIControl *)control {
-    NSLog(@"control.tag : %ld",control.tag);
-    OrderDetailsVC *detailVC = [[OrderDetailsVC alloc]init];
-    AllGoodsOrders *model = _dataArray[control.tag];
-    detailVC.order_id = model.pay_sn ;
-    [self.navigationController pushViewController:detailVC animated:YES];
-}
+//- (void)cellClick:(UIControl *)control {
+//    NSLog(@"control.tag : %ld",control.tag);
+//    OrderDetailsVC *detailVC = [[OrderDetailsVC alloc]init];
+//    AllGoodsOrders *model = _dataArray[control.tag];
+//    detailVC.order_id = model.pay_sn ;
+//    [self.navigationController pushViewController:detailVC animated:YES];
+//}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     //    if (indexPath.section == 0) {
@@ -298,26 +304,25 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    [_waitGetTableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self.waitGetTableView deselectRowAtIndexPath:indexPath animated:YES];
-    OrderDetailsVC *detailVC = [[OrderDetailsVC alloc]init];
-    AllGoodsOrders *model = _dataArray[indexPath.section];
-    detailVC.order_id = model.pay_sn ;
-    [self.navigationController pushViewController:detailVC animated:YES];
+     CELLSELECTANIMATE ;
+    AllGoodsOrders *model =  _subMutArray[indexPath.section][indexPath.row];
+    ShopingDetailsVC *shoppingDetailsVC = [[ShopingDetailsVC alloc] init];
+    shoppingDetailsVC.goods_commonid = model.goods_id ;
+    [self.navigationController pushViewController:shoppingDetailsVC animated:YES];
+
 }
 
 
 
 -(void)btnClick:(UIButton *)btn{
-    
+    requestCenter sendRequestPostUrl:<#(NSString *)#> andDic:<#(NSDictionary *)#> setSuccessBlock:<#^(NSDictionary *resultDic)success_block#> setFailBlock:<#^(NSString *errorStr)fail_block#>
     NSLog(@"确认收货");
 }
 
 
 #pragma mark------headView  footView
 -(UIView *)createHeadView{
-    _headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH,45)];
+    _headView = [[UIControl alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH,45)];
     _headView.backgroundColor = [UIColor whiteColor];
     UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH,5)];
     topView.backgroundColor = RGBCOLOR(219, 223, 224);

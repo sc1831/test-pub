@@ -93,6 +93,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [UIView animateWithDuration:0.3f
+                     animations:^{
+                         [tableView deselectRowAtIndexPath:indexPath animated:YES];
+                     }];
     CityNameModel *model = _dataArray[indexPath.row];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

@@ -44,7 +44,7 @@
 @property (nonatomic, strong) NSMutableDictionary *mutableDictModel;
 
 @property (nonatomic ,strong)UITableView *shoppingTableView;
-@property (nonatomic, strong)UIView *headView;
+@property (nonatomic, strong)UIControl *headView;
 @property (nonatomic ,strong)UIView *footView;
 @property (nonatomic,strong)UITabBarItem * tabBarItemOfMessage;
 @property (nonatomic ,strong)UIButton *rightNarBtn;
@@ -455,7 +455,7 @@
     
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+     CELLSELECTANIMATE ;
     [_shoppingTableView deselectRowAtIndexPath:indexPath animated:YES];
     ShopingDetailsVC *shoppingDetailsVC = [[ShopingDetailsVC alloc]init];
     ShoppingCartModel *model = _dataArray[indexPath.section][indexPath.row];
@@ -915,7 +915,7 @@
 }
 #pragma mark------headView  footView
 -(UIView *)createHeadView{
-    _headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH,45)];
+    _headView = [[UIControl alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH,45)];
     _headView.backgroundColor = [UIColor whiteColor];
     UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH,5)];
     topView.backgroundColor = RGBCOLOR(219, 223, 224);

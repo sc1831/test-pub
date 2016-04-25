@@ -353,6 +353,7 @@
 		6EA503DE1CA232FC00FA19BA /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EA503DC1CA232FC00FA19BA /* HomeCollectionViewCell.xib */; };
 		6EA503E21CA248A300FA19BA /* HomeClassifyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA503E01CA248A300FA19BA /* HomeClassifyVC.m */; };
 		6EA503E31CA248A300FA19BA /* HomeClassifyVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EA503E11CA248A300FA19BA /* HomeClassifyVC.xib */; };
+		6EA8640F1CCE1297005DA63E /* AddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA8640E1CCE1297005DA63E /* AddressModel.m */; };
 		6EB359CB1CC785970082B578 /* OrderOverModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB359CA1CC785970082B578 /* OrderOverModel.m */; };
 		6EBA3BAB1CBBACD4002D6C69 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EBA3BAA1CBBACD4002D6C69 /* CoreText.framework */; };
 		6EBA3BAD1CBBACDC002D6C69 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EBA3BAC1CBBACDC002D6C69 /* CoreGraphics.framework */; };
@@ -930,6 +931,8 @@
 		6EA503DF1CA248A300FA19BA /* HomeClassifyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeClassifyVC.h; sourceTree = "<group>"; };
 		6EA503E01CA248A300FA19BA /* HomeClassifyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeClassifyVC.m; sourceTree = "<group>"; };
 		6EA503E11CA248A300FA19BA /* HomeClassifyVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeClassifyVC.xib; sourceTree = "<group>"; };
+		6EA8640D1CCE1297005DA63E /* AddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressModel.h; sourceTree = "<group>"; };
+		6EA8640E1CCE1297005DA63E /* AddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressModel.m; sourceTree = "<group>"; };
 		6EB359C91CC785970082B578 /* OrderOverModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderOverModel.h; path = ../../Composite/Model/OrderOverModel.h; sourceTree = "<group>"; };
 		6EB359CA1CC785970082B578 /* OrderOverModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderOverModel.m; path = ../../Composite/Model/OrderOverModel.m; sourceTree = "<group>"; };
 		6EBA3BAA1CBBACD4002D6C69 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
@@ -2167,6 +2170,8 @@
 				6EF2A1CB1CAB6C1A00057FC0 /* ShoppingCartModel.m */,
 				6EC9C0351CC0B6340088F8F4 /* OrderModel.h */,
 				6EC9C0361CC0B6340088F8F4 /* OrderModel.m */,
+				6EA8640D1CCE1297005DA63E /* AddressModel.h */,
+				6EA8640E1CCE1297005DA63E /* AddressModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3089,6 +3094,7 @@
 				6E10A0691CC732BE0080F4D9 /* TipVC.m in Sources */,
 				6ED85BD51CAD0AB00042AEA0 /* RootModel.m in Sources */,
 				6E1D9A711CB3AA7800CBA10D /* SettingVC.m in Sources */,
+				6EA8640F1CCE1297005DA63E /* AddressModel.m in Sources */,
 				6E88CE3F1C97F13000DB73DA /* UIButton+Block.m in Sources */,
 				6E2E51451CA281860048A034 /* BestGoodsCell.m in Sources */,
 				6EF2A1B41CAA587F00057FC0 /* ProvincialCityVC.m in Sources */,

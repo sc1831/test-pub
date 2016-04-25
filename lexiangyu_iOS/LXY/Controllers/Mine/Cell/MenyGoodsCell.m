@@ -10,7 +10,7 @@
 #import "GHControl.h"
 #import "Common.h"
 #import "AllGoodsOrders.h"
-
+#import "ShopingDetailsVC.h"
 @implementation MenyGoodsCell
 
 - (void)awakeFromNib {
@@ -55,7 +55,7 @@
 
     [imageView sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@"火影1"]];
     [cell.contentView addSubview:imageView];
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone ;
     return cell;
 }
 -(NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -68,11 +68,19 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"点击%ld",(long)indexPath.row);
     [UIView animateWithDuration:0.3f
                      animations:^{
                          [tableView deselectRowAtIndexPath:indexPath animated:YES];
                      }];
+    
+    
+    // 获取导航控制器
+    UITabBarController *tabVC = (UITabBarController *)self.window.rootViewController;
+    UINavigationController *pushClassStance = (UINavigationController *)tabVC.viewControllers[tabVC.selectedIndex];
+    AllGoodsOrders *model = _dataMutArray[indexPath.row];
+    ShopingDetailsVC *shoppingDetailsVC = [[ShopingDetailsVC alloc] init];
+    shoppingDetailsVC.goods_commonid = model.goods_id ;
+    [pushClassStance pushViewController:shoppingDetailsVC animated:YES];
 }
 
 @end

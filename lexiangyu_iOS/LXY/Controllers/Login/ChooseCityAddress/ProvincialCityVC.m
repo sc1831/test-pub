@@ -102,6 +102,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+     CELLSELECTANIMATE ;
     NSLog(@"%@",_dataArray[indexPath.row]);
     CityNameModel *model = _dataArray[indexPath.row];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

@@ -101,6 +101,13 @@ hud.mode = MBProgressHUDModeIndeterminate;}
 #define STR_A_B(str1,str2) [NSString stringWithFormat:@"%@%@",str1,str2]
 #define STR_A_B_C(str1,str2,str3) [NSString stringWithFormat:@"%@%@%@",str1,str2,str3]
 
+/**
+ *tableview 点击一定时间 消失点击效果
+*/
+#define CELLSELECTANIMATE [UIView animateWithDuration:0.3f\
+                 animations:^{\
+                     [tableView deselectRowAtIndexPath:indexPath animated:YES];\
+                 }];
 
 //缓存设置
 

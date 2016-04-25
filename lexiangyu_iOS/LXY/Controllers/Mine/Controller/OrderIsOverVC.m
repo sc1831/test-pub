@@ -51,7 +51,8 @@
             BG_LOGIN ;
             return ;
         }
-        payUrl = resultDic[@"url"];
+        
+        payUrl = resultDic[@"data"][@"url"];
         PayWebView *payWebView = [[PayWebView alloc]init];
         payWebView.urlStr = payUrl ;
         [self.navigationController pushViewController:payWebView animated:YES];

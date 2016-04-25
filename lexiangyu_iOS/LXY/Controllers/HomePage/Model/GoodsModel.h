@@ -22,7 +22,8 @@
 //购物车列表
 @property (nonatomic,copy)NSString *goods_num ;//商品数量
 @property (nonatomic,copy)NSString *goods_pay_price ;//商品实际支付价格
-
+@property (nonatomic,copy)NSString *store_id ;
+@property (nonatomic,copy)NSString *store_name ;
 @property (nonatomic,copy)NSString *order_id ;//订单id
 @property (nonatomic,copy)NSString *rec_id ;//订单商品 表id
 

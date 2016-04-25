@@ -54,7 +54,7 @@
 
 
 @property (nonatomic ,strong)UITableView *confirmTableView;
-@property (nonatomic ,strong)UIView *headView;
+@property (nonatomic ,strong)UIControl *headView;
 
 @property (nonatomic ,strong)NSMutableArray *sectionStateArray;
 //地址
@@ -320,14 +320,14 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+     CELLSELECTANIMATE ;
     [_confirmTableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
 
 #pragma mark------headView  footView
 -(UIView *)createHeadView{
-    _headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH,45)];
+    _headView = [[UIControl alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH,45)];
     _headView.backgroundColor = [UIColor whiteColor];
     UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH,5)];
     topView.backgroundColor = RGBCOLOR(219, 223, 224);

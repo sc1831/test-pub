@@ -13,10 +13,10 @@
 #import "Common.h"
 #import "RequestCenter.h"
 #import "GHControl.h"
-
+#import "AddressModel.h"
 @interface OrderDetailsVC ()<UITableViewDelegate,UITableViewDataSource>
 {
-    OrderModel *orderModel ;
+    AddressModel *addressModel ;
     NSMutableArray *goods_Mutlist ;
 }
 @property (weak, nonatomic) IBOutlet UITableView *orderDetalsTableView;
@@ -29,7 +29,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"订单详情" ;
-    orderModel = [[OrderModel alloc]init];
+    addressModel = [[AddressModel alloc]init];
     goods_Mutlist = [NSMutableArray arrayWithCapacity:0];
     [self loadOrderData];
 }
@@ -49,8 +49,8 @@
         }
         if ([[resultDic[@"code"] stringValue] isEqualToString:@"1"]) {
             NSDictionary *dataDic = resultDic[@"data"];
-            [orderModel setValuesForKeysWithDictionary:dataDic];
-            NSArray *goods_list = dataDic[@"goods_list"];
+            [addressModel setValuesForKeysWithDictionary:dataDic[@"address_info"]];
+            NSArray *goods_list = dataDic[@"order"];
             for (NSDictionary *dic in goods_list) {
                 GoodsModel *goodsModel = [[GoodsModel alloc]init];
                 [goodsModel setValuesForKeysWithDictionary:dic];
@@ -81,12 +81,12 @@
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     OrderDetailHeaderView *headerView = [[[NSBundle mainBundle]loadNibNamed:@"OrderDetailHeaderView" owner:self options:nil]firstObject];
-    [headerView configWithOrderModel:orderModel];
+//    [headerView configWithOrderModel:orderModel];
     return headerView ;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     OrderTabViewFootView *footView =[[[NSBundle mainBundle]loadNibNamed:@"OrderTabViewFootView" owner:self options:nil]firstObject];
-    [footView configWithOrderModel:orderModel];
+//    [footView configWithOrderModel:orderModel];
     return footView ;
 
 }
