@@ -53,6 +53,12 @@
 }
 -(void)sendRequestAddressData{
     
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+
+        return;
+    }
+    
     RequestCenter * request = [RequestCenter shareRequestCenter];
     NSDictionary *postDic = @{
                               @"user_id":[[SaveInfo shareSaveInfo]user_id]
@@ -149,6 +155,11 @@
     }
     if (![GHControl lengalPhoneNumber:_getCargoPhoneTextField.text]) {
         HUDNormal(@"请输入正确的手机号");
+        return;
+    }
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+
         return;
     }
     

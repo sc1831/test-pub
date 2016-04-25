@@ -93,7 +93,11 @@
         HUDNormal(@"请输入完整的验证码");
         return;
     }
-    
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+
+        return;
+    }
     
     RequestCenter *request = [RequestCenter shareRequestCenter];
     NSDictionary *postDic = @{@"phone":_phoneTextField.text,@"type":@"1",@"code":_verificationCodeTextField.text};
@@ -135,7 +139,11 @@
         HUDNormal(@"请输入正确的手机号");
         return;
     }
-    
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+
+        return;
+    }
     
     RequestCenter *request = [RequestCenter shareRequestCenter];
     NSDictionary *postDic = @{@"phone":_phoneTextField.text,@"type":@"1"};

@@ -12,7 +12,7 @@
 #import "LoginVC.h"
 #import "SaveInfo.h"
 #import "RequestCenter.h"
-
+#import "GHControl.h"
 
 
 #import "UMessage.h"
@@ -411,10 +411,16 @@ static NetworkStatus hostReachState=NotReachable;
 //    MainTabBar *mainVC = [[MainTabBar alloc]init];
 //    self.window.rootViewController = mainVC;
     
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+        return;
+    }
+    
     RequestCenter *request = [RequestCenter shareRequestCenter];
     if ([SaveInfo shareSaveInfo].user_id != nil && [SaveInfo shareSaveInfo].token != nil) {
         //有token
         NSDictionary *postDic = @{@"user_id":[SaveInfo shareSaveInfo].user_id,@"token":[SaveInfo shareSaveInfo].token};
+        
         
         [request sendRequestPostUrl:EDIT_USER_TOKEN andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
             if ([[resultDic objectForKey:@"code"] intValue]== 1) {

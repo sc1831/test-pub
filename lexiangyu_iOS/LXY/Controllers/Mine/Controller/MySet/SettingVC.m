@@ -12,6 +12,8 @@
 #import "RequestCenter.h"
 #import "SaveInfo.h"
 #import "AboutUsVC.h"
+#import "GHControl.h"
+
 @interface SettingVC ()
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UISwitch *handSwitch;
@@ -56,6 +58,11 @@
 }
 -(void)sendRequestData{
 
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+
+        return;
+    }
     RequestCenter * request = [RequestCenter shareRequestCenter];
     NSDictionary *postDic = @{@"token":[[SaveInfo shareSaveInfo]token],
                               @"phone":[[SaveInfo shareSaveInfo]loginName],

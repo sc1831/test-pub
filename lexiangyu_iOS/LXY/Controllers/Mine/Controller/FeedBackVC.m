@@ -51,6 +51,12 @@
 }
 -(void)sendRequestData{
     
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+
+        return;
+    }
+    
     if (_dataArray.count>0) {
         [_dataArray removeAllObjects];
     }
@@ -110,7 +116,11 @@
         HUDNormal(@"之多200字评论,您已超限");
         return ;
     }
-    
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+
+        return;
+    }
    
     RequestCenter * request = [RequestCenter shareRequestCenter];
         NSDictionary *postDic = @{@"user_id":[[SaveInfo shareSaveInfo]user_id],

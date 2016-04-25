@@ -242,6 +242,11 @@
         return;
         
     }
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+
+        return;
+    }
     RequestCenter *request = [RequestCenter shareRequestCenter];
     NSDictionary *postDic = @{@"phone":self.userNameTextField.text,@"type":@"9"};//1注册，2找回密码，5绑定手机号，6修改手机绑定确认步骤，9登陆
     
@@ -259,6 +264,13 @@
 }
 
 - (void)login_httpAndCode:(NSString *)code{
+    
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+
+        return;
+    }
+    
     RequestCenter *request = [RequestCenter shareRequestCenter];
     NSDictionary *postDic = @{@"phone":self.userNameTextField.text,@"pwd":self.passwordTextField.text,@"code":code};
    

@@ -62,7 +62,11 @@
         return;
     }
     
-    
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+
+        return;
+    }
     RequestCenter *request = [RequestCenter shareRequestCenter];
     NSDictionary *postDic = @{@"phone":_phoneNumTextField.text,@"type":@"2"};
     
@@ -160,6 +164,12 @@
    
 }
 -(void)sendSetPassword{
+    
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+
+        return;
+    }
     RequestCenter *request = [RequestCenter shareRequestCenter];
     NSDictionary *postDic = @{@"phone":_phoneNumTextField.text,@"pwd":_passwordTextField.text,@"code":_authTextField.text};
     

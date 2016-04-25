@@ -142,6 +142,10 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     
 }
 - (void)loadHomeData{
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+        return;
+    }
     RequestCenter *request = [RequestCenter shareRequestCenter];
     [request sendRequestPostUrl:HOME_INDEX andDic:nil setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
@@ -264,6 +268,10 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 }
 #pragma mark - 可能感兴趣的商品
 - (void)loadRecommend_goods{
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+        return;
+    }
     RequestCenter *requestCenter = [RequestCenter shareRequestCenter];
     NSDictionary *postDic = @{@"buyer_id":[[SaveInfo shareSaveInfo] user_id],@"page":@"1",@"page_num":@"10"};
     [requestCenter sendRequestPostUrl:RECOMMEND_GOODS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {

@@ -70,6 +70,13 @@
 
 #pragma mark MJRefresh
 - (void)addMjHeaderAndFooter{
+    
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+        [self.collectTableView headerEndRefresh];
+        return;
+    }
+    
     [self.collectTableView headerAddMJRefresh:^{//添加顶部刷新功能
         [self.collectTableView footerResetNoMoreData];//重置无数据状态
         [postDic setValue:@"1" forKey:@"page"];
@@ -186,12 +193,11 @@
 }
 -(void)sendDellectRequestData:(NSIndexPath *)indexPath{
     
-    /**
-     ids        是 	string	商品id，多一个请用,隔开
-     user_id	是	int     用户id
-     type       是	string	goods商品	store店铺
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
 
-     */
+        return;
+    }
     
     MyCollectModel *model = _dataArray[indexPath.row];
     
@@ -246,6 +252,13 @@
     
 }
 -(void)addShopGoodsRequestData:(int )index{
+    
+    
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+
+        return;
+    }
     
     MyCollectModel *model = _dataArray[index];
     

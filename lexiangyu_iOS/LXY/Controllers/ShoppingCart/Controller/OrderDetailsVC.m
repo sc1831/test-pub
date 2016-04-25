@@ -12,6 +12,8 @@
 #import "OrderDetailCell.h"
 #import "Common.h"
 #import "RequestCenter.h"
+#import "GHControl.h"
+
 @interface OrderDetailsVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     OrderModel *orderModel ;
@@ -32,6 +34,13 @@
     [self loadOrderData];
 }
 - (void)loadOrderData{
+    
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+
+        return;
+    }
+    
     RequestCenter *requsetCenter = [RequestCenter shareRequestCenter];
     [requsetCenter sendRequestPostUrl:ORDER_DETAILS andDic:@{@"pay_sn":self.order_id} setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {

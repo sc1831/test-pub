@@ -58,6 +58,13 @@
 
 #pragma mark MJRefresh
 - (void)addMjHeaderAndFooter{
+    
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+        [self.waitGetTableView headerEndRefresh];
+        return;
+    }
+    
     [self.waitGetTableView headerAddMJRefresh:^{//添加顶部刷新功能
         [self.waitGetTableView footerResetNoMoreData];//重置无数据状态
         [postDic setValue:@"1" forKey:@"page"];

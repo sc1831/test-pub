@@ -17,6 +17,8 @@
 #import "ClassModel.h"
 #import "GoodsModel.h"
 #import "TitleModel.h"
+#import "GHControl.h"
+
 static NSString *const cellID = @"CLASSIFYCOLLECTIONCELL";
 static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
 @interface ClassifyVC ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegate,UITextFieldDelegate>
@@ -66,6 +68,12 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
 }
 
 - (void)loadClassData{
+    
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+        return;
+    }
+    
     RequestCenter *requestCenter = [RequestCenter shareRequestCenter];
     [requestCenter sendRequestPostUrl:G_CLASS andDic:nil setSuccessBlock:^(NSDictionary *resultDic) {
         
@@ -111,6 +119,12 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
 }
 
 - (void)getGoodsDatabyClassid:(NSString *)classID{
+    
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+        return;
+    }
+    
     RequestCenter *requestCenter = [RequestCenter shareRequestCenter];
     
     [requestCenter sendRequestPostUrl:SECOND_CLASS andDic:@{@"gc_id":classID} setSuccessBlock:^(NSDictionary *resultDic) {

@@ -11,6 +11,7 @@
 #import "ChangePhoneAndGetCodeVC.h"
 #import "RequestCenter.h"
 #import "SaveInfo.h"
+#import "GHControl.h"
 
 @interface ChangePhoneNumVC ()<UITextFieldDelegate>
 
@@ -38,6 +39,11 @@
 
 }
 - (void)sendSMS{
+    
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+        return;
+    }
     RequestCenter *request = [RequestCenter shareRequestCenter];
     NSDictionary *postDic = @{@"phone":_accountNameStr,@"type":@"5"};//1注册，2找回密码，5绑定手机号，6修改手机绑定确认步骤，9登陆
     
@@ -89,6 +95,11 @@
 }
 
 - (void)checkSMS_byCodeStr:(NSString *)codeStr{
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+        return;
+    }
+    
     RequestCenter *request = [RequestCenter shareRequestCenter];
     [request sendRequestPostUrl:CHECK_SMS andDic:@{@"phone":_accountNameStr,@"code":codeStr,@"type":@"5"} setSuccessBlock:^(NSDictionary *resultDic) {
         HUDNormal([resultDic objectForKey:@"msg"]);

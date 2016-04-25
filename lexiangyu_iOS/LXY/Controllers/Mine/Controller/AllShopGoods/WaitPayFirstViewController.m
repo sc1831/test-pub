@@ -60,6 +60,11 @@
 }
 #pragma mark MJRefresh
 - (void)addMjHeaderAndFooter{
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+        [self.waitPayTableView headerEndRefresh];
+        return;
+    }
     [self.waitPayTableView headerAddMJRefresh:^{//添加顶部刷新功能
         [self.waitPayTableView footerResetNoMoreData];//重置无数据状态
         [postDic setValue:@"3" forKey:@"page"];
@@ -306,6 +311,11 @@
 
 -(void)payBtnClick:(UIButton *)btn{
     NSLog(@"去支付");
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+
+        return;
+    }
     AllGoodsOrders *model = _dataArray[btn.tag];
     [requestCenter sendRequestPostUrl:APP_PAY andDic:@{@"t":@"3",@"pay_sn":model.pay_sn} setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
@@ -366,6 +376,12 @@
     
 }
 -(void)sendRequestDataCancelOrderId:(NSString *)orderId andReason:(NSString *)reasonStr{
+    
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+
+        return;
+    }
     
     RequestCenter * request = [RequestCenter shareRequestCenter];
     NSDictionary *postDict = @{

@@ -50,11 +50,10 @@
         return;
     }
     
-    /**
-     phone	是	int	手机号
-     type	是	int	1注册，2找回密码，5绑定手机号，6修改手机绑定确认步骤，9登陆
-
-     */
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+        return;
+    }
     RequestCenter *request = [RequestCenter shareRequestCenter];
     NSDictionary *postDic = @{@"phone":_phoneNumTextField.text,@"type":@"6"};
     
@@ -176,14 +175,10 @@ replacementString:(NSString *)string {
 - (IBAction)nestBtnClick:(id)sender {
     
     
-    /**
-     user_id	是	int	用户id
-     phone	是	int	原手机号
-     code	是	int	原手机号验证码
-     new_phone	是	int	新手机号
-     new_code	是	int	新手机号验证码
-
-     */
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+        return;
+    }
     
     RequestCenter *request = [RequestCenter shareRequestCenter];
     NSDictionary *postDic = @{@"user_id":[[SaveInfo shareSaveInfo] user_id],

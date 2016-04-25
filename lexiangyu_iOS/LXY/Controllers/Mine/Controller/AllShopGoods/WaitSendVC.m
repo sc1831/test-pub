@@ -59,6 +59,13 @@
 }
 #pragma mark MJRefresh
 - (void)addMjHeaderAndFooter{
+    
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+        [self.waitSendtableView headerEndRefresh];
+        return;
+    }
+    
     [self.waitSendtableView headerAddMJRefresh:^{//添加顶部刷新功能
         [self.waitSendtableView footerResetNoMoreData];//重置无数据状态
         [postDic setValue:@"3" forKey:@"page"];

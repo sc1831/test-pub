@@ -151,9 +151,9 @@
         [self.shoppingTableView footerResetNoMoreData];//重置无数据状态
         
         if (![GHControl isExistNetwork]) {
-            HUDNormal(@"无网络、请稍后再试");
-           [self.shoppingTableView headerEndRefresh];
-            return ;
+            HUDNormal(@"服务器无响应，请稍后重试");
+            [self.shoppingTableView headerEndRefresh];
+            return;
         }
         [self sendRequestData];
     }];
@@ -771,7 +771,12 @@
         HUDNormal(@"请选择要删除的商品");
         return;
     }
-   
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+
+        return;
+    }
+    
     RequestCenter *request = [RequestCenter shareRequestCenter];
     
     NSDictionary *dict = @{@"cart_ids":cartIds};
@@ -824,6 +829,11 @@
 #pragma mark----更改商品数量
 -(void)sendAddShopGoodsCartId:(NSString *)cartId  andGoodsNum:(NSString *)goodsNum isManual:(BOOL)ismanual{
     
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+
+        return;
+    }
 
     RequestCenter *request = [RequestCenter shareRequestCenter];
     

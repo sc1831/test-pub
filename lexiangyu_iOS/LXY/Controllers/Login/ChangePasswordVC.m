@@ -11,6 +11,8 @@
 #import "SaveInfo.h"
 #import "LoginVC.h"
 #import "Common.h"
+#import "GHControl.h"
+
 @interface ChangePasswordVC ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *oldPasswordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *newsPasswordTexyField;
@@ -108,11 +110,11 @@
 }
 
 -(void)sendRequestData{
-//    NSArray *array = @[self.oldPasswordTextField.text,self.newsPasswordTexyField.text , self.againTextField.text];
-//    if (![array[1] isEqualToString:array[2]]) {
-//        HUDNormal(@"两次密码不一致,请重新输入");
-//        return ;
-//    }
+
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+        return;
+    }
     RequestCenter * request = [RequestCenter shareRequestCenter];
     NSLog(@"%@",[[SaveInfo shareSaveInfo]loginName]);
     NSDictionary *postDic = @{@"phone":[[SaveInfo shareSaveInfo]loginName],

@@ -131,6 +131,13 @@
 
 #pragma mark MJRefresh
 - (void)addMjHeaderAndFooter{
+    
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+        [self.compositeTab headerEndRefresh];
+        return;
+    }
+    
     [self.compositeTab headerAddMJRefresh:^{//添加顶部刷新功能
         [self.compositeTab footerResetNoMoreData];//重置无数据状态
         [postDic setValue:@"1" forKey:@"page"];
@@ -205,6 +212,11 @@
 
 #pragma mark 点击事件
 - (void)addBtnClick:(UIButton *)button{
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+
+        return;
+    }
     
     GoodsModel *model = goods_Mtlist[button.tag];
     
