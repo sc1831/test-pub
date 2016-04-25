@@ -112,6 +112,7 @@
         ConfirmorderVC *confirmVC = [[ConfirmorderVC alloc]init];
         confirmVC.orderIds = @"";
         confirmVC.cartIds = @"";
+        confirmVC.pay_sn = @"" ;
         confirmVC.goodsIds = mutArray[0][1];
         confirmVC.goodsNum = mutArray[1][1];
         confirmVC.hidesBottomBarWhenPushed = YES;

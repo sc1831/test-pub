@@ -122,6 +122,9 @@
      goods_num	否	string	购买数量(直接购买时需要)
 
      */
+    
+    
+    
     NSDictionary *dict = @{@"pay_sn":_pay_sn,
                            @"user_id":[[SaveInfo shareSaveInfo] user_id],
                            @"cart_ids":_cartIds,

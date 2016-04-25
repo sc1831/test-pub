@@ -21,6 +21,9 @@
 #import "MenyGoodsCell.h"
 #import "UITableView+MJRefresh.h"
 
+
+#import "OrderDetailsVC.h"
+
 @interface WaitSendVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic ,strong)UITableView *waitSendtableView;
 @property (nonatomic ,strong)UIView *headView;
@@ -262,9 +265,11 @@
         (MenyGoodsCell *)[tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:cellName owner:self options:nil] firstObject];
-            
-            
         }
+        UIControl *control = [[UIControl alloc]initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
+        control.tag = indexPath.section ;
+        [control addTarget:self action:@selector(cellClick:) forControlEvents:UIControlEventTouchUpInside];
+        [cell addSubview:control];
         
         
         [cell modelWithArray:_subMutArray[indexPath.section]];
@@ -272,6 +277,14 @@
         return cell;
     }
     
+}
+
+- (void)cellClick:(UIControl *)control {
+    NSLog(@"control.tag : %ld",control.tag);
+    OrderDetailsVC *detailVC = [[OrderDetailsVC alloc]init];
+    AllGoodsOrders *model = _dataArray[control.tag];
+    detailVC.order_id = model.pay_sn ;
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -283,7 +296,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    [_waitSendtableView deselectRowAtIndexPath:indexPath animated:YES];
+//    [_waitSendtableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self.waitSendtableView deselectRowAtIndexPath:indexPath animated:YES];
+    OrderDetailsVC *detailVC = [[OrderDetailsVC alloc]init];
+    AllGoodsOrders *model = _dataArray[indexPath.section];
+    detailVC.order_id = model.pay_sn ;
+    [self.navigationController pushViewController:detailVC animated:YES];
     
 }
 

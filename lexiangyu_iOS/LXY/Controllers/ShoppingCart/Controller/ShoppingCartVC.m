@@ -705,6 +705,7 @@
     confirmVC.cartIds = _cartIds;
     confirmVC.goodsIds = @"";
     confirmVC.goodsNum = @"";
+    confirmVC.pay_sn = @"" ;
     confirmVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:confirmVC animated:YES];
 }

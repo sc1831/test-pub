@@ -67,7 +67,7 @@
     }
     [self.waitPayTableView headerAddMJRefresh:^{//添加顶部刷新功能
         [self.waitPayTableView footerResetNoMoreData];//重置无数据状态
-        [postDic setValue:@"3" forKey:@"page"];
+        [postDic setValue:@"1" forKey:@"page"];
         [requestCenter sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
             [self.waitPayTableView headerEndRefresh];
             if ([resultDic[@"code"] intValue] != 1) {
@@ -281,16 +281,25 @@
         (MenyGoodsCell *)[tableView dequeueReusableCellWithIdentifier:cellName];
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:cellName owner:self options:nil] firstObject];
-           
-
         }
-        
+        UIControl *control = [[UIControl alloc]initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
+        control.tag = indexPath.section ;
+        [control addTarget:self action:@selector(cellClick:) forControlEvents:UIControlEventTouchUpInside];
+        [cell addSubview:control];
         
         [cell modelWithArray:_subMutArray[indexPath.section]];
     
        return cell;
     }
 
+}
+
+- (void)cellClick:(UIControl *)control {
+    NSLog(@"control.tag : %ld",control.tag);
+    OrderDetailsVC *detailVC = [[OrderDetailsVC alloc]init];
+    AllGoodsOrders *model = _dataArray[control.tag];
+    detailVC.order_id = model.pay_sn ;
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
