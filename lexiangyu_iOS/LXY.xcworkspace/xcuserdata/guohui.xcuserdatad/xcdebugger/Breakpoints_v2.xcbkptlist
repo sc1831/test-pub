@@ -27,38 +27,6 @@
             endingLineNumber = "54"
             landmarkName = "-addMjHeaderAndFooter"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[MyfootprintVC addMjHeaderAndFooter]"
-                  moduleName = "LXY"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/guohui/Desktop/lexianyu_ios/lexiangyu_iOS/LXY/Controllers/Mine/Controller/MyfootprintVC.m"
-                  timestampString = "483096472.138789"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "54"
-                  endingLineNumber = "54"
-                  offsetFromSymbolStart = "32">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__37-[MyfootprintVC addMjHeaderAndFooter]_block_invoke"
-                  moduleName = "LXY"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/guohui/Desktop/lexianyu_ios/lexiangyu_iOS/LXY/Controllers/Mine/Controller/MyfootprintVC.m"
-                  timestampString = "483096472.139011"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "54"
-                  endingLineNumber = "54"
-                  offsetFromSymbolStart = "24">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -148,12 +116,12 @@
                   moduleName = "LXY"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/guohui/Desktop/lexianyu_ios/lexiangyu_iOS/LXY/Controllers/Mine/Controller/AllShopGoods/WaitPayFirstViewController.m"
-                  timestampString = "483096472.145919"
+                  timestampString = "483256350.697115"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "354"
                   endingLineNumber = "354"
-                  offsetFromSymbolStart = "204">
+                  offsetFromSymbolStart = "165">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -163,12 +131,12 @@
                   moduleName = "LXY"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/guohui/Desktop/lexianyu_ios/lexiangyu_iOS/LXY/Controllers/Mine/Controller/AllShopGoods/WaitPayFirstViewController.m"
-                  timestampString = "483096472.146174"
+                  timestampString = "483256350.697227"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "354"
                   endingLineNumber = "354"
-                  offsetFromSymbolStart = "116">
+                  offsetFromSymbolStart = "108">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -178,12 +146,12 @@
                   moduleName = "LXY"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/guohui/Desktop/lexianyu_ios/lexiangyu_iOS/LXY/Controllers/Mine/Controller/AllShopGoods/WaitPayFirstViewController.m"
-                  timestampString = "483096472.146326"
+                  timestampString = "483256350.697333"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "354"
                   endingLineNumber = "354"
-                  offsetFromSymbolStart = "64">
+                  offsetFromSymbolStart = "59">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -314,6 +282,54 @@
             endingLineNumber = "753"
             landmarkName = "-gotoGoodsDetails:"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LXY/Controllers/Mine/Controller/ConfirmorderVC.m"
+            timestampString = "483250316.545641"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "370"
+            endingLineNumber = "370"
+            landmarkName = "-subMitClick:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ConfirmorderVC subMitClick:]"
+                  moduleName = "LXY"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guohui/Desktop/lexianyu_ios/lexiangyu_iOS/LXY/Controllers/Mine/Controller/ConfirmorderVC.m"
+                  timestampString = "483256350.703741"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "370"
+                  endingLineNumber = "370"
+                  offsetFromSymbolStart = "513">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__30-[ConfirmorderVC subMitClick:]_block_invoke"
+                  moduleName = "LXY"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guohui/Desktop/lexianyu_ios/lexiangyu_iOS/LXY/Controllers/Mine/Controller/ConfirmorderVC.m"
+                  timestampString = "483256350.703857"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "372"
+                  endingLineNumber = "372"
+                  offsetFromSymbolStart = "74">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

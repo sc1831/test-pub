@@ -457,10 +457,11 @@
 
     AllGoodsOrders *model = _dataArray[btn.tag];
     ConfirmorderVC *confirmVC = [[ConfirmorderVC alloc]init];
-    confirmVC.orderIds = model.pay_sn;
+    confirmVC.orderIds = @"";
     confirmVC.cartIds = @"";
     confirmVC.goodsIds = @"";
     confirmVC.goodsNum = @"";
+    confirmVC.pay_sn = model.pay_sn ;
     [self.navigationController pushViewController:confirmVC animated:YES];
 }
 

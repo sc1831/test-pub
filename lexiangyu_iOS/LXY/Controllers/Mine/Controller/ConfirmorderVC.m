@@ -115,7 +115,7 @@
      goods_num	否	string	购买数量(直接购买时需要)
 
      */
-    NSDictionary *dict = @{
+    NSDictionary *dict = @{@"pay_sn":_pay_sn,
                            @"user_id":[[SaveInfo shareSaveInfo] user_id],
                            @"cart_ids":_cartIds,
                            @"order_ids":_orderIds,
@@ -361,7 +361,8 @@
                            @"cart_ids":_cartIds,
                            @"order_ids":_orderIds,
                            @"goods_id":_goodsIds,
-                           @"goods_num":_goodsNum
+                           @"goods_num":_goodsNum,
+                           @"pay_sn":_pay_sn
                            };
     
     NSMutableString *string = [NSMutableString stringWithString:MY_SUBMIT_ORDERS];

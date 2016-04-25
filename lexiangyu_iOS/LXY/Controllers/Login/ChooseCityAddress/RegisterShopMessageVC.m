@@ -121,7 +121,7 @@
                               @"village":villageName,
                               @"true_name":_nameTextField.text,
                               @"tel_phone":_phoneNumTextField.text,
-                              @"areainfo":[NSString stringWithFormat:@"%@%@",_cityName.text,_deatilsAddressTextField.text]
+                              @"areainfo":[NSString stringWithFormat:@"%@",_deatilsAddressTextField.text]
                               };
     
     [request sendRequestPostUrl:REGISTRE_STOR_NAME andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {

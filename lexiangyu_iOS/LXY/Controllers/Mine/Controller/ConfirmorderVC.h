@@ -19,5 +19,8 @@
 @property (nonatomic ,strong) NSString *goodsIds;
 //商品数量
 @property (nonatomic ,strong) NSString *goodsNum;
+//再次购买
+@property (nonatomic ,strong) NSString *pay_sn;
+
 
 @end
