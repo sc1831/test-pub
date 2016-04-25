@@ -68,7 +68,7 @@
     
     [self.waitSendtableView headerAddMJRefresh:^{//添加顶部刷新功能
         [self.waitSendtableView footerResetNoMoreData];//重置无数据状态
-        [postDic setValue:@"3" forKey:@"page"];
+        [postDic setValue:@"1" forKey:@"page"];
         [requestCenter sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
             [self.waitSendtableView headerEndRefresh];
       
