@@ -150,6 +150,60 @@
 
 }
 
+- (void)requestBackStrPostUrl:(NSString *)myUrl andDic:(NSDictionary *)info_dic setSuccessBlock:(void (^)(NSString *))success_block setFailBlock:(void (^)(NSString *))fail_block{  HUDSelfStart(@"正在请求数据...");
+    NETWORKVIEW(YES);
+    AFHTTPSessionManager *session_manager = [AFHTTPSessionManager manager];
+    session_manager.requestSerializer.timeoutInterval = 8 ;//
+    //TODO: 设置格式
+    //    {
+    //        [session_manager.requestSerializer setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    session_manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/plain",@"text/html", nil];
+    //    }
+    session_manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    session_manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    NSMutableDictionary *info_mtdic = [[NSMutableDictionary alloc]initWithDictionary:info_dic];
+    if([[SaveInfo shareSaveInfo] token] != nil && [[SaveInfo shareSaveInfo] user_id] != nil){
+        [info_mtdic setValue:[[SaveInfo shareSaveInfo] token] forKey:TOKEN];
+        [info_mtdic setValue:[[SaveInfo shareSaveInfo] user_id] forKey:USER_ID];
+        
+    }
+    
+    NSMutableDictionary *postMtDic = [[NSMutableDictionary alloc]initWithDictionary:info_mtdic];
+    [postMtDic setValue:[self md5Dic:info_mtdic] forKey:MD5KEY];
+    
+    GLOG(@"inforMD5", postMtDic);
+    NSLog(@"%@",STR_a_ADD_b_(HTTPSERVICE, myUrl));
+    [session_manager POST:STR_a_ADD_b_(HTTPSERVICE, myUrl) parameters:postMtDic progress:^(NSProgress * _Nonnull uploadProgress) {
+        GLOG(@"Post_uploadProgress", uploadProgress);
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        GLOG(@"responseObject", responseObject);
+        
+      
+        NETWORKVIEW(NO);
+        HUDSelfEnd;
+        
+        if (responseObject) {
+            NSData *doubi = responseObject;
+            NSString *shabi =  [[NSString alloc]initWithData:doubi encoding:NSUTF8StringEncoding];
+            GLOG(@"shabi:\n\n\n\n", shabi);
+            success_block(shabi);
+        }else{
+            HUDNormal(@"服务器异常");
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        GLOG(@"error", error);
+        NETWORKVIEW(NO);
+        HUDSelfEnd ;
+        HUDNormal(@"请求失败");
+        if (fail_block) {
+            fail_block([error description]);
+        }
+    }];
+    
+}
+
 - (void)sendRequestImageUrl:(NSString *)myUrl infoDic:(NSDictionary *)info_dict andImageDic:(NSDictionary *)imageDic setSuccessBlock:(void (^)(NSDictionary *))success_block setFailBlock:(void (^)(NSString *))fail_block{
     NETWORKVIEW(YES);
     HUDSelfStart(@"图片正在上传 ...");

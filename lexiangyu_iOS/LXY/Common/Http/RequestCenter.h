@@ -22,6 +22,11 @@
 //post
 - (void)sendRequestPostUrl:(NSString *)myUrl
                    andDic:(NSDictionary *)info_dic setSuccessBlock:(void (^)(NSDictionary *resultDic))success_block setFailBlock:(void (^)(NSString *errorStr))fail_block;
+
+- (void)requestBackStrPostUrl:(NSString *)myUrl
+                    andDic:(NSDictionary *)info_dic setSuccessBlock:(void (^)(NSString *resultHtml))success_block setFailBlock:(void (^)(NSString *errorStr))fail_block;
+
+
 //单图片的接口
 - (void)sendRequestImageUrl:(NSString *)myUrl
                infoDic:(NSDictionary *)info_dict

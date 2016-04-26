@@ -15,12 +15,6 @@
 @end
 
 @implementation PayWebView
-//- (void)viewWillDisappear:(BOOL)animated{
-//    self.navigationController.navigationBarHidden = NO ;
-//}
-//- (void)viewWillAppear:(BOOL)animated{
-//    self.navigationController.navigationBarHidden = YES ;
-//}
 
 
 - (void)viewDidLoad {
@@ -30,12 +24,14 @@
     [self loadWebView];
 }
 - (void)loadWebView{
-
-    
     [(UIScrollView *)[[self.payWebView subviews] objectAtIndex:0]setBounces:NO];//禁止拖动时反弹
     self.payWebView.scalesPageToFit = NO ;
-//    [self.payWebView loadHTMLString:self.htmlStr baseURL:[NSURL URLWithString:@""]];
-    [self.payWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.urlStr]]];
+    if (self.urlStr.length > 5) {
+        [self.payWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.urlStr]]];
+    }else if (self.htmlStr.length > 5){
+        [self.payWebView loadHTMLString:self.htmlStr baseURL:[NSURL URLWithString:@""]];
+    }
+    
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView{
@@ -55,16 +51,17 @@
     NSLog(@"request.URL.relativeString:%@",request.URL.relativeString);
     
     
-    if ([request.URL.relativeString isEqualToString:@"http://www.lexianyu.com/index.php/app/Return/yee_webcallback"]) {
-        
-        
+//    if ([request.URL.relativeString isEqualToString:@"http://www.lexianyu.com/index.php/app/Return/yee_webcallback"]) {
+//        [self.navigationController popToRootViewControllerAnimated:YES];
+//        return NO ;
+//    }else if([request.URL.relativeString isEqualToString:@"http://www.correct.com/index.php/app/pay"]){
+//        [self.navigationController popToRootViewControllerAnimated:YES];
+//        return NO ;
+//    }else
+
+        if([request.URL.relativeString isEqualToString:@"http://www.lexianyu.com/index.php/app/Return/success"]){
         [self.navigationController popToRootViewControllerAnimated:YES];
-        
-        NSLog(@"\n\n\n返回首root页面\n\n\n\n");
-        
-        
         return NO ;
-        
     }else{
         return YES;
     }

@@ -40,32 +40,37 @@
 - (IBAction)gotoPay:(id)sender {
     if (![GHControl isExistNetwork]) {
         HUDNormal(@"服务器无响应，请稍后重试");
-
         return;
     }
-    
     RequestCenter *requestCenter = [RequestCenter shareRequestCenter];
-    [requestCenter sendRequestPostUrl:APP_PAY andDic:@{@"t":@"2",@"pay_sn":_orderOverModel.pay_sn} setSuccessBlock:^(NSDictionary *resultDic) {
-        if ([resultDic[@"code"] intValue] != 1) {
-            HUDNormal(resultDic[@"msg"]);
-            BG_LOGIN ;
-            return ;
-        }
-        
-        payUrl = resultDic[@"data"][@"url"];
+    [requestCenter requestBackStrPostUrl:APP_PAY andDic:@{@"t":@"2",@"pay_sn":_orderOverModel.pay_sn}  setSuccessBlock:^(NSString *resultHtml) {
+        GLOG(@"resultHtml : \n\n\n\n", resultHtml);
         PayWebView *payWebView = [[PayWebView alloc]init];
-        payWebView.urlStr = payUrl ;
+        payWebView.htmlStr = resultHtml ;
         [self.navigationController pushViewController:payWebView animated:YES];
         
     } setFailBlock:^(NSString *errorStr) {
-        if (payUrl.length > 6) {
-            PayWebView *payWebView = [[PayWebView alloc]init];
-            payWebView.urlStr = payUrl ;
-            [self.navigationController pushViewController:payWebView animated:YES];
-        }
-        
         
     }];
+//    [requestCenter sendRequestPostUrl:APP_PAY andDic:@{@"t":@"2",@"pay_sn":_orderOverModel.pay_sn} setSuccessBlock:^(NSDictionary *resultDic) {
+//        if ([resultDic[@"code"] intValue] != 1) {
+//            HUDNormal(resultDic[@"msg"]);
+//            BG_LOGIN ;
+//            return ;
+//        }
+//        
+//        payUrl = resultDic[@"data"][@"url"];
+//        PayWebView *payWebView = [[PayWebView alloc]init];
+//        payWebView.urlStr = payUrl ;
+//        [self.navigationController pushViewController:payWebView animated:YES];
+//        
+//    } setFailBlock:^(NSString *errorStr) {
+//        if (payUrl.length > 6) {
+//            PayWebView *payWebView = [[PayWebView alloc]init];
+//            payWebView.urlStr = payUrl ;
+//            [self.navigationController pushViewController:payWebView animated:YES];
+//        }
+//    }];
     
 }
 @end

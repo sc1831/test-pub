@@ -9,4 +9,5 @@
 #import "RootVC.h"
 @interface PayWebView : RootVC
 @property (nonatomic,copy)NSString *urlStr ;
+@property (nonatomic,copy)NSString *htmlStr ;
 @end
