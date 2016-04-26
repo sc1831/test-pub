@@ -20,9 +20,6 @@
 		6E1030951CB4F73D0098D5BD /* 输入框@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E10307E1CB4F73D0098D5BD /* 输入框@2x.png */; };
 		6E1030961CB4F73D0098D5BD /* 输入框@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E10307F1CB4F73D0098D5BD /* 输入框@3x.png */; };
 		6E1030971CB4F73D0098D5BD /* 输入框@.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1030801CB4F73D0098D5BD /* 输入框@.png */; };
-		6E1030981CB4F73D0098D5BD /* page-lexianyu-logo@.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1030811CB4F73D0098D5BD /* page-lexianyu-logo@.png */; };
-		6E1030991CB4F73D0098D5BD /* page-lexianyu-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1030821CB4F73D0098D5BD /* page-lexianyu-logo@2x.png */; };
-		6E10309A1CB4F73D0098D5BD /* page-lexianyu-logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1030831CB4F73D0098D5BD /* page-lexianyu-logo@3x.png */; };
 		6E10309C1CB4F73D0098D5BD /* 获取验证码@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1030851CB4F73D0098D5BD /* 获取验证码@3x.png */; };
 		6E10309D1CB4F73D0098D5BD /* 获取验证码@x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1030861CB4F73D0098D5BD /* 获取验证码@x.png */; };
 		6E10309E1CB4F73D0098D5BD /* 获取验证码@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1030871CB4F73D0098D5BD /* 获取验证码@2x.png */; };
@@ -158,9 +155,6 @@
 		6E1031BC1CB4FC570098D5BD /* 添加.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E10315E1CB4FC570098D5BD /* 添加.png */; };
 		6E1031BD1CB4FC570098D5BD /* 添加@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E10315F1CB4FC570098D5BD /* 添加@2x.png */; };
 		6E1031BE1CB4FC570098D5BD /* 添加@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1031601CB4FC570098D5BD /* 添加@3x.png */; };
-		6E1031BF1CB4FC570098D5BD /* 关闭.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1031611CB4FC570098D5BD /* 关闭.png */; };
-		6E1031C01CB4FC570098D5BD /* 关闭@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1031621CB4FC570098D5BD /* 关闭@2x.png */; };
-		6E1031C11CB4FC570098D5BD /* 关闭@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1031631CB4FC570098D5BD /* 关闭@3x.png */; };
 		6E1031C21CB4FC570098D5BD /* 地址装饰条.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1031641CB4FC570098D5BD /* 地址装饰条.png */; };
 		6E1031C31CB4FC570098D5BD /* 地址装饰条@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1031651CB4FC570098D5BD /* 地址装饰条@2x.png */; };
 		6E1031C41CB4FC570098D5BD /* 地址装饰条@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1031661CB4FC570098D5BD /* 地址装饰条@3x.png */; };
@@ -252,9 +246,6 @@
 		6E32966D1CAE6162008635D7 /* page-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E32966C1CAE6162008635D7 /* page-bg.png */; };
 		6E34E3FD1CC624660003950E /* OrderIsOverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E34E3FB1CC624660003950E /* OrderIsOverVC.m */; };
 		6E34E3FE1CC624660003950E /* OrderIsOverVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E34E3FC1CC624660003950E /* OrderIsOverVC.xib */; };
-		6E46B7171CA4E22700D5F73B /* 头像@.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E46B7141CA4E22700D5F73B /* 头像@.png */; };
-		6E46B7181CA4E22700D5F73B /* 头像@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E46B7151CA4E22700D5F73B /* 头像@2x.png */; };
-		6E46B7191CA4E22700D5F73B /* 头像@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E46B7161CA4E22700D5F73B /* 头像@3x.png */; };
 		6E46B71D1CA4E27900D5F73B /* 搜索框搜索按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E46B71A1CA4E27900D5F73B /* 搜索框搜索按钮.png */; };
 		6E46B71E1CA4E27900D5F73B /* 搜索框搜索按钮@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E46B71B1CA4E27900D5F73B /* 搜索框搜索按钮@2x.png */; };
 		6E46B71F1CA4E27900D5F73B /* 搜索框搜索按钮@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E46B71C1CA4E27900D5F73B /* 搜索框搜索按钮@3x.png */; };
@@ -541,9 +532,6 @@
 		6E10307E1CB4F73D0098D5BD /* 输入框@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入框@2x.png"; sourceTree = "<group>"; };
 		6E10307F1CB4F73D0098D5BD /* 输入框@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入框@3x.png"; sourceTree = "<group>"; };
 		6E1030801CB4F73D0098D5BD /* 输入框@.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入框@.png"; sourceTree = "<group>"; };
-		6E1030811CB4F73D0098D5BD /* page-lexianyu-logo@.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page-lexianyu-logo@.png"; sourceTree = "<group>"; };
-		6E1030821CB4F73D0098D5BD /* page-lexianyu-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page-lexianyu-logo@2x.png"; sourceTree = "<group>"; };
-		6E1030831CB4F73D0098D5BD /* page-lexianyu-logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page-lexianyu-logo@3x.png"; sourceTree = "<group>"; };
 		6E1030851CB4F73D0098D5BD /* 获取验证码@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "获取验证码@3x.png"; sourceTree = "<group>"; };
 		6E1030861CB4F73D0098D5BD /* 获取验证码@x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "获取验证码@x.png"; sourceTree = "<group>"; };
 		6E1030871CB4F73D0098D5BD /* 获取验证码@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "获取验证码@2x.png"; sourceTree = "<group>"; };
@@ -679,9 +667,6 @@
 		6E10315E1CB4FC570098D5BD /* 添加.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "添加.png"; sourceTree = "<group>"; };
 		6E10315F1CB4FC570098D5BD /* 添加@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "添加@2x.png"; sourceTree = "<group>"; };
 		6E1031601CB4FC570098D5BD /* 添加@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "添加@3x.png"; sourceTree = "<group>"; };
-		6E1031611CB4FC570098D5BD /* 关闭.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "关闭.png"; sourceTree = "<group>"; };
-		6E1031621CB4FC570098D5BD /* 关闭@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "关闭@2x.png"; sourceTree = "<group>"; };
-		6E1031631CB4FC570098D5BD /* 关闭@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "关闭@3x.png"; sourceTree = "<group>"; };
 		6E1031641CB4FC570098D5BD /* 地址装饰条.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "地址装饰条.png"; sourceTree = "<group>"; };
 		6E1031651CB4FC570098D5BD /* 地址装饰条@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "地址装饰条@2x.png"; sourceTree = "<group>"; };
 		6E1031661CB4FC570098D5BD /* 地址装饰条@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "地址装饰条@3x.png"; sourceTree = "<group>"; };
@@ -796,9 +781,6 @@
 		6E34E3FA1CC624660003950E /* OrderIsOverVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderIsOverVC.h; sourceTree = "<group>"; };
 		6E34E3FB1CC624660003950E /* OrderIsOverVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderIsOverVC.m; sourceTree = "<group>"; };
 		6E34E3FC1CC624660003950E /* OrderIsOverVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderIsOverVC.xib; sourceTree = "<group>"; };
-		6E46B7141CA4E22700D5F73B /* 头像@.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "头像@.png"; sourceTree = "<group>"; };
-		6E46B7151CA4E22700D5F73B /* 头像@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "头像@2x.png"; sourceTree = "<group>"; };
-		6E46B7161CA4E22700D5F73B /* 头像@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "头像@3x.png"; sourceTree = "<group>"; };
 		6E46B71A1CA4E27900D5F73B /* 搜索框搜索按钮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "搜索框搜索按钮.png"; sourceTree = "<group>"; };
 		6E46B71B1CA4E27900D5F73B /* 搜索框搜索按钮@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "搜索框搜索按钮@2x.png"; sourceTree = "<group>"; };
 		6E46B71C1CA4E27900D5F73B /* 搜索框搜索按钮@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "搜索框搜索按钮@3x.png"; sourceTree = "<group>"; };
@@ -1324,9 +1306,6 @@
 				6E10307E1CB4F73D0098D5BD /* 输入框@2x.png */,
 				6E10307F1CB4F73D0098D5BD /* 输入框@3x.png */,
 				6E1030801CB4F73D0098D5BD /* 输入框@.png */,
-				6E1030811CB4F73D0098D5BD /* page-lexianyu-logo@.png */,
-				6E1030821CB4F73D0098D5BD /* page-lexianyu-logo@2x.png */,
-				6E1030831CB4F73D0098D5BD /* page-lexianyu-logo@3x.png */,
 				6E1030851CB4F73D0098D5BD /* 获取验证码@3x.png */,
 				6E1030861CB4F73D0098D5BD /* 获取验证码@x.png */,
 				6E1030871CB4F73D0098D5BD /* 获取验证码@2x.png */,
@@ -1790,9 +1769,6 @@
 				6EC44D211CA4DF8000833567 /* 下一步_置灰@.png */,
 				6EC44D221CA4DF8000833567 /* 下一步_置灰@2x.png */,
 				6EC44D231CA4DF8000833567 /* 下一步_置灰@3x.png */,
-				6E46B7141CA4E22700D5F73B /* 头像@.png */,
-				6E46B7151CA4E22700D5F73B /* 头像@2x.png */,
-				6E46B7161CA4E22700D5F73B /* 头像@3x.png */,
 				6E02C77A1C990D4100D84C9A /* deatils */,
 				6E02C6DD1C990B8D00D84C9A /* shop */,
 				6E02C6DC1C990B8D00D84C9A /* Login */,
@@ -2533,9 +2509,6 @@
 				6E10315E1CB4FC570098D5BD /* 添加.png */,
 				6E10315F1CB4FC570098D5BD /* 添加@2x.png */,
 				6E1031601CB4FC570098D5BD /* 添加@3x.png */,
-				6E1031611CB4FC570098D5BD /* 关闭.png */,
-				6E1031621CB4FC570098D5BD /* 关闭@2x.png */,
-				6E1031631CB4FC570098D5BD /* 关闭@3x.png */,
 				6E1031641CB4FC570098D5BD /* 地址装饰条.png */,
 				6E1031651CB4FC570098D5BD /* 地址装饰条@2x.png */,
 				6E1031661CB4FC570098D5BD /* 地址装饰条@3x.png */,
@@ -2728,7 +2701,6 @@
 				6E1030E71CB4FAE80098D5BD /* 可能感兴趣“按钮”@3x.png in Resources */,
 				6E1030941CB4F73D0098D5BD /* 输入框点击状态.png in Resources */,
 				6E10320D1CB4FCC30098D5BD /* 数量选择_点击3@2x.png in Resources */,
-				6E10309A1CB4F73D0098D5BD /* page-lexianyu-logo@3x.png in Resources */,
 				6EEB89071C96B6370043E8AA /* HomePageVC.xib in Resources */,
 				6E1031771CB4FC570098D5BD /* 产品图@3x.png in Resources */,
 				6E1031B21CB4FC570098D5BD /* 设置@3x.png in Resources */,
@@ -2781,7 +2753,6 @@
 				6E1031B71CB4FC570098D5BD /* 返回@2x.png in Resources */,
 				6E10A06A1CC732BE0080F4D9 /* TipVC.xib in Resources */,
 				6EC44D3A1CA4E0DE00833567 /* 保存修改_置灰@2x.png in Resources */,
-				6E1030981CB4F73D0098D5BD /* page-lexianyu-logo@.png in Resources */,
 				6E1031C41CB4FC570098D5BD /* 地址装饰条@3x.png in Resources */,
 				6E1030E41CB4FAE80098D5BD /* 促销商品“标题”@3x.png in Resources */,
 				6E1031C81CB4FC570098D5BD /* redBtnBg.png in Resources */,
@@ -2814,7 +2785,6 @@
 				6EC44CF61CA4DACF00833567 /* 确定_点击@.png in Resources */,
 				6E1031971CB4FC570098D5BD /* 待.png in Resources */,
 				6E10320F1CB4FCC30098D5BD /* 数量选择_点击3@3x.png in Resources */,
-				6E46B7181CA4E22700D5F73B /* 头像@2x.png in Resources */,
 				6E10320A1CB4FCC30098D5BD /* 数量选择_点击2@.png in Resources */,
 				6E1031C71CB4FC570098D5BD /* GoldenStars.png in Resources */,
 				6E1030EF1CB4FAE80098D5BD /* 星星@2x.png in Resources */,
@@ -2847,7 +2817,6 @@
 				6EC44D271CA4DF8000833567 /* 下一步_置灰@.png in Resources */,
 				6E1031001CB4FAE80098D5BD /* 我的@2x（选中）.png in Resources */,
 				6EF2A1BA1CAA58BE00057FC0 /* CountyVC.xib in Resources */,
-				6E1031C11CB4FC570098D5BD /* 关闭@3x.png in Resources */,
 				6E1031AE1CB4FC570098D5BD /* 更多订单@2x.png in Resources */,
 				6E1030F01CB4FAE80098D5BD /* 星星@3x.png in Resources */,
 				6EA503E31CA248A300FA19BA /* HomeClassifyVC.xib in Resources */,
@@ -2871,8 +2840,6 @@
 				6E1031091CB4FAE80098D5BD /* 首页@2x（选中）.png in Resources */,
 				6E1032051CB4FCC30098D5BD /* 数量选择1@2x.png in Resources */,
 				6E1030EA1CB4FAE80098D5BD /* 置顶@3x.png in Resources */,
-				6E46B7171CA4E22700D5F73B /* 头像@.png in Resources */,
-				6E1031BF1CB4FC570098D5BD /* 关闭.png in Resources */,
 				6E46B7531CA4E35200D5F73B /* 固定.png in Resources */,
 				6E10320E1CB4FCC30098D5BD /* 数量选择_点击1@2x.png in Resources */,
 				6E1031801CB4FC570098D5BD /* 保存修改_点击@3x.png in Resources */,
@@ -2890,7 +2857,6 @@
 				6ECD26C11CBB827B00ED2004 /* read_me.txt in Resources */,
 				6E1031AB1CB4FC570098D5BD /* 店铺@2x.png in Resources */,
 				6E1031891CB4FC570098D5BD /* 编辑_点击@3x.png in Resources */,
-				6E1031C01CB4FC570098D5BD /* 关闭@2x.png in Resources */,
 				6EC44D261CA4DF8000833567 /* 下一步_默认@3x.png in Resources */,
 				6EC32C531C99241600581FDD /* FootPointCell.xib in Resources */,
 				6E7964E41C983EF100EB43B9 /* CollectionCell.xib in Resources */,
@@ -2922,7 +2888,6 @@
 				6E5698861CC8D71C000D6387 /* PayWebView.xib in Resources */,
 				6E1030961CB4F73D0098D5BD /* 输入框@3x.png in Resources */,
 				6E10309E1CB4F73D0098D5BD /* 获取验证码@2x.png in Resources */,
-				6E1030991CB4F73D0098D5BD /* page-lexianyu-logo@2x.png in Resources */,
 				6E34E3FE1CC624660003950E /* OrderIsOverVC.xib in Resources */,
 				6E7964C61C982A0700EB43B9 /* CashierDesk.xib in Resources */,
 				6E46B74E1CA4E2BC00D5F73B /* 8@2x.png in Resources */,
@@ -2983,7 +2948,6 @@
 				6E10317A1CB4FC570098D5BD /* 保存修改_置灰.png in Resources */,
 				6E1030FD1CB4FAE80098D5BD /* 我的.png in Resources */,
 				6E1032221CB4FCC30098D5BD /* 筛选2@2x.png in Resources */,
-				6E46B7191CA4E22700D5F73B /* 头像@3x.png in Resources */,
 				6E1031901CB4FC570098D5BD /* 头像@2x.png in Resources */,
 				6EC44CE81CA4D78F00833567 /* page-lexianyu-logo@2x.png in Resources */,
 				6E1031011CB4FAE80098D5BD /* 我的@3x.png in Resources */,
