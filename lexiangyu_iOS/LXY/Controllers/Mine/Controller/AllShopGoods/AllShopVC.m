@@ -328,7 +328,7 @@
         cell.shopNum.text = [NSString stringWithFormat:@"X%@",model.goods_num];
         AllGoodsOrders *dataModel = _dataArray[indexPath.section];
         cell.shopTime.text = dataModel.add_time;
-        [cell.shopImage sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@"火影1"]];
+        [cell.shopImage sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@"商品默认图"]];
         
         
         return cell;

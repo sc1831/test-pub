@@ -55,9 +55,7 @@
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:16],NSForegroundColorAttributeName:[UIColor blackColor]}];
    
     
-    
-//    _headImage = [UIImage imageNamed:@"火影1"];
-    _headImageView.image = [UIImage imageNamed:@"火影1"];
+    _headImageView.image = [UIImage imageNamed:@"商品默认图"];
     _headImageView.layer.masksToBounds = YES;
     _headImageView.layer.cornerRadius = 39;
     

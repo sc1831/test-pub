@@ -34,7 +34,7 @@
     [super viewWillAppear:animated];
     if ([[SaveInfo shareSaveInfo]userImageUrl]) {
         
-        [_headImageView sd_setImageWithURL:[NSURL URLWithString:[[SaveInfo shareSaveInfo]userImageUrl]] placeholderImage:[UIImage imageNamed:@"火影1"]] ;
+        [_headImageView sd_setImageWithURL:[NSURL URLWithString:[[SaveInfo shareSaveInfo]userImageUrl]] placeholderImage:[UIImage imageNamed:@"商品默认图"]] ;
     }
     
 }

@@ -12,6 +12,9 @@
                 <outlet property="TopView" destination="j9P-XM-G0P" id="ACC-FX-3vB"/>
                 <outlet property="_collectionView" destination="H91-k8-jyZ" id="7pF-b2-2xB"/>
                 <outlet property="bestGoodsTab" destination="CGt-yL-cea" id="dYj-L9-wQQ"/>
+                <outlet property="bestGoodsView" destination="NJa-4o-M0C" id="MdD-h7-OX9"/>
+                <outlet property="bestGoodsViewHeight" destination="E7Z-NW-cAb" id="auG-Rt-Fee"/>
+                <outlet property="collectionViewHeight" destination="5uh-ra-ZT7" id="PiY-TM-JNu"/>
                 <outlet property="goods_classView" destination="4lS-eJ-jUc" id="7ge-bg-SLM"/>
                 <outlet property="middleScrollView" destination="qHB-lV-TbC" id="nFV-eS-Pl4"/>
                 <outlet property="searchTextField" destination="trq-Rn-HOK" id="6eB-fG-w7p"/>

@@ -258,7 +258,7 @@
         cell.shopName.text = model.goods_name;
         cell.shopNum.text = [NSString stringWithFormat:@"X%@",model.goods_num];
         cell.shopMoney.text = [NSString stringWithFormat:@"￥%@",model.goods_price];
-       [cell.shopImage sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@"火影1"]];
+       [cell.shopImage sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@"商品默认图"]];
     
     if ([_goodsSpecArray[indexPath.section] count]!=0) {
         

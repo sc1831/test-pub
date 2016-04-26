@@ -29,7 +29,7 @@
     _shopMoney.text = [NSString stringWithFormat:@"￥%@",model.goods_price];
 
     [_numberBtn setTitle:model.goods_num forState:UIControlStateNormal];
-    [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@"火影1"]];
+    [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@"商品默认图"]];
     _goodsImageView.layer.masksToBounds = YES;
     _goodsImageView.layer.cornerRadius = 3;
     
@@ -75,7 +75,7 @@
     _shopMoney.text = [NSString stringWithFormat:@"￥%@",model.goods_price];
     [_numberBtn setTitle:model.goods_num forState:UIControlStateNormal];
     
-    [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@"火影1"]];
+    [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@"商品默认图"]];
     _goodsImageView.layer.masksToBounds = YES;
     _goodsImageView.layer.cornerRadius = 3;
     

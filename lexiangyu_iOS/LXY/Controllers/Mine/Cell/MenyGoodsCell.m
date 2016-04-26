@@ -53,7 +53,7 @@
    
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(7,5, 60, 60)];
 
-    [imageView sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@"火影1"]];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@"商品默认图"]];
     [cell.contentView addSubview:imageView];
     cell.selectionStyle = UITableViewCellSelectionStyleNone ;
     return cell;

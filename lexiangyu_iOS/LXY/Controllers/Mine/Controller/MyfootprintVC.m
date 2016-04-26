@@ -208,7 +208,7 @@
     MyFooterModel *model = _dataArray[indexPath.row];
     cell.contentsLabel.text = model.goods_name;
     cell.moneyLabel.text = model.goods_price;
-    [cell.productImageView sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@"火影1"]];
+    [cell.productImageView sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@"商品默认图"]];
     cell.productImageView.layer.masksToBounds = YES;
     cell.productImageView.layer.cornerRadius = 3;
     

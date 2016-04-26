@@ -28,8 +28,13 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     __weak IBOutlet UITableView *bestGoodsTab; //优品推荐
     //特价view
     __weak IBOutlet UIView *specialView;
+    //优品推荐view
+    __weak IBOutlet UIView *bestGoodsView;
+    //优品推荐view的高度
+    __weak IBOutlet NSLayoutConstraint *bestGoodsViewHeight;
+    //可能感兴趣商品view的高度
+    __weak IBOutlet NSLayoutConstraint *collectionViewHeight;
     
-  
 }
 
 @property (nonatomic ,strong)UITableView *specialTableView; //超值特价
@@ -140,6 +145,8 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     //超级特价tableView
     [self createSpecialTableView];
     
+    [GHControl setExtraCellLineHidden:bestGoodsTab];
+    
 }
 - (void)loadHomeData{
     if (![GHControl isExistNetwork]) {
@@ -195,6 +202,19 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     } setFailBlock:^(NSString *errorStr) {
         
     }];
+    
+    if (superior.count==0) {
+        bestGoodsView.hidden = YES;
+    }
+    
+    bestGoodsView.frame = CGRectMake(0, 959, M_WIDTH, superior.count*96); //  superior.count*96;
+    bestGoodsTab.frame = CGRectMake(0, 959, M_WIDTH, superior.count*96);
+    
+    bestGoodsViewHeight.constant = superior.count*96;
+    
+    
+    
+    
 }
 #pragma mark 刷新
 - (void)refreshView{
@@ -210,7 +230,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH, _TopScrollView.frame.size.height)];
         
 //        [imageView sd_setImageWithURL:[NSURL URLWithString:model.adv_image] placeholderImage:[UIImage imageNamed:[NSString stringWithFormat:@"火影%d",i+1]]];
-        [imageView sd_setImageWithURL:[NSURL URLWithString:model.adv_image] placeholderImage:[UIImage imageNamed:[NSString stringWithFormat:@"火影%d",i+1]]];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:model.adv_image] placeholderImage:[UIImage imageNamed:[NSString stringWithFormat:@"商品默认图%d",i+1]]];
         i ++ ;
         [_imageArray addObject:imageView];
     }
@@ -260,7 +280,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     }
     //优品推荐 superior
     [bestGoodsTab reloadData];
-    
+   
     //可能感兴趣商品  _collectionView (走接口)
     
     
@@ -297,12 +317,14 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 
 //创建specialTableView
 -(void)createSpecialTableView{
-
-    _specialTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,107,specialView.frame.size.width) style:UITableViewStylePlain];
+    /**
+     specialView
+     */
+    _specialTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,107,M_WIDTH) style:UITableViewStylePlain];
     _specialTableView.delegate = self;
     _specialTableView.dataSource = self;
     _specialTableView.tag = 30000;
-    _specialTableView.center = CGPointMake(specialView.frame.size.width / 2, specialView.frame.size.height / 2);
+    _specialTableView.center = CGPointMake(M_WIDTH/ 2, specialView.frame.size.height / 2);
     //逆时针旋转90°
     _specialTableView.transform = CGAffineTransformMakeRotation(-M_PI / 2);
     _specialTableView.showsVerticalScrollIndicator = NO;
@@ -467,6 +489,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
     if (recommend_goods.count <= 0) {
+         scrollView.contentSize = CGSizeMake(M_WIDTH, 1438-471+superior.count*96);
         return ;
     }
     
@@ -479,8 +502,11 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     NSLog(@"scrollView.contentSize.height:%f",scrollView.contentSize.height);
     if (scrollView.contentSize.height > 1400) {
 
-    scrollView.contentSize = CGSizeMake(M_WIDTH, 1460+allNum*(M_WIDTH/2+15));
+    scrollView.contentSize = CGSizeMake(M_WIDTH, 1460+allNum*(M_WIDTH/2+15)-471+superior.count*96);
     
+    }else{
+    
+       
     }
     
 }

@@ -183,7 +183,7 @@
     cell.moneyLabel.text = [NSString stringWithFormat:@"￥%@",model.goods_price];
     cell.salesLabel.text = [NSString stringWithFormat:@"销售%@",model.goods_salenum];
     
-    [cell.productImageView sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@"火影1"]];
+    [cell.productImageView sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@"商品默认图"]];
     cell.productImageView.layer.masksToBounds = YES;
     cell.productImageView.layer.cornerRadius = 3;
     
