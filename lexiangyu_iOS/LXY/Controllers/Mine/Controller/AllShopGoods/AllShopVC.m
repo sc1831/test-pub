@@ -17,7 +17,7 @@
 #import "AllGoodsOrders.h"
 #import "MenyGoodsCell.h"
 #import "UITableView+MJRefresh.h"
-#import "OrderIsOverVC.h"
+
 #import "UIButton+Block.h"
 #import "PayWebView.h"
 
@@ -401,7 +401,7 @@
         return;
     }
     
-    [requestCenter sendRequestPostUrl:APP_PAY andDic:@{@"t":@"2",@"pay_sn":model.pay_sn} setSuccessBlock:^(NSDictionary *resultDic) {
+    [requestCenter sendRequestPostUrl:APP_PAY andDic:@{@"t":@"3",@"pay_sn":model.pay_sn} setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             HUDNormal(resultDic[@"msg"]);
             BG_LOGIN ;
