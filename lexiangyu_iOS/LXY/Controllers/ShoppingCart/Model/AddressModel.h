@@ -13,5 +13,6 @@
 @property (nonatomic,copy)NSString *address_id ; //买家详细街道店铺地址 id
 @property (nonatomic,copy)NSString *area_info ;//买家地址
 @property (nonatomic,copy)NSString *mob_phone ;//买家电话
+@property (nonatomic,copy)NSString *member_name ;//店铺名称
 @property (nonatomic,copy)NSString *true_name ;//真实姓名
 @end

@@ -14,10 +14,12 @@
 #import "RequestCenter.h"
 #import "GHControl.h"
 #import "AddressModel.h"
+#import "OrderModel.h"
 @interface OrderDetailsVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     AddressModel *addressModel ;
     NSMutableArray *goods_Mutlist ; //cellarray
+    OrderModel *orderModel ;
 }
 @property (weak, nonatomic) IBOutlet UITableView *orderDetalsTableView;
 
@@ -30,6 +32,7 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"订单详情" ;
     addressModel = [[AddressModel alloc]init];
+    orderModel = [[OrderModel alloc] init];
     goods_Mutlist = [NSMutableArray arrayWithCapacity:0];
     [self loadOrderData];
 }
@@ -37,7 +40,6 @@
     
     if (![GHControl isExistNetwork]) {
         HUDNormal(@"服务器无响应，请稍后重试");
-
         return;
     }
     
@@ -51,16 +53,8 @@
         if ([[resultDic[@"code"] stringValue] isEqualToString:@"1"]) {
             NSDictionary *dataDic = resultDic[@"data"];
             [addressModel setValuesForKeysWithDictionary:dataDic[@"address_info"]];
+            [orderModel setValuesForKeysWithDictionary:dataDic];
             NSArray *order = dataDic[@"order"];
-//            for (NSDictionary *orderDic in order) {
-//                NSMutableArray *order_mtArray = [NSMutableArray arrayWithCapacity:0];
-//                for (NSDictionary *goodsDic in orderDic[@"goods"]) {
-//                    GoodsModel *model = [[GoodsModel alloc]init];
-//                    [model setValuesForKeysWithDictionary:goodsDic];
-//                    [order_mtArray addObject:model];
-//                }
-//                [goods_Mutlist addObject:order_mtArray];
-//            }
             for (NSDictionary *orderDic in order) {
                 for (NSDictionary *goodsDic in orderDic[@"goods"]) {
                     GoodsModel *model = [[GoodsModel alloc]init];
@@ -69,11 +63,6 @@
                 }
             }
             
-//            for (NSDictionary *dic in order) {
-//                GoodsModel *goodsModel = [[GoodsModel alloc]init];
-//                [goodsModel setValuesForKeysWithDictionary:dic];
-//                [goods_Mutlist addObject:goodsModel];
-//            }
             [self.orderDetalsTableView reloadData];
         }
         
@@ -104,7 +93,7 @@
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     OrderTabViewFootView *footView =[[[NSBundle mainBundle]loadNibNamed:@"OrderTabViewFootView" owner:self options:nil]firstObject];
-//    [footView configWithOrderModel:orderModel];
+    [footView configWithOrderModel:orderModel];
     return footView ;
 
 }

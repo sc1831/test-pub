@@ -14,6 +14,7 @@
 #define USER_INFO @"userInfo"
 #define SHOP_NAME @"shop_name"
 #define USER_IMAGE_Url @"userImage_url"
+#define PUSH_FLAG @"push_flag"
 @implementation SaveInfo
 + (SaveInfo *)shareSaveInfo{
     static SaveInfo *saveInfo = nil ;
@@ -92,6 +93,12 @@
     return RETURE_MESSAGE(USER_IMAGE_Url);
 }
 
+- (void)setPushFlag:(NSString *)pushFlag{
+    SAVE_MESSAGE(pushFlag, PUSH_FLAG);
+}
+- (NSString *)pushFlag{
+    return RETURE_MESSAGE(PUSH_FLAG);
+}
 
 - (void)logout{
     self.loginName = nil ;
@@ -100,7 +107,8 @@
     self.user_id = nil ;
     self.userInfo = nil ;
     self.shop_name = nil ;
-    self.userImageUrl = nil ; 
+    self.userImageUrl = nil ;
+    self.pushFlag = nil ;
 }
 
 

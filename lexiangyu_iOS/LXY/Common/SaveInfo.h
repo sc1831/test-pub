@@ -22,6 +22,10 @@
 @property (nonatomic,strong)NSDictionary *userInfo ;
 @property (nonatomic,copy)NSString *shop_name;
 @property (nonatomic,copy)NSString *userImageUrl ;
+/**
+pushFlag 0 不推送, 1推送 
+ */
+@property (nonatomic,copy)NSString *pushFlag ;
 + (SaveInfo *)shareSaveInfo;//全局共享
 - (void)logout;
 - (BOOL)isFistStart ;

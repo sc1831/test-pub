@@ -25,6 +25,7 @@
 @property (nonatomic,copy)NSString *store_name ;//店铺名
 
 @property (nonatomic,copy)NSString *order_goods_price_total;
+@property (nonatomic,copy)NSString *order_goods_num_total ;
 
 +(OrderModel *)modelWithDic:(NSDictionary *)dic;
 -(id)initWithDic:(NSDictionary *)dic;

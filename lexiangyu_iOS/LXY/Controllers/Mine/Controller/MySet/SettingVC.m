@@ -13,7 +13,6 @@
 #import "SaveInfo.h"
 #import "AboutUsVC.h"
 #import "GHControl.h"
-
 @interface SettingVC ()
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UISwitch *handSwitch;
@@ -22,6 +21,7 @@
 //关于我们
 - (IBAction)aboutUs:(id)sender;
 - (IBAction)loginOut:(id)sender;
+- (IBAction)switchPush:(UISwitch *)sender;
 
 @end
 
@@ -30,15 +30,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"设置" ;
-    
-    
+    if ([[SaveInfo shareSaveInfo]pushFlag]) {
+         [self.handSwitch setOn:[[[SaveInfo shareSaveInfo] pushFlag] boolValue]];
+    }
+   
     [_loginButton setBackgroundImage:[UIImage imageNamed:@"下一步_置灰"] forState:UIControlStateHighlighted];
-    
 }
-//-(void)loginButtonClick{
-//
-//    
-//}
+
 
 - (IBAction)opinionClick:(id)sender {
     NSLog(@"意见反馈点击");
@@ -47,7 +45,6 @@
 }
 
 - (IBAction)aboutUs:(id)sender {
-//    NSLog(@"关于我们点击");
     AboutUsVC *aboutUsVC = [[AboutUsVC alloc] init];
     [self.navigationController pushViewController:aboutUsVC animated:YES];
     
@@ -55,6 +52,23 @@
 
 - (IBAction)loginOut:(id)sender {
     [self sendRequestData];
+}
+
+- (IBAction)switchPush:(UISwitch *)sender {
+    if ([sender isOn]) {
+        [self openJPush];
+    }else{
+        [self closeJPush];
+    }
+    [[SaveInfo shareSaveInfo]setPushFlag:[NSString stringWithFormat:@"%d",sender.isOn]];
+}
+- (void)openJPush{
+//    [UMessage registerRemoteNotificationAndUserNotificationSettings]
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
+}
+
+- (void)closeJPush{
+    [[UIApplication sharedApplication] unregisterForRemoteNotifications];
 }
 -(void)sendRequestData{
 

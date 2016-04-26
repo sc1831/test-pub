@@ -378,7 +378,7 @@
         return;
     }
     
-    [requestCenter sendRequestPostUrl:APP_PAY andDic:@{@"t":@"3",@"pay_sn":model.pay_sn} setSuccessBlock:^(NSDictionary *resultDic) {
+    [requestCenter sendRequestPostUrl:APP_PAY andDic:@{@"t":@"2",@"pay_sn":model.pay_sn} setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             HUDNormal(resultDic[@"msg"]);
             BG_LOGIN ;

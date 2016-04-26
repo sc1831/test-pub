@@ -11,9 +11,9 @@
 
 @implementation OrderTabViewFootView
 - (void)configWithOrderModel:(OrderModel *)model{
-    self.order_amountLab.text = model.order_amount ;
-    self.order_amount2Lab.text = model.order_amount ;
-    self.orderLab.text = model.order_sn ;
+    self.order_amountLab.text = model.order_goods_price_total ;
+    self.order_amount2Lab.text = model.order_goods_price_total ;
+    self.orderLab.text = model.pay_sn ;
     self.addTimeLab.text = model.add_time ;
 }
 /*
