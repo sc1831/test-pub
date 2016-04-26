@@ -217,10 +217,10 @@
     
     AllGoodsOrders *model = _dataArray[section];
     
-    UILabel *label = [GHControl createLabelWithFrame:CGRectMake(45,11,60, 30) Font:14 Text:@"订单号:"];
+    UILabel *label = [GHControl createLabelWithFrame:CGRectMake(35,11,60, 30) Font:14 Text:@"订单号:"];
     label.textColor = RGBCOLOR(99, 100, 101);
     [_headView addSubview:label];
-    UILabel *labelNum = [GHControl createLabelWithFrame:CGRectMake(93,11, M_WIDTH-110, 30) Font:14 Text:model.pay_sn];
+    UILabel *labelNum = [GHControl createLabelWithFrame:CGRectMake(83,11, M_WIDTH-110, 30) Font:14 Text:model.pay_sn];
     labelNum.textColor = RGBCOLOR(204,204,204);
     [_headView addSubview:labelNum];
     

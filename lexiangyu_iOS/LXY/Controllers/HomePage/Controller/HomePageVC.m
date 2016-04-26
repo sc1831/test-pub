@@ -243,6 +243,8 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH, _middleScrollView.frame.size.height)];
         
         [imageView sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@"乐县域logo-2"]];
+      
+//        imageView.image = [UIImage imageNamed:@"乐县域logo-2"];
         i ++ ;
         [_middleImageArray addObject:imageView];
     }
