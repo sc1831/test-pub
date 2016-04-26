@@ -33,7 +33,7 @@
     self.title = @"下单完成" ;
     self.name_phoneLab.text = _orderOverModel.userName_phone ;
     self.addressTextView.text = _orderOverModel.user_address ;
-    self.moneyLab.text = [NSString stringWithFormat:@"¥ %.2f",[_orderOverModel.order_goods_price_total floatValue]];
+    self.moneyLab.text = [NSString stringWithFormat:@"¥%.2f",[_orderOverModel.order_goods_price_total floatValue]];
     
 }
 

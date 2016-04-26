@@ -268,7 +268,9 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
             UILabel *jingle = [self.view viewWithTag:3500 + i];
             jingle.text = model.goods_jingle ;
         }
+        
         UIImageView *imageView = [self.view viewWithTag:3100+i];
+        imageView.contentMode = UIViewContentModeScaleAspectFit ;
         [imageView sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@""]];
         
         UILabel *name_label = [self.view viewWithTag:3200 +i];

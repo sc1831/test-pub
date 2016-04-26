@@ -73,6 +73,10 @@
     [self sendRequestData];
 
 }
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES ;
+}
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
 //    self.submitBtn.enabled = YES;
     
@@ -124,16 +128,13 @@
                               };
     
     [request sendRequestPostUrl:MY_EDIT_PWD andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+        HUDNormal([resultDic objectForKey:@"msg"]);
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
             return ;
         }
         if ([[resultDic[@"code"] stringValue] isEqualToString:@"1"]) {
-            
-            HUDNormal(@"密码修改成功");
              [self.navigationController popToRootViewControllerAnimated:YES];
-        }else{
-            HUDNormal([resultDic objectForKey:@"msg"]);
         }
         
        
