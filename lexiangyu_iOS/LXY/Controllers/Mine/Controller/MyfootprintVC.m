@@ -62,14 +62,12 @@
         }
         [requestCenter sendRequestPostUrl:MY_FOOTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
             [self.myFooterTableView headerEndRefresh];
-//            if ([resultDic[@"code"] intValue]==0) {
-//                HUDNormal(@"获取数据失败，请稍后再试");
-//                return ;
-//            }
+            
             if ([resultDic[@"code"] intValue] != 1) {
                 BG_LOGIN ;
                 return ;
             }
+            [_dataArray removeAllObjects];
             
             NSDictionary *dict = resultDic[@"data"];
             _page = [dict[@"page"] intValue];
@@ -112,6 +110,11 @@
             return;
         }
         [requestCenter sendRequestPostUrl:MY_COLLECT andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+            
+            if (_page>[resultDic[@"data"][@"pageamount"] intValue]) {
+                return ;
+            }
+            
             if ([resultDic[@"code"] intValue] != 1) {
                 BG_LOGIN ;
                 return ;
