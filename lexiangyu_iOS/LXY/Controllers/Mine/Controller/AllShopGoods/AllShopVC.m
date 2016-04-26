@@ -31,6 +31,7 @@
 @property (nonatomic)int page;
 
 @property (nonatomic ,strong)NSString *orderIds;
+@property (nonatomic ,strong)UILabel *label;
 @end
 
 @implementation AllShopVC
@@ -41,6 +42,11 @@
     NSMutableDictionary *postDic ;
 
 }
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [self addMjHeaderAndFooter];
+    [self.waitPayTableView headerBeginRefresh];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"全部";
@@ -48,6 +54,12 @@
     _subMutArray = [NSMutableArray array];
     
     [self createTableView];
+    
+    _label = [GHControl createLabelWithFrame:CGRectMake(30, M_HEIGHT/2-20, M_WIDTH-60, 40) Font:15 Text:@"暂时还没有订单哦"];
+    _label.textColor = RGBCOLOR(99, 100, 101);
+    _label.textAlignment = NSTextAlignmentCenter;
+    _label.hidden = YES;
+    [self.view addSubview:_label];
     
     postDic = [NSMutableDictionary dictionaryWithCapacity:0];
     requestCenter = [RequestCenter shareRequestCenter];
@@ -59,12 +71,8 @@
     
     [self addMjHeaderAndFooter];
     [self.waitPayTableView headerBeginRefresh];
-    /**
-     NSDictionary *postDic = @{@"order_state":@"",
-     @"user_id":[[SaveInfo shareSaveInfo]user_id],
-     @"page":@"7"
-     };
-     */
+    
+    
     
 }
 #pragma mark MJRefresh
@@ -103,6 +111,13 @@
                 [_subMutArray addObject:mutArray];
                 
                 [_dataArray addObject:model];
+            }
+            if (_dataArray.count==0) {
+                _label.hidden = NO;
+                return;
+            }else{
+            
+                _label.hidden = YES;
             }
             _page = 2;
             [_waitPayTableView reloadData];
@@ -160,6 +175,9 @@
                     MY_REFRESH_TWO;
 
                 }
+                
+                
+                
                 if (indexPaths.count <= 0) {
                     [self.waitPayTableView footerEndRefreshNoMoreData];
                 }else{

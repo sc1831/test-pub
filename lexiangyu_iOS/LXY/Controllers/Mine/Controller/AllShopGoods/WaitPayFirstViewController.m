@@ -28,7 +28,7 @@
 @property (nonatomic ,strong)NSString *orderIds;
 
 @property (nonatomic ,strong)UITableView *specialTableView;
-
+@property (nonatomic ,strong)UILabel *label;
 @end
 
 @implementation WaitPayFirstViewController
@@ -39,6 +39,11 @@
     RequestCenter *requestCenter;
     NSMutableDictionary *postDic ;
 }
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [self addMjHeaderAndFooter];
+    [self.waitPayTableView headerBeginRefresh];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"待付款";
@@ -46,7 +51,11 @@
     _subMutArray = [NSMutableArray array];
     [self createTableView];
 
-    
+    _label = [GHControl createLabelWithFrame:CGRectMake(30, M_HEIGHT/2-20, M_WIDTH-60, 40) Font:15 Text:@"暂时还没有要付款的订单哦"];
+    _label.textColor = RGBCOLOR(99, 100, 101);
+    _label.textAlignment = NSTextAlignmentCenter;
+    _label.hidden = YES;
+    [self.view addSubview:_label];
 
     postDic = [NSMutableDictionary dictionaryWithCapacity:0];
     requestCenter = [RequestCenter shareRequestCenter];
@@ -98,6 +107,13 @@
                 
             }
             _page = 2;
+            if (_dataArray.count==0) {
+                _label.hidden = NO;
+                return;
+            }else{
+            
+                _label.hidden = YES;
+            }
             [_waitPayTableView reloadData];
             
         } setFailBlock:^(NSString *errorStr) {

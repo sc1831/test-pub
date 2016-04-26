@@ -68,11 +68,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LXY/Controllers/Mine/Controller/AllShopGoods/WaitPayFirstViewController.m"
-            timestampString = "483352663.231244"
+            timestampString = "483358116.459615"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "356"
-            endingLineNumber = "356"
+            startingLineNumber = "372"
+            endingLineNumber = "372"
             landmarkName = "-payBtnClick:"
             landmarkType = "5">
             <Locations>
@@ -84,22 +84,22 @@
                   moduleName = "LXY"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/guohui/Desktop/newlexianyu_last_ios/lexiangyu_iOS/LXY/Controllers/Mine/Controller/AllShopGoods/WaitPayFirstViewController.m"
-                  timestampString = "483352898.026652"
+                  timestampString = "483357118.529528"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "356"
-                  endingLineNumber = "356"
+                  startingLineNumber = "365"
+                  endingLineNumber = "365"
                   offsetFromSymbolStart = "1255">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__copy_helper_block_314"
+                  symbolName = "__copy_helper_block_316"
                   moduleName = "LXY"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/guohui/Desktop/newlexianyu_last_ios/lexiangyu_iOS/LXY/Controllers/Mine/Controller/AllShopGoods/WaitPayFirstViewController.m"
-                  timestampString = "483352898.026788"
+                  timestampString = "483357118.529665"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -110,11 +110,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_315"
+                  symbolName = "__destroy_helper_block_317"
                   moduleName = "LXY"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/guohui/Desktop/newlexianyu_last_ios/lexiangyu_iOS/LXY/Controllers/Mine/Controller/AllShopGoods/WaitPayFirstViewController.m"
-                  timestampString = "483352898.026905"
+                  timestampString = "483357118.529782"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -125,15 +125,15 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__42-[WaitPayFirstViewController payBtnClick:]_block_invoke317"
+                  symbolName = "__42-[WaitPayFirstViewController payBtnClick:]_block_invoke319"
                   moduleName = "LXY"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/guohui/Desktop/newlexianyu_last_ios/lexiangyu_iOS/LXY/Controllers/Mine/Controller/AllShopGoods/WaitPayFirstViewController.m"
-                  timestampString = "483352898.027015"
+                  timestampString = "483357118.5299"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "356"
-                  endingLineNumber = "356"
+                  startingLineNumber = "365"
+                  endingLineNumber = "365"
                   offsetFromSymbolStart = "44">
                </Location>
             </Locations>
@@ -146,11 +146,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LXY/Controllers/Mine/Controller/AllShopGoods/WaitPayFirstViewController.m"
-            timestampString = "483352663.231244"
+            timestampString = "483358116.459615"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "373"
-            endingLineNumber = "373"
+            startingLineNumber = "389"
+            endingLineNumber = "389"
             landmarkName = "-btnClick:"
             landmarkType = "5">
          </BreakpointContent>
@@ -162,11 +162,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LXY/Controllers/Mine/Controller/AllShopGoods/WaitPayFirstViewController.m"
-            timestampString = "483352663.231244"
+            timestampString = "483358116.459615"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "390"
-            endingLineNumber = "390"
+            startingLineNumber = "406"
+            endingLineNumber = "406"
             landmarkName = "-createFeedBackView"
             landmarkType = "5">
          </BreakpointContent>
@@ -178,11 +178,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LXY/Controllers/Mine/Controller/AllShopGoods/AllShopVC.m"
-            timestampString = "483352110.294404"
+            timestampString = "483358116.459615"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "-addMjHeaderAndFooter"
             landmarkType = "5">
          </BreakpointContent>
@@ -232,6 +232,22 @@
             startingLineNumber = "66"
             endingLineNumber = "66"
             landmarkName = "-addMjHeaderAndFooter"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LXY/Controllers/Mine/Controller/AllShopGoods/WaitSendVC.m"
+            timestampString = "483358116.459615"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "-viewWillAppear:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

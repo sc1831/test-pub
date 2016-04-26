@@ -25,7 +25,7 @@
 @property (nonatomic ,strong)UIView *footView;
 @property (nonatomic ,strong)NSMutableArray *dataArray;
 @property (nonatomic ,strong)NSMutableArray *subMutArray;
-
+@property (nonatomic ,strong)UILabel *label;
 @end
 
 @implementation WaitGetVC
@@ -36,6 +36,11 @@
     RequestCenter *requestCenter;
     NSMutableDictionary *postDic ;
 }
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [self addMjHeaderAndFooter];
+    [self.waitGetTableView headerBeginRefresh];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"待收货";
@@ -44,6 +49,11 @@
     
     [self createTableView];
 
+    _label = [GHControl createLabelWithFrame:CGRectMake(30, M_HEIGHT/2-20, M_WIDTH-60, 40) Font:15 Text:@"暂时还没有要收货的订单哦"];
+    _label.textColor = RGBCOLOR(99, 100, 101);
+    _label.textAlignment = NSTextAlignmentCenter;
+    _label.hidden = YES;
+    [self.view addSubview:_label];
     
     postDic = [NSMutableDictionary dictionaryWithCapacity:0];
     requestCenter = [RequestCenter shareRequestCenter];
@@ -97,6 +107,13 @@
                 [_dataArray addObject:model];
             }
             _page = 2;
+            if (_dataArray.count ==0) {
+                _label.hidden = NO;
+                return;
+            }else{
+            
+                _label.hidden = YES;
+            }
             [_waitGetTableView reloadData];
             
         } setFailBlock:^(NSString *errorStr) {

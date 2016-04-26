@@ -31,6 +31,7 @@
 @property (nonatomic ,strong)NSMutableArray *dataArray;
 @property (nonatomic ,strong)NSMutableArray *subMutArray;
 @property (nonatomic)int page;
+@property (nonatomic ,strong)UILabel *label;
 @end
 
 @implementation WaitSendVC
@@ -40,7 +41,11 @@
     RequestCenter *requestCenter;
     NSMutableDictionary *postDic ;
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [self addMjHeaderAndFooter];
+    [self.waitSendtableView headerBeginRefresh];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"待发货";
@@ -48,6 +53,11 @@
     _subMutArray = [NSMutableArray array];
     [self createTableView];
     
+    _label = [GHControl createLabelWithFrame:CGRectMake(30, M_HEIGHT/2-20, M_WIDTH-60, 40) Font:15 Text:@"暂时还没有要发货的订单哦"];
+    _label.textColor = RGBCOLOR(99, 100, 101);
+    _label.textAlignment = NSTextAlignmentCenter;
+    _label.hidden = YES;
+    [self.view addSubview:_label];
     
     postDic = [NSMutableDictionary dictionaryWithCapacity:0];
     requestCenter = [RequestCenter shareRequestCenter];
@@ -102,6 +112,13 @@
                 
             }
             _page = 2;
+            if (_dataArray.count==0) {
+                _label.hidden = NO;
+                return;
+            }else{
+            
+                _label.hidden = YES;
+            }
             [_waitSendtableView reloadData];
             
         } setFailBlock:^(NSString *errorStr) {
