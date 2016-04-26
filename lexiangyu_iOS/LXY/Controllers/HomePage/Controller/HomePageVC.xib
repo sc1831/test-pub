@@ -608,8 +608,8 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wNS-Cv-3CN">
                             <rect key="frame" x="0.0" y="776" width="375" height="128"/>
                             <subviews>
-                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qHB-lV-TbC">
-                                    <rect key="frame" x="13" y="14" width="32" height="34"/>
+                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qHB-lV-TbC">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
                                 </scrollView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
