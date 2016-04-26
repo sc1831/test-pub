@@ -73,4 +73,11 @@
 //    }];
     
 }
+
+- (void)leftNavBtnClick:(UIButton *)sender{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+}
+
+
 @end
