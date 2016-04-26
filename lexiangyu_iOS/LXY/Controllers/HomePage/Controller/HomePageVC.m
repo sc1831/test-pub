@@ -230,7 +230,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH, _TopScrollView.frame.size.height)];
         
 //        [imageView sd_setImageWithURL:[NSURL URLWithString:model.adv_image] placeholderImage:[UIImage imageNamed:[NSString stringWithFormat:@"火影%d",i+1]]];
-        [imageView sd_setImageWithURL:[NSURL URLWithString:model.adv_image] placeholderImage:[UIImage imageNamed:[NSString stringWithFormat:@"商品默认图%d",i+1]]];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:model.adv_image] placeholderImage:[UIImage imageNamed:@"乐县域logo-2"]];
         i ++ ;
         [_imageArray addObject:imageView];
     }
@@ -242,7 +242,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
         int i = 0 ;
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH, _middleScrollView.frame.size.height)];
         
-        [imageView sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:[NSString stringWithFormat:@"火影%d",i+1]]];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@"乐县域logo-2"]];
         i ++ ;
         [_middleImageArray addObject:imageView];
     }
@@ -350,7 +350,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     
     for (int i =0; i<5; i++) {
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH, _TopScrollView.frame.size.height)];
-        imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"火影%d",i+1]];
+        imageView.image = [UIImage imageNamed:@"乐县域logo-2"];
         
 //        UIImagev *image = [UIImage imageNamed:[NSString stringWithFormat:@"火影%d",i+1]];
         
@@ -383,7 +383,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     
     for (int i =0; i<5; i++) {
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH, _TopScrollView.frame.size.height)];
-        imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"火影%d",i+1]];
+        imageView.image = [UIImage imageNamed:@"乐县域logo-2"];
         
 //        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"火影%d",i+1]];
         

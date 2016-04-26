@@ -498,6 +498,9 @@
 		6EF887D71CBCF3ED001E6D1F /* AllGoodsOrders.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF887D61CBCF3ED001E6D1F /* AllGoodsOrders.m */; };
 		6EF887DB1CBCF421001E6D1F /* MenyGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF887D91CBCF421001E6D1F /* MenyGoodsCell.m */; };
 		6EF887DC1CBCF421001E6D1F /* MenyGoodsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EF887DA1CBCF421001E6D1F /* MenyGoodsCell.xib */; };
+		6EFE732D1CCF644A00252680 /* 乐县域logo-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EFE732A1CCF644A00252680 /* 乐县域logo-2.png */; };
+		6EFE732E1CCF644A00252680 /* 乐县域logo-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EFE732B1CCF644A00252680 /* 乐县域logo-2@2x.png */; };
+		6EFE732F1CCF644A00252680 /* 乐县域logo-2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EFE732C1CCF644A00252680 /* 乐县域logo-2@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1186,6 +1189,9 @@
 		6EF887D81CBCF421001E6D1F /* MenyGoodsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenyGoodsCell.h; sourceTree = "<group>"; };
 		6EF887D91CBCF421001E6D1F /* MenyGoodsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenyGoodsCell.m; sourceTree = "<group>"; };
 		6EF887DA1CBCF421001E6D1F /* MenyGoodsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenyGoodsCell.xib; sourceTree = "<group>"; };
+		6EFE732A1CCF644A00252680 /* 乐县域logo-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "乐县域logo-2.png"; sourceTree = "<group>"; };
+		6EFE732B1CCF644A00252680 /* 乐县域logo-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "乐县域logo-2@2x.png"; sourceTree = "<group>"; };
+		6EFE732C1CCF644A00252680 /* 乐县域logo-2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "乐县域logo-2@3x.png"; sourceTree = "<group>"; };
 		B5AFB859BF8C158067BC8AAB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1BE7CF04CB6A5A0788B427D /* Pods_LXY.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LXY.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1788,6 +1794,9 @@
 		6ECACE6E1C92BE01007310C0 /* Guite */ = {
 			isa = PBXGroup;
 			children = (
+				6EFE732A1CCF644A00252680 /* 乐县域logo-2.png */,
+				6EFE732B1CCF644A00252680 /* 乐县域logo-2@2x.png */,
+				6EFE732C1CCF644A00252680 /* 乐县域logo-2@3x.png */,
 				6EE503811CCF1777003EF2E7 /* 商品默认图@2x.png */,
 				6EE503821CCF1777003EF2E7 /* 商品默认图@3x.png */,
 				6EE5037D1CCF0FE6003EF2E7 /* 商品默认图.png */,
@@ -2824,6 +2833,7 @@
 				6E00375C1C9CFE6600F592FB /* HeadCollectionReusableView.xib in Resources */,
 				6E10319C1CB4FC570098D5BD /* 地址@3x.png in Resources */,
 				6EA414A71CBE2A6600A52BA5 /* FooterTableView.xib in Resources */,
+				6EFE732F1CCF644A00252680 /* 乐县域logo-2@3x.png in Resources */,
 				6E1031041CB4FAE80098D5BD /* 分类@3x.png in Resources */,
 				6EC44D271CA4DF8000833567 /* 下一步_置灰@.png in Resources */,
 				6E1031001CB4FAE80098D5BD /* 我的@2x（选中）.png in Resources */,
@@ -2854,6 +2864,7 @@
 				6E46B7531CA4E35200D5F73B /* 固定.png in Resources */,
 				6E10320E1CB4FCC30098D5BD /* 数量选择_点击1@2x.png in Resources */,
 				6E1031801CB4FC570098D5BD /* 保存修改_点击@3x.png in Resources */,
+				6EFE732E1CCF644A00252680 /* 乐县域logo-2@2x.png in Resources */,
 				6EC44CE71CA4D78F00833567 /* page-lexianyu-logo@.png in Resources */,
 				6E10321D1CB4FCC30098D5BD /* 店铺@3x.png in Resources */,
 				6E1030ED1CB4FAE80098D5BD /* 新商品推荐“标签”@3x.png in Resources */,
@@ -2886,6 +2897,7 @@
 				6E1D9A701CB3AA7800CBA10D /* SettingVC.xib in Resources */,
 				6E46B7401CA4E2BC00D5F73B /* 3@3x.png in Resources */,
 				6E796F2A1C99611A00F677E3 /* 火影3.png in Resources */,
+				6EFE732D1CCF644A00252680 /* 乐县域logo-2.png in Resources */,
 				6E46B7471CA4E2BC00D5F73B /* 6.png in Resources */,
 				6EC44D161CA4DE4C00833567 /* 地址选项跳转@2x.png in Resources */,
 				6E10321E1CB4FCC30098D5BD /* 筛选.png in Resources */,

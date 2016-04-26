@@ -38,7 +38,7 @@
 - (void)viewWillAppear:(BOOL)animated{
      [self sendRequestData];
     if ([[SaveInfo shareSaveInfo]userImageUrl]) {
-        [_headImageView sd_setImageWithURL:[NSURL URLWithString:[[SaveInfo shareSaveInfo]userImageUrl]] placeholderImage:[UIImage imageNamed:@"火影1"]] ;
+        [_headImageView sd_setImageWithURL:[NSURL URLWithString:[[SaveInfo shareSaveInfo]userImageUrl]] placeholderImage:[UIImage imageNamed:@"乐县域logo-2"]] ;
     }
 }
 
