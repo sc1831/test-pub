@@ -26,6 +26,7 @@
     //1.创建一个滚动视图
     UIScrollView *scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0,M_WIDTH, M_HEIGHT)];
     scrollView.delegate = self;
+    scrollView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:scrollView];
     
     for (int i = 0; i<num; i++) {
@@ -44,7 +45,7 @@
         
         UIImageView *forImageView = [[UIImageView alloc]initWithImage:forImage];
         
-        forImageView.frame = CGRectMake(M_WIDTH*i, 0, M_WIDTH, M_HEIGHT);
+        forImageView.frame = CGRectMake(M_WIDTH*i, 20, M_WIDTH, M_HEIGHT-100);
         
         [scrollView addSubview:forImageView];
         
