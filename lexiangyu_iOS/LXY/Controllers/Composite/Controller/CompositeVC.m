@@ -260,12 +260,12 @@
     _tipView.layer.cornerRadius = 5.0f;
     [self.view addSubview:_tipView];
     
-    UILabel *label = [GHControl createLabelWithFrame:CGRectMake(0, _tipView.frame.size.height-60, _tipView.frame.size.width, 40) Font:16 Text:@"加入购物车成功"];
+    UILabel *label = [GHControl createLabelWithFrame:CGRectMake(0, _tipView.frame.size.height-45, _tipView.frame.size.width, 40) Font:16 Text:@"加入购物车成功"];
     label.textColor = [UIColor whiteColor];
     label.textAlignment = NSTextAlignmentCenter;
     [_tipView addSubview:label];
     
-    UIImageView *imageView = [GHControl createImageViewWithFrame:CGRectMake(_tipView.frame.size.width/2-30,10, 59, 59) ImageName:@"添加购物成功"];
+    UIImageView *imageView = [GHControl createImageViewWithFrame:CGRectMake(_tipView.frame.size.width/2-25,10, 50, 50) ImageName:@"添加购物成功"];
     [_tipView addSubview:imageView];
 }
 

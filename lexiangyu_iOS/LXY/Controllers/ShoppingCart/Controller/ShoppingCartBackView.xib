@@ -21,26 +21,26 @@
                     <rect key="frame" x="30" y="300" width="310" height="33"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="偶遇总会有惊喜麻溜下单、一起" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaf-3Q-wSb">
-                            <rect key="frame" x="0.0" y="6" width="244" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <rect key="frame" x="0.0" y="6" width="256" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.62352941176470589" green="0.62745098039215685" blue="0.63137254901960782" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gD5-fI-mfP">
-                            <rect key="frame" x="246" y="1" width="62" height="30"/>
+                            <rect key="frame" x="258" y="8" width="50" height="18"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="62" id="Hgk-th-2TX"/>
+                                <constraint firstAttribute="width" constant="50" id="Hgk-th-2TX"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <state key="normal" title="去逛逛" backgroundImage="下一步_默认.png"/>
+                            <state key="normal" title="去逛逛" backgroundImage="保存修改_点击.png"/>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="gD5-fI-mfP" secondAttribute="trailing" constant="2" id="9DG-vl-7bD"/>
-                        <constraint firstItem="gD5-fI-mfP" firstAttribute="top" secondItem="i9H-29-tTe" secondAttribute="top" constant="1" id="HDU-RP-QmB"/>
+                        <constraint firstItem="gD5-fI-mfP" firstAttribute="top" secondItem="i9H-29-tTe" secondAttribute="top" constant="8" id="HDU-RP-QmB"/>
                         <constraint firstAttribute="bottom" secondItem="gaf-3Q-wSb" secondAttribute="bottom" constant="6" id="c8S-6h-hHz"/>
-                        <constraint firstAttribute="bottom" secondItem="gD5-fI-mfP" secondAttribute="bottom" constant="2" id="cfQ-SL-UDs"/>
+                        <constraint firstAttribute="bottom" secondItem="gD5-fI-mfP" secondAttribute="bottom" constant="7" id="cfQ-SL-UDs"/>
                         <constraint firstItem="gaf-3Q-wSb" firstAttribute="top" secondItem="i9H-29-tTe" secondAttribute="top" constant="6" id="ed1-hK-18u"/>
                         <constraint firstItem="gD5-fI-mfP" firstAttribute="leading" secondItem="gaf-3Q-wSb" secondAttribute="trailing" constant="2" id="f5J-vi-LNZ"/>
                         <constraint firstItem="gaf-3Q-wSb" firstAttribute="leading" secondItem="i9H-29-tTe" secondAttribute="leading" id="nCL-LJ-iav"/>
@@ -66,6 +66,6 @@
     </objects>
     <resources>
         <image name="nodata_shopcar.png" width="528" height="391"/>
-        <image name="下一步_默认.png" width="328" height="44"/>
+        <image name="保存修改_点击.png" width="328" height="44"/>
     </resources>
 </document>

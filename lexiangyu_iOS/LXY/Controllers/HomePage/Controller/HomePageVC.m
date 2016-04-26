@@ -504,11 +504,8 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 
     scrollView.contentSize = CGSizeMake(M_WIDTH, 1460+allNum*(M_WIDTH/2+15)-471+superior.count*96);
     
-    }else{
-    
-       
     }
-    
+        
 }
 
 - (BOOL)prefersStatusBarHidden

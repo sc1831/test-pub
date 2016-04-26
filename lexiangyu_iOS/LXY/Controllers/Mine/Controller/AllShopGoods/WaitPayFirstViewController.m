@@ -115,6 +115,11 @@
             return;
         }
         [requestCenter sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+            
+            if (_page>[resultDic[@"data"][@"pageamount"] intValue]) {
+                
+                return ;
+            }
             if ([resultDic[@"code"] intValue] != 1) {
                 BG_LOGIN ;
                 return ;
