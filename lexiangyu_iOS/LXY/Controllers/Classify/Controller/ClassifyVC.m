@@ -99,7 +99,6 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
 
 #pragma mark - tab delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    CELLSELECTANIMATE ;
     if (self.selectRow != (int)indexPath.row) {
         ClassifyTabCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         NSIndexPath *selectIndexPath = [NSIndexPath indexPathForRow:self.selectRow inSection:0];

@@ -71,7 +71,7 @@
     //分页的页数
     self.pageControl.numberOfPages = num;
     self.pageControl.pageIndicatorTintColor = [UIColor grayColor];
-    self.pageControl.currentPageIndicatorTintColor = [UIColor redColor];
+    self.pageControl.currentPageIndicatorTintColor = [UIColor orangeColor];
     //当前显示分页
     self.pageControl.currentPage = 0;
     //将分页控建加在本视图上面
