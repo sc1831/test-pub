@@ -83,5 +83,6 @@ replacementString:(NSString *)string {
 
 //联系客服
 - (IBAction)customerService:(id)sender {
+     [self.view addSubview:[GHControl makeTelPhoneNum]];
 }
 @end

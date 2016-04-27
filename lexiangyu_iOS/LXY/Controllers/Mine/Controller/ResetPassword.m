@@ -186,6 +186,7 @@
 
 - (IBAction)customerService:(id)sender {
     NSLog(@"联系客服");
+     [self.view addSubview:[GHControl makeTelPhoneNum]];
 }
 
 #pragma mark-------textField协议函数----------

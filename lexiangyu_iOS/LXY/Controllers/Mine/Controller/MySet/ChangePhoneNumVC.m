@@ -16,7 +16,8 @@
 @interface ChangePhoneNumVC ()<UITextFieldDelegate>
 
 //@property (nonatomic,strong)NSString *authNum;
-
+//联系客服
+- (IBAction)customerServicePhone:(id)sender;
 
 //修改绑定手机
 - (IBAction)changePhoneClick:(id)sender;
@@ -134,5 +135,9 @@
         UIAlertAction *action = alertController.actions.lastObject ;
         action.enabled = listrn.text.length == 4 ;
     }
+}
+- (IBAction)customerServicePhone:(id)sender {
+    
+    [self.view addSubview:[GHControl makeTelPhoneNum]];
 }
 @end
