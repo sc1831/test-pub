@@ -15,14 +15,14 @@
                     <rect key="frame" x="0.0" y="130" width="375" height="83"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="地址.png" translatesAutoresizingMaskIntoConstraints="NO" id="Bvx-0E-8Ee">
-                            <rect key="frame" x="12" y="2" width="14" height="14"/>
+                            <rect key="frame" x="12" y="8" width="14" height="14"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="14" id="28e-ah-cBX"/>
                                 <constraint firstAttribute="height" constant="14" id="bM1-T2-How"/>
                             </constraints>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="位置.png" translatesAutoresizingMaskIntoConstraints="NO" id="fOo-lm-1qx">
-                            <rect key="frame" x="12" y="32" width="14" height="14"/>
+                            <rect key="frame" x="12" y="38" width="14" height="14"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="14" id="83A-04-diz"/>
                                 <constraint firstAttribute="height" constant="14" id="e6B-Gl-jV9"/>
@@ -31,6 +31,7 @@
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wiq-5S-Fih">
                             <rect key="frame" x="31" y="32" width="344" height="51"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" red="0.38823529411764707" green="0.39215686274509803" blue="0.396078431372549" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
@@ -40,13 +41,12 @@
                                 <constraint firstAttribute="height" constant="30" id="489-tZ-91B"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" red="0.3921568627" green="0.39607843139999999" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="Bvx-0E-8Ee" firstAttribute="top" secondItem="hDJ-bX-FPa" secondAttribute="top" constant="2" id="21z-pA-zQA"/>
+                        <constraint firstItem="Bvx-0E-8Ee" firstAttribute="top" secondItem="hDJ-bX-FPa" secondAttribute="top" constant="8" id="21z-pA-zQA"/>
                         <constraint firstAttribute="height" constant="83" id="A7Z-bI-VJe"/>
                         <constraint firstItem="wiq-5S-Fih" firstAttribute="leading" secondItem="fOo-lm-1qx" secondAttribute="trailing" constant="5" id="Cok-lC-Mxm"/>
                         <constraint firstItem="fOo-lm-1qx" firstAttribute="top" secondItem="Bvx-0E-8Ee" secondAttribute="bottom" constant="16" id="EQ0-Hd-ivj"/>
