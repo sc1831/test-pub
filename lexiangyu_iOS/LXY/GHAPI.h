@@ -9,7 +9,8 @@
 #ifndef GHAPI_h
 #define GHAPI_h
 //#define HTTPSERVICE @"http://192.168.1.178/index.php"
-#define HTTPSERVICE @"http://www.lexianyu.com/index.php"
+//#define HTTPSERVICE @"http://www.lexianyu.com/index.php"
+#define HTTPSERVICE @"http://apilxy.lecuntao.com/index.php"
 //注册发送短信
 #define REGISTRE_SEND_SMS @"app/Register/send_sms"
 //注册验证验证码
