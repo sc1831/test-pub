@@ -419,7 +419,7 @@
             str = @"选中";
         }
     }
-    UIButton *rightButton = [GHControl createButtonWithFrame:CGRectMake(0,8,35,35) ImageName:nil Target:self Action:@selector(rightBtnClick:) Title:nil];
+    UIButton *rightButton = [GHControl createButtonWithFrame:CGRectMake(0,8,40,35) ImageName:nil Target:self Action:@selector(rightBtnClick:) Title:nil];
     [rightButton setImage:[UIImage imageNamed:str] forState:UIControlStateNormal];
         rightButton.tag = section;
     [_headView addSubview:rightButton];
