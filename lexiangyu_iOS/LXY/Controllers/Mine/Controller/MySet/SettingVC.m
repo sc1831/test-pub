@@ -71,12 +71,6 @@
     [[UIApplication sharedApplication] unregisterForRemoteNotifications];
 }
 -(void)sendRequestData{
-
-    if (![GHControl isExistNetwork]) {
-        HUDNormal(@"服务器无响应，请稍后重试");
-
-        return;
-    }
     RequestCenter * request = [RequestCenter shareRequestCenter];
     NSDictionary *postDic = @{@"token":[[SaveInfo shareSaveInfo]token],
                               @"phone":[[SaveInfo shareSaveInfo]loginName],
