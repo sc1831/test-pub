@@ -13,6 +13,8 @@
 #import "GoodsModel.h"
 #import "ConfirmorderVC.h"
 #import "LoginVC.h"
+#import "GHControl.h"
+
 @interface ShopingDetailsVC ()<UIWebViewDelegate>
 {
     NSString *goods_detail_url ;
@@ -37,18 +39,13 @@
 
 //    self.navigationController.navigationBarHidden = YES ;
     
-
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后再试");
+        return;
+    }
     
     RequestCenter *request = [RequestCenter shareRequestCenter];
     [request sendRequestPostUrl:DETAIL_URL andDic:@{@"goods_id":self.goods_commonid} setSuccessBlock:^(NSDictionary *resultDic) {
-        
-        if ([resultDic[@"code"] intValue] != 1) {
-            BG_LOGIN ;
-            HUDNormal(@"修改失败，请稍后再试");
-            return ;
-        }
-
-        
         
         if ([resultDic[@"msg"] isEqualToString:@"Hacker"]) {
             LoginVC *login = [[LoginVC alloc]init];
@@ -61,11 +58,11 @@
 
             
         }else{
-            HUDNormal(@"商品信息正在维护");
+            HUDNormal(resultDic[@"msg"]);
             [self.navigationController popViewControllerAnimated:YES];
         }
     } setFailBlock:^(NSString *errorStr) {
-            HUDNormal(@"商品信息正在维护");
+            HUDNormal(@"服务器无响应，请稍后再试");
         [self.navigationController popViewControllerAnimated:YES];
     }];
 

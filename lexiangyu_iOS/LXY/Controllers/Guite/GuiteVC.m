@@ -45,7 +45,7 @@
         
         UIImageView *forImageView = [[UIImageView alloc]initWithImage:forImage];
         
-        forImageView.frame = CGRectMake(M_WIDTH*i, 20, M_WIDTH, M_HEIGHT-100);
+        forImageView.frame = CGRectMake(M_WIDTH*i+20, 20, M_WIDTH-40, M_HEIGHT-100);
         
         [scrollView addSubview:forImageView];
         
