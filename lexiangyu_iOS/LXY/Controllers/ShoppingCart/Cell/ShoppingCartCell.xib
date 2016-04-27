@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -73,10 +73,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNy-an-c7R">
-                        <rect key="frame" x="5" y="18" width="30" height="53"/>
+                        <rect key="frame" x="0.0" y="8" width="40" height="73"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="30" id="8KO-hE-Mkp"/>
-                            <constraint firstAttribute="height" constant="53" id="Zu2-Xl-RVO"/>
+                            <constraint firstAttribute="width" constant="40" id="8KO-hE-Mkp"/>
+                            <constraint firstAttribute="height" constant="73" id="Zu2-Xl-RVO"/>
                         </constraints>
                         <state key="normal" image="未选中.png"/>
                     </button>
@@ -100,10 +100,10 @@
                     <constraint firstItem="lZN-qY-6fj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="ECK-QK-YfY"/>
                     <constraint firstItem="Kyd-xG-3MB" firstAttribute="leading" secondItem="yuh-db-40T" secondAttribute="trailing" constant="5" id="EdI-Sj-H5U"/>
                     <constraint firstItem="lR4-vZ-zbK" firstAttribute="leading" secondItem="Pp9-y8-ez3" secondAttribute="trailing" constant="8" id="Hvy-xn-MPR"/>
-                    <constraint firstItem="sNy-an-c7R" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="Ia0-uv-SGu"/>
+                    <constraint firstItem="sNy-an-c7R" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Ia0-uv-SGu"/>
                     <constraint firstItem="yuh-db-40T" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="K10-Bz-DKJ"/>
                     <constraint firstItem="bAx-Lq-3mh" firstAttribute="top" secondItem="lR4-vZ-zbK" secondAttribute="bottom" constant="2" id="SBz-M8-BMf"/>
-                    <constraint firstItem="sNy-an-c7R" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-3" id="Tua-6B-gX7"/>
+                    <constraint firstItem="sNy-an-c7R" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="Tua-6B-gX7"/>
                     <constraint firstAttribute="trailingMargin" secondItem="i6P-9l-D8x" secondAttribute="trailing" constant="5" id="Twp-UM-pD3"/>
                     <constraint firstItem="lZN-qY-6fj" firstAttribute="leading" secondItem="Pp9-y8-ez3" secondAttribute="trailing" constant="8" id="VGW-1J-U1M"/>
                     <constraint firstAttribute="bottomMargin" secondItem="bAx-Lq-3mh" secondAttribute="bottom" constant="3.5" id="Vy2-7Q-B0N"/>
