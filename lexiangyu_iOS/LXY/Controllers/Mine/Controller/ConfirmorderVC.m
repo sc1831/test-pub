@@ -266,7 +266,9 @@
         NSMutableArray *contectArray = [NSMutableArray array];
         for (int i = 0;  i< [_goodsSpecArray[indexPath.section] count]; i++) {
             AllGoodsOrders *goodsSpecModel = _goodsSpecArray[indexPath.section][i];
-            
+            if (goodsSpecModel.sp_name.length <= 0) {
+                break ;
+            }
             [contectArray addObject:[NSString stringWithFormat:@"%@:%@          ",goodsSpecModel.sp_name,goodsSpecModel.sp_value_name]];
             
         }

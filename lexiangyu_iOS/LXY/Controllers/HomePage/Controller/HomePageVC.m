@@ -21,6 +21,7 @@
 #import "HomeModel.h"
 #import "SaveInfo.h"
 #import "GHControl.h"
+#define TOPVIEW_HEIGHT 1398
 static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 @interface HomePageVC ()<UIScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 {
@@ -103,7 +104,9 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 }
 
 - (void)viewDidAppear:(BOOL)animated{
-        self.TopView.contentSize = CGSizeMake(self.view.frame.size.width, 1438);
+//    -40
+//        self.TopView.contentSize = CGSizeMake(self.view.frame.size.width, 1438);
+    self.TopView.contentSize = CGSizeMake(self.view.frame.size.width, TOPVIEW_HEIGHT);
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -493,7 +496,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
     if (recommend_goods.count <= 0) {
-         scrollView.contentSize = CGSizeMake(M_WIDTH, 1438-471+superior.count*96);
+         scrollView.contentSize = CGSizeMake(M_WIDTH, TOPVIEW_HEIGHT-471+superior.count*96);
         return ;
     }
     
@@ -504,9 +507,9 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
         ++allNum;
     }
     NSLog(@"scrollView.contentSize.height:%f",scrollView.contentSize.height);
-    if (scrollView.contentSize.height > 1400) {
+    if (scrollView.contentSize.height > 1360) {
 
-    scrollView.contentSize = CGSizeMake(M_WIDTH, 1460+allNum*(M_WIDTH/2+15)-471+superior.count*96);
+    scrollView.contentSize = CGSizeMake(M_WIDTH, 1420+allNum*(M_WIDTH/2+15)-471+superior.count*96);
     
     }
         
