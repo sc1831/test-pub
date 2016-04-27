@@ -304,10 +304,10 @@
     }
     if (allShopClick) {
         _allPayClick = YES;
-        [_allShopButton setTitle:@"取消全选" forState:UIControlStateNormal];
+        [_allShopButton setTitle:@"全选" forState:UIControlStateNormal];
         _bootmAllImageView.image = [UIImage imageNamed:@"选中"];
         _allClick = YES;
-        [_allDeleteButton setTitle:@"取消全选" forState:UIControlStateNormal];
+        [_allDeleteButton setTitle:@"全选" forState:UIControlStateNormal];
         _bootmDeleteImageView.image = [UIImage imageNamed:@"选中"];
         
     }
@@ -419,7 +419,8 @@
             str = @"选中";
         }
     }
-    UIButton *rightButton = [GHControl createButtonWithFrame:CGRectMake(8, 14,23, 23) ImageName:str Target:self Action:@selector(rightBtnClick:) Title:nil];
+    UIButton *rightButton = [GHControl createButtonWithFrame:CGRectMake(0,8,35,35) ImageName:nil Target:self Action:@selector(rightBtnClick:) Title:nil];
+    [rightButton setImage:[UIImage imageNamed:str] forState:UIControlStateNormal];
         rightButton.tag = section;
     [_headView addSubview:rightButton];
     
@@ -540,7 +541,8 @@
         }
         
     }
-    [rightButton setBackgroundImage:image forState:UIControlStateNormal];
+//    [rightButton setBackgroundImage:image forState:UIControlStateNormal];
+    [rightButton setImage:image forState:UIControlStateNormal];
     NSLog(@"点击圆点");
     [self.shoppingTableView reloadData];
 
@@ -590,6 +592,8 @@
     ShoppingCartCell *shopCell = [self.shoppingTableView cellForRowAtIndexPath:indexPath];
     
     [shopCell.rightButton setBackgroundImage:image forState:UIControlStateNormal];
+//    [shopCell.rightButton setImage:image forState:UIControlStateNormal];
+    [shopCell.rightButton setImageEdgeInsets:UIEdgeInsetsMake(15, 15, 15,15)];
     [self.shoppingTableView reloadData];
     //显示总价
     [self allMoneyPayStr];
@@ -634,7 +638,7 @@
         for (int i = 0 ; i<_sectionStateArray.count; i++) {
             [_sectionStateArray replaceObjectAtIndex:i withObject:@"2"];
         }
-        [button setTitle:@"取消全选" forState:UIControlStateNormal];
+        [button setTitle:@"全选" forState:UIControlStateNormal];
         _bootmAllImageView.image = [UIImage imageNamed:@"选中"];
     }else{
         
@@ -726,7 +730,7 @@
         for (int i = 0 ; i<_sectionStateArray.count; i++) {
             [_sectionStateArray replaceObjectAtIndex:i withObject:@"2"];
         }
-        [button setTitle:@"取消全选" forState:UIControlStateNormal];
+        [button setTitle:@"全选" forState:UIControlStateNormal];
         _bootmDeleteImageView.image = [UIImage imageNamed:@"选中"];
     }else{
         

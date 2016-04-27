@@ -15,16 +15,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="如无法自助修复,请拨打人工客服" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Pv-L1-e0M">
-                    <rect key="frame" x="8" y="153" width="164" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="164" id="CKm-jm-Rl9"/>
-                        <constraint firstAttribute="height" constant="21" id="CjM-0N-EtP"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pkh-sE-oTx" customClass="UIControl">
                     <rect key="frame" x="0.0" y="98" width="375" height="47"/>
                     <subviews>
@@ -61,8 +51,8 @@
                     <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mka-le-dYA">
-                    <rect key="frame" x="165" y="148" width="98" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mka-le-dYA">
+                    <rect key="frame" x="172" y="148" width="193" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="kWl-AV-711"/>
                     </constraints>
@@ -74,22 +64,38 @@
                         <action selector="customerServicePhone:" destination="-1" eventType="touchUpInside" id="QKe-EY-9si"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="如无法自助修复,请拨打人工客服" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Pv-L1-e0M">
+                    <rect key="frame" x="8" y="153" width="164" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="164" id="CKm-jm-Rl9"/>
+                        <constraint firstAttribute="height" constant="21" id="CjM-0N-EtP"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.92941176469999998" green="0.93725490199999995" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="6Pv-L1-e0M" firstAttribute="top" secondItem="Pkh-sE-oTx" secondAttribute="bottom" constant="8" id="0o3-3p-YJl"/>
+                <constraint firstItem="mka-le-dYA" firstAttribute="leading" secondItem="6Pv-L1-e0M" secondAttribute="trailing" id="7bl-6c-rxB"/>
                 <constraint firstItem="YfT-4p-ia9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="7d5-LJ-7vZ"/>
                 <constraint firstAttribute="trailing" secondItem="Pkh-sE-oTx" secondAttribute="trailing" id="7ky-ET-gEj"/>
                 <constraint firstAttribute="trailing" secondItem="YfT-4p-ia9" secondAttribute="trailing" id="CO6-9K-L5v"/>
                 <constraint firstItem="YfT-4p-ia9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="72" id="CbR-2O-g06"/>
                 <constraint firstItem="6Pv-L1-e0M" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="ObB-8E-9RT"/>
-                <constraint firstAttribute="trailing" secondItem="mka-le-dYA" secondAttribute="trailing" constant="112" id="V3s-5J-A2W"/>
+                <constraint firstAttribute="trailing" secondItem="mka-le-dYA" secondAttribute="trailing" constant="10" id="V3s-5J-A2W"/>
                 <constraint firstItem="mka-le-dYA" firstAttribute="top" secondItem="Pkh-sE-oTx" secondAttribute="bottom" constant="3" id="VIz-un-bxr"/>
                 <constraint firstItem="Pkh-sE-oTx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mJ8-Fd-Grz"/>
                 <constraint firstItem="Pkh-sE-oTx" firstAttribute="top" secondItem="YfT-4p-ia9" secondAttribute="bottom" constant="5" id="rM6-Fy-0AT"/>
                 <constraint firstItem="mka-le-dYA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="165" id="wei-Ai-P5o"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="wei-Ai-P5o"/>
+                </mask>
+            </variation>
         </view>
     </objects>
     <resources>

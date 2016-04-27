@@ -31,7 +31,7 @@
                         </variation>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bAx-Lq-3mh">
-                        <rect key="frame" x="17" y="94.5" width="119" height="34.5"/>
+                        <rect key="frame" x="17" y="94" width="119" height="34.5"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ym1-2S-9K4">
                                 <rect key="frame" x="9" y="2" width="25" height="25"/>
@@ -58,7 +58,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lR4-vZ-zbK">
-                        <rect key="frame" x="124" y="76.5" width="119" height="16"/>
+                        <rect key="frame" x="124" y="76" width="119" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.9882352941176471" green="0.45882352941176469" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -73,13 +73,14 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNy-an-c7R">
-                        <rect key="frame" x="8" y="34" width="23" height="23"/>
+                        <rect key="frame" x="5" y="18" width="30" height="53"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="23" id="8KO-hE-Mkp"/>
-                            <constraint firstAttribute="height" constant="23" id="Zu2-Xl-RVO"/>
+                            <constraint firstAttribute="width" constant="30" id="8KO-hE-Mkp"/>
+                            <constraint firstAttribute="height" constant="53" id="Zu2-Xl-RVO"/>
                         </constraints>
+                        <state key="normal" image="未选中.png"/>
                     </button>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="未选中.png" translatesAutoresizingMaskIntoConstraints="NO" id="yuh-db-40T">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yuh-db-40T">
                         <rect key="frame" x="8" y="34" width="23" height="23"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="23" id="nyA-lg-Jtp"/>
@@ -99,10 +100,10 @@
                     <constraint firstItem="lZN-qY-6fj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="ECK-QK-YfY"/>
                     <constraint firstItem="Kyd-xG-3MB" firstAttribute="leading" secondItem="yuh-db-40T" secondAttribute="trailing" constant="5" id="EdI-Sj-H5U"/>
                     <constraint firstItem="lR4-vZ-zbK" firstAttribute="leading" secondItem="Pp9-y8-ez3" secondAttribute="trailing" constant="8" id="Hvy-xn-MPR"/>
-                    <constraint firstItem="sNy-an-c7R" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="26" id="Ia0-uv-SGu"/>
+                    <constraint firstItem="sNy-an-c7R" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="Ia0-uv-SGu"/>
                     <constraint firstItem="yuh-db-40T" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="K10-Bz-DKJ"/>
                     <constraint firstItem="bAx-Lq-3mh" firstAttribute="top" secondItem="lR4-vZ-zbK" secondAttribute="bottom" constant="2" id="SBz-M8-BMf"/>
-                    <constraint firstItem="sNy-an-c7R" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Tua-6B-gX7"/>
+                    <constraint firstItem="sNy-an-c7R" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-3" id="Tua-6B-gX7"/>
                     <constraint firstAttribute="trailingMargin" secondItem="i6P-9l-D8x" secondAttribute="trailing" constant="5" id="Twp-UM-pD3"/>
                     <constraint firstItem="lZN-qY-6fj" firstAttribute="leading" secondItem="Pp9-y8-ez3" secondAttribute="trailing" constant="8" id="VGW-1J-U1M"/>
                     <constraint firstAttribute="bottomMargin" secondItem="bAx-Lq-3mh" secondAttribute="bottom" constant="3.5" id="Vy2-7Q-B0N"/>
@@ -137,6 +138,6 @@
         <image name="产品图.png" width="70" height="70"/>
         <image name="数量选择2.png" width="39" height="25"/>
         <image name="数量选择3.png" width="25" height="25"/>
-        <image name="未选中.png" width="16" height="16"/>
+        <image name="未选中.png" width="24" height="24"/>
     </resources>
 </document>

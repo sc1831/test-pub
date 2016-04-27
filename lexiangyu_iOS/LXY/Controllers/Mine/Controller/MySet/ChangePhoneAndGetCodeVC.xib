@@ -62,6 +62,9 @@
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nsc-W7-A5J">
                             <rect key="frame" x="263" y="53" width="99" height="38"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="99" id="G6y-5V-aA5"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <state key="normal" title="获取验证码" backgroundImage="获取验证码.png">
                                 <color key="titleColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
@@ -92,6 +95,11 @@
                         <constraint firstAttribute="height" constant="95" id="wKZ-15-Cak"/>
                         <constraint firstAttribute="trailing" secondItem="f74-eW-g8O" secondAttribute="trailing" constant="6" id="zsR-Nd-3mg"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="jtc-UB-vBq"/>
+                        </mask>
+                    </variation>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tsM-sw-SRw">
                     <rect key="frame" x="14" y="254" width="347" height="44"/>

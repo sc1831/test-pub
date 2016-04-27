@@ -117,6 +117,8 @@
 //    }
     
         
-    [_rightButton setBackgroundImage:image forState:UIControlStateNormal];
+//    [_rightButton setBackgroundImage:image forState:UIControlStateNormal];
+    [_rightButton setImage:image forState:UIControlStateNormal];
+    [_rightButton setImageEdgeInsets:UIEdgeInsetsMake(-15, -15, -15,-15)];
 }
 @end
