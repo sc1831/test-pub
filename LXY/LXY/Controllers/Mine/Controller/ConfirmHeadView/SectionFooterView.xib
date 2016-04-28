@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="VKt-1c-ybJ" customClass="SectionFooterView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMP-QN-p2w">
+                    <rect key="frame" x="0.0" y="10" width="258" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="106" id="EFk-YW-L2G"/>
+                        <constraint firstAttribute="height" constant="21" id="wkq-Za-qcb"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="EFk-YW-L2G"/>
+                        </mask>
+                    </variation>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wca-Ci-i3X">
+                    <rect key="frame" x="259" y="10" width="116" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="Q6Y-ED-wEC"/>
+                        <constraint firstAttribute="width" constant="116" id="rKq-qW-h2T"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.97254901959999995" green="0.21960784310000001" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="sMP-QN-p2w" firstAttribute="leading" secondItem="VKt-1c-ybJ" secondAttribute="leading" id="Cri-de-e7J"/>
+                <constraint firstItem="sMP-QN-p2w" firstAttribute="top" secondItem="VKt-1c-ybJ" secondAttribute="top" constant="10" id="Rnk-b0-MB3"/>
+                <constraint firstAttribute="trailing" secondItem="Wca-Ci-i3X" secondAttribute="trailing" id="UFZ-YT-uca"/>
+                <constraint firstItem="Wca-Ci-i3X" firstAttribute="top" secondItem="VKt-1c-ybJ" secondAttribute="top" constant="10" id="tXt-fh-jrb"/>
+                <constraint firstItem="Wca-Ci-i3X" firstAttribute="leading" secondItem="sMP-QN-p2w" secondAttribute="trailing" constant="1" id="w5E-dT-Zme"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="shopMoeny" destination="Wca-Ci-i3X" id="Yfr-gU-MCO"/>
+                <outlet property="shopNum" destination="sMP-QN-p2w" id="Orc-Op-EcS"/>
+            </connections>
+            <point key="canvasLocation" x="119.5" y="59"/>
+        </view>
+    </objects>
+</document>

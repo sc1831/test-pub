@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShopingDetailsVC">
+            <connections>
+                <outlet property="goodsDetails" destination="O7e-CC-fJ4" id="U8H-I2-h4J"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O7e-CC-fJ4">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="THp-a5-HOR"/>
+                    </connections>
+                </webView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezA-pJ-Zb9">
+                    <rect key="frame" x="10" y="33" width="79" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="79" id="BHJ-x5-ZnU"/>
+                        <constraint firstAttribute="height" constant="25" id="cGw-hx-jjM"/>
+                    </constraints>
+                    <state key="normal" image="返回.png"/>
+                    <connections>
+                        <action selector="leftNavBtnClick:" destination="-1" eventType="touchUpInside" id="W5Z-UT-deP"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ezA-pJ-Zb9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="33" id="aSJ-ez-Rzy"/>
+                <constraint firstAttribute="trailing" secondItem="O7e-CC-fJ4" secondAttribute="trailing" id="cnu-XT-iOK"/>
+                <constraint firstItem="ezA-pJ-Zb9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="d5R-Wk-Pb0"/>
+                <constraint firstAttribute="bottom" secondItem="O7e-CC-fJ4" secondAttribute="bottom" id="fcM-89-ved"/>
+                <constraint firstItem="O7e-CC-fJ4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="hnm-Sh-yBj"/>
+                <constraint firstItem="O7e-CC-fJ4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="law-8x-cYJ"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="返回.png" width="25" height="25"/>
+    </resources>
+</document>

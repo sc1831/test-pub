@@ -1,0 +1,35 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "25677754-c2c8-446c-8108-d43b6eb462ed",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "25677754-c2c8-446c-8108-d43b6eb462ed" : {
+
+    },
+    "25677754-c2c8-446c-8108-d43b6eb462ed++8365" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "25677754-c2c8-446c-8108-d43b6eb462ed" : 0,
+    "25677754-c2c8-446c-8108-d43b6eb462ed++8365" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9659F677-BB6C-4847-95DD-201389F357C9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "25677754-c2c8-446c-8108-d43b6eb462ed" : "",
+    "25677754-c2c8-446c-8108-d43b6eb462ed++8365" : "lexiangyu_iOS\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "LXY",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "LXY.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/221.204.177.11\/lexianyu_ios",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "25677754-c2c8-446c-8108-d43b6eb462ed"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/221.204.177.11\/lexianyu_ios",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "25677754-c2c8-446c-8108-d43b6eb462ed++8365"
+    }
+  ]
+}
