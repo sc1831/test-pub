@@ -71,6 +71,7 @@
     [[UIApplication sharedApplication] unregisterForRemoteNotifications];
 }
 -(void)sendRequestData{
+    
     RequestCenter * request = [RequestCenter shareRequestCenter];
     NSDictionary *postDic = @{@"token":[[SaveInfo shareSaveInfo]token],
                               @"phone":[[SaveInfo shareSaveInfo]loginName],
@@ -80,15 +81,16 @@
     [request sendRequestPostUrl:LOGIN_OUT andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
         
         if ([resultDic[@"code"] intValue]==0) {
-            HUDNormal(@"请求失败");
-            return ;
+            HUDNormal(resultDic[@"msg"]);
         }
         LoginVC *loginVC = [[LoginVC alloc] init];
         [self presentViewController:loginVC animated:YES completion:nil];
         
     } setFailBlock:^(NSString *errorStr) {
-        NSLog(@"");
+        LoginVC *loginVC = [[LoginVC alloc] init];
+        [self presentViewController:loginVC animated:YES completion:nil];
     }];
+
 
 }
 
