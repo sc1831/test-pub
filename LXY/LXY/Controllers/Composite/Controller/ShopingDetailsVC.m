@@ -15,13 +15,16 @@
 #import "LoginVC.h"
 #import "GHControl.h"
 
-@interface ShopingDetailsVC ()<UIWebViewDelegate>
+#import "UMSocialSnsService.h"
+#import "UMSocialSnsPlatformManager.h"
+@interface ShopingDetailsVC ()<UIWebViewDelegate,UMSocialUIDelegate>
 {
     NSString *goods_detail_url ;
 
 }
 @property (weak, nonatomic) IBOutlet UIWebView *goodsDetails;
 - (IBAction)leftNavBtnClick:(id)sender;
+- (IBAction)showShareView:(id)sender;
 
 @end
 
@@ -132,5 +135,24 @@
     }else{
         [self.navigationController popViewControllerAnimated:YES];
     }
+}
+#pragma mark - 分享
+- (IBAction)showShareView:(id)sender {
+
+        NSString *shareText = @"友盟社会化组件可以让移动应用快速具备社会化分享、登录、评论、喜欢等功能，并提供实时、全面的社会化数据统计分析服务。 http://www.lexianyu.com";             //分享内嵌文字
+        //    UIImage *shareImage = [UIImage imageNamed:@"UMS_social_demo"];          //分享内嵌图片
+        UIImage *shareImage = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"UMS_social_demo" ofType:@"png"]];
+        //调用快速分享接口
+        [UMSocialSnsService presentSnsIconSheetView:self
+                                             appKey:@"56e7735e67e58e3d78001181"
+                                          shareText:shareText
+                                         shareImage:shareImage
+                                    shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToTencent,UMShareToRenren,UMShareToWechatTimeline,UMShareToQzone,UMShareToWechatSession,UMShareToWechatFavorite,nil]
+                                           delegate:self];
+
+
+        //    [NSArray arrayWithObjects:UMShareToSina,UMShareToTencent,UMShareToRenren,UMShareToQQ,UMShareToQzone,UMShareToDouban,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite, nil];
+    
+    
 }
 @end

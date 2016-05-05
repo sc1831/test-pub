@@ -14,7 +14,7 @@
 #import "RequestCenter.h"
 #import "GHControl.h"
 
-
+#import "UMSocial.h"
 #import "UMessage.h"
 #define UMSYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 #define _IPHONE80_ 80000
@@ -23,7 +23,7 @@
 #import "UPPaymentControl.h"
 #import "RSA.h"
 #import "MobClick.h"
-
+#import "UMSocialWechatHandler.h"
 #import <CommonCrypto/CommonDigest.h>
 
 
@@ -46,6 +46,25 @@ static NetworkStatus hostReachState=NotReachable;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    //TODO: 分享
+    [UMSocialData setAppKey:@"56e7735e67e58e3d78001181"];
+    [UMSocialConfig setSupportedInterfaceOrientations:UIInterfaceOrientationMaskLandscape];
+    //设置微信AppId、appSecret，分享url
+    [UMSocialWechatHandler setWXAppId:@"wx7c6f24efc80caae8" appSecret:@"5d6e2a5aa4fae38bf650f40efc08ad72" url:@"http://www.baidu.com"];
+    //qq
+    
+    
+    
+    //
+    
+//    //如果你要支持不同的屏幕方向，需要这样设置，否则在iPhone只支持一个竖屏方向
+//    [UMSocialConfig setSupportedInterfaceOrientations:UIInterfaceOrientationMaskAll];
+//    
+//    [UMSocialData defaultData].extConfig.qqData.qqMessageType = UMSocialQQMessageTypeImage; //设置QQ分享纯图片，默认分享图文消息
+//    [UMSocialData defaultData].extConfig.wechatSessionData.wxMessageType = UMSocialWXMessageTypeImage;  //设置微信好友分享纯图片
+//    [UMSocialData defaultData].extConfig.wechatTimelineData.wxMessageType = UMSocialWXMessageTypeImage;  //设置微信朋友圈分享纯图片
+//    
+    
     //TODO: 推送
     //set AppKey and LaunchOptions
     [UMessage startWithAppkey:@"56e7735e67e58e3d78001181" launchOptions:launchOptions];
@@ -198,11 +217,15 @@ static NetworkStatus hostReachState=NotReachable;
     
 }
 
+
+
 //TODO: 微信
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
     return [WXApi handleOpenURL:url delegate:self];
 }
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    
+    
     
     //银联
     [[UPPaymentControl defaultControl] handlePaymentResult:url completeBlock:^(NSString *code, NSDictionary *data) {
@@ -241,9 +264,17 @@ static NetworkStatus hostReachState=NotReachable;
         }
     }];
     
-    //微信
-    return [WXApi handleOpenURL:url delegate:self];
-    //    return YES ;
+   
+    
+    //分享
+    BOOL result = [UMSocialSnsService handleOpenURL:url];
+    if (result == FALSE) {
+        //调用其他SDK，例如支付宝SDK等
+        //微信
+        return [WXApi handleOpenURL:url delegate:self];   
+    }
+    return result;
+    
 }
 //- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options{
 //    return [WXApi handleOpenURL:url delegate:self];
