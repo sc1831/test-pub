@@ -58,8 +58,6 @@
         if ([[resultDic[@"code"] stringValue]isEqualToString:@"1"]) {
             goods_detail_url = STR_A_B(@"http://", resultDic[@"data"][@"goods_detail_url"]);
             [self loadWebView];
-
-            
         }else{
             HUDNormal(resultDic[@"msg"]);
             [self.navigationController popViewControllerAnimated:YES];
@@ -94,7 +92,6 @@
     
     NSLog(@"request.URL.relativeString:%@",request.URL.relativeString);
 
-    
     if ([request.URL.relativeString rangeOfString:@"super_key"].location == NSNotFound) {
         
         NSMutableString *mutStr =[NSMutableString stringWithString:request.URL.relativeString];
@@ -139,7 +136,7 @@
 #pragma mark - 分享
 - (IBAction)showShareView:(id)sender {
 
-        NSString *shareText = @"友盟社会化组件可以让移动应用快速具备社会化分享、登录、评论、喜欢等功能，并提供实时、全面的社会化数据统计分析服务。 http://www.lexianyu.com";             //分享内嵌文字
+        NSString *shareText = @"乐村淘是中国第一家村镇O2O电商平台，是互联网+传统农村市场的大平台，乐村淘在帮助农民对电子商务的认识和理解的同时，协助当地突破信息和物流的瓶颈，解决农村买难、卖难问题，实现“网货下乡”和“农产品进城”的双向流通。毫无疑问，互联网+是潮流所在大势所趋，农村电子商务更是炙手可热，乐村淘本着“全心全意为农民服务”的使命，在社会各界的大力支持下声誉良家，名动全国，现全国有30000家线下体验店，上线仅5个月，销售额突破亿元大关！影响着全国1000多万农民，得到社会各界认可并高度赞誉。证明了乐村淘具有敏锐的洞察力、过人的前瞻性、丰富的农村电商实战经验。 http://www.lecuntao.com/";             //分享内嵌文字
         //    UIImage *shareImage = [UIImage imageNamed:@"UMS_social_demo"];          //分享内嵌图片
         UIImage *shareImage = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"UMS_social_demo" ofType:@"png"]];
         //调用快速分享接口
@@ -147,12 +144,45 @@
                                              appKey:@"56e7735e67e58e3d78001181"
                                           shareText:shareText
                                          shareImage:shareImage
-                                    shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToTencent,UMShareToRenren,UMShareToWechatTimeline,UMShareToQzone,UMShareToWechatSession,UMShareToWechatFavorite,nil]
+                                    shareToSnsNames:[NSArray arrayWithObjects:UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,UMShareToQQ,UMShareToQzone,nil]
                                            delegate:self];
 
+    
+    
+//    UMSocialUrlResource *urlResource = [[UMSocialUrlResource alloc] initWithSnsResourceType:UMSocialUrlResourceTypeImage url:
+//                                        @"http://www.baidu.com/img/bdlogo.gif"];
+    
+    //仅支持一个平台
+//    [[UMSocialDataService defaultDataService]  postSNSWithTypes:[NSArray arrayWithObjects:UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,UMShareToQQ,UMShareToQzone,nil] content:shareText image:shareImage location:nil urlResource:urlResource presentedController:self completion:^(UMSocialResponseEntity *shareResponse){
+//        if (shareResponse.responseCode == UMSResponseCodeSuccess) {
+//            NSLog(@"分享成功！");
+//        }
+//    }];
+    
+    
+    
+    
+//直接分享接口，分享过程没有分享编辑页，适用于希望直接在后台进行分享或希望自定义分享编辑页的开发者
+    //仅支持一个平台
+//    [[UMSocialDataService defaultDataService]  postSNSWithTypes:@[UMShareToQzone] content:@"qq分享文字" image:nil location:nil urlResource:nil presentedController:self completion:^(UMSocialResponseEntity *response){
+//        if (response.responseCode == UMSResponseCodeSuccess) {
+//            NSLog(@"qq分享成功！");
+//        }
+//    }];
 
-        //    [NSArray arrayWithObjects:UMShareToSina,UMShareToTencent,UMShareToRenren,UMShareToQQ,UMShareToQzone,UMShareToDouban,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite, nil];
-    
-    
 }
+
+//实现回调方法（可选）：
+-(void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response
+{
+    //根据`responseCode`得到发送结果,如果分享成功
+    if(response.responseCode == UMSResponseCodeSuccess)
+    {
+        //得到分享到的微博平台名
+        NSLog(@"share to sns name is %@",[[response.data allKeys] objectAtIndex:0]);
+    }
+}
+
+
+
 @end

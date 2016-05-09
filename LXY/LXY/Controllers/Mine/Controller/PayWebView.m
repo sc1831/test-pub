@@ -58,7 +58,7 @@
 //        [self.navigationController popToRootViewControllerAnimated:YES];
 //        return NO ;
 //    }else
-
+    NSLog(@"%@",request.URL.relativeString);
         if([request.URL.relativeString isEqualToString:@"http://www.lexianyu.com/index.php/app/Return/success"]){
         [self.navigationController popToRootViewControllerAnimated:YES];
         return NO ;

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E9855F41CE07D5000A3ABBF /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9855F31CE07D5000A3ABBF /* ImageIO.framework */; };
 		6EA25B4E1CDAD94E0042BCB7 /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6EA25B331CDAD94E0042BCB7 /* UMSocialLocalizable.strings */; };
 		6EA25B4F1CDAD94E0042BCB7 /* libUMSocial_Sdk_5.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA25B411CDAD94E0042BCB7 /* libUMSocial_Sdk_5.1.a */; };
 		6EA25B501CDAD94E0042BCB7 /* libUMSocial_Sdk_Comment_5.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA25B421CDAD94E0042BCB7 /* libUMSocial_Sdk_Comment_5.1.a */; };
@@ -678,6 +679,7 @@
 
 /* Begin PBXFileReference section */
 		03F773F46801260061701DA4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		6E9855F31CE07D5000A3ABBF /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		6EA25B341CDAD94E0042BCB7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UMSocialLocalizable.strings; sourceTree = "<group>"; };
 		6EA25B361CDAD94E0042BCB7 /* UMSocial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocial.h; sourceTree = "<group>"; };
 		6EA25B371CDAD94E0042BCB7 /* UMSocialAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialAccountManager.h; sourceTree = "<group>"; };
@@ -1592,6 +1594,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E9855F41CE07D5000A3ABBF /* ImageIO.framework in Frameworks */,
 				6ED141801CD1F7B300E51349 /* libz.tbd in Frameworks */,
 				6EE8B7BF1CD9FFA500F76DC2 /* libstdc++.tbd in Frameworks */,
 				6ED1416E1CD1F76B00E51349 /* CoreTelephony.framework in Frameworks */,
@@ -1658,6 +1661,7 @@
 		1360AEC7457841D6B83CA9EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6E9855F31CE07D5000A3ABBF /* ImageIO.framework */,
 				6EE8B7BE1CD9FFA500F76DC2 /* libstdc++.tbd */,
 				6EE8B7BC1CD9FF1E00F76DC2 /* libsqlite3.tbd */,
 				6EE8B7BA1CD9FF0600F76DC2 /* libiconv.tbd */,

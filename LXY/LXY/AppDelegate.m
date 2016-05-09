@@ -23,8 +23,12 @@
 #import "UPPaymentControl.h"
 #import "RSA.h"
 #import "MobClick.h"
+
+
 #import "UMSocialWechatHandler.h"
+#import "UMSocialQQHandler.h"
 #import <CommonCrypto/CommonDigest.h>
+#import "UMSocialSinaSSOHandler.h"
 
 
 #define UMENG_APPKEY @"56e7735e67e58e3d78001181"
@@ -50,12 +54,15 @@ static NetworkStatus hostReachState=NotReachable;
     [UMSocialData setAppKey:@"56e7735e67e58e3d78001181"];
     [UMSocialConfig setSupportedInterfaceOrientations:UIInterfaceOrientationMaskLandscape];
     //设置微信AppId、appSecret，分享url
-    [UMSocialWechatHandler setWXAppId:@"wx7c6f24efc80caae8" appSecret:@"5d6e2a5aa4fae38bf650f40efc08ad72" url:@"http://www.baidu.com"];
+    [UMSocialWechatHandler setWXAppId:@"wxefa5c3b9b74042e1" appSecret:@"1b7211a9702f7ebca6f4ebf24bfb9dbe" url:@"http://www.baidu.com"];
     //qq
+    [UMSocialQQHandler setQQWithAppId:@"1105306253" appKey:@"v2QMtvXgYszJW39r" url:@"http://www.lecuntao.com/"];
+    //新浪
+    //第一个参数为新浪appkey,第二个参数为新浪secret，第三个参数是新浪微博回调地址，这里必须要和你在新浪微博后台设置的回调地址一致。
+    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"922810224"
+                                              secret:@"d0e610cc27945f4a9c3dad366ee8a87b"
+                                         RedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
     
-    
-    
-    //
     
 //    //如果你要支持不同的屏幕方向，需要这样设置，否则在iPhone只支持一个竖屏方向
 //    [UMSocialConfig setSupportedInterfaceOrientations:UIInterfaceOrientationMaskAll];
@@ -76,7 +83,7 @@ static NetworkStatus hostReachState=NotReachable;
     
     
     //TODO: 微信
-    [WXApi registerApp:@"wx24728dea6d8b2f08" withDescription:@"lxy"];
+    [WXApi registerApp:@"wxefa5c3b9b74042e1" withDescription:@"lxy"];
     //向微信注册wxd930ea5d5a258f4f
     //    [WXApi registerApp:@"wxb4ba3c02aa476ea1" withDescription:@"demo 2.0"];
     
@@ -274,6 +281,8 @@ static NetworkStatus hostReachState=NotReachable;
         return [WXApi handleOpenURL:url delegate:self];   
     }
     return result;
+    
+
     
 }
 //- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options{
