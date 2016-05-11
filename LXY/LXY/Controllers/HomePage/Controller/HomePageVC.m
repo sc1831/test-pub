@@ -46,8 +46,12 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 - (IBAction)gotoController:(UIControl *)sender;
 - (IBAction)gotoGoodsDetails:(UIControl *)sender;
 - (IBAction)searchButClick:(UIControl *)sender;
-
-
+//超值特价点击
+- (IBAction)bargainSaleClick:(id)sender;
+//促销商品点击
+- (IBAction)SalesPromotionClick:(id)sender;
+//优品推荐点击
+- (IBAction)recommendationsShopsClick:(id)sender;
 @end
 
 @implementation HomePageVC
@@ -793,6 +797,16 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 
 - (IBAction)searchButClick:(UIControl *)sender {
     [self gotoSearchVC];
+}
+
+//超值特价点击
+- (IBAction)bargainSaleClick:(id)sender {
+}
+//促销商品点击
+- (IBAction)SalesPromotionClick:(id)sender {
+}
+//优品推荐点击
+- (IBAction)recommendationsShopsClick:(id)sender {
 }
 
 
