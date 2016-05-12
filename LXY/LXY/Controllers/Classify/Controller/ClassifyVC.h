@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ClassifyVC : UIViewController
+#import "RootVC.h"
+@interface ClassifyVC : RootVC
 @property (nonatomic,assign)int selectRow ;
 @end

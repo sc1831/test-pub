@@ -100,7 +100,7 @@
 //    self.compositeTab.estimatedRowHeight = 100 ; //预估tableView的高度
 //    self.compositeTab.rowHeight = UITableViewAutomaticDimension ; //动态计算table的高度
     
-    self.noNetworkView.frame = CGRectMake(0,20, M_WIDTH,M_HEIGHT-115);
+    self.noNetworkView.frame = CGRectMake(0,20, M_WIDTH,M_HEIGHT-20);
     
     [self.view addSubview:self.noNetworkView];
     

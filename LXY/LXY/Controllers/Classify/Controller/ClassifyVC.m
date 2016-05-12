@@ -29,7 +29,8 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
     NSMutableArray *classMtArray ; //分类的数据 带model
     NSMutableArray *defMtArray ; //整个分类的大数组 包含goods 数组 存放goods model
     NSMutableArray *collectionMtTitleArray ;
-    
+    BOOL isClassifyClick;
+    NSString *gc_idStr;
 }
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 - (IBAction)searchBtnClick:(UIButton *)sender;
@@ -65,17 +66,46 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
     [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([ClassifyCollectionCell class]) bundle:nil] forCellWithReuseIdentifier:cellID];
     [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([HeadCollectionReusableView class]) bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headID];
 //    [self loadClassData];
+    self.noNetworkView.frame = CGRectMake(0,20, M_WIDTH,M_HEIGHT-20);
+    
+    [self.view addSubview:self.noNetworkView];
+    
+}
+-(void)NoNetworkClickDelegate{
+    
+    if (![GHControl isExistNetwork]) {
+        self.noNetworkView.hidden = NO;
+        return;
+    }
+    self.noNetworkView.hidden = YES;
+    
+    if (isClassifyClick) {
+        [self getGoodsDatabyClassid:gc_idStr];
+    }else{
+     [self loadClassData];
+    }
+    
 }
 
 - (void)loadClassData{
-    
     if (![GHControl isExistNetwork]) {
-        HUDNormal(@"服务器无响应，请稍后重试");
+        if (classMtArray.count>0) {
+            HUDNormal(@"服务器无响应，请稍后重试");
+            self.noNetworkView.hidden = YES;
+        }else{
+            
+            self.noNetworkView.hidden = NO;
+        }
+        
         return;
     }
+
     
     RequestCenter *requestCenter = [RequestCenter shareRequestCenter];
     [requestCenter sendRequestPostUrl:G_CLASS andDic:nil setSuccessBlock:^(NSDictionary *resultDic) {
+        
+        
+        
         
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
@@ -113,31 +143,37 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
 //        [tableView scrollToNearestSelectedRowAtScrollPosition:UITableViewScrollPositionBottom animated:YES];
         
         ClassModel *model = classMtArray[indexPath.row];
-        
+        gc_idStr = model.gc_id;
         [self getGoodsDatabyClassid:model.gc_id];
     }
 }
 
 - (void)getGoodsDatabyClassid:(NSString *)classID{
     
+    self.noNetworkView.frame = CGRectMake(78, 20, M_WIDTH-78, M_HEIGHT-20);
     if (![GHControl isExistNetwork]) {
         HUDNormal(@"服务器无响应，请稍后重试");
+        self.noNetworkView.hidden = NO;
+        isClassifyClick = YES;
         return;
+    }else{
+        isClassifyClick = NO;
+        self.noNetworkView.hidden = YES;
     }
     
     RequestCenter *requestCenter = [RequestCenter shareRequestCenter];
     
     [requestCenter sendRequestPostUrl:SECOND_CLASS andDic:@{@"gc_id":classID} setSuccessBlock:^(NSDictionary *resultDic) {
  
-        if ([resultDic[@"code"] intValue] != 1) {
-            BG_LOGIN ;
-            return ;
-        }
         if (defMtArray.count > 0) {
             [defMtArray removeAllObjects];
         }
         if (collectionMtTitleArray.count > 0) {
             [collectionMtTitleArray removeAllObjects];
+        }
+        if ([resultDic[@"code"] intValue] != 1) {
+            BG_LOGIN ;
+            return ;
         }
         //点击之后collection 需要刷新的部分
         NSArray *dataArray = resultDic[@"data"];

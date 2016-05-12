@@ -68,11 +68,11 @@
                   moduleName = "LXY"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/guohui/Desktop/newlexianyu_last_ios/LXY/LXY/Controllers/Mine/Controller/AllShopGoods/WaitPayFirstViewController.m"
-                  timestampString = "484728857.279332"
+                  timestampString = "484738383.657119"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "109"
-                  endingLineNumber = "109"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
                   offsetFromSymbolStart = "23">
                </Location>
                <Location
@@ -83,11 +83,11 @@
                   moduleName = "LXY"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/guohui/Desktop/newlexianyu_last_ios/LXY/LXY/Controllers/Mine/Controller/AllShopGoods/WaitPayFirstViewController.m"
-                  timestampString = "484728857.27951"
+                  timestampString = "484738383.657344"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "109"
-                  endingLineNumber = "109"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
                   offsetFromSymbolStart = "16">
                </Location>
             </Locations>
@@ -132,12 +132,12 @@
                   moduleName = "LXY"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/guohui/Desktop/newlexianyu_last_ios/LXY/LXY/Controllers/Mine/Controller/AllShopGoods/WaitPayFirstViewController.m"
-                  timestampString = "484728857.281204"
+                  timestampString = "484738383.659135"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "113"
-                  endingLineNumber = "113"
-                  offsetFromSymbolStart = "199">
+                  startingLineNumber = "110"
+                  endingLineNumber = "110"
+                  offsetFromSymbolStart = "950">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -147,11 +147,11 @@
                   moduleName = "LXY"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/guohui/Desktop/newlexianyu_last_ios/LXY/LXY/Controllers/Mine/Controller/AllShopGoods/WaitPayFirstViewController.m"
-                  timestampString = "484728857.28137"
+                  timestampString = "484738383.659316"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "113"
-                  endingLineNumber = "113"
+                  startingLineNumber = "110"
+                  endingLineNumber = "110"
                   offsetFromSymbolStart = "65">
                </Location>
             </Locations>
@@ -176,30 +176,30 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__50-[WaitPayFirstViewController addMjHeaderAndFooter]_block_invoke155"
+                  symbolName = "__50-[WaitPayFirstViewController addMjHeaderAndFooter]_block_invoke153"
                   moduleName = "LXY"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/guohui/Desktop/newlexianyu_last_ios/LXY/LXY/Controllers/Mine/Controller/AllShopGoods/WaitPayFirstViewController.m"
-                  timestampString = "484728857.282222"
+                  timestampString = "484738383.660279"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "162"
-                  endingLineNumber = "162"
-                  offsetFromSymbolStart = "229">
+                  startingLineNumber = "169"
+                  endingLineNumber = "169"
+                  offsetFromSymbolStart = "979">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__50-[WaitPayFirstViewController addMjHeaderAndFooter]_block_invoke_2156"
+                  symbolName = "__50-[WaitPayFirstViewController addMjHeaderAndFooter]_block_invoke_2154"
                   moduleName = "LXY"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/guohui/Desktop/newlexianyu_last_ios/LXY/LXY/Controllers/Mine/Controller/AllShopGoods/WaitPayFirstViewController.m"
-                  timestampString = "484728857.28238"
+                  timestampString = "484738383.660426"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "162"
-                  endingLineNumber = "162"
+                  startingLineNumber = "169"
+                  endingLineNumber = "169"
                   offsetFromSymbolStart = "72">
                </Location>
             </Locations>
@@ -218,6 +218,38 @@
             startingLineNumber = "74"
             endingLineNumber = "74"
             landmarkName = "-addMjHeaderAndFooter"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LXY/Controllers/Classify/Controller/ClassifyVC.m"
+            timestampString = "484738637.546462"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "-getGoodsDatabyClassid:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LXY/Controllers/Classify/Controller/ClassifyVC.m"
+            timestampString = "484738637.546462"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
