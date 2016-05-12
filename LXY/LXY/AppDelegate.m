@@ -33,6 +33,10 @@
 
 #define UMENG_APPKEY @"56e7735e67e58e3d78001181"
 
+
+//adv
+#import "PoAd.h"
+#define webImageurlString @"http://cdn.duitang.com/uploads/item/201411/03/20141103131007_RQJLJ.thumb.700_0.jpeg"
 @interface AppDelegate ()
 @property (nonatomic ,strong)Reachability *conn;
 @end
@@ -181,6 +185,7 @@ static NetworkStatus hostReachState=NotReachable;
     
     self.window.backgroundColor = [UIColor blackColor];
     [self.window makeKeyAndVisible];
+    [NSThread sleepForTimeInterval:5];
     return YES;
 }
 
@@ -529,6 +534,12 @@ static NetworkStatus hostReachState=NotReachable;
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    //TODO: 首次启动 再次打开
+    // 启动广告
+//    PoAd *ad = [[PoAd alloc]init];
+//    [ad initStartAd:self.window webimageStr:webImageurlString];
+    
+//    [NSThread sleepForTimeInterval:5];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
