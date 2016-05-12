@@ -80,6 +80,17 @@
     if (self.gc_id.length > 0) {
         [postDic setValue:self.gc_id forKey:@"gc_id"];
     }
+    if (_isBargainSaleClick) {
+        [postDic setValue:@"1" forKey:@"is_hot"];
+    }else if (_isSalesPromotionClick){
+        [postDic setValue:@"1" forKey:@"is_index"];
+    }else if (_isRecommendationsShopsClick){
+        [postDic setValue:@"1" forKey:@"is_superior"];
+    }else{
+        [postDic setValue:@"0" forKey:@"is_hot"];
+        [postDic setValue:@"0" forKey:@"is_index"];
+        [postDic setValue:@"0" forKey:@"is_superior"];
+    }
     
     [self addMjHeaderAndFooter];
     [self.compositeTab headerBeginRefresh];

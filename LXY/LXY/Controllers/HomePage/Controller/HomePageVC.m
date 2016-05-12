@@ -801,12 +801,24 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 
 //超值特价点击
 - (IBAction)bargainSaleClick:(id)sender {
+    CompositeVC *composteVC = [[CompositeVC alloc]init];
+    composteVC.isBargainSaleClick = YES;
+    [self.navigationController pushViewController:composteVC animated:YES];
 }
 //促销商品点击
 - (IBAction)SalesPromotionClick:(id)sender {
+    CompositeVC *composteVC = [[CompositeVC alloc]init];
+
+    composteVC.isSalesPromotionClick = YES;
+    [self.navigationController pushViewController:composteVC animated:YES];
+
 }
 //优品推荐点击
 - (IBAction)recommendationsShopsClick:(id)sender {
+    CompositeVC *composteVC = [[CompositeVC alloc]init];
+    composteVC.isRecommendationsShopsClick =YES;
+    [self.navigationController pushViewController:composteVC animated:YES];
+
 }
 
 
