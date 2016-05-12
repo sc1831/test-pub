@@ -17,6 +17,7 @@
 #import "UIButton+Block.h"
 #import "GHControl.h"
 
+
 @interface LoginVC ()<UITextFieldDelegate>
 {
     NSString *userName ;
@@ -68,6 +69,9 @@
                                    initWithTarget:self
                                    action:@selector(takeTheKeyboard)];
     [self.view addGestureRecognizer:tap];
+    
+    
+   
     
 
     

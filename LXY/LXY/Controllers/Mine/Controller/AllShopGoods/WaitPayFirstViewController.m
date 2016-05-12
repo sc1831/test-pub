@@ -19,7 +19,10 @@
 #import "PayWebView.h"
 #import "OrderDetailsVC.h"
 #import "ShopingDetailsVC.h"
+
+
 @interface WaitPayFirstViewController ()<UITableViewDelegate,UITableViewDataSource>
+
 @property (nonatomic ,strong)UITableView *waitPayTableView;
 @property (nonatomic,strong)UIControl *headView;
 @property (nonatomic ,strong)UIView *footView;
@@ -29,6 +32,7 @@
 
 @property (nonatomic ,strong)UITableView *specialTableView;
 @property (nonatomic ,strong)UILabel *label;
+
 @end
 
 @implementation WaitPayFirstViewController
@@ -39,6 +43,8 @@
     RequestCenter *requestCenter;
     NSMutableDictionary *postDic ;
 }
+
+
 -(void)viewWillAppear:(BOOL)animated{
     
     [self addMjHeaderAndFooter];
@@ -49,6 +55,7 @@
     self.title = @"待付款";
     _dataArray = [NSMutableArray array];
     _subMutArray = [NSMutableArray array];
+    
     [self createTableView];
 
     _label = [GHControl createLabelWithFrame:CGRectMake(30, M_HEIGHT/2-20, M_WIDTH-60, 40) Font:15 Text:@"暂时还没有要付款的订单哦"];
@@ -67,7 +74,22 @@
     [self addMjHeaderAndFooter];
     [self.waitPayTableView headerBeginRefresh];
     
+    
+    [self.view addSubview:self.noNetworkView];
+    
+
 }
+//重新加载数据
+-(void)NoNetworkClickDelegate{
+    if (![GHControl isExistNetwork]) {
+        self.noNetworkView.hidden = NO;
+        return;
+    }
+    self.noNetworkView.hidden = YES;
+    [self addMjHeaderAndFooter];
+    [self.waitPayTableView headerBeginRefresh];
+}
+
 #pragma mark MJRefresh
 - (void)addMjHeaderAndFooter{
     
@@ -76,6 +98,12 @@
         [postDic setValue:@"1" forKey:@"page"];
         if (![GHControl isExistNetwork]) {
             HUDNormal(@"服务器无响应，请稍后重试");
+            if (_dataArray.count>0) {
+                self.noNetworkView.hidden = YES;
+            }else{
+                self.noNetworkView.hidden = NO;
+            }
+            
             [self.waitPayTableView headerEndRefresh];
             return;
         }
@@ -125,11 +153,19 @@
     
     [self.waitPayTableView footerAddMJRefresh:^{
         [postDic setValue:VALUETOSTR(_page) forKey:@"page"];
+        
         if (![GHControl isExistNetwork]) {
             HUDNormal(@"服务器无响应，请稍后重试");
+            if (_dataArray.count>0) {
+                self.noNetworkView.hidden = YES;
+            }else{
+                self.noNetworkView.hidden = NO;
+            }
+            
             [self.waitPayTableView headerEndRefresh];
             return;
         }
+        
         [requestCenter sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
             
             if (_page>[resultDic[@"data"][@"pageamount"] intValue]) {

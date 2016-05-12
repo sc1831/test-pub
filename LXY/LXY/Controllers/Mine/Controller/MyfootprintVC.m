@@ -48,18 +48,41 @@
     
     [GHControl setExtraCellLineHidden:_myFooterTableView];
 
+    [self.view addSubview:self.noNetworkView];
+    
+    
 }
+//重新加载数据
+-(void)NoNetworkClickDelegate{
+    if (![GHControl isExistNetwork]) {
+        self.noNetworkView.hidden = NO;
+        return;
+    }
+    self.noNetworkView.hidden = YES;
+    [self addMjHeaderAndFooter];
+    [self.myFooterTableView headerBeginRefresh];
+}
+
+
 #pragma mark MJRefresh
 - (void)addMjHeaderAndFooter{
    
     [self.myFooterTableView headerAddMJRefresh:^{//添加顶部刷新功能
         [self.myFooterTableView footerResetNoMoreData];//重置无数据状态
         [postDic setValue:@"1" forKey:@"page"];
+        
         if (![GHControl isExistNetwork]) {
             HUDNormal(@"服务器无响应，请稍后重试");
+            if (_dataArray.count>0) {
+                self.noNetworkView.hidden = YES;
+            }else{
+                self.noNetworkView.hidden = NO;
+            }
+            
             [self.myFooterTableView headerEndRefresh];
             return;
         }
+        
         [requestCenter sendRequestPostUrl:MY_FOOTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
             [self.myFooterTableView headerEndRefresh];
             
@@ -104,11 +127,19 @@
     
     [self.myFooterTableView footerAddMJRefresh:^{
         [postDic setValue:VALUETOSTR(_page) forKey:@"page"];
+        
         if (![GHControl isExistNetwork]) {
             HUDNormal(@"服务器无响应，请稍后重试");
+            if (_dataArray.count>0) {
+                self.noNetworkView.hidden = YES;
+            }else{
+                self.noNetworkView.hidden = NO;
+            }
+            
             [self.myFooterTableView headerEndRefresh];
             return;
         }
+        
         [requestCenter sendRequestPostUrl:MY_COLLECT andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
             
             if (_page>[resultDic[@"data"][@"pageamount"] intValue]) {

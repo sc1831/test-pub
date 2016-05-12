@@ -9,7 +9,9 @@
 #import "RootVC.h"
 #import "Common.h"
 #import "GHControl.h"
-@interface RootVC ()
+
+
+@interface RootVC ()<NoNetworkDelegate>
 
 @end
 
@@ -24,8 +26,29 @@
     [self.view addGestureRecognizer:swipe];
     [self createNavController];
     
+    //创建无网络view
+     [self createNoNetworkView];
+   
+    
 }
+-(void)createNoNetworkView{
 
+    _noNetworkView =
+    [[[NSBundle mainBundle] loadNibNamed:@"NoNetwork"
+                                   owner:self
+                                 options:nil] firstObject];
+    _noNetworkView.frame = CGRectMake(0, 0, M_WIDTH, M_HEIGHT);
+    _noNetworkView.delegate = self;
+    [self.view addSubview:_noNetworkView];
+    [self.noNetworkView bringSubviewToFront:self.view];
+    _noNetworkView.hidden = YES;
+   
+    
+}
+-(void)NoNetworkClickDelegate{
+
+    NSLog(@"无网络重新加载数据");
+}
 - (void)swipeClick:(UISwipeGestureRecognizer *)swipe{
     GLOG(@"编辑检测", @"");
     if (swipe.direction == UISwipeGestureRecognizerDirectionLeft) {

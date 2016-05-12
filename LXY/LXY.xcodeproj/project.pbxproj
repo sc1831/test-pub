@@ -664,6 +664,12 @@
 		6EE8B7BB1CD9FF0600F76DC2 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EE8B7BA1CD9FF0600F76DC2 /* libiconv.tbd */; };
 		6EE8B7BD1CD9FF1E00F76DC2 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EE8B7BC1CD9FF1E00F76DC2 /* libsqlite3.tbd */; };
 		6EE8B7BF1CD9FFA500F76DC2 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EE8B7BE1CD9FFA500F76DC2 /* libstdc++.tbd */; };
+		6EE9B1F61CE41CA700CAD0D9 /* NoNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE9B1F51CE41CA700CAD0D9 /* NoNetwork.m */; };
+		6EE9B1F81CE41CC700CAD0D9 /* NoNetwork.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EE9B1F71CE41CC700CAD0D9 /* NoNetwork.xib */; };
+		6EE9B1FE1CE4218300CAD0D9 /* icon_wifi.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EE9B1FA1CE4218300CAD0D9 /* icon_wifi.png */; };
+		6EE9B1FF1CE4218300CAD0D9 /* icon_wifi@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EE9B1FB1CE4218300CAD0D9 /* icon_wifi@3x.png */; };
+		6EE9B2001CE4218300CAD0D9 /* 圆角矩形@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EE9B1FC1CE4218300CAD0D9 /* 圆角矩形@2x.png */; };
+		6EE9B2011CE4218300CAD0D9 /* 圆角矩形@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EE9B1FD1CE4218300CAD0D9 /* 圆角矩形@3x.png */; };
 		D39BE1AB7BAD2D794AA7635F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8779650C2FD46DE51DEFE0C3 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -1604,6 +1610,13 @@
 		6EE8B7BA1CD9FF0600F76DC2 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		6EE8B7BC1CD9FF1E00F76DC2 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		6EE8B7BE1CD9FFA500F76DC2 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		6EE9B1F41CE41CA700CAD0D9 /* NoNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoNetwork.h; sourceTree = "<group>"; };
+		6EE9B1F51CE41CA700CAD0D9 /* NoNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoNetwork.m; sourceTree = "<group>"; };
+		6EE9B1F71CE41CC700CAD0D9 /* NoNetwork.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoNetwork.xib; sourceTree = "<group>"; };
+		6EE9B1FA1CE4218300CAD0D9 /* icon_wifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_wifi.png; sourceTree = "<group>"; };
+		6EE9B1FB1CE4218300CAD0D9 /* icon_wifi@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_wifi@3x.png"; sourceTree = "<group>"; };
+		6EE9B1FC1CE4218300CAD0D9 /* 圆角矩形@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "圆角矩形@2x.png"; sourceTree = "<group>"; };
+		6EE9B1FD1CE4218300CAD0D9 /* 圆角矩形@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "圆角矩形@3x.png"; sourceTree = "<group>"; };
 		8779650C2FD46DE51DEFE0C3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8BA89BC50140C75E861C1CF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -2054,6 +2067,9 @@
 				6ED141951CD1FB1300E51349 /* TipView */,
 				6ED141991CD1FB1300E51349 /* UIButton+extension */,
 				6ED1419C1CD1FB1300E51349 /* UIScrollView */,
+				6EE9B1F41CE41CA700CAD0D9 /* NoNetwork.h */,
+				6EE9B1F51CE41CA700CAD0D9 /* NoNetwork.m */,
+				6EE9B1F71CE41CC700CAD0D9 /* NoNetwork.xib */,
 			);
 			path = MyTools;
 			sourceTree = "<group>";
@@ -2905,6 +2921,7 @@
 		6ED143AE1CD1FB1300E51349 /* Rescource */ = {
 			isa = PBXGroup;
 			children = (
+				6EE9B1F91CE4218300CAD0D9 /* wifi */,
 				6ED143AF1CD1FB1300E51349 /* 3RD */,
 				6ED144361CD1FB1300E51349 /* Font */,
 				6ED144391CD1FB1300E51349 /* Image */,
@@ -3362,6 +3379,17 @@
 			path = Voice;
 			sourceTree = "<group>";
 		};
+		6EE9B1F91CE4218300CAD0D9 /* wifi */ = {
+			isa = PBXGroup;
+			children = (
+				6EE9B1FA1CE4218300CAD0D9 /* icon_wifi.png */,
+				6EE9B1FB1CE4218300CAD0D9 /* icon_wifi@3x.png */,
+				6EE9B1FC1CE4218300CAD0D9 /* 圆角矩形@2x.png */,
+				6EE9B1FD1CE4218300CAD0D9 /* 圆角矩形@3x.png */,
+			);
+			path = wifi;
+			sourceTree = "<group>";
+		};
 		957144401F05C79A1632313D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -3682,6 +3710,7 @@
 				6ED145A31CD1FB1300E51349 /* DeatilAddressView.xib in Resources */,
 				6ED147271CD1FB1300E51349 /* 茶冲乳品按钮@2x.png in Resources */,
 				6ED145F41CD1FB1300E51349 /* 待发货.png in Resources */,
+				6EE9B2011CE4218300CAD0D9 /* 圆角矩形@3x.png in Resources */,
 				6ED147091CD1FB1300E51349 /* 底部导航栏分类.png in Resources */,
 				6ED1465E1CD1FB1300E51349 /* 未选中@.png in Resources */,
 				6ED146011CD1FB1300E51349 /* 更多订单@2x.png in Resources */,
@@ -3696,6 +3725,7 @@
 				6ED146001CD1FB1300E51349 /* 更多订单.png in Resources */,
 				6ED146111CD1FB1300E51349 /* 设置@3x.png in Resources */,
 				6ED145CE1CD1FB1300E51349 /* 个人中心白箭头@3x.png in Resources */,
+				6EE9B1F81CE41CC700CAD0D9 /* NoNetwork.xib in Resources */,
 				6ED145E41CD1FB1300E51349 /* 固定@3x.png in Resources */,
 				6ED146661CD1FB1300E51349 /* 筛选2.png in Resources */,
 				6ED1455B1CD1FB1300E51349 /* 购物车@3x（选中）.png in Resources */,
@@ -3741,6 +3771,7 @@
 				6ED145B11CD1FB1300E51349 /* FeedBackVC.xib in Resources */,
 				6ED146541CD1FB1300E51349 /* 数量选择_点击1@.png in Resources */,
 				6ED146D51CD1FB1300E51349 /* 厨房调料按钮.png in Resources */,
+				6EE9B1FF1CE4218300CAD0D9 /* icon_wifi@3x.png in Resources */,
 				6ED145341CD1FB1300E51349 /* 分类.png in Resources */,
 				6ED145F51CD1FB1300E51349 /* 待发货@2x.png in Resources */,
 				6ED146BF1CD1FB1300E51349 /* 乐县域@2x.png in Resources */,
@@ -3795,6 +3826,7 @@
 				6ED146601CD1FB1300E51349 /* 未选中@3x.png in Resources */,
 				6ED146DA1CD1FB1300E51349 /* 可能感兴趣“按钮”@3x.png in Resources */,
 				6ED145451CD1FB1300E51349 /* 我的@3x（选中）.png in Resources */,
+				6EE9B1FE1CE4218300CAD0D9 /* icon_wifi.png in Resources */,
 				6ED145B31CD1FB1300E51349 /* MineVC.xib in Resources */,
 				6ED145C51CD1FB1300E51349 /* ReceiveAddressVC.xib in Resources */,
 				6ED146E81CD1FB1300E51349 /* 图片显示未对应显示状态@3x（透明度80%）.png in Resources */,
@@ -3937,6 +3969,7 @@
 				6ED147161CD1FB1300E51349 /* 搜索框（屏幕未下拉显示状态)@3x.png in Resources */,
 				6ED1453C1CD1FB1300E51349 /* 可能感兴趣“按钮”@3x.png in Resources */,
 				6ED145601CD1FB1300E51349 /* 适用列表小箭头全部@3x.png in Resources */,
+				6EE9B2001CE4218300CAD0D9 /* 圆角矩形@2x.png in Resources */,
 				6ED146DD1CD1FB1300E51349 /* 商品“星级”图标（半星状态）@2x.png in Resources */,
 				6ED141411CD1F6DB00E51349 /* Main.storyboard in Resources */,
 				6ED146E91CD1FB1300E51349 /* 底部导航栏“我的”按钮(未经过状态).png in Resources */,
@@ -4163,6 +4196,7 @@
 				6ED145A41CD1FB1300E51349 /* FooterTableView.m in Sources */,
 				6ED145841CD1FB1300E51349 /* ProvinceVC.m in Sources */,
 				6ED141381CD1F6DB00E51349 /* main.m in Sources */,
+				6EE9B1F61CE41CA700CAD0D9 /* NoNetwork.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

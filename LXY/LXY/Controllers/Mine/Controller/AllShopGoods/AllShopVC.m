@@ -74,18 +74,40 @@
     
     
     
+    [self.view addSubview:self.noNetworkView];
+    
+    
 }
+//重新加载数据
+-(void)NoNetworkClickDelegate{
+    if (![GHControl isExistNetwork]) {
+        self.noNetworkView.hidden = NO;
+        return;
+    }
+    self.noNetworkView.hidden = YES;
+    [self addMjHeaderAndFooter];
+    [self.waitPayTableView headerBeginRefresh];
+}
+
 #pragma mark MJRefresh
 - (void)addMjHeaderAndFooter{
     
     
     [self.waitPayTableView headerAddMJRefresh:^{//添加顶部刷新功能
         [self.waitPayTableView footerResetNoMoreData];//重置无数据状态
+        
         if (![GHControl isExistNetwork]) {
             HUDNormal(@"服务器无响应，请稍后重试");
+            if (_dataArray.count>0) {
+                self.noNetworkView.hidden = YES;
+            }else{
+                self.noNetworkView.hidden = NO;
+            }
+            
             [self.waitPayTableView headerEndRefresh];
             return;
         }
+        
         [postDic setValue:@"1" forKey:@"page"];
         [requestCenter sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
             
@@ -133,6 +155,12 @@
         
         if (![GHControl isExistNetwork]) {
             HUDNormal(@"服务器无响应，请稍后重试");
+            if (_dataArray.count>0) {
+                self.noNetworkView.hidden = YES;
+            }else{
+                self.noNetworkView.hidden = NO;
+            }
+            
             [self.waitPayTableView headerEndRefresh];
             return;
         }
