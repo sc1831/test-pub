@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface CompositeVC : UIViewController
+#import "RootVC.h"
+@interface CompositeVC : RootVC
 @property (nonatomic,copy)NSString *goods_name ;
 @property (nonatomic,copy)NSString *gc_id ;
 //超值特价

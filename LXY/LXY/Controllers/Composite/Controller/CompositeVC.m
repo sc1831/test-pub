@@ -99,8 +99,22 @@
 
 //    self.compositeTab.estimatedRowHeight = 100 ; //预估tableView的高度
 //    self.compositeTab.rowHeight = UITableViewAutomaticDimension ; //动态计算table的高度
+    
+    self.noNetworkView.frame = CGRectMake(0,20, M_WIDTH,M_HEIGHT-115);
+    
+    [self.view addSubview:self.noNetworkView];
+    
 }
+-(void)NoNetworkClickDelegate{
 
+    if (![GHControl isExistNetwork]) {
+        self.noNetworkView.hidden = NO;
+        return;
+    }
+    self.noNetworkView.hidden = YES;
+    [self addMjHeaderAndFooter];
+    [self.compositeTab headerBeginRefresh];
+}
 #pragma mark TableView Delegate
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
 //    return 1 ;
@@ -148,11 +162,20 @@
         [self.compositeTab footerResetNoMoreData];//重置无数据状态
         [postDic setValue:@"1" forKey:@"page"];
         
+        
         if (![GHControl isExistNetwork]) {
             HUDNormal(@"服务器无响应，请稍后重试");
+            if (goods_Mtlist.count>0) {
+                self.noNetworkView.hidden = YES;
+            }else{
+                self.noNetworkView.hidden = NO;
+            }
+            
             [self.compositeTab headerEndRefresh];
             return;
         }
+
+        
         
         [requestCenter sendRequestPostUrl:COMPOSITE andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
             [self.compositeTab headerEndRefresh];
@@ -185,6 +208,12 @@
         [postDic setValue:VALUETOSTR(_page) forKey:@"page"];
         if (![GHControl isExistNetwork]) {
             HUDNormal(@"服务器无响应，请稍后重试");
+            if (goods_Mtlist.count>0) {
+                self.noNetworkView.hidden = YES;
+            }else{
+                self.noNetworkView.hidden = NO;
+            }
+            
             [self.compositeTab headerEndRefresh];
             return;
         }
