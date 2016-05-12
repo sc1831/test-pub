@@ -3,10 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ADVC">
             <connections>
+                <outlet property="adImageView" destination="6q7-sB-RQX" id="E02-7S-JAZ"/>
+                <outlet property="adImgeBtn" destination="0Dv-J6-bMR" id="OFe-hh-BRE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,21 +18,57 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="启动页.png" translatesAutoresizingMaskIntoConstraints="NO" id="4PL-6j-N0j">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="启动页bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="Lcc-hc-OFi">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="启动页-1.png" translatesAutoresizingMaskIntoConstraints="NO" id="B0a-N8-VtG">
+                    <rect key="frame" x="66" y="551" width="244" height="96"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="B0a-N8-VtG" secondAttribute="height" multiplier="61:24" id="jUr-tZ-5AL"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FVN-bx-emP">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="531"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6q7-sB-RQX">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="531"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Dv-J6-bMR">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="531"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="0Dv-J6-bMR" firstAttribute="top" secondItem="FVN-bx-emP" secondAttribute="top" id="0Vc-yv-0SM"/>
+                        <constraint firstAttribute="bottom" secondItem="0Dv-J6-bMR" secondAttribute="bottom" id="2jx-95-yWR"/>
+                        <constraint firstAttribute="trailing" secondItem="0Dv-J6-bMR" secondAttribute="trailing" id="FFr-7e-vTS"/>
+                        <constraint firstItem="0Dv-J6-bMR" firstAttribute="leading" secondItem="FVN-bx-emP" secondAttribute="leading" id="KaF-cj-hun"/>
+                        <constraint firstItem="6q7-sB-RQX" firstAttribute="top" secondItem="FVN-bx-emP" secondAttribute="top" id="Kh3-u9-Min"/>
+                        <constraint firstAttribute="bottom" secondItem="6q7-sB-RQX" secondAttribute="bottom" id="MPB-ib-8KP"/>
+                        <constraint firstItem="6q7-sB-RQX" firstAttribute="leading" secondItem="FVN-bx-emP" secondAttribute="leading" id="Yd7-2q-xPV"/>
+                        <constraint firstAttribute="trailing" secondItem="6q7-sB-RQX" secondAttribute="trailing" id="eyq-Bm-6Dg"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="4PL-6j-N0j" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="HEU-4b-tJR"/>
-                <constraint firstAttribute="bottom" secondItem="4PL-6j-N0j" secondAttribute="bottom" id="WS8-n4-HJx"/>
-                <constraint firstItem="4PL-6j-N0j" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="dTC-dn-d2p"/>
-                <constraint firstAttribute="trailing" secondItem="4PL-6j-N0j" secondAttribute="trailing" id="vpY-Lp-932"/>
+                <constraint firstAttribute="trailing" secondItem="FVN-bx-emP" secondAttribute="trailing" id="5VU-rs-84f"/>
+                <constraint firstItem="Lcc-hc-OFi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7bf-8e-8mC"/>
+                <constraint firstItem="B0a-N8-VtG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="66" id="Cbk-th-89Z"/>
+                <constraint firstItem="B0a-N8-VtG" firstAttribute="top" secondItem="FVN-bx-emP" secondAttribute="bottom" constant="20" id="Goj-og-eTn"/>
+                <constraint firstItem="FVN-bx-emP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="LCX-Vr-mxa"/>
+                <constraint firstItem="Lcc-hc-OFi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="S76-k0-O15"/>
+                <constraint firstItem="B0a-N8-VtG" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="joT-Rj-hIl"/>
+                <constraint firstAttribute="bottom" secondItem="B0a-N8-VtG" secondAttribute="bottom" constant="20" id="qbR-3X-YLd"/>
+                <constraint firstAttribute="trailing" secondItem="Lcc-hc-OFi" secondAttribute="trailing" id="tod-f1-VsQ"/>
+                <constraint firstItem="FVN-bx-emP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="v0P-3g-FiH"/>
+                <constraint firstAttribute="bottom" secondItem="Lcc-hc-OFi" secondAttribute="bottom" id="vhw-p2-dfy"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
         </view>
     </objects>
     <resources>
-        <image name="启动页.png" width="720" height="1280"/>
+        <image name="启动页-1.png" width="707" height="275"/>
+        <image name="启动页bg.png" width="720" height="955"/>
     </resources>
 </document>
