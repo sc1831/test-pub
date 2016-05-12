@@ -250,17 +250,6 @@
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IhG-fB-CfH">
-                                    <rect key="frame" x="303" y="3" width="58" height="33"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="58" id="qvH-OQ-yyp"/>
-                                    </constraints>
-                                    <inset key="contentEdgeInsets" minX="40" minY="0.0" maxX="10" maxY="0.0"/>
-                                    <state key="normal" title="Button" image="适用列表箭头全部.png"/>
-                                    <connections>
-                                        <action selector="bargainSaleClick:" destination="-1" eventType="touchUpInside" id="zG7-XB-FVv"/>
-                                    </connections>
-                                </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每日上午10点强势更新" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPV-ww-CnC">
                                     <rect key="frame" x="104" y="9" width="271" height="20"/>
                                     <constraints>
@@ -270,13 +259,24 @@
                                     <color key="textColor" red="0.68627450980000004" green="0.69019607839999997" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IhG-fB-CfH">
+                                    <rect key="frame" x="279" y="3" width="88" height="33"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="88" id="qvH-OQ-yyp"/>
+                                    </constraints>
+                                    <inset key="contentEdgeInsets" minX="70" minY="0.0" maxX="10" maxY="0.0"/>
+                                    <state key="normal" title="Button" image="适用列表箭头全部.png"/>
+                                    <connections>
+                                        <action selector="bargainSaleClick:" destination="-1" eventType="touchUpInside" id="zG7-XB-FVv"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="TPV-ww-CnC" secondAttribute="trailing" id="14m-Xz-Sia"/>
                                 <constraint firstItem="4Jd-es-OQ4" firstAttribute="centerY" secondItem="Mfl-Iq-WOU" secondAttribute="centerY" id="1sh-sO-WbJ"/>
                                 <constraint firstAttribute="bottom" secondItem="IhG-fB-CfH" secondAttribute="bottom" constant="3" id="OhZ-uB-neU"/>
-                                <constraint firstAttribute="trailing" secondItem="IhG-fB-CfH" secondAttribute="trailing" constant="14" id="VMx-fo-bbj"/>
+                                <constraint firstAttribute="trailing" secondItem="IhG-fB-CfH" secondAttribute="trailing" constant="8" id="VMx-fo-bbj"/>
                                 <constraint firstItem="TPV-ww-CnC" firstAttribute="leading" secondItem="4Jd-es-OQ4" secondAttribute="trailing" constant="21" id="aQY-MM-GIa"/>
                                 <constraint firstItem="4Jd-es-OQ4" firstAttribute="leading" secondItem="Mfl-Iq-WOU" secondAttribute="leading" constant="7" id="akg-By-e9U"/>
                                 <constraint firstItem="IhG-fB-CfH" firstAttribute="top" secondItem="Mfl-Iq-WOU" secondAttribute="top" constant="3" id="cUX-gl-4Wd"/>
@@ -317,11 +317,11 @@
                                             <rect key="frame" x="7" y="8" width="73" height="22"/>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iX5-1Z-7rw">
-                                            <rect key="frame" x="309" y="3" width="58" height="31"/>
+                                            <rect key="frame" x="279" y="3" width="88" height="31"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="58" id="alH-xd-TC5"/>
+                                                <constraint firstAttribute="width" constant="88" id="alH-xd-TC5"/>
                                             </constraints>
-                                            <inset key="contentEdgeInsets" minX="40" minY="0.0" maxX="10" maxY="0.0"/>
+                                            <inset key="contentEdgeInsets" minX="70" minY="0.0" maxX="10" maxY="0.0"/>
                                             <state key="normal" title="Button" image="适用列表箭头全部.png"/>
                                             <connections>
                                                 <action selector="SalesPromotionClick:" destination="-1" eventType="touchUpInside" id="UTx-II-rfv"/>
@@ -588,11 +588,11 @@
                                     <color key="backgroundColor" red="0.98431372549999996" green="0.45882352939999999" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7U-2Q-7o9">
-                                    <rect key="frame" x="309" y="3" width="58" height="33"/>
+                                    <rect key="frame" x="279" y="3" width="88" height="33"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="58" id="EsS-Ho-Der"/>
+                                        <constraint firstAttribute="width" constant="88" id="EsS-Ho-Der"/>
                                     </constraints>
-                                    <inset key="contentEdgeInsets" minX="40" minY="0.0" maxX="10" maxY="0.0"/>
+                                    <inset key="contentEdgeInsets" minX="70" minY="0.0" maxX="10" maxY="0.0"/>
                                     <state key="normal" title="Button" image="适用列表箭头全部.png"/>
                                     <connections>
                                         <action selector="recommendationsShopsClick:" destination="-1" eventType="touchUpInside" id="nYt-6K-cXP"/>
