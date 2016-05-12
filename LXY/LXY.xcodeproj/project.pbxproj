@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6E5AAE171CE333D400A31F1F /* CircleAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5AAE101CE333D400A31F1F /* CircleAnimationView.m */; };
-		6E5AAE181CE333D400A31F1F /* CircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5AAE121CE333D400A31F1F /* CircleView.m */; };
-		6E5AAE191CE333D400A31F1F /* CountLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5AAE141CE333D400A31F1F /* CountLabel.m */; };
-		6E5AAE1A1CE333D400A31F1F /* PoAd.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5AAE161CE333D400A31F1F /* PoAd.m */; };
-		6E60855D1CE4176B00C510B4 /* ADVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E60855B1CE4176B00C510B4 /* ADVC.m */; };
-		6E60855E1CE4176B00C510B4 /* ADVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E60855C1CE4176B00C510B4 /* ADVC.xib */; };
 		6E6085601CE41E1400C510B4 /* 启动页-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E60855F1CE41E1400C510B4 /* 启动页-1.png */; };
+		6E60857A1CE434DA00C510B4 /* ADView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6085781CE434DA00C510B4 /* ADView.m */; };
+		6E60857B1CE434DA00C510B4 /* ADView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6085791CE434DA00C510B4 /* ADView.xib */; };
+		6E60857D1CE4407700C510B4 /* 启动页bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E60857C1CE4407700C510B4 /* 启动页bg.png */; };
+		6E6085901CE45C5700C510B4 /* launch_start_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E60858F1CE45C5700C510B4 /* launch_start_image.png */; };
+		6E60859E1CE48CF800C510B4 /* ADVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E60859C1CE48CF800C510B4 /* ADVC.m */; };
+		6E60859F1CE48CF800C510B4 /* ADVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E60859D1CE48CF800C510B4 /* ADVC.xib */; };
 		6E9855F41CE07D5000A3ABBF /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9855F31CE07D5000A3ABBF /* ImageIO.framework */; };
 		6EA25B4E1CDAD94E0042BCB7 /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6EA25B331CDAD94E0042BCB7 /* UMSocialLocalizable.strings */; };
 		6EA25B4F1CDAD94E0042BCB7 /* libUMSocial_Sdk_5.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA25B411CDAD94E0042BCB7 /* libUMSocial_Sdk_5.1.a */; };
@@ -692,18 +692,15 @@
 
 /* Begin PBXFileReference section */
 		03F773F46801260061701DA4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		6E5AAE0F1CE333D400A31F1F /* CircleAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleAnimationView.h; sourceTree = "<group>"; };
-		6E5AAE101CE333D400A31F1F /* CircleAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleAnimationView.m; sourceTree = "<group>"; };
-		6E5AAE111CE333D400A31F1F /* CircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleView.h; sourceTree = "<group>"; };
-		6E5AAE121CE333D400A31F1F /* CircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleView.m; sourceTree = "<group>"; };
-		6E5AAE131CE333D400A31F1F /* CountLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountLabel.h; sourceTree = "<group>"; };
-		6E5AAE141CE333D400A31F1F /* CountLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountLabel.m; sourceTree = "<group>"; };
-		6E5AAE151CE333D400A31F1F /* PoAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PoAd.h; sourceTree = "<group>"; };
-		6E5AAE161CE333D400A31F1F /* PoAd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PoAd.m; sourceTree = "<group>"; };
-		6E60855A1CE4176B00C510B4 /* ADVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADVC.h; sourceTree = "<group>"; };
-		6E60855B1CE4176B00C510B4 /* ADVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADVC.m; sourceTree = "<group>"; };
-		6E60855C1CE4176B00C510B4 /* ADVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ADVC.xib; sourceTree = "<group>"; };
 		6E60855F1CE41E1400C510B4 /* 启动页-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "启动页-1.png"; sourceTree = "<group>"; };
+		6E6085771CE434DA00C510B4 /* ADView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADView.h; sourceTree = "<group>"; };
+		6E6085781CE434DA00C510B4 /* ADView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADView.m; sourceTree = "<group>"; };
+		6E6085791CE434DA00C510B4 /* ADView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ADView.xib; sourceTree = "<group>"; };
+		6E60857C1CE4407700C510B4 /* 启动页bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "启动页bg.png"; sourceTree = "<group>"; };
+		6E60858F1CE45C5700C510B4 /* launch_start_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_start_image.png; sourceTree = "<group>"; };
+		6E60859B1CE48CF800C510B4 /* ADVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADVC.h; sourceTree = "<group>"; };
+		6E60859C1CE48CF800C510B4 /* ADVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADVC.m; sourceTree = "<group>"; };
+		6E60859D1CE48CF800C510B4 /* ADVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ADVC.xib; sourceTree = "<group>"; };
 		6E9855F31CE07D5000A3ABBF /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		6EA25B341CDAD94E0042BCB7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UMSocialLocalizable.strings; sourceTree = "<group>"; };
 		6EA25B361CDAD94E0042BCB7 /* UMSocial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocial.h; sourceTree = "<group>"; };
@@ -1703,29 +1700,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6E5AAE0D1CE333D400A31F1F /* poAd */ = {
-			isa = PBXGroup;
-			children = (
-				6E5AAE0E1CE333D400A31F1F /* Circle */,
-				6E5AAE151CE333D400A31F1F /* PoAd.h */,
-				6E5AAE161CE333D400A31F1F /* PoAd.m */,
-			);
-			path = poAd;
-			sourceTree = "<group>";
-		};
-		6E5AAE0E1CE333D400A31F1F /* Circle */ = {
-			isa = PBXGroup;
-			children = (
-				6E5AAE0F1CE333D400A31F1F /* CircleAnimationView.h */,
-				6E5AAE101CE333D400A31F1F /* CircleAnimationView.m */,
-				6E5AAE111CE333D400A31F1F /* CircleView.h */,
-				6E5AAE121CE333D400A31F1F /* CircleView.m */,
-				6E5AAE131CE333D400A31F1F /* CountLabel.h */,
-				6E5AAE141CE333D400A31F1F /* CountLabel.m */,
-			);
-			path = Circle;
-			sourceTree = "<group>";
-		};
 		6EA25B321CDAD94E0042BCB7 /* UMSocial_Sdk_5.1 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1980,11 +1954,15 @@
 				6ED141391CD1F6DB00E51349 /* AppDelegate.h */,
 				6ED1413A1CD1F6DB00E51349 /* AppDelegate.m */,
 				6EA25BCD1CDAF4B80042BCB7 /* UMS_social_demo.png */,
+				6E60858F1CE45C5700C510B4 /* launch_start_image.png */,
 				6ED1413C1CD1F6DB00E51349 /* ViewController.h */,
 				6ED1413D1CD1F6DB00E51349 /* ViewController.m */,
-				6E60855A1CE4176B00C510B4 /* ADVC.h */,
-				6E60855B1CE4176B00C510B4 /* ADVC.m */,
-				6E60855C1CE4176B00C510B4 /* ADVC.xib */,
+				6E6085771CE434DA00C510B4 /* ADView.h */,
+				6E6085781CE434DA00C510B4 /* ADView.m */,
+				6E6085791CE434DA00C510B4 /* ADView.xib */,
+				6E60859B1CE48CF800C510B4 /* ADVC.h */,
+				6E60859C1CE48CF800C510B4 /* ADVC.m */,
+				6E60859D1CE48CF800C510B4 /* ADVC.xib */,
 				6ED1413F1CD1F6DB00E51349 /* Main.storyboard */,
 				6ED141421CD1F6DB00E51349 /* Assets.xcassets */,
 				6ED141441CD1F6DB00E51349 /* LaunchScreen.storyboard */,
@@ -2935,7 +2913,6 @@
 		6ED143AF1CD1FB1300E51349 /* 3RD */ = {
 			isa = PBXGroup;
 			children = (
-				6E5AAE0D1CE333D400A31F1F /* poAd */,
 				6EA25B5A1CDAE8660042BCB7 /* UMSocial_Sdk_Extra_Frameworks */,
 				6EA25B321CDAD94E0042BCB7 /* UMSocial_Sdk_5.1 */,
 				6ED143B01CD1FB1300E51349 /* AlipaySDK */,
@@ -3198,6 +3175,7 @@
 				6ED1443F1CD1FB1300E51349 /* 乐县域logo-2@3x.png */,
 				6E60855F1CE41E1400C510B4 /* 启动页-1.png */,
 				6ED144401CD1FB1300E51349 /* 启动页.png */,
+				6E60857C1CE4407700C510B4 /* 启动页bg.png */,
 				6ED144411CD1FB1300E51349 /* 商品默认图.png */,
 				6ED144421CD1FB1300E51349 /* 商品默认图@2x.png */,
 				6ED144431CD1FB1300E51349 /* 商品默认图@3x.png */,
@@ -3521,10 +3499,12 @@
 				6ED1470B1CD1FB1300E51349 /* 底部导航栏分类@3x.png in Resources */,
 				6ED146041CD1FB1300E51349 /* 添加@2x.png in Resources */,
 				6ED145191CD1FB1300E51349 /* 3@.png in Resources */,
+				6E60857B1CE434DA00C510B4 /* ADView.xib in Resources */,
 				6ED146671CD1FB1300E51349 /* 筛选2@.png in Resources */,
 				6ED146231CD1FB1300E51349 /* 适用列表箭头全部@3x.png in Resources */,
 				6ED145201CD1FB1300E51349 /* 5.png in Resources */,
 				6ED146731CD1FB1300E51349 /* 选中全选@2x.png in Resources */,
+				6E60859F1CE48CF800C510B4 /* ADVC.xib in Resources */,
 				6ED145D61CD1FB1300E51349 /* 保存修改_点击.png in Resources */,
 				6ED146DC1CD1FB1300E51349 /* 商品“星级”图标@3x.png in Resources */,
 				6ED1455C1CD1FB1300E51349 /* 购物车@（选中）.png in Resources */,
@@ -3660,6 +3640,7 @@
 				6ED145311CD1FB1300E51349 /* 促销商品“标题”.png in Resources */,
 				6ED147121CD1FB1300E51349 /* 搜索框（屏幕下拉显示状态)@2x.png in Resources */,
 				6ED147241CD1FB1300E51349 /* 米面粮油”按钮“.png in Resources */,
+				6E6085901CE45C5700C510B4 /* launch_start_image.png in Resources */,
 				6ED146941CD1FB1300E51349 /* 乐县域logo-2.png in Resources */,
 				6ED145591CD1FB1300E51349 /* 购物车@2x（选中）.png in Resources */,
 				6ED146581CD1FB1300E51349 /* 数量选择_点击2@2x.png in Resources */,
@@ -3843,6 +3824,7 @@
 				6ED1462E1CD1FB1300E51349 /* OrderDetailHeaderView.xib in Resources */,
 				6ED145131CD1FB1300E51349 /* 1@3x.png in Resources */,
 				6ED1450B1CD1FB1300E51349 /* TasteCell.xib in Resources */,
+				6E60857D1CE4407700C510B4 /* 启动页bg.png in Resources */,
 				6ED145F31CD1FB1300E51349 /* 待@3x.png in Resources */,
 				6ED146EC1CD1FB1300E51349 /* 底部导航栏“我的”按钮(经过状态).png in Resources */,
 				6ED146B11CD1FB1300E51349 /* 保存修改_置灰@.png in Resources */,
@@ -3951,7 +3933,6 @@
 				6ED145521CD1FB1300E51349 /* 星星灰@2x.png in Resources */,
 				6ED145491CD1FB1300E51349 /* 搜索框搜索按钮@2x.png in Resources */,
 				6ED145571CD1FB1300E51349 /* 购物车.png in Resources */,
-				6E60855E1CE4176B00C510B4 /* ADVC.xib in Resources */,
 				6ED146A51CD1FB1300E51349 /* 获取验证码@x.png in Resources */,
 				6ED146BD1CD1FB1300E51349 /* 获取验证码.png in Resources */,
 				6ED146F41CD1FB1300E51349 /* 底部导航栏“购物车”“N”个商品按钮(经过状态)@3x.png in Resources */,
@@ -4082,8 +4063,6 @@
 				6ED145021CD1FB1300E51349 /* OrderOverModel.m in Sources */,
 				6ED1462B1CD1FB1300E51349 /* OrderDetailCell.m in Sources */,
 				6ED1413E1CD1F6DB00E51349 /* ViewController.m in Sources */,
-				6E5AAE191CE333D400A31F1F /* CountLabel.m in Sources */,
-				6E60855D1CE4176B00C510B4 /* ADVC.m in Sources */,
 				6ED145AC1CD1FB1300E51349 /* DetailAddressVC.m in Sources */,
 				6ED145771CD1FB1300E51349 /* RegisterShopMessageVC.m in Sources */,
 				6ED1463B1CD1FB1300E51349 /* ShoppingCartVC.m in Sources */,
@@ -4151,14 +4130,12 @@
 				6ED1458D1CD1FB1300E51349 /* FootPointCell.m in Sources */,
 				6ED145AE1CD1FB1300E51349 /* EvaluateVC.m in Sources */,
 				6ED1468C1CD1FB1300E51349 /* SendMessageToWXReq+requestWithTextOrMediaMessage.m in Sources */,
-				6E5AAE1A1CE333D400A31F1F /* PoAd.m in Sources */,
 				6ED145971CD1FB1300E51349 /* AllShopVC.m in Sources */,
 				6ED146831CD1FB1300E51349 /* RSADataSigner.m in Sources */,
 				6ED146841CD1FB1300E51349 /* RSADataVerifier.m in Sources */,
 				6ED145951CD1FB1300E51349 /* AboutUsVC.m in Sources */,
 				6ED144EC1CD1FB1300E51349 /* UIScrollAllView.m in Sources */,
 				6ED144F91CD1FB1300E51349 /* TitleModel.m in Sources */,
-				6E5AAE171CE333D400A31F1F /* CircleAnimationView.m in Sources */,
 				6ED146881CD1FB1300E51349 /* WXApiManager.m in Sources */,
 				6ED145041CD1FB1300E51349 /* BestGoodsCell.m in Sources */,
 				6ED145A01CD1FB1300E51349 /* CollectVC.m in Sources */,
@@ -4167,6 +4144,7 @@
 				6ED1468B1CD1FB1300E51349 /* GetMessageFromWXResp+responseWithTextOrMediaMessage.m in Sources */,
 				6ED145981CD1FB1300E51349 /* AllShopViewController.m in Sources */,
 				6ED1456B1CD1FB1300E51349 /* ChangePasswordVC.m in Sources */,
+				6E60859E1CE48CF800C510B4 /* ADVC.m in Sources */,
 				6ED1450C1CD1FB1300E51349 /* HomeClassifyVC.m in Sources */,
 				6ED145BA1CD1FB1300E51349 /* ChangePhoneSuccessVC.m in Sources */,
 				6ED146331CD1FB1300E51349 /* DetailOrderVC.m in Sources */,
@@ -4179,8 +4157,8 @@
 				6ED145C01CD1FB1300E51349 /* OrderIsOverVC.m in Sources */,
 				6ED1413B1CD1F6DB00E51349 /* AppDelegate.m in Sources */,
 				6ED1458B1CD1FB1300E51349 /* ConfirmTableViewCell.m in Sources */,
-				6E5AAE181CE333D400A31F1F /* CircleView.m in Sources */,
 				6ED144FA1CD1FB1300E51349 /* CompositeCell.m in Sources */,
+				6E60857A1CE434DA00C510B4 /* ADView.m in Sources */,
 				6ED145C41CD1FB1300E51349 /* ReceiveAddressVC.m in Sources */,
 				6ED1458F1CD1FB1300E51349 /* MenyGoodsCell.m in Sources */,
 				6ED144E61CD1FB1300E51349 /* JsonTool.m in Sources */,

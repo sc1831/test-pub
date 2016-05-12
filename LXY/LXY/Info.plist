@@ -68,6 +68,16 @@
 				<string>wb922810224</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>lecuntao</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com_lecuntao_lxy</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>2</string>

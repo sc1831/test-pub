@@ -34,9 +34,6 @@
 #define UMENG_APPKEY @"56e7735e67e58e3d78001181"
 
 
-//adv
-#import "PoAd.h"
-#define webImageurlString @"http://cdn.duitang.com/uploads/item/201411/03/20141103131007_RQJLJ.thumb.700_0.jpeg"
 @interface AppDelegate ()
 @property (nonatomic ,strong)Reachability *conn;
 @end
@@ -185,9 +182,11 @@ static NetworkStatus hostReachState=NotReachable;
     
     self.window.backgroundColor = [UIColor blackColor];
     [self.window makeKeyAndVisible];
-    [NSThread sleepForTimeInterval:5];
+    
+
     return YES;
 }
+
 
 - (void)umengTrack {
     //    [MobClick setCrashReportEnabled:NO]; // 如果不需要捕捉异常，注释掉此行
@@ -233,12 +232,21 @@ static NetworkStatus hostReachState=NotReachable;
 
 //TODO: 微信
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+    if ([[url scheme] isEqualToString:@"com_lecuntao_lxy"]) {
+        return YES ;
+    }
     return [WXApi handleOpenURL:url delegate:self];
+
 }
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
     
+
     
     
+    
+    if ([[url scheme] isEqualToString:@"com_lecuntao_lxy"]) {
+        return YES ;
+    }
     //银联
     [[UPPaymentControl defaultControl] handlePaymentResult:url completeBlock:^(NSString *code, NSDictionary *data) {
         
@@ -536,10 +544,7 @@ static NetworkStatus hostReachState=NotReachable;
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     //TODO: 首次启动 再次打开
     // 启动广告
-//    PoAd *ad = [[PoAd alloc]init];
-//    [ad initStartAd:self.window webimageStr:webImageurlString];
-    
-//    [NSThread sleepForTimeInterval:5];
+    [NSThread sleepForTimeInterval:3];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

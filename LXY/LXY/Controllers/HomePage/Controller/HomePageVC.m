@@ -22,6 +22,7 @@
 #import "SaveInfo.h"
 #import "GHControl.h"
 #define TOPVIEW_HEIGHT 1398
+//#import "ADView.h"
 static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 @interface HomePageVC ()<UIScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 {
@@ -66,7 +67,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     NSTimer *_moveTimer;
     BOOL _isTimerUp;//判断手动还是自动滚动
     
-    
+//    ADView *adView ;
     
     //记录当前第几页
     int _middleIndex;
@@ -136,6 +137,13 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     self.view.backgroundColor = RGBCOLOR(241, 245, 246);
     
     
+//    adView = [[[NSBundle mainBundle]loadNibNamed:@"ADView" owner:self options:nil]firstObject];
+//
+//    adView.adImage.image = [UIImage imageNamed:@"UMS_social_demo"];
+//    [self.view addSubview:adView];
+//    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(removeSelfView) userInfo:nil repeats:NO];
+    
+    
     [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([HomeCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:homeCollectionCellID];
 
     //创建滚动视图
@@ -155,6 +163,11 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     [GHControl setExtraCellLineHidden:bestGoodsTab];
     
 }
+
+//- (void)removeSelfView{
+//    [adView removeFromSuperview];
+//}
+
 - (void)loadHomeData{
     if (![GHControl isExistNetwork]) {
         HUDNormal(@"服务器无响应，请稍后重试");

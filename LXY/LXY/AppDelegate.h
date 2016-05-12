@@ -13,7 +13,9 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate,WXApiDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (strong, nonatomic) UIView *launchView;
+@property (nonatomic,strong) UIImageView * imgBg;
+@property (nonatomic,strong) UIImageView * oldLaunchView;
 ///有无网络存在
 - (BOOL)isExistNetwork;
 ///判断网络的状态类型

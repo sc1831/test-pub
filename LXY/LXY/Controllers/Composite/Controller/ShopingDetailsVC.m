@@ -136,7 +136,7 @@
 #pragma mark - 分享
 - (IBAction)showShareView:(id)sender {
 
-        NSString *shareText = @"乐村淘是中国第一家村镇O2O电商平台，是互联网+传统农村市场的大平台，乐村淘在帮助农民对电子商务的认识和理解的同时，协助当地突破信息和物流的瓶颈，解决农村买难、卖难问题，实现“网货下乡”和“农产品进城”的双向流通。毫无疑问，互联网+是潮流所在大势所趋，农村电子商务更是炙手可热，乐村淘本着“全心全意为农民服务”的使命，在社会各界的大力支持下声誉良家，名动全国，现全国有30000家线下体验店，上线仅5个月，销售额突破亿元大关！影响着全国1000多万农民，得到社会各界认可并高度赞誉。证明了乐村淘具有敏锐的洞察力、过人的前瞻性、丰富的农村电商实战经验。 http://www.lecuntao.com/";             //分享内嵌文字
+        NSString *shareText = @"乐村淘是中国第一家村镇O2O电商平台，是互联网+传统农村市场的大平台，乐村淘";             //分享内嵌文字
         //    UIImage *shareImage = [UIImage imageNamed:@"UMS_social_demo"];          //分享内嵌图片
         UIImage *shareImage = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"UMS_social_demo" ofType:@"png"]];
         //调用快速分享接口

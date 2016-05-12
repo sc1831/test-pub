@@ -16,6 +16,7 @@
 #import "RequestCenter.h"
 #import "UIButton+Block.h"
 #import "GHControl.h"
+#import "ADView.h"
 
 
 @interface LoginVC ()<UITextFieldDelegate>
@@ -23,6 +24,8 @@
     NSString *userName ;
     NSString *password ;
     NSString *codeStr ;
+
+    ADView *adView ;
 }
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
@@ -40,12 +43,22 @@
 @end
 
 @implementation LoginVC
+- (void)viewWillAppear:(BOOL)animated{
 
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = YES;
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:@"1" forKey:@"mySignal"];
+    adView = [[[NSBundle mainBundle]loadNibNamed:@"ADView" owner:self options:nil]firstObject];
+    adView.adImage.image = [UIImage imageNamed:@"launch_start_image"];
+    [self.view addSubview:adView];
+    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(removeSelfView) userInfo:nil repeats:NO];
+    [adView.imageBtn addTarget:self action:@selector(adClick) forControlEvents:UIControlEventTouchUpInside];
+    
+//    ADVC *adVC = [[ADVC alloc]init];
+//    [self presentViewController:adVC animated:NO completion:nil];
+    
     
     if (self.not_loginOut != YES) {
         //未赋值
@@ -76,6 +89,15 @@
 
     
 }
+- (void)adClick{
+    NSLog(@"323423423423423");
+}
+
+- (void)removeSelfView{
+    [adView removeFromSuperview];
+}
+
+
 -(void)takeTheKeyboard{
 
     [_userNameTextField resignFirstResponder];
