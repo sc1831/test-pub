@@ -10,6 +10,6 @@
 
 @interface ADVC : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *adImageView;
-@property (weak, nonatomic) IBOutlet UIButton *adImgeBtn;
+- (IBAction)adclick:(UIButton *)sender;
 
 @end

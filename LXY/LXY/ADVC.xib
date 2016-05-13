@@ -9,7 +9,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ADVC">
             <connections>
                 <outlet property="adImageView" destination="6q7-sB-RQX" id="E02-7S-JAZ"/>
-                <outlet property="adImgeBtn" destination="0Dv-J6-bMR" id="OFe-hh-BRE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -30,11 +29,14 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FVN-bx-emP">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="531"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6q7-sB-RQX">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_start_image.png" translatesAutoresizingMaskIntoConstraints="NO" id="6q7-sB-RQX">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="531"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Dv-J6-bMR">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="531"/>
+                            <connections>
+                                <action selector="adclick:" destination="-1" eventType="touchUpInside" id="ttb-Ml-2k2"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -68,6 +70,7 @@
         </view>
     </objects>
     <resources>
+        <image name="launch_start_image.png" width="1242" height="1905"/>
         <image name="启动页-1.png" width="707" height="275"/>
         <image name="启动页bg.png" width="720" height="955"/>
     </resources>

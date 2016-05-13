@@ -16,7 +16,7 @@
 #import "RequestCenter.h"
 #import "UIButton+Block.h"
 #import "GHControl.h"
-#import "ADView.h"
+//#import "ADView.h"
 
 
 @interface LoginVC ()<UITextFieldDelegate>
@@ -25,7 +25,7 @@
     NSString *password ;
     NSString *codeStr ;
 
-    ADView *adView ;
+//    ADView *adView ;
 }
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
@@ -50,11 +50,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = YES;
-    adView = [[[NSBundle mainBundle]loadNibNamed:@"ADView" owner:self options:nil]firstObject];
-    adView.adImage.image = [UIImage imageNamed:@"launch_start_image"];
-    [self.view addSubview:adView];
-    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(removeSelfView) userInfo:nil repeats:NO];
-    [adView.imageBtn addTarget:self action:@selector(adClick) forControlEvents:UIControlEventTouchUpInside];
+//    adView = [[[NSBundle mainBundle]loadNibNamed:@"ADView" owner:self options:nil]firstObject];
+//    adView.adImage.image = [UIImage imageNamed:@"launch_start_image"];
+//    [self.view addSubview:adView];
+//    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(removeSelfView) userInfo:nil repeats:NO];
+//    [adView.imageBtn addTarget:self action:@selector(adClick) forControlEvents:UIControlEventTouchUpInside];
     
 //    ADVC *adVC = [[ADVC alloc]init];
 //    [self presentViewController:adVC animated:NO completion:nil];
@@ -89,13 +89,13 @@
 
     
 }
-- (void)adClick{
-    NSLog(@"323423423423423");
-}
+//- (void)adClick{
+//    NSLog(@"323423423423423");
+//}
 
-- (void)removeSelfView{
-    [adView removeFromSuperview];
-}
+//- (void)removeSelfView{
+//    [adView removeFromSuperview];
+//}
 
 
 -(void)takeTheKeyboard{

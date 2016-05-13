@@ -17,6 +17,11 @@
 
 #import "UMSocialSnsService.h"
 #import "UMSocialSnsPlatformManager.h"
+
+#import "UMSocialWechatHandler.h"
+#import "UMSocialQQHandler.h"
+#import <CommonCrypto/CommonDigest.h>
+#import "UMSocialSinaSSOHandler.h"
 @interface ShopingDetailsVC ()<UIWebViewDelegate,UMSocialUIDelegate>
 {
     NSString *goods_detail_url ;
@@ -135,7 +140,18 @@
 }
 #pragma mark - 分享
 - (IBAction)showShareView:(id)sender {
-
+    [UMSocialWechatHandler setWXAppId:@"wxefa5c3b9b74042e1" appSecret:@"1b7211a9702f7ebca6f4ebf24bfb9dbe" url:@"http://www.baidu.com"];
+    //qq
+    [UMSocialQQHandler setQQWithAppId:@"1105306253" appKey:@"v2QMtvXgYszJW39r" url:@"http://www.lecuntao.com/"];
+    //新浪
+    //第一个参数为新浪appkey,第二个参数为新浪secret，第三个参数是新浪微博回调地址，这里必须要和你在新浪微博后台设置的回调地址一致。
+    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"922810224"
+                                              secret:@"d0e610cc27945f4a9c3dad366ee8a87b"
+                                         RedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+    
+    
+    
+    
         NSString *shareText = @"乐村淘是中国第一家村镇O2O电商平台，是互联网+传统农村市场的大平台，乐村淘";             //分享内嵌文字
         //    UIImage *shareImage = [UIImage imageNamed:@"UMS_social_demo"];          //分享内嵌图片
         UIImage *shareImage = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"UMS_social_demo" ofType:@"png"]];
@@ -146,7 +162,7 @@
                                          shareImage:shareImage
                                     shareToSnsNames:[NSArray arrayWithObjects:UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,UMShareToQQ,UMShareToQzone,nil]
                                            delegate:self];
-
+    
     
     
 //    UMSocialUrlResource *urlResource = [[UMSocialUrlResource alloc] initWithSnsResourceType:UMSocialUrlResourceTypeImage url:

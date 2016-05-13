@@ -78,6 +78,16 @@
 				<string>com_lecuntao_lxy</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>lecuntao</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.lecuntao.lxy</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>2</string>

@@ -25,14 +25,15 @@
 #import "MobClick.h"
 
 
-#import "UMSocialWechatHandler.h"
-#import "UMSocialQQHandler.h"
+//#import "UMSocialWechatHandler.h"
+//#import "UMSocialQQHandler.h"
 #import <CommonCrypto/CommonDigest.h>
-#import "UMSocialSinaSSOHandler.h"
+//#import "UMSocialSinaSSOHandler.h"
 
 
 #define UMENG_APPKEY @"56e7735e67e58e3d78001181"
-
+//AD
+#import "ADVC.h"
 
 @interface AppDelegate ()
 @property (nonatomic ,strong)Reachability *conn;
@@ -55,14 +56,14 @@ static NetworkStatus hostReachState=NotReachable;
     [UMSocialData setAppKey:@"56e7735e67e58e3d78001181"];
     [UMSocialConfig setSupportedInterfaceOrientations:UIInterfaceOrientationMaskLandscape];
     //设置微信AppId、appSecret，分享url
-    [UMSocialWechatHandler setWXAppId:@"wxefa5c3b9b74042e1" appSecret:@"1b7211a9702f7ebca6f4ebf24bfb9dbe" url:@"http://www.baidu.com"];
-    //qq
-    [UMSocialQQHandler setQQWithAppId:@"1105306253" appKey:@"v2QMtvXgYszJW39r" url:@"http://www.lecuntao.com/"];
-    //新浪
-    //第一个参数为新浪appkey,第二个参数为新浪secret，第三个参数是新浪微博回调地址，这里必须要和你在新浪微博后台设置的回调地址一致。
-    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"922810224"
-                                              secret:@"d0e610cc27945f4a9c3dad366ee8a87b"
-                                         RedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+//    [UMSocialWechatHandler setWXAppId:@"wxefa5c3b9b74042e1" appSecret:@"1b7211a9702f7ebca6f4ebf24bfb9dbe" url:@"http://www.baidu.com"];
+//    //qq
+//    [UMSocialQQHandler setQQWithAppId:@"1105306253" appKey:@"v2QMtvXgYszJW39r" url:@"http://www.lecuntao.com/"];
+//    //新浪
+//    //第一个参数为新浪appkey,第二个参数为新浪secret，第三个参数是新浪微博回调地址，这里必须要和你在新浪微博后台设置的回调地址一致。
+//    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"922810224"
+//                                              secret:@"d0e610cc27945f4a9c3dad366ee8a87b"
+//                                         RedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
     
     
 //    //如果你要支持不同的屏幕方向，需要这样设置，否则在iPhone只支持一个竖屏方向
@@ -152,30 +153,19 @@ static NetworkStatus hostReachState=NotReachable;
     self.conn = [Reachability reachabilityWithHostName:@"www.lexianyu.com"];
     // 开始监控网络(一旦网络状态发生改变, 就会发出通知kReachabilityChangedNotification)
     [self.conn startNotifier];
-    
-    
-    
-    
-    
-    LoginVC *loginVC = [[LoginVC alloc]init];
-    loginVC.not_loginOut = YES ;
-    self.window.rootViewController = loginVC ;
-    
+
     //判断版本是否一致 是否重新进入引导页
     if ([[SaveInfo shareSaveInfo] isFistStart]) {
         //版本号一致
-        [self changeToken];
-        //        UIViewController *vc = [[UIViewController alloc]init];
-        //        vc.view.backgroundColor = [UIColor whiteColor];
-        //        self.window.rootViewController = vc;
+        ADVC *adVC = [[ADVC alloc]init];
+        self.window.rootViewController = adVC ;
+    
     }else{
         //版本号不一样：第一次使用新版本
         [self intoGuite];
     }
     
-    //    UIViewController *vc = [[UIViewController alloc]init];
-    //    vc.view.backgroundColor = [UIColor whiteColor];
-    //    self.window.rootViewController = vc;
+
     
     
     
@@ -235,16 +225,23 @@ static NetworkStatus hostReachState=NotReachable;
     if ([[url scheme] isEqualToString:@"com_lecuntao_lxy"]) {
         return YES ;
     }
+    
+    if ([[url scheme] isEqualToString:@"com.lecuntao.lxy"]) {
+        return YES ;
+    }
+    
     return [WXApi handleOpenURL:url delegate:self];
 
 }
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
     
-
-    
-    
-    
     if ([[url scheme] isEqualToString:@"com_lecuntao_lxy"]) {
+        return YES ;
+    }
+    
+    
+    
+    if ([[url scheme] isEqualToString:@"com.lecuntao.lxy"]) {
         return YES ;
     }
     //银联
@@ -362,6 +359,8 @@ static NetworkStatus hostReachState=NotReachable;
     //此处的verify，商户需送去商户后台做验签
     return NO;
 }
+
+
 //-(BOOL) verifyLocal:(NSString *) resultStr {
 //
 //    //从NSString转化为NSDictionary
@@ -456,65 +455,7 @@ static NetworkStatus hostReachState=NotReachable;
 }
 
 
-#pragma mark - 替换token 验证token是否合法 是否进入登录界面
-- (void)changeToken{
-    
-    //    [[SaveInfo shareSaveInfo] setUser_id:@"323423"];
-    //    [[SaveInfo shareSaveInfo] setToken:@"2332dfsfdsfsd"];
-    //    MainTabBar *mainVC = [[MainTabBar alloc]init];
-    //    self.window.rootViewController = mainVC;
-    
-    if (![GHControl isExistNetwork]) {
-        HUDNormal(@"服务器无响应，请稍后重试");
-        return;
-    }
-    
-    RequestCenter *request = [RequestCenter shareRequestCenter];
-    if ([SaveInfo shareSaveInfo].user_id != nil && [SaveInfo shareSaveInfo].token != nil) {
-        //有token
-        NSDictionary *postDic = @{@"user_id":[SaveInfo shareSaveInfo].user_id,@"token":[SaveInfo shareSaveInfo].token};
-        
-        
-        [request sendRequestPostUrl:EDIT_USER_TOKEN andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
-            if ([[resultDic objectForKey:@"code"] intValue]== 1) {
-                //成功 token 替换成功
-                //                if (!resultDic[@"token"]) {
-                //                    [[SaveInfo shareSaveInfo]setToken:[resultDic objectForKey:@"token"]];
-                //                }else{
-                //
-                //                }
-                
-                [[SaveInfo shareSaveInfo]setToken:[[resultDic objectForKey:@"data"] objectForKey:@"token"]];
-                [[SaveInfo shareSaveInfo]setUser_id:[[resultDic objectForKey:@"data"] objectForKey:@"member_id"]];
-                [[SaveInfo shareSaveInfo]setUserInfo:[resultDic objectForKey:@"data"]];
-                [[SaveInfo shareSaveInfo]setLoginName:[[resultDic objectForKey:@"data"] objectForKey:@"member_phone"]];
-                [[SaveInfo shareSaveInfo]setShop_name:[[resultDic objectForKey:@"data"] objectForKey:@"shop_name"]];
-                
-                
-                
-                MainTabBar *mainVC = [[MainTabBar alloc]init];
-                self.window.rootViewController = mainVC ;
-            }else{
-                HUDNormal(@"请重新登录");
-                LoginVC *loginVC = [[LoginVC alloc]init];
-                self.window.rootViewController = loginVC ;
-            }
-        } setFailBlock:^(NSString *errorStr) {
-            NSLog(@"error:%@",errorStr);
-            //请求失败
-            MainTabBar *mainVC = [[MainTabBar alloc]init];
-            self.window.rootViewController = mainVC;
-        }];
-    }else{
-        //无token
-        LoginVC *loginVC = [[LoginVC alloc]init];
-        self.window.rootViewController = loginVC ;
-    }
-    
-    
-    
-    
-}
+
 
 
 - (BOOL)isExistNetwork {
@@ -544,7 +485,7 @@ static NetworkStatus hostReachState=NotReachable;
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     //TODO: 首次启动 再次打开
     // 启动广告
-    [NSThread sleepForTimeInterval:3];
+//    [NSThread sleepForTimeInterval:3];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
