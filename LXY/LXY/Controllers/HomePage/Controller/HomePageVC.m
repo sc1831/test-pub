@@ -106,6 +106,10 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     //开启定时器
     [_moveTimer setFireDate:[NSDate distantPast]];
     [_middleMoveTimer setFireDate:[NSDate distantPast]];
+    
+    
+//    [self.view addSubview:self.noNetworkView];
+//    self.noNetworkView.hidden = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated{

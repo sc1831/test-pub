@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface HomePageVC : UIViewController
+#import "RootVC.h"
+@interface HomePageVC : RootVC
 @property (weak, nonatomic) IBOutlet UIScrollView *TopScrollView;
 @property (weak, nonatomic) IBOutlet UIView *searchView;
 @property (weak, nonatomic) IBOutlet UIScrollView *TopView;
