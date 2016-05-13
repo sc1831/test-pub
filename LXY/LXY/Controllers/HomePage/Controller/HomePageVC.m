@@ -171,11 +171,24 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 //- (void)removeSelfView{
 //    [adView removeFromSuperview];
 //}
+-(void)NoNetworkClickDelegate{
+    
+    if (![GHControl isExistNetwork]) {
+        self.noNetworkView.hidden = NO;
+        return;
+    }
+    self.noNetworkView.hidden = YES;
+    [self loadHomeData];
+    
+}
 
 - (void)loadHomeData{
     if (![GHControl isExistNetwork]) {
-        HUDNormal(@"服务器无响应，请稍后重试");
+        self.noNetworkView.hidden = NO;
         return;
+    }else{
+    
+        self.noNetworkView.hidden = YES;
     }
     RequestCenter *request = [RequestCenter shareRequestCenter];
     [request sendRequestPostUrl:HOME_INDEX andDic:nil setSuccessBlock:^(NSDictionary *resultDic) {
