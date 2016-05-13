@@ -94,10 +94,10 @@
         
 
         [[SaveInfo shareSaveInfo]setUserImageUrl:dic[@"member_avatar"]];
-        [_headImageView sd_setImageWithURL:[NSURL URLWithString:dic[@"member_avatar"]] placeholderImage:[UIImage imageNamed:@"产品图片"]];
+        [_headImageView sd_setImageWithURL:[NSURL URLWithString:dic[@"member_avatar"]] placeholderImage:[UIImage imageNamed:@""]];
         
     } setFailBlock:^(NSString *errorStr) {
-        _mineImageView.image = [UIImage imageNamed:@"产品图片"];
+        _mineImageView.image = [UIImage imageNamed:@""];
     }];
 }
 
