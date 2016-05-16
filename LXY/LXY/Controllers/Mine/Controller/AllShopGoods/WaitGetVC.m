@@ -30,17 +30,13 @@
 
 @implementation WaitGetVC
 {
-
+    
     int _page  ;//当前页码
     int _pageSize ;
     RequestCenter *requestCenter;
     NSMutableDictionary *postDic ;
 }
--(void)viewWillAppear:(BOOL)animated{
-    
-    [self addMjHeaderAndFooter];
-    [self.waitGetTableView headerBeginRefresh];
-}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"待收货";
@@ -48,7 +44,7 @@
     _subMutArray = [NSMutableArray array];
     
     [self createTableView];
-
+    
     _label = [GHControl createLabelWithFrame:CGRectMake(30, M_HEIGHT/2-20, M_WIDTH-60, 40) Font:15 Text:@"暂时还没有要收货的订单哦"];
     _label.textColor = RGBCOLOR(99, 100, 101);
     _label.textAlignment = NSTextAlignmentCenter;
@@ -66,8 +62,16 @@
     [self addMjHeaderAndFooter];
     [self.waitGetTableView headerBeginRefresh];
     
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refishViewFour) name:@"refishViewFour" object:nil];
+    
     [self.view addSubview:self.noNetworkView];
     
+    
+}
+-(void)refishViewFour{
+    
+    [self addMjHeaderAndFooter];
+    [self.waitGetTableView headerBeginRefresh];
     
 }
 //重新加载数据
@@ -85,23 +89,27 @@
 #pragma mark MJRefresh
 - (void)addMjHeaderAndFooter{
     
-    
+    if (![GHControl isExistNetwork]) {
+        
+        if (_dataArray.count>0) {
+            self.noNetworkView.hidden = YES;
+        }else{
+            self.noNetworkView.hidden = NO;
+        }
+        
+        [self.waitGetTableView headerEndRefresh];
+        return;
+    }else{
+        
+        self.noNetworkView.hidden = YES;
+        
+    }
     
     [self.waitGetTableView headerAddMJRefresh:^{//添加顶部刷新功能
         [self.waitGetTableView footerResetNoMoreData];//重置无数据状态
         [postDic setValue:@"1" forKey:@"page"];
         
-        if (![GHControl isExistNetwork]) {
-            HUDNormal(@"服务器无响应，请稍后重试");
-            if (_dataArray.count>0) {
-                self.noNetworkView.hidden = YES;
-            }else{
-                self.noNetworkView.hidden = NO;
-            }
-            
-            [self.waitGetTableView headerEndRefresh];
-            return;
-        }
+        
         
         [requestCenter sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
             [self.waitGetTableView headerEndRefresh];
@@ -133,7 +141,7 @@
                 _label.hidden = NO;
                 return;
             }else{
-            
+                
                 _label.hidden = YES;
             }
             [_waitGetTableView reloadData];
@@ -147,17 +155,7 @@
     [self.waitGetTableView footerAddMJRefresh:^{
         [postDic setValue:VALUETOSTR(_page) forKey:@"page"];
         
-        if (![GHControl isExistNetwork]) {
-            HUDNormal(@"服务器无响应，请稍后重试");
-            if (_dataArray.count>0) {
-                self.noNetworkView.hidden = YES;
-            }else{
-                self.noNetworkView.hidden = NO;
-            }
-            
-            [self.waitGetTableView headerEndRefresh];
-            return;
-        }
+        
         
         [requestCenter sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
             
@@ -172,7 +170,7 @@
             
             if ([[resultDic[@"code"] stringValue] isEqualToString:@"1"]) {
                 NSMutableArray *indexPaths = [NSMutableArray arrayWithCapacity:0];
-//                NSInteger count = _dataArray.count ;
+                //                NSInteger count = _dataArray.count ;
                 NSArray *goods_list = resultDic[@"data"] [@"list"];
                 
                 
@@ -218,12 +216,12 @@
 -(void)createTableView{
     if (_isMineGetPush) {
         _isMineGetPush = NO;
-         _waitGetTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH, M_HEIGHT) style:UITableViewStyleGrouped];
+        _waitGetTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH, M_HEIGHT) style:UITableViewStyleGrouped];
     }else{
-    
-       _waitGetTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH, M_HEIGHT-94) style:UITableViewStyleGrouped];
+        
+        _waitGetTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH, M_HEIGHT-94) style:UITableViewStyleGrouped];
     }
-   
+    
     _waitGetTableView.delegate = self;
     _waitGetTableView.dataSource = self;
     _waitGetTableView.backgroundColor = RGBCOLOR(219, 223, 224);
@@ -331,14 +329,14 @@
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:cellName owner:self options:nil] firstObject];
         }
-
+        
         
         [cell modelWithArray:_subMutArray[indexPath.section]];
         
         return cell;
     }
-
- 
+    
+    
 }
 
 //- (void)cellClick:(UIControl *)control {
@@ -357,18 +355,18 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-     CELLSELECTANIMATE ;
+    CELLSELECTANIMATE ;
     AllGoodsOrders *model =  _subMutArray[indexPath.section][indexPath.row];
     ShopingDetailsVC *shoppingDetailsVC = [[ShopingDetailsVC alloc] init];
     shoppingDetailsVC.goods_commonid = model.goods_id ;
     [self.navigationController pushViewController:shoppingDetailsVC animated:YES];
-
+    
 }
 
 
 
 -(void)btnClick:(UIButton *)btn{
-        AllGoodsOrders *model = _dataArray[btn.tag];
+    AllGoodsOrders *model = _dataArray[btn.tag];
     [requestCenter sendRequestPostUrl:CONFIRM_RECEIPT andDic:@{@"pay_sn":model.pay_sn} setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;

@@ -41,11 +41,7 @@
     RequestCenter *requestCenter;
     NSMutableDictionary *postDic ;
 }
--(void)viewWillAppear:(BOOL)animated{
-    
-    [self addMjHeaderAndFooter];
-    [self.waitSendtableView headerBeginRefresh];
-}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"待发货";
@@ -69,8 +65,16 @@
     [self addMjHeaderAndFooter];
     [self.waitSendtableView headerBeginRefresh];
     
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refishViewThree) name:@"refishViewThree" object:nil];
+    
     [self.view addSubview:self.noNetworkView];
     
+    
+}
+-(void)refishViewThree{
+    
+    [self addMjHeaderAndFooter];
+    [self.waitSendtableView headerBeginRefresh];
     
 }
 //重新加载数据
@@ -87,33 +91,34 @@
 #pragma mark MJRefresh
 - (void)addMjHeaderAndFooter{
     
-   
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+        if (_dataArray.count>0) {
+            self.noNetworkView.hidden = YES;
+        }else{
+            self.noNetworkView.hidden = NO;
+        }
+        
+        [self.waitSendtableView headerEndRefresh];
+        return;
+    }else{
+        self.noNetworkView.hidden = YES;
+        
+    }
     
     [self.waitSendtableView headerAddMJRefresh:^{//添加顶部刷新功能
         [self.waitSendtableView footerResetNoMoreData];//重置无数据状态
         [postDic setValue:@"1" forKey:@"page"];
         
-        if (![GHControl isExistNetwork]) {
-            HUDNormal(@"服务器无响应，请稍后重试");
-            if (_dataArray.count>0) {
-                self.noNetworkView.hidden = YES;
-            }else{
-                self.noNetworkView.hidden = NO;
-            }
-            
-            [self.waitSendtableView headerEndRefresh];
-            return;
-        }
-
         
         [requestCenter sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
             [self.waitSendtableView headerEndRefresh];
-      
+            
             if ([resultDic[@"code"] intValue] != 1) {
                 BG_LOGIN ;
                 return ;
             }
-
+            
             [_subMutArray removeAllObjects];
             [_dataArray removeAllObjects];
             
@@ -139,7 +144,7 @@
                 _label.hidden = NO;
                 return;
             }else{
-            
+                
                 _label.hidden = YES;
             }
             [_waitSendtableView reloadData];
@@ -150,25 +155,14 @@
         
     }];
     
-
+    
     [self.waitSendtableView footerAddMJRefresh:^{
         [postDic setValue:VALUETOSTR(_page) forKey:@"page"];
         
-        if (![GHControl isExistNetwork]) {
-            HUDNormal(@"服务器无响应，请稍后重试");
-            if (_dataArray.count>0) {
-                self.noNetworkView.hidden = YES;
-            }else{
-                self.noNetworkView.hidden = NO;
-            }
-            
-            [self.waitSendtableView headerEndRefresh];
-            return;
-        }
-
+        
         
         [requestCenter sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
-
+            
             if (_page>[resultDic[@"data"][@"pageamount"] intValue]) {
                 
                 return ;
@@ -179,7 +173,7 @@
             }
             if ([[resultDic[@"code"] stringValue] isEqualToString:@"1"]) {
                 NSMutableArray *indexPaths = [NSMutableArray arrayWithCapacity:0];
-//                NSInteger count = _dataArray.count ;
+                //                NSInteger count = _dataArray.count ;
                 NSArray *goods_list = resultDic[@"data"] [@"list"];
                 
                 
@@ -227,8 +221,8 @@
         _isMineSendPush = NO;
         _waitSendtableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH,M_HEIGHT) style:UITableViewStyleGrouped];
     }else{
-    
-       _waitSendtableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH,M_HEIGHT-94) style:UITableViewStyleGrouped];
+        
+        _waitSendtableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH,M_HEIGHT-94) style:UITableViewStyleGrouped];
     }
     
     _waitSendtableView.delegate = self;
@@ -360,12 +354,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-     CELLSELECTANIMATE ;
+    CELLSELECTANIMATE ;
     AllGoodsOrders *model =  _subMutArray[indexPath.section][indexPath.row];
     ShopingDetailsVC *shoppingDetailsVC = [[ShopingDetailsVC alloc] init];
     shoppingDetailsVC.goods_commonid = model.goods_id ;
     [self.navigationController pushViewController:shoppingDetailsVC animated:YES];
-
+    
     
 }
 

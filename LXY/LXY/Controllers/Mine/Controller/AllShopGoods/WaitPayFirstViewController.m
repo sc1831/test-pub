@@ -37,7 +37,7 @@
 
 @implementation WaitPayFirstViewController
 {
-
+    
     int _page  ;//当前页码
     int _pageSize ;
     RequestCenter *requestCenter;
@@ -45,11 +45,7 @@
 }
 
 
--(void)viewWillAppear:(BOOL)animated{
-    
-    [self addMjHeaderAndFooter];
-    [self.waitPayTableView headerBeginRefresh];
-}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"待付款";
@@ -57,13 +53,13 @@
     _subMutArray = [NSMutableArray array];
     
     [self createTableView];
-
+    
     _label = [GHControl createLabelWithFrame:CGRectMake(30, M_HEIGHT/2-20, M_WIDTH-60, 40) Font:15 Text:@"暂时还没有要付款的订单哦"];
     _label.textColor = RGBCOLOR(99, 100, 101);
     _label.textAlignment = NSTextAlignmentCenter;
     _label.hidden = YES;
     [self.view addSubview:_label];
-
+    
     postDic = [NSMutableDictionary dictionaryWithCapacity:0];
     requestCenter = [RequestCenter shareRequestCenter];
     [postDic setValue:VALUETOSTR(_page) forKey:@"page"];
@@ -74,10 +70,17 @@
     [self addMjHeaderAndFooter];
     [self.waitPayTableView headerBeginRefresh];
     
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refishViewTwo) name:@"refishViewTwo" object:nil];
     
     [self.view addSubview:self.noNetworkView];
     
-
+    
+}
+-(void)refishViewTwo{
+    
+    [self addMjHeaderAndFooter];
+    [self.waitPayTableView headerBeginRefresh];
+    
 }
 //重新加载数据
 -(void)NoNetworkClickDelegate{
@@ -92,105 +95,40 @@
 
 #pragma mark MJRefresh
 - (void)addMjHeaderAndFooter{
-    
-    [self.waitPayTableView headerAddMJRefresh:^{//添加顶部刷新功能
-        [self.waitPayTableView footerResetNoMoreData];//重置无数据状态
-        [postDic setValue:@"1" forKey:@"page"];
-        if (![GHControl isExistNetwork]) {
-            HUDNormal(@"服务器无响应，请稍后重试");
-            if (_dataArray.count>0) {
-                self.noNetworkView.hidden = YES;
-            }else{
-                self.noNetworkView.hidden = NO;
-            }
-            
-            [self.waitPayTableView headerEndRefresh];
-            return;
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+        if (_dataArray.count>0) {
+            self.noNetworkView.hidden = YES;
+        }else{
+            self.noNetworkView.hidden = NO;
         }
-        [requestCenter sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
-            [self.waitPayTableView headerEndRefresh];
-            if ([resultDic[@"code"] intValue] != 1) {
-                BG_LOGIN ;
-                return ;
-            }
-
-            [_subMutArray removeAllObjects];
-            [_dataArray removeAllObjects];
+        
+        [self.waitPayTableView headerEndRefresh];
+        return;
+    }else{
+        self.noNetworkView.hidden = YES;
+        
+        [self.waitPayTableView headerAddMJRefresh:^{//添加顶部刷新功能
+            [self.waitPayTableView footerResetNoMoreData];//重置无数据状态
+            [postDic setValue:@"1" forKey:@"page"];
             
-            NSDictionary *dict = resultDic[@"data"];
-            _page = [dict[@"page"] intValue];
-            NSArray *array = dict[@"list"];
-            for (NSDictionary *subDic in array) {
-                AllGoodsOrders *model = [AllGoodsOrders modelWithDic:subDic];
-                
-                NSArray *subArray = subDic[@"order_goods"];
-                NSMutableArray *mutArray = [NSMutableArray array];
-                for (NSDictionary *smallDic in subArray) {
-                    AllGoodsOrders *model = [AllGoodsOrders modelWithDic:smallDic];
-                    [mutArray addObject:model];
+            [requestCenter sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+                [self.waitPayTableView headerEndRefresh];
+                if ([resultDic[@"code"] intValue] != 1) {
+                    BG_LOGIN ;
+                    return ;
                 }
-                [_subMutArray addObject:mutArray];
                 
-                [_dataArray addObject:model];
+                [_subMutArray removeAllObjects];
+                [_dataArray removeAllObjects];
                 
-            }
-            _page = 2;
-            if (_dataArray.count==0) {
-                _label.hidden = NO;
-                return;
-            }else{
-            
-                _label.hidden = YES;
-            }
-            [_waitPayTableView reloadData];
-            
-        } setFailBlock:^(NSString *errorStr) {
-            [self.waitPayTableView headerEndRefresh];
-        }];
-
-        
-    }];
-    
-    [self.waitPayTableView footerAddMJRefresh:^{
-        [postDic setValue:VALUETOSTR(_page) forKey:@"page"];
-        
-        if (![GHControl isExistNetwork]) {
-            HUDNormal(@"服务器无响应，请稍后重试");
-            if (_dataArray.count>0) {
-                self.noNetworkView.hidden = YES;
-            }else{
-                self.noNetworkView.hidden = NO;
-            }
-            
-            [self.waitPayTableView headerEndRefresh];
-            return;
-        }
-        
-        [requestCenter sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
-            
-            if (_page>[resultDic[@"data"][@"pageamount"] intValue]) {
-                
-                return ;
-            }
-            if ([resultDic[@"code"] intValue] != 1) {
-                BG_LOGIN ;
-                return ;
-            }
-            if ([[resultDic[@"code"] stringValue] isEqualToString:@"1"]) {
-                NSMutableArray *indexPaths = [NSMutableArray arrayWithCapacity:0];
-//                NSInteger count = _dataArray.count ;
-                NSArray *goods_list = resultDic[@"data"] [@"list"];
-                
-                
-                for (int i = 0 ; i <goods_list.count ; i++) {
-                    NSDictionary *dic = goods_list[i] ;
-                    AllGoodsOrders *model = [AllGoodsOrders modelWithDic:dic];
-                    [_dataArray addObject:model];
+                NSDictionary *dict = resultDic[@"data"];
+                _page = [dict[@"page"] intValue];
+                NSArray *array = dict[@"list"];
+                for (NSDictionary *subDic in array) {
+                    AllGoodsOrders *model = [AllGoodsOrders modelWithDic:subDic];
                     
-                    
-                    
-                    
-                    NSArray *subArray = dic[@"order_goods"];
+                    NSArray *subArray = subDic[@"order_goods"];
                     NSMutableArray *mutArray = [NSMutableArray array];
                     for (NSDictionary *smallDic in subArray) {
                         AllGoodsOrders *model = [AllGoodsOrders modelWithDic:smallDic];
@@ -198,26 +136,83 @@
                     }
                     [_subMutArray addObject:mutArray];
                     
-                    //                    MY_REFRESH(count);
-                    [_waitPayTableView reloadData];
+                    [_dataArray addObject:model];
                     
                 }
-                if (indexPaths.count <= 0) {
-                    [self.waitPayTableView footerEndRefreshNoMoreData];
+                _page = 2;
+                if (_dataArray.count==0) {
+                    _label.hidden = NO;
+                    return;
                 }else{
-                    _page ++ ;
-                    [self.waitPayTableView footerEndRefresh];
                     
-                    [self.waitPayTableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+                    _label.hidden = YES;
                 }
-            }else{
-                [self.waitPayTableView footerEndRefresh ];
-            }
+                [_waitPayTableView reloadData];
+                
+            } setFailBlock:^(NSString *errorStr) {
+                [self.waitPayTableView headerEndRefresh];
+            }];
             
-        } setFailBlock:^(NSString *errorStr) {
+            
         }];
         
-    }];
+        [self.waitPayTableView footerAddMJRefresh:^{
+            [postDic setValue:VALUETOSTR(_page) forKey:@"page"];
+            
+            
+            [requestCenter sendRequestPostUrl:MY_REGISTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+                
+                if (_page>[resultDic[@"data"][@"pageamount"] intValue]) {
+                    
+                    return ;
+                }
+                if ([resultDic[@"code"] intValue] != 1) {
+                    BG_LOGIN ;
+                    return ;
+                }
+                if ([[resultDic[@"code"] stringValue] isEqualToString:@"1"]) {
+                    NSMutableArray *indexPaths = [NSMutableArray arrayWithCapacity:0];
+                    //                NSInteger count = _dataArray.count ;
+                    NSArray *goods_list = resultDic[@"data"] [@"list"];
+                    
+                    
+                    for (int i = 0 ; i <goods_list.count ; i++) {
+                        NSDictionary *dic = goods_list[i] ;
+                        AllGoodsOrders *model = [AllGoodsOrders modelWithDic:dic];
+                        [_dataArray addObject:model];
+                        
+                        
+                        
+                        
+                        NSArray *subArray = dic[@"order_goods"];
+                        NSMutableArray *mutArray = [NSMutableArray array];
+                        for (NSDictionary *smallDic in subArray) {
+                            AllGoodsOrders *model = [AllGoodsOrders modelWithDic:smallDic];
+                            [mutArray addObject:model];
+                        }
+                        [_subMutArray addObject:mutArray];
+                        
+                        //                    MY_REFRESH(count);
+                        [_waitPayTableView reloadData];
+                        
+                    }
+                    if (indexPaths.count <= 0) {
+                        [self.waitPayTableView footerEndRefreshNoMoreData];
+                    }else{
+                        _page ++ ;
+                        [self.waitPayTableView footerEndRefresh];
+                        
+                        [self.waitPayTableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+                    }
+                }else{
+                    [self.waitPayTableView footerEndRefresh ];
+                }
+                
+            } setFailBlock:^(NSString *errorStr) {
+            }];
+            
+        }];
+    }
     
 }
 
@@ -226,8 +221,8 @@
         _isMinePush = NO;
         _waitPayTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH,M_HEIGHT) style:UITableViewStyleGrouped];
     }else{
-    
-         _waitPayTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH,M_HEIGHT-94) style:UITableViewStyleGrouped];
+        
+        _waitPayTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH,M_HEIGHT-94) style:UITableViewStyleGrouped];
     }
     
     _waitPayTableView.delegate = self;
@@ -314,20 +309,20 @@
     [_footView addSubview:btn];
     
     return _footView;
-
+    
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 45;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-
+    
     return 45;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-
-
+    
+    
     if ([_subMutArray[indexPath.section] count]==1) {
         static NSString *cellName = @"WaiteSendCell";
         
@@ -342,7 +337,7 @@
         cell.shopNum.text = [NSString stringWithFormat:@"X%@",model.goods_num];
         AllGoodsOrders *dataModel = _dataArray[indexPath.section];
         cell.shopTime.text = dataModel.add_time; //pay_sn
-         [cell.shopImage sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@"商品默认图"]];
+        [cell.shopImage sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@"商品默认图"]];
         
         
         return cell;
@@ -355,13 +350,13 @@
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:cellName owner:self options:nil] firstObject];
         }
-
+        
         
         [cell modelWithArray:_subMutArray[indexPath.section]];
-    
-       return cell;
+        
+        return cell;
     }
-
+    
 }
 
 //- (void)cellClick:(UIControl *)control {
@@ -373,24 +368,24 @@
 //}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-
+    
     return 77;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-     CELLSELECTANIMATE ;
+    CELLSELECTANIMATE ;
     AllGoodsOrders *model =  _subMutArray[indexPath.section][indexPath.row];
     ShopingDetailsVC *shoppingDetailsVC = [[ShopingDetailsVC alloc] init];
     shoppingDetailsVC.goods_commonid = model.goods_id ;
     [self.navigationController pushViewController:shoppingDetailsVC animated:YES];
-
+    
 }
 
 -(void)payBtnClick:(UIButton *)btn{
     NSLog(@"去支付");
     if (![GHControl isExistNetwork]) {
         HUDNormal(@"服务器无响应，请稍后重试");
-
+        
         return;
     }
     AllGoodsOrders *model = _dataArray[btn.tag];
@@ -411,12 +406,12 @@
     
     
     
-//    ConfirmorderVC *confirmVC = [[ConfirmorderVC alloc]init];
-//    confirmVC.orderIds = model.order_id;
-//    confirmVC.cartIds = @"";
-//    confirmVC.goodsIds = @"";
-//    confirmVC.goodsNum = @"";
-//    [self.navigationController pushViewController:confirmVC animated:YES];
+    //    ConfirmorderVC *confirmVC = [[ConfirmorderVC alloc]init];
+    //    confirmVC.orderIds = model.order_id;
+    //    confirmVC.cartIds = @"";
+    //    confirmVC.goodsIds = @"";
+    //    confirmVC.goodsNum = @"";
+    //    [self.navigationController pushViewController:confirmVC animated:YES];
     
 }
 
@@ -425,7 +420,7 @@
     [self createFeedBackView];
     AllGoodsOrders *model = _dataArray[btn.tag];
     _orderIds = model.pay_sn;
-
+    
     
 }
 -(void)createFeedBackView{
@@ -434,9 +429,9 @@
     NSMutableArray *mutArray = [NSMutableArray arrayWithObjects:@"我不想买了",@"信息填写错误、重新拍",@"配送时差问题",@"其他", nil];
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:(UIAlertControllerStyleActionSheet)];
     for (int i =0; i<mutArray.count; i++) {
-       
+        
         UIAlertAction *productProblem = [UIAlertAction actionWithTitle:mutArray[i] style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
-
+            
             [self sendRequestDataCancelOrderId:_orderIds andReason:mutArray[i]];
         }];
         [alertController addAction:productProblem];
@@ -456,30 +451,30 @@
     
     if (![GHControl isExistNetwork]) {
         HUDNormal(@"服务器无响应，请稍后重试");
-
+        
         return;
     }
     
     RequestCenter * request = [RequestCenter shareRequestCenter];
     NSDictionary *postDict = @{
-                              @"reason":reasonStr,
-                              @"user_id":[[SaveInfo shareSaveInfo]user_id],
-                              @"pay_sn":orderId
-                              };
+                               @"reason":reasonStr,
+                               @"user_id":[[SaveInfo shareSaveInfo]user_id],
+                               @"pay_sn":orderId
+                               };
     NSLog(@"reasonStr:%@",reasonStr);
-     NSLog(@"[[SaveInfo shareSaveInfo]user_id]:%@",[[SaveInfo shareSaveInfo]user_id]);
-     NSLog(@"orderId:%@",orderId);
+    NSLog(@"[[SaveInfo shareSaveInfo]user_id]:%@",[[SaveInfo shareSaveInfo]user_id]);
+    NSLog(@"orderId:%@",orderId);
     [request sendRequestPostUrl:MY_CANCEL_REGISTER andDic:postDict setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
             HUDNormal(resultDic[@"msg"]);
             return ;
         }
-
+        
         
         [self.waitPayTableView headerBeginRefresh];
         
-
+        
     } setFailBlock:^(NSString *errorStr) {
         NSLog(@"");
         
