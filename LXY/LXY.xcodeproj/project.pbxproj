@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E1CEA011CE96455005C5697 /* 更多.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1CE9FE1CE96455005C5697 /* 更多.png */; };
+		6E1CEA021CE96455005C5697 /* 更多@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1CE9FF1CE96455005C5697 /* 更多@2x.png */; };
+		6E1CEA031CE96455005C5697 /* 更多@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1CEA001CE96455005C5697 /* 更多@3x.png */; };
+		6E1CEA091CE9661C005C5697 /* ShareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1CEA081CE9661C005C5697 /* ShareModel.m */; };
 		6E6085601CE41E1400C510B4 /* 启动页-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E60855F1CE41E1400C510B4 /* 启动页-1.png */; };
 		6E60857A1CE434DA00C510B4 /* ADView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6085781CE434DA00C510B4 /* ADView.m */; };
 		6E60857B1CE434DA00C510B4 /* ADView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6085791CE434DA00C510B4 /* ADView.xib */; };
@@ -678,6 +682,11 @@
 
 /* Begin PBXFileReference section */
 		03F773F46801260061701DA4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		6E1CE9FE1CE96455005C5697 /* 更多.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "更多.png"; sourceTree = "<group>"; };
+		6E1CE9FF1CE96455005C5697 /* 更多@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "更多@2x.png"; sourceTree = "<group>"; };
+		6E1CEA001CE96455005C5697 /* 更多@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "更多@3x.png"; sourceTree = "<group>"; };
+		6E1CEA071CE9661C005C5697 /* ShareModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareModel.h; sourceTree = "<group>"; };
+		6E1CEA081CE9661C005C5697 /* ShareModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareModel.m; sourceTree = "<group>"; };
 		6E60855F1CE41E1400C510B4 /* 启动页-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "启动页-1.png"; sourceTree = "<group>"; };
 		6E6085771CE434DA00C510B4 /* ADView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADView.h; sourceTree = "<group>"; };
 		6E6085781CE434DA00C510B4 /* ADView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADView.m; sourceTree = "<group>"; };
@@ -2048,6 +2057,8 @@
 			children = (
 				6ED141CB1CD1FB1300E51349 /* OrderOverModel.h */,
 				6ED141CC1CD1FB1300E51349 /* OrderOverModel.m */,
+				6E1CEA071CE9661C005C5697 /* ShareModel.h */,
+				6E1CEA081CE9661C005C5697 /* ShareModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2972,6 +2983,9 @@
 				6ED144541CD1FB1300E51349 /* NavBarController */,
 				6ED144551CD1FB1300E51349 /* OrderOver.png */,
 				6ED144561CD1FB1300E51349 /* TabBarImage */,
+				6E1CE9FE1CE96455005C5697 /* 更多.png */,
+				6E1CE9FF1CE96455005C5697 /* 更多@2x.png */,
+				6E1CEA001CE96455005C5697 /* 更多@3x.png */,
 				6ED144571CD1FB1300E51349 /* 下一步_置灰@.png */,
 				6ED144581CD1FB1300E51349 /* 下一步_置灰@2x.png */,
 				6ED144591CD1FB1300E51349 /* 下一步_置灰@3x.png */,
@@ -3325,6 +3339,7 @@
 				6ED146D11CD1FB1300E51349 /* 产品图片.png in Resources */,
 				6ED1454F1CD1FB1300E51349 /* 星星@2x.png in Resources */,
 				6ED145291CD1FB1300E51349 /* 7@.png in Resources */,
+				6E1CEA011CE96455005C5697 /* 更多.png in Resources */,
 				6ED1451C1CD1FB1300E51349 /* 4.png in Resources */,
 				6ED1470B1CD1FB1300E51349 /* 底部导航栏分类@3x.png in Resources */,
 				6ED146041CD1FB1300E51349 /* 添加@2x.png in Resources */,
@@ -3556,6 +3571,7 @@
 				6ED145E61CD1FB1300E51349 /* 地址@2x.png in Resources */,
 				6ED145271CD1FB1300E51349 /* 6@3x.png in Resources */,
 				6ED146BA1CD1FB1300E51349 /* 确定_默认@.png in Resources */,
+				6E1CEA021CE96455005C5697 /* 更多@2x.png in Resources */,
 				6ED145EB1CD1FB1300E51349 /* 头像.png in Resources */,
 				6ED146F31CD1FB1300E51349 /* 底部导航栏“购物车”“N”个商品按钮(经过状态)@2x.png in Resources */,
 				6ED146CC1CD1FB1300E51349 /* 输入框_03.png in Resources */,
@@ -3736,6 +3752,7 @@
 				6ED146151CD1FB1300E51349 /* 评价商品_默认.png in Resources */,
 				6ED1457B1CD1FB1300E51349 /* page-bg.png in Resources */,
 				6ED147151CD1FB1300E51349 /* 搜索框（屏幕未下拉显示状态)@2x.png in Resources */,
+				6E1CEA031CE96455005C5697 /* 更多@3x.png in Resources */,
 				6ED146631CD1FB1300E51349 /* 添加购物成功@2x.png in Resources */,
 				6ED146F81CD1FB1300E51349 /* 底部导航栏“购物车”“９＋”个商品按钮(经过状态).png in Resources */,
 				6ED145631CD1FB1300E51349 /* 首页@2x（选中）.png in Resources */,
@@ -3948,6 +3965,7 @@
 				6ED144FC1CD1FB1300E51349 /* CompositeVC.m in Sources */,
 				6ED144E91CD1FB1300E51349 /* TipViewController.m in Sources */,
 				6ED1456F1CD1FB1300E51349 /* ChooseTownVC.m in Sources */,
+				6E1CEA091CE9661C005C5697 /* ShareModel.m in Sources */,
 				6ED145A21CD1FB1300E51349 /* DeatilAddressView.m in Sources */,
 				6ED144E41CD1FB1300E51349 /* RequestCenter.m in Sources */,
 				6ED145B01CD1FB1300E51349 /* FeedBackVC.m in Sources */,

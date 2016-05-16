@@ -22,9 +22,13 @@
 #import "UMSocialQQHandler.h"
 #import <CommonCrypto/CommonDigest.h>
 #import "UMSocialSinaSSOHandler.h"
+#import "ShareModel.h"
 @interface ShopingDetailsVC ()<UIWebViewDelegate,UMSocialUIDelegate>
 {
     NSString *goods_detail_url ;
+    ShareModel *shareModel ;
+    UIImageView *shareImgeView ;
+    
 
 }
 @property (weak, nonatomic) IBOutlet UIWebView *goodsDetails;
@@ -63,10 +67,16 @@
         if ([[resultDic[@"code"] stringValue]isEqualToString:@"1"]) {
             goods_detail_url = STR_A_B(@"http://", resultDic[@"data"][@"goods_detail_url"]);
             [self loadWebView];
+            
         }else{
             HUDNormal(resultDic[@"msg"]);
             [self.navigationController popViewControllerAnimated:YES];
         }
+        shareModel = [[ShareModel alloc] init];
+        
+        [shareModel setValuesForKeysWithDictionary:resultDic[@"data"][@"goods_info"]];
+        shareImgeView = [[UIImageView alloc]init]; //分享内嵌图片
+        [shareImgeView sd_setImageWithURL:[NSURL URLWithString:shareModel.goods_image]];
     } setFailBlock:^(NSString *errorStr) {
             HUDNormal(@"服务器无响应，请稍后再试");
         [self.navigationController popViewControllerAnimated:YES];
@@ -140,9 +150,11 @@
 }
 #pragma mark - 分享
 - (IBAction)showShareView:(id)sender {
-    [UMSocialWechatHandler setWXAppId:@"wxefa5c3b9b74042e1" appSecret:@"1b7211a9702f7ebca6f4ebf24bfb9dbe" url:@"http://www.baidu.com"];
+    
+    
+    [UMSocialWechatHandler setWXAppId:@"wxefa5c3b9b74042e1" appSecret:@"1b7211a9702f7ebca6f4ebf24bfb9dbe" url:shareModel.share_url];
     //qq
-    [UMSocialQQHandler setQQWithAppId:@"1105306253" appKey:@"v2QMtvXgYszJW39r" url:@"http://www.lecuntao.com/"];
+    [UMSocialQQHandler setQQWithAppId:@"1105306253" appKey:@"v2QMtvXgYszJW39r" url:shareModel.share_url];
     //新浪
     //第一个参数为新浪appkey,第二个参数为新浪secret，第三个参数是新浪微博回调地址，这里必须要和你在新浪微博后台设置的回调地址一致。
     [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"922810224"
@@ -152,14 +164,16 @@
     
     
     
-        NSString *shareText = @"乐村淘是中国第一家村镇O2O电商平台，是互联网+传统农村市场的大平台，乐村淘";             //分享内嵌文字
-        //    UIImage *shareImage = [UIImage imageNamed:@"UMS_social_demo"];          //分享内嵌图片
-        UIImage *shareImage = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"UMS_social_demo" ofType:@"png"]];
+    NSString *shareText = shareModel.goods_name ;            //分享内嵌文字
+    
+    
+    
+//        UIImage *shareImage = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"UMS_social_demo" ofType:@"png"]];
         //调用快速分享接口
         [UMSocialSnsService presentSnsIconSheetView:self
                                              appKey:@"56e7735e67e58e3d78001181"
                                           shareText:shareText
-                                         shareImage:shareImage
+                                         shareImage:shareImgeView.image
                                     shareToSnsNames:[NSArray arrayWithObjects:UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,UMShareToQQ,UMShareToQzone,nil]
                                            delegate:self];
     

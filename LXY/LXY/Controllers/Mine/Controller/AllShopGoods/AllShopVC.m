@@ -41,6 +41,7 @@
     RequestCenter *requestCenter;
     NSMutableDictionary *postDic ;
 
+
 }
 -(void)viewWillAppear:(BOOL)animated{
     
@@ -550,6 +551,9 @@
     lineView.backgroundColor = RGBCOLOR(226, 227, 228);
     [_footView addSubview:lineView];
     return _footView;
+    
+    
+    
 }
 
 @end

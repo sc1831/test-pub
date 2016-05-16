@@ -25,7 +25,7 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
 {
     __weak IBOutlet UITableView *classifyTab;
     __weak IBOutlet UICollectionView *_collectionView;
-//    NSIndexPath *changeIndexPath ;
+    //    NSIndexPath *changeIndexPath ;
     NSMutableArray *classMtArray ; //分类的数据 带model
     NSMutableArray *defMtArray ; //整个分类的大数组 包含goods 数组 存放goods model
     NSMutableArray *collectionMtTitleArray ;
@@ -48,12 +48,12 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
     
 }
 //- (void)viewDidDisappear:(BOOL)animated{
-//    
+//
 //    self.navigationController.navigationBarHidden = NO ;
 //}
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     
     if (self.selectRow <= 0) {
         self.selectRow = 0 ;
@@ -65,7 +65,7 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
     //注册复用的cell和head
     [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([ClassifyCollectionCell class]) bundle:nil] forCellWithReuseIdentifier:cellID];
     [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([HeadCollectionReusableView class]) bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headID];
-//    [self loadClassData];
+    //    [self loadClassData];
     self.noNetworkView.frame = CGRectMake(0,20, M_WIDTH,M_HEIGHT-20);
     
     [self.view addSubview:self.noNetworkView];
@@ -82,7 +82,7 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
     if (isClassifyClick) {
         [self getGoodsDatabyClassid:gc_idStr];
     }else{
-     [self loadClassData];
+        [self loadClassData];
     }
     
 }
@@ -99,7 +99,7 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
         
         return;
     }
-
+    
     
     RequestCenter *requestCenter = [RequestCenter shareRequestCenter];
     [requestCenter sendRequestPostUrl:G_CLASS andDic:nil setSuccessBlock:^(NSDictionary *resultDic) {
@@ -139,8 +139,8 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
             [cell changeFlageby:YES];
             self.selectRow = (int)indexPath.row ;
         }];
-//        [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-//        [tableView scrollToNearestSelectedRowAtScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        //        [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        //        [tableView scrollToNearestSelectedRowAtScrollPosition:UITableViewScrollPositionBottom animated:YES];
         
         ClassModel *model = classMtArray[indexPath.row];
         gc_idStr = model.gc_id;
@@ -164,7 +164,7 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
     RequestCenter *requestCenter = [RequestCenter shareRequestCenter];
     
     [requestCenter sendRequestPostUrl:SECOND_CLASS andDic:@{@"gc_id":classID} setSuccessBlock:^(NSDictionary *resultDic) {
- 
+        
         if (defMtArray.count > 0) {
             [defMtArray removeAllObjects];
         }
@@ -225,7 +225,7 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
     ClassModel *model = classMtArray[indexPath.row];
     [classifyTabCell configWithClassModel:model];
     
-
+    
     if ((int)indexPath.row == _selectRow && indexPath.section == 0) {
         [classifyTabCell changeFlageby:YES];
     }else{
@@ -246,7 +246,7 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-
+    
     ClassifyCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
     GoodsModel *model = defMtArray[indexPath.section][indexPath.row];
     [cell configWithGoodsModel:model];
@@ -291,11 +291,11 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
 //}
 // header Size
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
-
+    
     return CGSizeMake(M_WIDTH, 24) ;
 }
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
-
+    
     HeadCollectionReusableView *head = nil ;
     if (kind == UICollectionElementKindSectionHeader) {
         head = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:headID forIndexPath:indexPath];
@@ -304,7 +304,7 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
         head.control.tag = indexPath.section ;
         [head.control addTarget:self action:@selector(headclick:) forControlEvents:UIControlEventTouchUpInside];
     }
-
+    
     
     return head ;
     
@@ -322,14 +322,14 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 - (IBAction)searchBtnClick:(UIButton *)sender {
     CompositeVC *compositeVC = [[CompositeVC alloc]init];
@@ -343,7 +343,7 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
     CompositeVC *compositeVC = [[CompositeVC alloc]init];
     compositeVC.hidesBottomBarWhenPushed = YES ;
     TitleModel *model = collectionMtTitleArray[control.tag];
-//    compositeVC.goods_name = model.gc_name ;
+    //    compositeVC.goods_name = model.gc_name ;
     compositeVC.gc_id = model.gc_id ;
     [self.navigationController pushViewController:compositeVC animated:YES];
 }
