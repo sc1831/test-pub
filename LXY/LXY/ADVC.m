@@ -20,6 +20,7 @@
     RequestCenter *request ;
     NSNumber *type ;
     NSString *adUrlStr ;
+    NSString *adTitle ;
 }
 @end
 
@@ -34,6 +35,7 @@
             [self.adImageView sd_setImageWithURL:[NSURL URLWithString:resultDic[@"data"][@"imageUrl"]]];
             type = resultDic[@"data"][@"adv_type"];
             adUrlStr = resultDic[@"data"][@"dataUrl"];
+            adTitle = resultDic[@"data"][@"title"];
         }
     } setFailBlock:^(NSString *errorStr) {
         
@@ -68,10 +70,9 @@
 
 - (IBAction)adclick:(UIButton *)sender {
     if ([type intValue]==1) {
-        
-
         ADDetailVC *adDetailVC = [[ADDetailVC alloc]init];
         adDetailVC.adUrlStr = adUrlStr ;
+        adDetailVC.adtitle = adTitle ;
         [self presentViewController:adDetailVC animated:YES completion:nil];
     }else{
     }

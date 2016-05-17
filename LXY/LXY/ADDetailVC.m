@@ -12,6 +12,7 @@
 @interface ADDetailVC ()<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *adDetailsWebView;
 - (IBAction)leftNavBarClick:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *customLab;
 
 @end
 
@@ -20,11 +21,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.customLab.text = _adtitle ;
     [self loadWebView];
 }
 - (void)loadWebView{
     NSURL *url = [[NSURL alloc]initWithString:self.adUrlStr];
-    
+    self.title = @"324234234234";
     [(UIScrollView *)[[self.adDetailsWebView subviews] objectAtIndex:0]setBounces:NO];//禁止拖动时反弹
     self.adDetailsWebView.scalesPageToFit = NO ;
     [self.adDetailsWebView loadRequest:[NSURLRequest requestWithURL:url]];

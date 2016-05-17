@@ -37,6 +37,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     //可能感兴趣商品view的高度
     __weak IBOutlet NSLayoutConstraint *collectionViewHeight;
     
+    
 }
 
 @property (nonatomic ,strong)UITableView *specialTableView; //超值特价
@@ -57,7 +58,10 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 @implementation HomePageVC
 {
        RequestCenter *request;
-
+    /**
+     *  0 false 1 success
+     */
+    BOOL firstLoginFlag ;
     //  记录当前第几页
     int _currentIndex;
     
@@ -96,12 +100,17 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 }
 -(void)viewWillAppear:(BOOL)animated{
      self.navigationController.navigationBarHidden = YES ;
-    if (goods_class.count <= 0) {
-        [self loadHomeData];
+    if (!firstLoginFlag) {
+        if (goods_class.count <= 0) {
+            [self loadHomeData];
+        }
+        if (recommend_goods.count <= 0) {
+            [self loadRecommend_goods];
+        }
     }
-    if (recommend_goods.count <= 0) {
-        [self loadRecommend_goods];
-    }
+   
+    
+
     //开启定时器
     [_moveTimer setFireDate:[NSDate distantPast]];
     [_middleMoveTimer setFireDate:[NSDate distantPast]];
@@ -117,10 +126,13 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 
 - (void)viewWillDisappear:(BOOL)animated{
   self.navigationController.navigationBarHidden = NO ;
+    firstLoginFlag = NO ;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     request = [RequestCenter shareRequestCenter];
+    firstLoginFlag = YES ;
     [self changeToken];
     adv = [NSMutableArray arrayWithCapacity:0];
     discount = [NSMutableArray arrayWithCapacity:0];
@@ -165,6 +177,8 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
                 [[SaveInfo shareSaveInfo]setUserInfo:[resultDic objectForKey:@"data"]];
                 [[SaveInfo shareSaveInfo]setLoginName:[[resultDic objectForKey:@"data"] objectForKey:@"member_phone"]];
                 [[SaveInfo shareSaveInfo]setShop_name:[[resultDic objectForKey:@"data"] objectForKey:@"shop_name"]];
+                [self loadHomeData];
+                [self loadRecommend_goods];
             }else{
                 HUDNormal(@"请重新登录");
                 LoginVC *loginVC = [[LoginVC alloc]init];

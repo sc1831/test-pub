@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RootVC.h"
-@interface ShoppingCartVC : RootVC
+#import "TopRootVC.h"
+@interface ShoppingCartVC : TopRootVC
 
 @end
 @interface ShoppingCartSelectModel : NSObject

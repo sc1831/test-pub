@@ -10,4 +10,5 @@
 
 @interface ADDetailVC : RootVC
 @property (nonatomic,copy) NSString *adUrlStr ;
+@property (nonatomic,copy) NSString *adtitle ;
 @end

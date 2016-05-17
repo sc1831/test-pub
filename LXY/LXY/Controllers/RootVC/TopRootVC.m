@@ -7,6 +7,7 @@
 //
 
 #import "TopRootVC.h"
+#import "Common.h"
 #import "GHControl.h"
 @interface TopRootVC ()
 
@@ -18,6 +19,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self createNavController];
+    //创建无网络view
+    [self createNoNetworkView];
 }
 - (void)createNavController{
     UIButton *leftNarBtn = [GHControl createButtonWithFrame:CGRectMake(0, 0, 20, 20) ImageName:@"backBarIcon.png" Target:self Action:@selector(leftNavBtnClick:) Title:nil];
@@ -32,7 +35,25 @@
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:14],NSForegroundColorAttributeName:[UIColor blackColor]}];
     
 }
+-(void)NoNetworkClickDelegate{
+    
+    NSLog(@"无网络重新加载数据");
+}
 
+-(void)createNoNetworkView{
+    
+    _noNetworkView =
+    [[[NSBundle mainBundle] loadNibNamed:@"NoNetwork"
+                                   owner:self
+                                 options:nil] firstObject];
+    _noNetworkView.frame = CGRectMake(0, 0, M_WIDTH, M_HEIGHT);
+    _noNetworkView.delegate = self;
+    [self.view addSubview:_noNetworkView];
+    [self.noNetworkView bringSubviewToFront:self.view];
+    _noNetworkView.hidden = YES;
+    
+    
+}
 
 - (void)leftNavBtnClick:(UIButton *)sender{
     [self.navigationController popViewControllerAnimated:YES];

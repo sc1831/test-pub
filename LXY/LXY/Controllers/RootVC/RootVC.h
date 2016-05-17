@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NoNetwork.h"
 
-@interface RootVC : UIViewController<NoNetworkDelegate>
+@interface RootVC : UIViewController
 @property (nonatomic ,strong)NoNetwork *noNetworkView;
 //无网络重新加载
 -(void)NoNetworkClickDelegate;
