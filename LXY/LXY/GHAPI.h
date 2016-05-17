@@ -104,5 +104,6 @@
 //校验验证码
 #define CHECK_SMS @"app/Register/check_sms"
 #define APP_PAY @"app/pay"
-
+//广告页
+#define EXCESSIVE @"app/Register/excessive"
 

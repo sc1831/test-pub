@@ -22,7 +22,7 @@
 #import "SaveInfo.h"
 #import "GHControl.h"
 #define TOPVIEW_HEIGHT 1398
-//#import "ADView.h"
+
 static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 @interface HomePageVC ()<UIScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 {
@@ -40,7 +40,6 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 }
 
 @property (nonatomic ,strong)UITableView *specialTableView; //超值特价
-//@property (nonatomic,strong)AFNetworkReachabilityManager *manager;
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 @property (weak, nonatomic) IBOutlet UIView *goods_classView;
 
@@ -57,8 +56,8 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 
 @implementation HomePageVC
 {
-//        //无网络界面
-//      UIView *noNetView ;
+       RequestCenter *request;
+
     //  记录当前第几页
     int _currentIndex;
     
@@ -67,7 +66,6 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     NSTimer *_moveTimer;
     BOOL _isTimerUp;//判断手动还是自动滚动
     
-//    ADView *adView ;
     
     //记录当前第几页
     int _middleIndex;
@@ -80,14 +78,15 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     NSMutableArray *discount ; //促销商品
     NSMutableArray *goods_class ; //商品顶级分类
     NSMutableArray *recommend_adv_goods ;//第二个推荐广告商品
-//    NSMutableArray *def ; //第一个顶级下的默认数据
-//    NSMutableArray *goods ; //分类下的商品
+
     NSMutableArray *special ; //超值特价
     NSMutableArray *superior ; //优品推荐商品
     NSMutableArray *recommend_goods ;//可能感兴趣的商品
     
     
 }
+
+
 
 -(void)viewDidDisappear:(BOOL)animated{
     
@@ -108,13 +107,11 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     [_middleMoveTimer setFireDate:[NSDate distantPast]];
     
     
-//    [self.view addSubview:self.noNetworkView];
-//    self.noNetworkView.hidden = NO;
+
 }
 
 - (void)viewDidAppear:(BOOL)animated{
-//    -40
-//        self.TopView.contentSize = CGSizeMake(self.view.frame.size.width, 1438);
+
     self.TopView.contentSize = CGSizeMake(self.view.frame.size.width, TOPVIEW_HEIGHT);
 }
 
@@ -123,32 +120,19 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    request = [RequestCenter shareRequestCenter];
+    [self changeToken];
     adv = [NSMutableArray arrayWithCapacity:0];
     discount = [NSMutableArray arrayWithCapacity:0];
     goods_class = [NSMutableArray arrayWithCapacity:0];
     recommend_adv_goods = [NSMutableArray arrayWithCapacity:0];
-//    def = [NSMutableArray arrayWithCapacity:0];
-//    goods = [NSMutableArray arrayWithCapacity:0];
     special = [NSMutableArray arrayWithCapacity:0];
     superior = [NSMutableArray arrayWithCapacity:0];
     recommend_goods = [NSMutableArray arrayWithCapacity:0];
 
     
-//    [self loadHomeData];
-//    [self loadRecommend_goods];
-    
     self.view.backgroundColor = RGBCOLOR(241, 245, 246);
-    
-    
-//    adView = [[[NSBundle mainBundle]loadNibNamed:@"ADView" owner:self options:nil]firstObject];
-//
-//    adView.adImage.image = [UIImage imageNamed:@"UMS_social_demo"];
-//    [self.view addSubview:adView];
-//    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(removeSelfView) userInfo:nil repeats:NO];
-    
-    
-    [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([HomeCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:homeCollectionCellID];
+   [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([HomeCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:homeCollectionCellID];
 
     //创建滚动视图
     [self createScrollView];
@@ -167,10 +151,39 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     [GHControl setExtraCellLineHidden:bestGoodsTab];
     
 }
+#pragma mark - 替换token 验证token是否合法 是否进入登录界面
+- (void)changeToken{
 
-//- (void)removeSelfView{
-//    [adView removeFromSuperview];
-//}
+    if ([SaveInfo shareSaveInfo].user_id != nil && [SaveInfo shareSaveInfo].token != nil) {
+        //有token
+        NSDictionary *postDic = @{@"user_id":[SaveInfo shareSaveInfo].user_id,@"token":[SaveInfo shareSaveInfo].token};
+        [request sendRequestPostUrl:EDIT_USER_TOKEN andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+            if ([[resultDic objectForKey:@"code"] intValue]== 1) {
+                
+                [[SaveInfo shareSaveInfo]setToken:[[resultDic objectForKey:@"data"] objectForKey:@"token"]];
+                [[SaveInfo shareSaveInfo]setUser_id:[[resultDic objectForKey:@"data"] objectForKey:@"member_id"]];
+                [[SaveInfo shareSaveInfo]setUserInfo:[resultDic objectForKey:@"data"]];
+                [[SaveInfo shareSaveInfo]setLoginName:[[resultDic objectForKey:@"data"] objectForKey:@"member_phone"]];
+                [[SaveInfo shareSaveInfo]setShop_name:[[resultDic objectForKey:@"data"] objectForKey:@"shop_name"]];
+            }else{
+                HUDNormal(@"请重新登录");
+                LoginVC *loginVC = [[LoginVC alloc]init];
+                [self presentViewController:loginVC animated:YES completion:nil];
+                
+            }
+        } setFailBlock:^(NSString *errorStr) {
+            NSLog(@"error:%@",errorStr);
+
+            
+        }];
+    }else{
+        //无token
+        LoginVC *loginVC = [[LoginVC alloc]init];
+        [self presentViewController:loginVC animated:YES completion:nil];
+        
+    }
+}
+
 -(void)NoNetworkClickDelegate{
     
     if (![GHControl isExistNetwork]) {
@@ -190,7 +203,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     
         self.noNetworkView.hidden = YES;
     }
-    RequestCenter *request = [RequestCenter shareRequestCenter];
+    
     [request sendRequestPostUrl:HOME_INDEX andDic:nil setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
@@ -265,8 +278,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     for (HomeModel *model in adv) {
         int i = 0 ;
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH, _TopScrollView.frame.size.height)];
-        
-//        [imageView sd_setImageWithURL:[NSURL URLWithString:model.adv_image] placeholderImage:[UIImage imageNamed:[NSString stringWithFormat:@"火影%d",i+1]]];
+
         [imageView sd_setImageWithURL:[NSURL URLWithString:model.adv_image] placeholderImage:[UIImage imageNamed:@"乐县域logo-2"]];
         i ++ ;
         [_imageArray addObject:imageView];
@@ -281,7 +293,6 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
         
         [imageView sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:[UIImage imageNamed:@"乐县域logo-2"]];
       
-//        imageView.image = [UIImage imageNamed:@"乐县域logo-2"];
         i ++ ;
         [_middleImageArray addObject:imageView];
     }
@@ -322,7 +333,6 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     //优品推荐 superior
     [bestGoodsTab reloadData];
    
-    //可能感兴趣商品  _collectionView (走接口)
     
     
     
@@ -333,9 +343,9 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
         HUDNormal(@"服务器无响应，请稍后重试");
         return;
     }
-    RequestCenter *requestCenter = [RequestCenter shareRequestCenter];
+    request = [RequestCenter shareRequestCenter];
     NSDictionary *postDic = @{@"buyer_id":[[SaveInfo shareSaveInfo] user_id],@"page":@"1",@"page_num":@"10"};
-    [requestCenter sendRequestPostUrl:RECOMMEND_GOODS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+    [request sendRequestPostUrl:RECOMMEND_GOODS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
 
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;

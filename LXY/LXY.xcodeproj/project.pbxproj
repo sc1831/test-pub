@@ -11,15 +11,13 @@
 		6E1CEA021CE96455005C5697 /* 更多@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1CE9FF1CE96455005C5697 /* 更多@2x.png */; };
 		6E1CEA031CE96455005C5697 /* 更多@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1CEA001CE96455005C5697 /* 更多@3x.png */; };
 		6E1CEA091CE9661C005C5697 /* ShareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1CEA081CE9661C005C5697 /* ShareModel.m */; };
+		6E2488491CEACCC1007E4469 /* ADDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2488471CEACCC1007E4469 /* ADDetailVC.m */; };
+		6E24884A1CEACCC1007E4469 /* ADDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E2488481CEACCC1007E4469 /* ADDetailVC.xib */; };
 		6E6085601CE41E1400C510B4 /* 启动页-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E60855F1CE41E1400C510B4 /* 启动页-1.png */; };
-		6E60857A1CE434DA00C510B4 /* ADView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6085781CE434DA00C510B4 /* ADView.m */; };
-		6E60857B1CE434DA00C510B4 /* ADView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6085791CE434DA00C510B4 /* ADView.xib */; };
 		6E60857D1CE4407700C510B4 /* 启动页bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E60857C1CE4407700C510B4 /* 启动页bg.png */; };
-		6E6085901CE45C5700C510B4 /* launch_start_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E60858F1CE45C5700C510B4 /* launch_start_image.png */; };
 		6E60859E1CE48CF800C510B4 /* ADVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E60859C1CE48CF800C510B4 /* ADVC.m */; };
 		6E60859F1CE48CF800C510B4 /* ADVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E60859D1CE48CF800C510B4 /* ADVC.xib */; };
 		6E9855F41CE07D5000A3ABBF /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9855F31CE07D5000A3ABBF /* ImageIO.framework */; };
-		6EA25BCE1CDAF4B80042BCB7 /* UMS_social_demo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EA25BCD1CDAF4B80042BCB7 /* UMS_social_demo.png */; };
 		6ED141381CD1F6DB00E51349 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED141371CD1F6DB00E51349 /* main.m */; };
 		6ED1413B1CD1F6DB00E51349 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED1413A1CD1F6DB00E51349 /* AppDelegate.m */; };
 		6ED1413E1CD1F6DB00E51349 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED1413D1CD1F6DB00E51349 /* ViewController.m */; };
@@ -686,17 +684,15 @@
 		6E1CEA001CE96455005C5697 /* 更多@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "更多@3x.png"; sourceTree = "<group>"; };
 		6E1CEA071CE9661C005C5697 /* ShareModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareModel.h; sourceTree = "<group>"; };
 		6E1CEA081CE9661C005C5697 /* ShareModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareModel.m; sourceTree = "<group>"; };
+		6E2488461CEACCC1007E4469 /* ADDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADDetailVC.h; sourceTree = "<group>"; };
+		6E2488471CEACCC1007E4469 /* ADDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADDetailVC.m; sourceTree = "<group>"; };
+		6E2488481CEACCC1007E4469 /* ADDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ADDetailVC.xib; sourceTree = "<group>"; };
 		6E60855F1CE41E1400C510B4 /* 启动页-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "启动页-1.png"; sourceTree = "<group>"; };
-		6E6085771CE434DA00C510B4 /* ADView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADView.h; sourceTree = "<group>"; };
-		6E6085781CE434DA00C510B4 /* ADView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADView.m; sourceTree = "<group>"; };
-		6E6085791CE434DA00C510B4 /* ADView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ADView.xib; sourceTree = "<group>"; };
 		6E60857C1CE4407700C510B4 /* 启动页bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "启动页bg.png"; sourceTree = "<group>"; };
-		6E60858F1CE45C5700C510B4 /* launch_start_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_start_image.png; sourceTree = "<group>"; };
 		6E60859B1CE48CF800C510B4 /* ADVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADVC.h; sourceTree = "<group>"; };
 		6E60859C1CE48CF800C510B4 /* ADVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADVC.m; sourceTree = "<group>"; };
 		6E60859D1CE48CF800C510B4 /* ADVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ADVC.xib; sourceTree = "<group>"; };
 		6E9855F31CE07D5000A3ABBF /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
-		6EA25BCD1CDAF4B80042BCB7 /* UMS_social_demo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UMS_social_demo.png; sourceTree = "<group>"; };
 		6ED141331CD1F6DB00E51349 /* LXY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LXY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ED141371CD1F6DB00E51349 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6ED141391CD1F6DB00E51349 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1688,16 +1684,14 @@
 				6ED143AE1CD1FB1300E51349 /* Rescource */,
 				6ED141391CD1F6DB00E51349 /* AppDelegate.h */,
 				6ED1413A1CD1F6DB00E51349 /* AppDelegate.m */,
-				6EA25BCD1CDAF4B80042BCB7 /* UMS_social_demo.png */,
-				6E60858F1CE45C5700C510B4 /* launch_start_image.png */,
 				6ED1413C1CD1F6DB00E51349 /* ViewController.h */,
 				6ED1413D1CD1F6DB00E51349 /* ViewController.m */,
-				6E6085771CE434DA00C510B4 /* ADView.h */,
-				6E6085781CE434DA00C510B4 /* ADView.m */,
-				6E6085791CE434DA00C510B4 /* ADView.xib */,
 				6E60859B1CE48CF800C510B4 /* ADVC.h */,
 				6E60859C1CE48CF800C510B4 /* ADVC.m */,
 				6E60859D1CE48CF800C510B4 /* ADVC.xib */,
+				6E2488461CEACCC1007E4469 /* ADDetailVC.h */,
+				6E2488471CEACCC1007E4469 /* ADDetailVC.m */,
+				6E2488481CEACCC1007E4469 /* ADDetailVC.xib */,
 				6ED1413F1CD1F6DB00E51349 /* Main.storyboard */,
 				6ED141421CD1F6DB00E51349 /* Assets.xcassets */,
 				6ED141441CD1F6DB00E51349 /* LaunchScreen.storyboard */,
@@ -3340,7 +3334,6 @@
 				6ED1470B1CD1FB1300E51349 /* 底部导航栏分类@3x.png in Resources */,
 				6ED146041CD1FB1300E51349 /* 添加@2x.png in Resources */,
 				6ED145191CD1FB1300E51349 /* 3@.png in Resources */,
-				6E60857B1CE434DA00C510B4 /* ADView.xib in Resources */,
 				6ED146671CD1FB1300E51349 /* 筛选2@.png in Resources */,
 				6ED146231CD1FB1300E51349 /* 适用列表箭头全部@3x.png in Resources */,
 				6ED145201CD1FB1300E51349 /* 5.png in Resources */,
@@ -3431,7 +3424,6 @@
 				6ED146AE1CD1FB1300E51349 /* 下一步_默认@.png in Resources */,
 				6ED1470A1CD1FB1300E51349 /* 底部导航栏分类@2x.png in Resources */,
 				6ED145611CD1FB1300E51349 /* 首页.png in Resources */,
-				6EA25BCE1CDAF4B80042BCB7 /* UMS_social_demo.png in Resources */,
 				6ED146B61CD1FB1300E51349 /* 再次购买&去支付_默认@3x.png in Resources */,
 				6ED1458A1CD1FB1300E51349 /* CollectionCell.xib in Resources */,
 				6ED145D81CD1FB1300E51349 /* 保存修改_点击@3x.png in Resources */,
@@ -3478,7 +3470,6 @@
 				6ED145311CD1FB1300E51349 /* 促销商品“标题”.png in Resources */,
 				6ED147121CD1FB1300E51349 /* 搜索框（屏幕下拉显示状态)@2x.png in Resources */,
 				6ED147241CD1FB1300E51349 /* 米面粮油”按钮“.png in Resources */,
-				6E6085901CE45C5700C510B4 /* launch_start_image.png in Resources */,
 				6ED146941CD1FB1300E51349 /* 乐县域logo-2.png in Resources */,
 				6ED145591CD1FB1300E51349 /* 购物车@2x（选中）.png in Resources */,
 				6ED146581CD1FB1300E51349 /* 数量选择_点击2@2x.png in Resources */,
@@ -3537,6 +3528,7 @@
 				6ED146021CD1FB1300E51349 /* 更多订单@3x.png in Resources */,
 				6ED146EB1CD1FB1300E51349 /* 底部导航栏“我的”按钮(未经过状态)@3x.png in Resources */,
 				6ED145421CD1FB1300E51349 /* 我的@2x.png in Resources */,
+				6E24884A1CEACCC1007E4469 /* ADDetailVC.xib in Resources */,
 				6ED1451A1CD1FB1300E51349 /* 3@2x.png in Resources */,
 				6ED1469E1CD1FB1300E51349 /* 火影4.png in Resources */,
 				6ED1456C1CD1FB1300E51349 /* ChangePasswordVC.xib in Resources */,
@@ -3971,6 +3963,7 @@
 				6ED144F41CD1FB1300E51349 /* HeadCollectionReusableView.m in Sources */,
 				6ED1458D1CD1FB1300E51349 /* FootPointCell.m in Sources */,
 				6ED145AE1CD1FB1300E51349 /* EvaluateVC.m in Sources */,
+				6E2488491CEACCC1007E4469 /* ADDetailVC.m in Sources */,
 				6ED1468C1CD1FB1300E51349 /* SendMessageToWXReq+requestWithTextOrMediaMessage.m in Sources */,
 				6ED145971CD1FB1300E51349 /* AllShopVC.m in Sources */,
 				6ED146831CD1FB1300E51349 /* RSADataSigner.m in Sources */,
@@ -4000,7 +3993,6 @@
 				6ED1413B1CD1F6DB00E51349 /* AppDelegate.m in Sources */,
 				6ED1458B1CD1FB1300E51349 /* ConfirmTableViewCell.m in Sources */,
 				6ED144FA1CD1FB1300E51349 /* CompositeCell.m in Sources */,
-				6E60857A1CE434DA00C510B4 /* ADView.m in Sources */,
 				6ED145C41CD1FB1300E51349 /* ReceiveAddressVC.m in Sources */,
 				6ED1458F1CD1FB1300E51349 /* MenyGoodsCell.m in Sources */,
 				6ED144E61CD1FB1300E51349 /* JsonTool.m in Sources */,
