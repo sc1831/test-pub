@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="HeadCollectionReusableView">
+            <rect key="frame" x="0.0" y="0.0" width="173" height="21"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HcZ-eD-Nvq" customClass="UIControl">
+                    <rect key="frame" x="0.0" y="0.0" width="173" height="21"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPQ-O2-qrs">
+                            <rect key="frame" x="0.0" y="0.0" width="153" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="地址选项跳转.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZBm-qV-4eA">
+                            <rect key="frame" x="153" y="0.0" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="Qbh-89-3E9"/>
+                                <constraint firstAttribute="width" constant="20" id="VXY-Ik-cnQ"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="ZBm-qV-4eA" firstAttribute="top" secondItem="HcZ-eD-Nvq" secondAttribute="top" id="3jI-PA-XjH"/>
+                        <constraint firstItem="LPQ-O2-qrs" firstAttribute="top" secondItem="HcZ-eD-Nvq" secondAttribute="top" id="7OI-Y2-svN"/>
+                        <constraint firstItem="LPQ-O2-qrs" firstAttribute="leading" secondItem="HcZ-eD-Nvq" secondAttribute="leading" id="BV0-Jc-vCN"/>
+                        <constraint firstAttribute="bottom" secondItem="LPQ-O2-qrs" secondAttribute="bottom" id="ULM-kj-GCi"/>
+                        <constraint firstItem="ZBm-qV-4eA" firstAttribute="leading" secondItem="LPQ-O2-qrs" secondAttribute="trailing" id="bYF-As-dj7"/>
+                        <constraint firstAttribute="trailing" secondItem="ZBm-qV-4eA" secondAttribute="trailing" id="kIf-9z-GS3"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="HcZ-eD-Nvq" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="SYd-Cj-cje"/>
+                <constraint firstItem="HcZ-eD-Nvq" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="hdv-Gf-eWa"/>
+                <constraint firstAttribute="bottom" secondItem="HcZ-eD-Nvq" secondAttribute="bottom" id="whZ-aP-74h"/>
+                <constraint firstAttribute="trailing" secondItem="HcZ-eD-Nvq" secondAttribute="trailing" id="xUQ-mZ-Q5u"/>
+            </constraints>
+            <connections>
+                <outlet property="control" destination="HcZ-eD-Nvq" id="aAw-PL-vsM"/>
+                <outlet property="headLab" destination="LPQ-O2-qrs" id="g4f-Zi-BY9"/>
+            </connections>
+            <point key="canvasLocation" x="352.5" y="182.5"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <image name="地址选项跳转.png" width="30" height="30"/>
+    </resources>
+</document>

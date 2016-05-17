@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="fgM-hv-dup" customClass="ShoppingCartBackView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nodata_shopcar.png" translatesAutoresizingMaskIntoConstraints="NO" id="DhQ-xb-Ybo">
+                    <rect key="frame" x="30" y="70" width="315" height="220"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="220" id="flG-KB-cDF"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i9H-29-tTe">
+                    <rect key="frame" x="30" y="300" width="310" height="33"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="偶遇总会有惊喜麻溜下单 , 一起" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaf-3Q-wSb">
+                            <rect key="frame" x="0.0" y="6" width="256" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.62352941176470589" green="0.62745098039215685" blue="0.63137254901960782" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gD5-fI-mfP">
+                            <rect key="frame" x="258" y="8" width="50" height="18"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="Hgk-th-2TX"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <state key="normal" title="去逛逛" backgroundImage="保存修改_点击.png"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="gD5-fI-mfP" secondAttribute="trailing" constant="2" id="9DG-vl-7bD"/>
+                        <constraint firstItem="gD5-fI-mfP" firstAttribute="top" secondItem="i9H-29-tTe" secondAttribute="top" constant="8" id="HDU-RP-QmB"/>
+                        <constraint firstAttribute="bottom" secondItem="gaf-3Q-wSb" secondAttribute="bottom" constant="6" id="c8S-6h-hHz"/>
+                        <constraint firstAttribute="bottom" secondItem="gD5-fI-mfP" secondAttribute="bottom" constant="7" id="cfQ-SL-UDs"/>
+                        <constraint firstItem="gaf-3Q-wSb" firstAttribute="top" secondItem="i9H-29-tTe" secondAttribute="top" constant="6" id="ed1-hK-18u"/>
+                        <constraint firstItem="gD5-fI-mfP" firstAttribute="leading" secondItem="gaf-3Q-wSb" secondAttribute="trailing" constant="2" id="f5J-vi-LNZ"/>
+                        <constraint firstItem="gaf-3Q-wSb" firstAttribute="leading" secondItem="i9H-29-tTe" secondAttribute="leading" id="nCL-LJ-iav"/>
+                        <constraint firstAttribute="height" constant="33" id="v7R-p6-TKl"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="i9H-29-tTe" secondAttribute="trailing" constant="35" id="FNB-TW-Ynk"/>
+                <constraint firstAttribute="trailing" secondItem="DhQ-xb-Ybo" secondAttribute="trailing" constant="30" id="GcD-bn-H9N"/>
+                <constraint firstItem="DhQ-xb-Ybo" firstAttribute="top" secondItem="fgM-hv-dup" secondAttribute="top" constant="70" id="cCd-12-xlp"/>
+                <constraint firstItem="i9H-29-tTe" firstAttribute="top" secondItem="DhQ-xb-Ybo" secondAttribute="bottom" constant="10" id="e0e-C4-YSw"/>
+                <constraint firstItem="i9H-29-tTe" firstAttribute="leading" secondItem="fgM-hv-dup" secondAttribute="leading" constant="30" id="fPg-DS-gzZ"/>
+                <constraint firstItem="DhQ-xb-Ybo" firstAttribute="leading" secondItem="fgM-hv-dup" secondAttribute="leading" constant="30" id="xGE-QX-CXC"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="goLookButton" destination="gD5-fI-mfP" id="GTA-UD-ZEH"/>
+            </connections>
+            <point key="canvasLocation" x="255.5" y="97"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="nodata_shopcar.png" width="528" height="391"/>
+        <image name="保存修改_点击.png" width="328" height="44"/>
+    </resources>
+</document>

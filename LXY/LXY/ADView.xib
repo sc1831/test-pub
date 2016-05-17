@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ADView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="启动页bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="38E-3d-rfB">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Efl-M7-bT0">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="531"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JuM-1b-sKV">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="531"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i5E-95-sd4">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="531"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="JuM-1b-sKV" secondAttribute="bottom" id="0pO-YV-tKs"/>
+                        <constraint firstItem="JuM-1b-sKV" firstAttribute="top" secondItem="Efl-M7-bT0" secondAttribute="top" id="6JD-7z-6uj"/>
+                        <constraint firstAttribute="trailing" secondItem="i5E-95-sd4" secondAttribute="trailing" id="8l8-0j-kCl"/>
+                        <constraint firstItem="i5E-95-sd4" firstAttribute="top" secondItem="Efl-M7-bT0" secondAttribute="top" id="8z3-pQ-GVh"/>
+                        <constraint firstAttribute="trailing" secondItem="JuM-1b-sKV" secondAttribute="trailing" id="O40-d9-pp4"/>
+                        <constraint firstItem="i5E-95-sd4" firstAttribute="leading" secondItem="Efl-M7-bT0" secondAttribute="leading" id="QoE-u2-f5B"/>
+                        <constraint firstAttribute="bottom" secondItem="i5E-95-sd4" secondAttribute="bottom" id="U3J-UG-Is8"/>
+                        <constraint firstItem="JuM-1b-sKV" firstAttribute="leading" secondItem="Efl-M7-bT0" secondAttribute="leading" id="bUt-rF-6t4"/>
+                    </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="启动页-1.png" translatesAutoresizingMaskIntoConstraints="NO" id="PwN-CW-MI0">
+                    <rect key="frame" x="66" y="551" width="244" height="96"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="PwN-CW-MI0" secondAttribute="height" multiplier="94:37" constant="0.10810810810812654" id="tWW-cX-Bb4"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="PwN-CW-MI0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="66" id="0II-SB-LfP"/>
+                <constraint firstItem="Efl-M7-bT0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="35Z-4G-sNq"/>
+                <constraint firstAttribute="trailing" secondItem="Efl-M7-bT0" secondAttribute="trailing" id="6p8-zG-ohw"/>
+                <constraint firstItem="Efl-M7-bT0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="E5m-bB-dNf"/>
+                <constraint firstItem="PwN-CW-MI0" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="RlY-Lb-zab"/>
+                <constraint firstItem="PwN-CW-MI0" firstAttribute="top" secondItem="Efl-M7-bT0" secondAttribute="bottom" constant="20" id="oUf-M8-JP3"/>
+                <constraint firstAttribute="bottom" secondItem="PwN-CW-MI0" secondAttribute="bottom" constant="20" id="vAU-w8-oh4"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <connections>
+                <outlet property="adImage" destination="JuM-1b-sKV" id="fTM-8J-xyJ"/>
+                <outlet property="imageBtn" destination="i5E-95-sd4" id="euV-ne-7Vc"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="启动页-1.png" width="707" height="275"/>
+        <image name="启动页bg.png" width="720" height="955"/>
+    </resources>
+</document>
