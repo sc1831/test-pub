@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -9,6 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ADVC">
             <connections>
                 <outlet property="adImageView" destination="6q7-sB-RQX" id="E02-7S-JAZ"/>
+                <outlet property="showLab" destination="wPD-H1-xAj" id="Fy4-ph-lEu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -39,16 +40,28 @@
                                 <action selector="adclick:" destination="-1" eventType="touchUpInside" id="ttb-Ml-2k2"/>
                             </connections>
                         </button>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="显示详情&gt;&gt;&gt;" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPD-H1-xAj">
+                            <rect key="frame" x="263" y="494" width="104" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="JzY-mc-6bv"/>
+                                <constraint firstAttribute="width" constant="104" id="ede-lQ-oca"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="0Dv-J6-bMR" firstAttribute="top" secondItem="FVN-bx-emP" secondAttribute="top" id="0Vc-yv-0SM"/>
                         <constraint firstAttribute="bottom" secondItem="0Dv-J6-bMR" secondAttribute="bottom" id="2jx-95-yWR"/>
+                        <constraint firstAttribute="bottom" secondItem="wPD-H1-xAj" secondAttribute="bottom" constant="16" id="3f2-DV-ZRp"/>
                         <constraint firstAttribute="trailing" secondItem="0Dv-J6-bMR" secondAttribute="trailing" id="FFr-7e-vTS"/>
                         <constraint firstItem="0Dv-J6-bMR" firstAttribute="leading" secondItem="FVN-bx-emP" secondAttribute="leading" id="KaF-cj-hun"/>
                         <constraint firstItem="6q7-sB-RQX" firstAttribute="top" secondItem="FVN-bx-emP" secondAttribute="top" id="Kh3-u9-Min"/>
                         <constraint firstAttribute="bottom" secondItem="6q7-sB-RQX" secondAttribute="bottom" id="MPB-ib-8KP"/>
                         <constraint firstItem="6q7-sB-RQX" firstAttribute="leading" secondItem="FVN-bx-emP" secondAttribute="leading" id="Yd7-2q-xPV"/>
+                        <constraint firstAttribute="trailing" secondItem="wPD-H1-xAj" secondAttribute="trailing" constant="8" id="aF5-C4-Jg6"/>
                         <constraint firstAttribute="trailing" secondItem="6q7-sB-RQX" secondAttribute="trailing" id="eyq-Bm-6Dg"/>
                     </constraints>
                 </view>

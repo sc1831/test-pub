@@ -22,6 +22,9 @@
     NSString *adUrlStr ;
     NSString *adTitle ;
 }
+@property (weak, nonatomic) IBOutlet UILabel *showLab;
+
+
 @end
 
 @implementation ADVC
@@ -36,6 +39,10 @@
             type = resultDic[@"data"][@"adv_type"];
             adUrlStr = resultDic[@"data"][@"dataUrl"];
             adTitle = resultDic[@"data"][@"title"];
+            if ([type intValue] == 1) {
+                self.showLab.hidden = NO ;
+            }
+            
         }
     } setFailBlock:^(NSString *errorStr) {
         

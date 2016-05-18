@@ -344,7 +344,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
         name_label.text = model.goods_name ;
         
         UILabel *price_label = [self.view viewWithTag:3300 +i];
-        price_label.text = model.goods_price ;
+        price_label.text = [NSString stringWithFormat:@"￥%@", model.goods_price ];
         
     }
     //优品推荐 superior
