@@ -152,15 +152,14 @@
         return;
     }
     
-   if ([_passwordTextField.text integerValue] !=
-               [_againPasswordTextField.text integerValue]) {
-        
+    if ([_passwordTextField.text isEqualToString:_againPasswordTextField.text]) {
+        [self sendSetPassword];
+    }else{
+    
         HUDNormal(@"两次的密码不一样，请重新输入");
         return;
-    } else {
-        //发送数据请求
-        [self sendSetPassword];
     }
+    
    
 }
 -(void)sendSetPassword{

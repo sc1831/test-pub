@@ -96,7 +96,7 @@
 #pragma mark MJRefresh
 - (void)addMjHeaderAndFooter{
     if (![GHControl isExistNetwork]) {
-        HUDNormal(@"服务器无响应，请稍后重试");
+
         if (_dataArray.count>0) {
             self.noNetworkView.hidden = YES;
         }else{

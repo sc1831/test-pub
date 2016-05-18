@@ -72,7 +72,6 @@
         [postDic setValue:@"1" forKey:@"page"];
         
         if (![GHControl isExistNetwork]) {
-            HUDNormal(@"服务器无响应，请稍后重试");
             if (_dataArray.count>0) {
                 self.noNetworkView.hidden = YES;
             }else{
@@ -81,6 +80,9 @@
             
             [self.myFooterTableView headerEndRefresh];
             return;
+        }else{
+        
+            self.noNetworkView.hidden = YES;
         }
         
         [requestCenter sendRequestPostUrl:MY_FOOTER andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {

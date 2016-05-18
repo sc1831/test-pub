@@ -166,7 +166,6 @@
         [self.shoppingTableView footerResetNoMoreData];//重置无数据状态
         
         if (![GHControl isExistNetwork]) {
-            HUDNormal(@"服务器无响应，请稍后重试");
             if (_dataArray.count>0) {
                 self.noNetworkView.hidden = YES;
             }else{
@@ -175,6 +174,9 @@
             
             [self.shoppingTableView headerEndRefresh];
             return;
+        }else{
+        
+          self.noNetworkView.hidden = YES;
         }
         [self sendRequestData];
     }];
@@ -275,10 +277,21 @@
         [_shoppingTableView reloadData];
         
         
-        
-        NSLog(@"234567890-=09876854653244567890-098765w678");
-        
     } setFailBlock:^(NSString *errorStr) {
+        if (![GHControl isExistNetwork]) {
+            if (_dataArray.count>0) {
+                self.noNetworkView.hidden = YES;
+            }else{
+                self.noNetworkView.hidden = NO;
+            }
+            
+            [self.shoppingTableView headerEndRefresh];
+            return;
+        }else{
+            
+            self.noNetworkView.hidden = YES;
+        }
+
          [self.shoppingTableView headerEndRefresh];
     }];
 }
