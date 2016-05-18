@@ -47,11 +47,16 @@
 
 @implementation CompositeVC
 - (void)viewWillDisappear:(BOOL)animated{
-    
+
     self.navigationController.navigationBarHidden = NO ;
 }
 - (void)viewWillAppear:(BOOL)animated{
-  self.navigationController.navigationBarHidden= YES ;
+    self.navigationController.navigationBarHidden= YES ;
+    if (self.searchTextField.text.length <= 0) {
+        [self.searchTextField becomeFirstResponder];
+    }else{
+        [self.compositeTab headerBeginRefresh];
+    }
 }
 
 - (void)viewDidLoad {
@@ -93,7 +98,6 @@
     }
     
     [self addMjHeaderAndFooter];
-    [self.compositeTab headerBeginRefresh];
     [GHControl setExtraCellLineHidden:_compositeTab];
 
 
