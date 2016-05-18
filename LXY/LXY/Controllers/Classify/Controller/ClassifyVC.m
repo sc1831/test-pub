@@ -90,7 +90,7 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
 - (void)loadClassData{
     if (![GHControl isExistNetwork]) {
         if (classMtArray.count>0) {
-            HUDNormal(@"服务器无响应，请稍后重试");
+
             self.noNetworkView.hidden = YES;
         }else{
             
@@ -152,7 +152,6 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
     
     self.noNetworkView.frame = CGRectMake(78,63, M_WIDTH-78, M_HEIGHT-20);
     if (![GHControl isExistNetwork]) {
-        HUDNormal(@"服务器无响应，请稍后重试");
         self.noNetworkView.hidden = NO;
         isClassifyClick = YES;
         return;
