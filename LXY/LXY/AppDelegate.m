@@ -215,7 +215,6 @@ static NetworkStatus hostReachState=NotReachable;
 - (void)intoGuite{
     GuiteVC *guiteVC = [[GuiteVC alloc]init];
     self.window.rootViewController = guiteVC;
-    
 }
 
 
