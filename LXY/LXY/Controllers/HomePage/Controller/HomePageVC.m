@@ -260,6 +260,16 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
             }
             [self refreshView];
             
+            //隐藏优品推荐view
+            if (superior.count==0) {
+                bestGoodsView.hidden = YES;
+            }
+        
+            bestGoodsView.frame = CGRectMake(0, 959, M_WIDTH, superior.count*96); //  superior.count*96;
+            bestGoodsTab.frame = CGRectMake(0, 959, M_WIDTH, superior.count*96);
+        
+            bestGoodsViewHeight.constant = superior.count*96;
+            
         }else{
             //获取数据失败
         }
@@ -267,14 +277,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
         
     }];
     
-    if (superior.count==0) {
-        bestGoodsView.hidden = YES;
-    }
-    
-    bestGoodsView.frame = CGRectMake(0, 959, M_WIDTH, superior.count*96); //  superior.count*96;
-    bestGoodsTab.frame = CGRectMake(0, 959, M_WIDTH, superior.count*96);
-    
-    bestGoodsViewHeight.constant = superior.count*96;
+
     
     
     
