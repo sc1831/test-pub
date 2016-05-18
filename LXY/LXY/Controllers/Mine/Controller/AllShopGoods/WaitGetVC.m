@@ -252,7 +252,7 @@
     labelNum.textColor = RGBCOLOR(204,204,204);
     [_headView addSubview:labelNum];
     
-    UILabel *waitLabel = [GHControl createLabelWithFrame:CGRectMake(M_WIDTH-70,11,70, 30) Font:13 Text:@"交易成功"];
+    UILabel *waitLabel = [GHControl createLabelWithFrame:CGRectMake(M_WIDTH-70,11,70, 30) Font:13 Text:@"等待收货"];
     waitLabel.textColor = RGBCOLOR(249, 147, 73);
     [_headView addSubview:waitLabel];
     

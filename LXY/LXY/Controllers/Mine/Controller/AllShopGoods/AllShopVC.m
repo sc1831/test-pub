@@ -266,6 +266,13 @@
         
         waitLabel.text = @"交易完成";
         waitLabel.textColor = RGBCOLOR(240,30,40);
+        
+    }else if ([model.order_state intValue] == 20){
+    
+        waitLabel.text = @"等待发货";
+    }else if ([model.order_state intValue] == 30){
+    
+       waitLabel.text = @"等待收货";
     }
     
     _headView.tag = section ;
