@@ -131,6 +131,34 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.view addSubview:self.noNetworkView];
+    
+    if (![GHControl isExistNetwork]) {
+        self.noNetworkView.hidden = NO;
+        return;
+    }else{
+        self.noNetworkView.hidden = YES;
+        [self createHomePageView];
+        
+    }
+    
+}
+#pragma NoNetworkDelegate------无网络代理方法
+-(void)NoNetworkClickDelegate{
+    
+    if (![GHControl isExistNetwork]) {
+        self.noNetworkView.hidden = NO;
+        return;
+    }
+    self.noNetworkView.hidden = YES;
+    //    [self loadHomeData];
+    [self createHomePageView];
+    
+}
+
+-(void)createHomePageView{
+
     request = [RequestCenter shareRequestCenter];
     firstLoginFlag = YES ;
     [self changeToken];
@@ -141,11 +169,11 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     special = [NSMutableArray arrayWithCapacity:0];
     superior = [NSMutableArray arrayWithCapacity:0];
     recommend_goods = [NSMutableArray arrayWithCapacity:0];
-
+    
     
     self.view.backgroundColor = RGBCOLOR(241, 245, 246);
-   [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([HomeCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:homeCollectionCellID];
-
+    [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([HomeCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:homeCollectionCellID];
+    
     //创建滚动视图
     [self createScrollView];
     [self loadPage];
@@ -161,7 +189,6 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
     [self createSpecialTableView];
     
     [GHControl setExtraCellLineHidden:bestGoodsTab];
-    
 }
 #pragma mark - 替换token 验证token是否合法 是否进入登录界面
 - (void)changeToken{
@@ -194,20 +221,9 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
         //无token
         LoginVC *loginVC = [[LoginVC alloc]init];
         [self presentViewController:loginVC animated:YES completion:nil];
-        
     }
 }
 
--(void)NoNetworkClickDelegate{
-    
-    if (![GHControl isExistNetwork]) {
-        self.noNetworkView.hidden = NO;
-        return;
-    }
-    self.noNetworkView.hidden = YES;
-    [self loadHomeData];
-    
-}
 
 - (void)loadHomeData{
     if (![GHControl isExistNetwork]) {
@@ -357,7 +373,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 #pragma mark - 可能感兴趣的商品
 - (void)loadRecommend_goods{
     if (![GHControl isExistNetwork]) {
-        HUDNormal(@"服务器无响应，请稍后重试");
+
         return;
     }
     request = [RequestCenter shareRequestCenter];
@@ -690,6 +706,10 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
                      animations:^{
                          [tableView deselectRowAtIndexPath:indexPath animated:YES];
                      }];
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+        return;
+    }
     ShopingDetailsVC *shoppingDetailsVC = [[ShopingDetailsVC alloc]init];
     HomeModel *model ;
     if (tableView.tag==30000) {
@@ -843,6 +863,10 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 - (IBAction)gotoGoodsDetails:(UIControl *)sender {
     if (sender.tag - 3000 >= discount.count) {
         return ;
+    }
+    if (![GHControl isExistNetwork]) {
+        HUDNormal(@"服务器无响应，请稍后重试");
+        return;
     }
     //  3000 促销商品
     ShopingDetailsVC *shoppingDetailsVC = [[ShopingDetailsVC alloc]init];

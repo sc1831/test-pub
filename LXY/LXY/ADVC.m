@@ -12,6 +12,8 @@
 #import "MainTabBar.h"
 #import "ShopingDetailsVC.h"
 #import "ADDetailVC.h"
+#import "GHControl.h"
+
 @interface ADVC ()
 {
     /**
@@ -31,27 +33,35 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    request = [RequestCenter shareRequestCenter];
-    [request sendRequestPostUrl:EXCESSIVE andDic:nil setSuccessBlock:^(NSDictionary *resultDic) {
-        if ([resultDic[@"code"] intValue] == 1) {
-            [self.adImageView sd_setImageWithURL:[NSURL URLWithString:resultDic[@"data"][@"imageUrl"]]];
-            type = resultDic[@"data"][@"adv_type"];
-            adUrlStr = resultDic[@"data"][@"dataUrl"];
-            adTitle = resultDic[@"data"][@"title"];
-            if ([type intValue] == 1) {
-                self.showLab.hidden = NO ;
-            }
-            
-        }
-    } setFailBlock:^(NSString *errorStr) {
-        
-    }];
-  
     
-    [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(gotoVC) userInfo:nil repeats:NO];
+[NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(gotoVC) userInfo:nil repeats:NO];
+    if (![GHControl isExistNetwork]) {
+        
+    }else{
+        request = [RequestCenter shareRequestCenter];
+        [request sendRequestPostUrl:EXCESSIVE andDic:nil setSuccessBlock:^(NSDictionary *resultDic) {
+            if ([resultDic[@"code"] intValue] == 1) {
+                [self.adImageView sd_setImageWithURL:[NSURL URLWithString:resultDic[@"data"][@"imageUrl"]]];
+                type = resultDic[@"data"][@"adv_type"];
+                adUrlStr = resultDic[@"data"][@"dataUrl"];
+                adTitle = resultDic[@"data"][@"title"];
+                if ([type intValue] == 1) {
+                    self.showLab.hidden = NO ;
+                }
+                
+            }
+        } setFailBlock:^(NSString *errorStr) {
+            
+        }];
+
+    }
+    
+    
+    
     
 }
+
+
 - (void)gotoVC{
 
     MainTabBar *mainVC = [[MainTabBar alloc]init];

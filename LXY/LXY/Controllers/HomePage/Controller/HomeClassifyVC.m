@@ -86,6 +86,7 @@ static NSString *const headID = @"CLASSIFYCOLLECTIONHEAD";
     }];
     
 }
+
 - (void)getGoodsDatabyClassid:(NSString *)classID{
     if (![GHControl isExistNetwork]) {
         HUDNormal(@"服务器无响应，请稍后重试");

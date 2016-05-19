@@ -142,7 +142,8 @@
         GLOG(@"error", error);
         NETWORKVIEW(NO);
         HUDSelfEnd ;
-        HUDNormal(@"请求失败");
+//        HUDNormal(@"请求失败");
+
         if (fail_block) {
             fail_block([error description]);
         }

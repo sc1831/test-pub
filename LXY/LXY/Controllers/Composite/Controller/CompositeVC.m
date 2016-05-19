@@ -168,9 +168,10 @@
         
         
         if (![GHControl isExistNetwork]) {
-            HUDNormal(@"服务器无响应，请稍后重试");
+
             if (goods_Mtlist.count>0) {
                 self.noNetworkView.hidden = YES;
+                HUDNormal(@"服务器无响应，请稍后再试");
             }else{
                 self.noNetworkView.hidden = NO;
             }
