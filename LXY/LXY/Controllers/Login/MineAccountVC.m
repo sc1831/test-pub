@@ -74,6 +74,11 @@
 
 - (IBAction)bindPhoneClick:(id)sender {
     self.hidesBottomBarWhenPushed = YES;
+    
+    if ([_bindPhoneNumStr isEqualToString:@""]) {
+        return;
+    }
+    
     ChangePhoneNumVC *changPhoneVC = [[ChangePhoneNumVC alloc]init];
     changPhoneVC.phoneNumStr = [_bindPhoneNumStr substringFromIndex:_bindPhoneNumStr.length-4];
     changPhoneVC.accountNameStr = _phoneNum;
