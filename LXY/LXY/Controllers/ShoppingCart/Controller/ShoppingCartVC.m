@@ -935,6 +935,10 @@
             HUDNormal(@"抱歉哦、没那么多库存");
             return;
         }
+        if ([codeTestField.text intValue]==0) {
+            HUDNormal(@"请输入商品的数量");
+            return;
+        }
 
         [self sendAddShopGoodsCartId:_cart_ids andGoodsNum:codeTestField.text isManual:YES];
     }]];
@@ -942,6 +946,8 @@
     
     [alertControl addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
         textField.placeholder = [NSString stringWithFormat:@"库存量为%@",num];
+
+        textField.keyboardType = UIKeyboardTypeNumberPad;
     }];
     [self presentViewController:alertControl animated:YES completion:nil];
 }
@@ -978,4 +984,5 @@
     
     return _footView;
 }
+
 @end

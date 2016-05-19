@@ -152,7 +152,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
         return;
     }
     self.noNetworkView.hidden = YES;
-    //    [self loadHomeData];
+        [self loadHomeData];
     [self createHomePageView];
     
 }
