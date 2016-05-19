@@ -52,7 +52,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBarHidden= YES ;
-    if (self.gc_id.length > 0 || self.goods_name.length > 0) {
+    if (self.gc_id.length > 0 || self.goods_name.length > 0 ||self.isBargainSaleClick ||self.isSalesPromotionClick ||self.isRecommendationsShopsClick) {
         [self.compositeTab headerBeginRefresh];
     }else{
         [self.searchTextField becomeFirstResponder];

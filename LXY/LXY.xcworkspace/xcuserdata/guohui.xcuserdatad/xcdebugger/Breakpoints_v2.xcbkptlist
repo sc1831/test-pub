@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LXY/Controllers/Mine/Controller/AllShopGoods/AllShopVC.m"
-            timestampString = "485333095.500134"
+            filePath = "LXY/Controllers/HomePage/Controller/HomeClassifyVC.m"
+            timestampString = "485335911.362217"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "417"
-            endingLineNumber = "417"
-            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            startingLineNumber = "291"
+            endingLineNumber = "291"
+            landmarkName = "-headclick:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
