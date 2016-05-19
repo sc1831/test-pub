@@ -378,7 +378,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
         return;
     }
     request = [RequestCenter shareRequestCenter];
-    NSDictionary *postDic = @{@"buyer_id":[[SaveInfo shareSaveInfo] user_id],@"page":@"1",@"page_num":@"10"};
+    NSDictionary *postDic = @{@"buyer_id":[[SaveInfo shareSaveInfo] user_id],@"page":@"1",@"page_num":@"12"};
     [request sendRequestPostUrl:RECOMMEND_GOODS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
 
         if ([resultDic[@"code"] intValue] != 1) {
@@ -551,7 +551,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 
 
 //减速结束时调用
-#pragma mark scrollViewDelegate
+#pragma mark scrollViewDelegate----
 //上拉加载更多
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     if (recommend_goods.count > 0) {
