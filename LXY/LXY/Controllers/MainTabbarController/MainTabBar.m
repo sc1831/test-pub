@@ -12,7 +12,7 @@
 #import "ShoppingCartVC.h"
 #import "MineVC.h"
 #import "Common.h"
-
+#import "AppDelegate.h"
 @interface MainTabBar ()
 @property (nonatomic,strong)UITabBarItem * tabBarItemOfMessage;
 @end
@@ -22,6 +22,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    AppDelegate *delagete = [UIApplication sharedApplication].delegate;
+    delagete.window.rootViewController = self;
+    [delagete.window reloadInputViews];
     [self createNav];
     [self createViewControllers];
     [self createTabBarItems];
@@ -30,7 +34,7 @@
     
     self.tabBarItemOfMessage =[self.tabBarController.tabBar.items objectAtIndex:2];
     
-
+    
     self.tabBarItemOfMessage.badgeValue = @"99+";
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(isReferredClick) name:@"isReferred" object:nil];

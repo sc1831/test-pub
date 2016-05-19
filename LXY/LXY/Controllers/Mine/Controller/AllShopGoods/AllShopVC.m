@@ -412,6 +412,8 @@
                          [tableView deselectRowAtIndexPath:indexPath animated:YES];
                      }];
     
+    
+    
     AllGoodsOrders *model =  _subMutArray[indexPath.section][indexPath.row];
     ShopingDetailsVC *shoppingDetailsVC = [[ShopingDetailsVC alloc] init];
     shoppingDetailsVC.goods_commonid = model.goods_id ;

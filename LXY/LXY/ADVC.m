@@ -63,7 +63,8 @@
 
 
 - (void)gotoVC{
-
+    
+    
     MainTabBar *mainVC = [[MainTabBar alloc]init];
     [self presentViewController:mainVC animated:YES completion:nil];
 }

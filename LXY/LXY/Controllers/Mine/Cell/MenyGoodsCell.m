@@ -75,6 +75,7 @@
     
     
     // 获取导航控制器
+    
     UITabBarController *tabVC = (UITabBarController *)self.window.rootViewController;
     UINavigationController *pushClassStance = (UINavigationController *)tabVC.viewControllers[tabVC.selectedIndex];
     AllGoodsOrders *model = _dataMutArray[indexPath.row];

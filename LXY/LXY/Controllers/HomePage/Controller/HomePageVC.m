@@ -131,6 +131,7 @@ static NSString *const homeCollectionCellID = @"HOMECOLLECTIONVIEWCELL" ;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     
     [self.view addSubview:self.noNetworkView];
     
