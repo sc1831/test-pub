@@ -72,16 +72,10 @@
                      animations:^{
                          [tableView deselectRowAtIndexPath:indexPath animated:YES];
                      }];
-    
-    
     // 获取导航控制器
-    
-    UITabBarController *tabVC = (UITabBarController *)self.window.rootViewController;
-    UINavigationController *pushClassStance = (UINavigationController *)tabVC.viewControllers[tabVC.selectedIndex];
     AllGoodsOrders *model = _dataMutArray[indexPath.row];
-    ShopingDetailsVC *shoppingDetailsVC = [[ShopingDetailsVC alloc] init];
-    shoppingDetailsVC.goods_commonid = model.goods_id ;
-    [pushClassStance pushViewController:shoppingDetailsVC animated:YES];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"MenyCellgotoVC" object:model.goods_id];
+
 }
 
 @end

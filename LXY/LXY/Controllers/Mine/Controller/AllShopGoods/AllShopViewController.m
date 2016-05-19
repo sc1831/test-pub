@@ -14,7 +14,7 @@
 #import "WaitPayFirstViewController.h"
 #import "WaitSendVC.h"
 #import "WaitGetVC.h"
-
+#import "ShopingDetailsVC.h"
 @interface AllShopViewController ()<UIScrollViewDelegate>
 @property (nonatomic ,strong)NSMutableArray *dataArray;
 @property (nonatomic ,strong)UIView *headView;
@@ -35,6 +35,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(gotoNCVC:) name:@"MenyCellgotoVC" object:nil];
     self.title = @"全部订单";
     self.view.backgroundColor = RGBCOLOR(219, 223, 224);;
     _dataArray = [NSMutableArray arrayWithObjects:@"全部",@"待付款",@"待发货",@"待收货",nil];
@@ -44,6 +45,12 @@
     [self addChildViewVC];
     
     
+}
+- (void)gotoNCVC:(NSNotification *)notification{
+
+    ShopingDetailsVC *shoppingDetailsVC = [[ShopingDetailsVC alloc] init];
+    shoppingDetailsVC.goods_commonid =  notification.object ;
+    [self.navigationController pushViewController:shoppingDetailsVC animated:YES];
 }
 -(void)createScrollView{
     _allShopScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, _headView.frame.origin.y+30, M_WIDTH, M_HEIGHT-_headView.frame.origin.y-30+10)];

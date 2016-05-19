@@ -23,9 +23,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-    AppDelegate *delagete = [UIApplication sharedApplication].delegate;
-    delagete.window.rootViewController = self;
-    [delagete.window reloadInputViews];
     [self createNav];
     [self createViewControllers];
     [self createTabBarItems];
