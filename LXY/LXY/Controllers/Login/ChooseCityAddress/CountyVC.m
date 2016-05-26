@@ -132,13 +132,13 @@
     chooseTownVC.receiveAddressClick = _isReceiveAddressClick;
     [self.navigationController pushViewController:chooseTownVC animated:YES];
     
+    if (_isReceiveAddressClick) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"receiveAddressCityName" object:self userInfo:@{@"receiveAddressCityName":allStr}];
+    }else{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"cityName" object:self userInfo:@{@"cityName":allStr}];
+    }
     
-//    if (_isReceiveAddressClick) {
-//        [[NSNotificationCenter defaultCenter] postNotificationName:@"receiveAddressCityName" object:self userInfo:@{@"receiveAddressCityName":allStr}];
-//    }else{
-//        [[NSNotificationCenter defaultCenter] postNotificationName:@"cityName" object:self userInfo:@{@"cityName":allStr}];
-//    }
-//
+
 //    NSMutableArray *viewsArray = [NSMutableArray arrayWithArray:[self.navigationController viewControllers]];
 //    [self.navigationController popToViewController:[viewsArray objectAtIndex:1] animated:YES];
     

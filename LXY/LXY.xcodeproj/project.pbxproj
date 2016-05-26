@@ -659,6 +659,9 @@
 		6EF2A4AB1CEABDA0004243B5 /* libSocialSinaSSO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EF2A4981CEABDA0004243B5 /* libSocialSinaSSO.a */; };
 		6EF2A4AC1CEABDA0004243B5 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EF2A4991CEABDA0004243B5 /* libWeiboSDK.a */; };
 		6EF2A4AD1CEABDA0004243B5 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6EF2A4A31CEABDA0004243B5 /* WeiboSDK.bundle */; };
+		840720431CF6A4BE00A15C44 /* icon_dingdan_bianji@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 840720411CF6A4BE00A15C44 /* icon_dingdan_bianji@2x.png */; };
+		840720441CF6A4BE00A15C44 /* icon_dingdan_bianji@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 840720421CF6A4BE00A15C44 /* icon_dingdan_bianji@3x.png */; };
+		840720461CF6A57C00A15C44 /* icon_dingdan_bianji.png in Resources */ = {isa = PBXBuildFile; fileRef = 840720451CF6A57C00A15C44 /* icon_dingdan_bianji.png */; };
 		D39BE1AB7BAD2D794AA7635F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8779650C2FD46DE51DEFE0C3 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -1571,6 +1574,9 @@
 		6EF2A4A31CEABDA0004243B5 /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
 		6EF2A4A41CEABDA0004243B5 /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboSDK.h; sourceTree = "<group>"; };
 		6EF2A4A51CEABDA0004243B5 /* WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboUser.h; sourceTree = "<group>"; };
+		840720411CF6A4BE00A15C44 /* icon_dingdan_bianji@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_dingdan_bianji@2x.png"; sourceTree = "<group>"; };
+		840720421CF6A4BE00A15C44 /* icon_dingdan_bianji@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_dingdan_bianji@3x.png"; sourceTree = "<group>"; };
+		840720451CF6A57C00A15C44 /* icon_dingdan_bianji.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_dingdan_bianji.png; sourceTree = "<group>"; };
 		8779650C2FD46DE51DEFE0C3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8BA89BC50140C75E861C1CF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -2874,6 +2880,9 @@
 		6ED144391CD1FB1300E51349 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				840720451CF6A57C00A15C44 /* icon_dingdan_bianji.png */,
+				840720411CF6A4BE00A15C44 /* icon_dingdan_bianji@2x.png */,
+				840720421CF6A4BE00A15C44 /* icon_dingdan_bianji@3x.png */,
 				6ED1443A1CD1FB1300E51349 /* Guite */,
 				6ED144491CD1FB1300E51349 /* LoginImage */,
 				6ED144541CD1FB1300E51349 /* NavBarController */,
@@ -3464,6 +3473,7 @@
 				6ED1471D1CD1FB1300E51349 /* 方便速食”按钮“@3x.png in Resources */,
 				6ED1464B1CD1FB1300E51349 /* 数量选择2.png in Resources */,
 				6ED146461CD1FB1300E51349 /* 店铺@3x.png in Resources */,
+				840720461CF6A57C00A15C44 /* icon_dingdan_bianji.png in Resources */,
 				6EE036811CEC594F006CD1FA /* icon_share@3x.png in Resources */,
 				6ED145B51CD1FB1300E51349 /* MyfootprintVC.xib in Resources */,
 				6ED145411CD1FB1300E51349 /* 我的.png in Resources */,
@@ -3765,6 +3775,7 @@
 				6ED144EA1CD1FB1300E51349 /* TipViewController.xib in Resources */,
 				6ED145781CD1FB1300E51349 /* RegisterShopMessageVC.xib in Resources */,
 				6ED147101CD1FB1300E51349 /* 搜索框搜索按钮@3x.png in Resources */,
+				840720431CF6A4BE00A15C44 /* icon_dingdan_bianji@2x.png in Resources */,
 				6ED147011CD1FB1300E51349 /* 底部导航栏“购物车”按钮(经过状态)@3x.png in Resources */,
 				6ED1454D1CD1FB1300E51349 /* 新商品推荐“标签”@3x.png in Resources */,
 				6ED145D51CD1FB1300E51349 /* 位置@3x.png in Resources */,
@@ -3774,6 +3785,7 @@
 				6EF2A4751CEAAB43004243B5 /* UMShareEditViewController.xib in Resources */,
 				6ED145571CD1FB1300E51349 /* 购物车.png in Resources */,
 				6ED146A51CD1FB1300E51349 /* 获取验证码@x.png in Resources */,
+				840720441CF6A4BE00A15C44 /* icon_dingdan_bianji@3x.png in Resources */,
 				6ED146BD1CD1FB1300E51349 /* 获取验证码.png in Resources */,
 				6ED146F41CD1FB1300E51349 /* 底部导航栏“购物车”“N”个商品按钮(经过状态)@3x.png in Resources */,
 				6ED146131CD1FB1300E51349 /* 评价商品_点击@2x.png in Resources */,

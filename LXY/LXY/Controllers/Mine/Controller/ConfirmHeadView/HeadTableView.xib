@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -34,7 +34,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ue-js-fY4">
-                    <rect key="frame" x="345" y="17" width="22" height="20"/>
+                    <rect key="frame" x="345" y="7" width="22" height="20"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="22" id="9c9-Wf-mn1"/>
                         <constraint firstAttribute="height" constant="20" id="buD-2h-TyR"/>
@@ -57,7 +57,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="VDe-HV-6U9" firstAttribute="leading" secondItem="QPE-VC-dbp" secondAttribute="leading" constant="4" id="37k-ME-3X0"/>
-                <constraint firstItem="7ue-js-fY4" firstAttribute="top" secondItem="QPE-VC-dbp" secondAttribute="top" constant="17" id="83E-zw-0Kk"/>
+                <constraint firstItem="7ue-js-fY4" firstAttribute="top" secondItem="QPE-VC-dbp" secondAttribute="top" constant="7" id="83E-zw-0Kk"/>
                 <constraint firstAttribute="trailing" secondItem="WUT-Xu-1zY" secondAttribute="trailing" id="A9u-7a-ALd"/>
                 <constraint firstItem="WUT-Xu-1zY" firstAttribute="leading" secondItem="ShQ-WG-UV5" secondAttribute="trailing" constant="2" id="E5r-Oe-fhV"/>
                 <constraint firstItem="VDe-HV-6U9" firstAttribute="top" secondItem="QPE-VC-dbp" secondAttribute="top" constant="12" id="EPK-A7-anj"/>

@@ -67,7 +67,7 @@
     }];
 }
 -(void)createTableView{
-    _provinceTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,M_WIDTH , M_HEIGHT) style:UITableViewStylePlain];
+    _provinceTableView = [[UITableView alloc]initWithFrame:CGRectMake(0,64,M_WIDTH , M_HEIGHT) style:UITableViewStylePlain];
     _provinceTableView.delegate = self;
     _provinceTableView.dataSource = self;
     [self.view addSubview:_provinceTableView];

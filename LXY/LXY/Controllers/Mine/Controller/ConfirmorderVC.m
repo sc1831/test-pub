@@ -205,9 +205,9 @@
                                  options:nil] firstObject];
     _confirmTableView.tableHeaderView = headTabView;
     //地址是否可编辑
-//    [headTabView.changeAddressBtn setBackgroundImage:[UIImage imageNamed:@"编辑_点击"] forState:UIControlStateHighlighted];
-//     [headTabView.changeAddressBtn setBackgroundImage:[UIImage imageNamed:@"编辑_默认"] forState:UIControlStateNormal];
-    headTabView.changeAddressBtn.userInteractionEnabled = NO;
+    [headTabView.changeAddressBtn setBackgroundImage:[UIImage imageNamed:@"icon_dingdan_bianji"] forState:UIControlStateHighlighted];
+     [headTabView.changeAddressBtn setBackgroundImage:[UIImage imageNamed:@"icon_dingdan_bianji"] forState:UIControlStateNormal];
+//    headTabView.changeAddressBtn.userInteractionEnabled = NO;
     [headTabView.changeAddressBtn addTarget:self  action:@selector(changeAddressBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
 //    headTabView.addressLabel.contentMode = UIViewContentModeTopLeft ;
@@ -346,6 +346,9 @@
 //修改收货地址
 -(void)changeAddressBtnClick:(UIButton *)btn{
     
+    NSUserDefaults *define = [NSUserDefaults standardUserDefaults];
+    [define setObject:@"2" forKey:@"isNewPhone"];
+
     
     ReceiveAddressVC *receiveVC = [[ReceiveAddressVC alloc]init];
     receiveVC.hidesBottomBarWhenPushed = YES;

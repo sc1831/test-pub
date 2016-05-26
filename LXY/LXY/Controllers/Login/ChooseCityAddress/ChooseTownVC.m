@@ -58,6 +58,26 @@
             
         }
         
+        if (_dataArray.count==0) {
+//            if (_receiveAddressClick) {
+//                [[NSNotificationCenter defaultCenter] postNotificationName:@"receiveAddressCityName" object:self userInfo:@{@"receiveAddressCityName":allStr}];
+//            }else{
+//                [[NSNotificationCenter defaultCenter] postNotificationName:@"cityName" object:self userInfo:@{@"cityName":allStr}];
+//            }
+            
+            NSUserDefaults *define = [NSUserDefaults standardUserDefaults];
+            NSString *str =  [define objectForKey:@"isNewPhone"];
+            if ([str isEqualToString:@"1"]||[str isEqualToString:@"2"]) {
+                NSMutableArray *viewsArray = [NSMutableArray arrayWithArray:[self.navigationController viewControllers]];
+                [self.navigationController popToViewController:[viewsArray objectAtIndex:2] animated:YES];
+            }else {
+                
+                NSMutableArray *viewsArray = [NSMutableArray arrayWithArray:[self.navigationController viewControllers]];
+                [self.navigationController popToViewController:[viewsArray objectAtIndex:1] animated:YES];
+                
+            }
+        }
+        
         [_provinceTableView reloadData];
     } setFailBlock:^(NSString *errorStr) {
         NSLog(@"");
@@ -65,7 +85,7 @@
     }];
 }
 -(void)createTableView{
-    _provinceTableView = [[UITableView alloc]initWithFrame:CGRectMake(0,0,M_WIDTH , M_HEIGHT) style:UITableViewStylePlain];
+    _provinceTableView = [[UITableView alloc]initWithFrame:CGRectMake(0,64,M_WIDTH , M_HEIGHT) style:UITableViewStylePlain];
     _provinceTableView.delegate = self;
     _provinceTableView.dataSource = self;
     [self.view addSubview:_provinceTableView];
