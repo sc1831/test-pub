@@ -47,9 +47,9 @@
     
     
     //收货地址编辑
-    headTabView.changeAdressBtn.userInteractionEnabled = NO;
-//    [headTabView.changeAdressBtn setBackgroundImage:[UIImage imageNamed:@"编辑_点击"] forState:UIControlStateHighlighted];
-//    [headTabView.changeAdressBtn setBackgroundImage:[UIImage imageNamed:@"编辑_默认"] forState:UIControlStateNormal];
+    headTabView.changeAdressBtn.userInteractionEnabled = YES;
+    [headTabView.changeAdressBtn setBackgroundImage:[UIImage imageNamed:@"icon_dingdan_bianji"] forState:UIControlStateHighlighted];
+    [headTabView.changeAdressBtn setBackgroundImage:[UIImage imageNamed:@"icon_dingdan_bianji"] forState:UIControlStateNormal];
     
     __weak DetailAddressVC *weakSelf = self;
     [headTabView.changeAdressBtn setOnButtonPressedHandler:^{

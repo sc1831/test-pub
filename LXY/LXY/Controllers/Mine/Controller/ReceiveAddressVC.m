@@ -32,7 +32,27 @@
 @end
 
 @implementation ReceiveAddressVC
+{
 
+    NSString *provinceName;
+    NSString *provinceId ;
+    
+    NSString *cityName ;
+    NSString *cityId ;
+    
+    NSString *countyName ;
+    NSString *countyId ;
+    
+    NSString *townName ;
+    NSString *townId ;
+    
+    NSString *villageName ;
+    NSString *villageId;
+}
+-(void)viewWillAppear:(BOOL)animated{
+
+    [self sendRequestAddressData];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"收货地址" ;
@@ -48,7 +68,7 @@
     
     //给位置城市赋值
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveAddressCityName:) name:@"receiveAddressCityName" object:nil];
-    [self sendRequestAddressData];
+
     
 }
 -(void)sendRequestAddressData{
@@ -80,6 +100,22 @@
         _getCargoNameTextField.text = dic[@"true_name"];
         _getCargoPhoneTextField.text = dic[@"mob_phone"];
         _receiveAddressCityName.text = dic[@"area_info"];
+        
+        
+        provinceName =  dic[@"province_name"];
+        provinceId =  dic[@"province_id"];
+        
+        cityName =  dic[@"city_name"];
+        cityId = dic[@"city_id"];
+        
+        countyName =  dic[@"county_name"];
+        countyId =  dic[@"county_id"];
+        
+        townName =  dic[@"town_name"];
+        townId =  dic[@"town_id"];
+        
+        villageName =  dic[@"village_name"];
+        villageId =  dic[@"village_id"];
         
         //        _shopName.text = dic[@"shop_name"];
         //        _phoneNum = dic[@"member_phone"];
@@ -118,22 +154,7 @@
 }
 -(void)sendRequestData{
 
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    NSString *provinceName =  [defaults objectForKey:@"province_name"];
-    NSString *provinceId =  [defaults objectForKey:@"province_id"];
-    
-    NSString *cityName =  [defaults objectForKey:@"city_name"];
-    NSString *cityId = [defaults objectForKey:@"city_id"];
-    
-    NSString *countyName =  [defaults objectForKey:@"county_name"];
-    NSString *countyId =  [defaults objectForKey:@"county_id"];
-    
-    NSString *townName =  [defaults objectForKey:@"town_name"];
-    NSString *townId =  [defaults objectForKey:@"town_id"];
-    
-    NSString *villageName =  [defaults objectForKey:@"village_name"];
-    NSString *villageId =  [defaults objectForKey:@"village_id"];
     
     
     if ([_getCargoNameTextField.text length]<1) {

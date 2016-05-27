@@ -25,13 +25,14 @@
 @interface MineVC ()
 //头像
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
-//@property (nonatomic ,strong) UIImage *headImage;
+@property (nonatomic ,strong) UIImage *headImage;
 @property (weak, nonatomic) IBOutlet UILabel *phoneNumLabel;
 @property (weak, nonatomic) IBOutlet UILabel *shopName;
 @property (weak, nonatomic) IBOutlet UIImageView *mineImageView;
 @property (nonatomic ,strong)UIBarButtonItem *rightBarButton;
 @property (nonatomic ,strong)NSMutableString *iphoneMut;
 @property (nonatomic ,strong)NSString *phoneNum;
+@property (weak, nonatomic) IBOutlet UIControl *addressView;
 @end
 
 @implementation MineVC
@@ -45,7 +46,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    _addressView.hidden = NO;
+    _addressView.userInteractionEnabled = YES;
     UIButton *rightNarBtn = [GHControl createButtonWithFrame:CGRectMake(0, 0, 20, 20) ImageName:@"设置" Target:self Action:@selector(rightBarButtonClick) Title:nil];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:rightNarBtn];
     

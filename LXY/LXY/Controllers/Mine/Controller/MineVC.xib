@@ -8,6 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MineVC">
             <connections>
+                <outlet property="addressView" destination="4EL-tn-nVi" id="z6O-UE-B2s"/>
                 <outlet property="headImageView" destination="p8H-hk-lK0" id="XqW-Yy-vr2"/>
                 <outlet property="mineImageView" destination="fjM-SY-5pm" id="B3N-CS-HvS"/>
                 <outlet property="phoneNumLabel" destination="IYb-Rt-e25" id="f14-st-WFA"/>
