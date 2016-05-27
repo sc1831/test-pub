@@ -48,10 +48,12 @@
     
     NSString *villageName ;
     NSString *villageId;
+    
+    NSString *addressId;
 }
 -(void)viewWillAppear:(BOOL)animated{
 
-    [self sendRequestAddressData];
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -68,7 +70,7 @@
     
     //给位置城市赋值
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveAddressCityName:) name:@"receiveAddressCityName" object:nil];
-
+    [self sendRequestAddressData];
     
 }
 -(void)sendRequestAddressData{
@@ -100,22 +102,8 @@
         _getCargoNameTextField.text = dic[@"true_name"];
         _getCargoPhoneTextField.text = dic[@"mob_phone"];
         _receiveAddressCityName.text = dic[@"area_info"];
+        addressId = dic[@"address_id"];
         
-        
-        provinceName =  dic[@"province_name"];
-        provinceId =  dic[@"province_id"];
-        
-        cityName =  dic[@"city_name"];
-        cityId = dic[@"city_id"];
-        
-        countyName =  dic[@"county_name"];
-        countyId =  dic[@"county_id"];
-        
-        townName =  dic[@"town_name"];
-        townId =  dic[@"town_id"];
-        
-        villageName =  dic[@"village_name"];
-        villageId =  dic[@"village_id"];
         
         //        _shopName.text = dic[@"shop_name"];
         //        _phoneNum = dic[@"member_phone"];
@@ -153,8 +141,23 @@
     [self.navigationController pushViewController:chooseVC animated:YES];
 }
 -(void)sendRequestData{
-
+    NSUserDefaults *dic = [NSUserDefaults standardUserDefaults];
     
+    provinceName = [dic objectForKey:@"province_name"];
+    provinceId =  [dic objectForKey:@"province_id"];
+    
+    cityName =  [dic objectForKey:@"city_name"];
+    cityId = [dic objectForKey:@"city_id"];
+    
+    countyName =  [dic objectForKey:@"county_name"];
+    countyId =  [dic objectForKey:@"county_id"];
+    
+    townName =  [dic objectForKey:@"town_name"];
+    townId =  [dic objectForKey:@"town_id"];
+    
+    villageName =  [dic objectForKey:@"village_name"];
+    villageId =  [dic objectForKey:@"village_id"];
+
     
     
     if ([_getCargoNameTextField.text length]<1) {
@@ -185,20 +188,31 @@
     }
     
   RequestCenter  *request = [RequestCenter shareRequestCenter];
-    NSDictionary *postDic = @{@"user_id":[[SaveInfo shareSaveInfo]user_id],
+//    NSDictionary *postDic = @{@"user_id":[[SaveInfo shareSaveInfo]user_id],
+//                              @"province_id":provinceId,
+////                              @"province":provinceName,
+//                              @"city_id":cityId,
+//                              @"city":cityName,
+//                              @"area_id":countyId,
+////                              @"area":countyName,
+//                              @"town_id":townId,
+//                              @"town":townName,
+//                              @"village_id":villageId,
+//                              @"village":villageName,
+//                              @"true_name":_getCargoNameTextField.text,
+//                              @"mob_phone":_getCargoPhoneTextField.text,
+//                              @"area_info":_getCargoAddressTextField.text};
+    NSDictionary *postDic = @{@"member_id":[[SaveInfo shareSaveInfo]user_id],
+                              @"address_id":addressId,
                               @"province_id":provinceId,
-                              @"province":provinceName,
                               @"city_id":cityId,
-                              @"city":cityName,
                               @"area_id":countyId,
-                              @"area":countyName,
                               @"town_id":townId,
-                              @"town":townName,
                               @"village_id":villageId,
-                              @"village":villageName,
                               @"true_name":_getCargoNameTextField.text,
                               @"mob_phone":_getCargoPhoneTextField.text,
-                              @"areainfo":_getCargoAddressTextField.text};
+                              @"area_info":_receiveAddressCityName.text,
+                              @"address":_getCargoAddressTextField.text};
     
     [request sendRequestPostUrl:MY_EDIT_ADDRESS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
