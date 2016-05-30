@@ -15,6 +15,7 @@
 #define SHOP_NAME @"shop_name"
 #define USER_IMAGE_Url @"userImage_url"
 #define PUSH_FLAG @"push_flag"
+#define VERSION_BUILD @"Version(Build)"
 @implementation SaveInfo
 + (SaveInfo *)shareSaveInfo{
     static SaveInfo *saveInfo = nil ;
@@ -27,16 +28,17 @@
 }
 - (BOOL)isFistStart{
     //此为找到plist文件中版本号所对应的键
-    NSString *key = (NSString *)kCFBundleVersionKey ;
+    NSString *key = (NSString *)kCFBundleVersionKey ; //CFBundleVersion
     //从plist文件中取出版本号
-    
-    NSString *version = [NSBundle mainBundle].infoDictionary[key];
+    NSString *buildStr = [NSBundle mainBundle].infoDictionary[key];
+    NSString *versionStr = [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
+    NSString *version = [NSString stringWithFormat:@"%@(%@)",versionStr,buildStr];
     //从沙盒中取出上次存储的版本号
-    NSString *saveVersion = RETURE_MESSAGE(key);
+    NSString *saveVersion = RETURE_MESSAGE(VERSION_BUILD);
 //    NSString *saveVersion = [[NSUserDefaults standardUserDefaults] objectForKey:key];
     if (![version isEqualToString:saveVersion]) {
         //将新版本号写入沙盒
-        SAVE_MESSAGE(version, key);
+        SAVE_MESSAGE(version, VERSION_BUILD);
     }
     return [version isEqualToString:saveVersion] ;
 }

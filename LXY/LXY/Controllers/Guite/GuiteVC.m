@@ -99,13 +99,9 @@
 }
 -(void)buttonClicked{
     NSLog(@"进来了");
-    if (true) {
-        LoginVC *login = [[LoginVC alloc]init];
-        [self presentViewController:login animated:YES completion:nil];
-    }else{
+
         MainTabBar *main = [[MainTabBar alloc]init];
         [self presentViewController:main animated:YES completion:nil];
-    }
     
 }
 
