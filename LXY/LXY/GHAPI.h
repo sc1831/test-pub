@@ -11,6 +11,11 @@
 //#define HTTPSERVICE @"http://192.168.1.178/index.php"
 //#define HTTPSERVICE @"http://www.lexianyu.com/index.php" //测试环境
 #define HTTPSERVICE @"http://apilxy.lecuntao.com/index.php" //正式环境
+
+//#define HTTPSERVICE @"http://36.110.226.141/index.php"
+
+//#define HTTPSERVICE @"http://idc.lecuntao.com/index.php"
+  
 //注册发送短信
 #define REGISTRE_SEND_SMS @"app/Register/send_sms"
 //注册验证验证码

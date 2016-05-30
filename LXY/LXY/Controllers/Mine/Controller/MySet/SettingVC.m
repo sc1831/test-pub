@@ -16,6 +16,7 @@
 @interface SettingVC ()
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UISwitch *handSwitch;
+@property (weak, nonatomic) IBOutlet UILabel *versionLab;
 //意见反馈
 - (IBAction)opinionClick:(id)sender;
 //关于我们
@@ -33,7 +34,10 @@
     if ([[SaveInfo shareSaveInfo]pushFlag]) {
          [self.handSwitch setOn:[[[SaveInfo shareSaveInfo] pushFlag] boolValue]];
     }
-   
+
+    NSString *versionStr = [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
+    self.versionLab.text = [NSString stringWithFormat:@"V %@",versionStr];
+    
     [_loginButton setBackgroundImage:[UIImage imageNamed:@"下一步_置灰"] forState:UIControlStateHighlighted];
 }
 

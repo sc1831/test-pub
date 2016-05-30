@@ -29,6 +29,7 @@
     //此为找到plist文件中版本号所对应的键
     NSString *key = (NSString *)kCFBundleVersionKey ;
     //从plist文件中取出版本号
+    
     NSString *version = [NSBundle mainBundle].infoDictionary[key];
     //从沙盒中取出上次存储的版本号
     NSString *saveVersion = RETURE_MESSAGE(key);
