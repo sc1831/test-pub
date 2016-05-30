@@ -12,4 +12,5 @@
 @property (nonatomic,strong) NSString *townStr;
 @property (nonatomic,strong) NSString *townId;
 @property (nonatomic)BOOL receiveAddressClick;
+@property (nonatomic) BOOL isAddressClick;
 @end

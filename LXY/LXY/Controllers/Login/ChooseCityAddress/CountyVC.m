@@ -141,6 +141,9 @@
 
 //    NSMutableArray *viewsArray = [NSMutableArray arrayWithArray:[self.navigationController viewControllers]];
 //    [self.navigationController popToViewController:[viewsArray objectAtIndex:1] animated:YES];
+//    CommonAddressVC *commonAddressVc = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - 2];
+//    commonAddressVc.p = YES ;
+//    [self.navigationController popToViewController:commonAddressVc animated:YES];
     
 }
 

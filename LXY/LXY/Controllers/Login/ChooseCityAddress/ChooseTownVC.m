@@ -131,10 +131,15 @@
     
     [defaults setObject:model.town_name forKey:@"town_name"];
     [defaults setObject:model.town_id forKey:@"town_id"];
+    NSString *allStr;
+    if (_isAddressClick) {
+     allStr  = model.town_name;
+    }else{
+    allStr  = [NSString stringWithFormat:@"%@%@",_townStr,model.town_name];
+        
+    }
     
     
-    
-    NSString *allStr = [NSString stringWithFormat:@"%@%@",_townStr,model.town_name];
     
     ChooseVillageVC *chooseVillageVC = [[ChooseVillageVC alloc]init];
     chooseVillageVC.villageStr = allStr;

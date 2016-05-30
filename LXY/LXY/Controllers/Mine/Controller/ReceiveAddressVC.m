@@ -13,6 +13,8 @@
 #import "RequestCenter.h"
 #import "SaveInfo.h"
 
+#import "ChooseTownVC.h"
+
 @interface ReceiveAddressVC ()
 
 @property (nonatomic )BOOL isReceiveAddressClick;
@@ -104,6 +106,17 @@
         _receiveAddressCityName.text = dic[@"area_info"];
         addressId = dic[@"address_id"];
         
+        provinceName = dic[@"province_name"];
+        cityName =  dic[@"city_name"];
+        countyName =  dic[@"county_name"];
+
+
+
+        provinceId =  dic[@"province_id"];
+        cityId = dic[@"city_id"];
+        countyId =  dic[@"area_id"];
+        townId =  dic[@"town_id"];
+        villageId =  dic[@"village_id"];
         
         //        _shopName.text = dic[@"shop_name"];
         //        _phoneNum = dic[@"member_phone"];
@@ -120,6 +133,9 @@
 //提交审核按钮点击
 -(void)submitAuditButtonClick{
     NSLog(@"提交审核按钮点击");
+    [_getCargoAddressTextField resignFirstResponder];
+    [_getCargoNameTextField resignFirstResponder];
+    [_getCargoPhoneTextField resignFirstResponder];
 //    [self.navigationController popViewControllerAnimated:YES];
     [self sendRequestData];
 
@@ -128,7 +144,8 @@
 -(void)receiveAddressCityName:(NSNotification *)nsnotification{
 
     NSDictionary *dict = nsnotification.userInfo;
-    _receiveAddressCityName.text = dict[@"receiveAddressCityName"];
+    _receiveAddressCityName.text = [NSString stringWithFormat:@"%@ %@ %@ %@",provinceName,cityName,countyName,dict[@"receiveAddressCityName"]];
+    
     
 }
 
@@ -136,29 +153,66 @@
 - (IBAction)chooseCity:(id)sender {
     [GHControl defultsForEmpty];
     _isReceiveAddressClick = YES;
-    ChooseCityVC *chooseVC = [[ChooseCityVC alloc]init];
-    chooseVC.isReceiveAddressClick = YES;
-    [self.navigationController pushViewController:chooseVC animated:YES];
+
+        
+        
+        if (![GHControl isExistNetwork]) {
+            HUDNormal(@"服务器无响应，请稍后重试");
+            
+            return;
+        }
+        
+        RequestCenter * request = [RequestCenter shareRequestCenter];
+        NSDictionary *postDic = @{@"parent_id":countyId,
+                                  @"region":@"town",
+                                  };
+        
+        [request sendRequestPostUrl:GET_CITY_ADDRESS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+            
+            if ([resultDic[@"code"] intValue] != 1) {
+                BG_LOGIN ;
+                return ;
+            }
+            
+            GLOG(@"---------post:", resultDic);
+            if ([resultDic[@"code"] intValue]==0) {
+                HUDNormal(@"数据请求失败，请稍后再试");
+                return ;
+            }
+            NSArray *array = resultDic[@"data"];
+            if (array.count==0) {
+                HUDNormal(@"您所在的区域暂时没有其它可以选择的地址");
+                return;
+            }else{
+                ChooseTownVC *chooseVC = [[ChooseTownVC alloc]init];
+                chooseVC.receiveAddressClick = YES;
+                chooseVC.townId = countyId;
+                chooseVC.isAddressClick = YES;
+                [self.navigationController pushViewController:chooseVC animated:YES];
+                
+            }
+            
+
+        } setFailBlock:^(NSString *errorStr) {
+            NSLog(@"");
+            
+        }];
+    
+    
 }
 -(void)sendRequestData{
     NSUserDefaults *dic = [NSUserDefaults standardUserDefaults];
-    
-    provinceName = [dic objectForKey:@"province_name"];
-    provinceId =  [dic objectForKey:@"province_id"];
-    
-    cityName =  [dic objectForKey:@"city_name"];
-    cityId = [dic objectForKey:@"city_id"];
-    
-    countyName =  [dic objectForKey:@"county_name"];
-    countyId =  [dic objectForKey:@"county_id"];
-    
-    townName =  [dic objectForKey:@"town_name"];
-    townId =  [dic objectForKey:@"town_id"];
-    
-    villageName =  [dic objectForKey:@"village_name"];
-    villageId =  [dic objectForKey:@"village_id"];
 
-    
+    if ([[dic objectForKey:@"village_id"] isEqualToString:@""]) {
+        
+    }else{
+        townName =  [dic objectForKey:@"town_name"];
+        townId =  [dic objectForKey:@"town_id"];
+        
+        villageName =  [dic objectForKey:@"village_name"];
+        villageId =  [dic objectForKey:@"village_id"];
+        
+    }
     
     if ([_getCargoNameTextField.text length]<1) {
         HUDNormal(@"请输入收货人姓名");
@@ -188,20 +242,7 @@
     }
     
   RequestCenter  *request = [RequestCenter shareRequestCenter];
-//    NSDictionary *postDic = @{@"user_id":[[SaveInfo shareSaveInfo]user_id],
-//                              @"province_id":provinceId,
-////                              @"province":provinceName,
-//                              @"city_id":cityId,
-//                              @"city":cityName,
-//                              @"area_id":countyId,
-////                              @"area":countyName,
-//                              @"town_id":townId,
-//                              @"town":townName,
-//                              @"village_id":villageId,
-//                              @"village":villageName,
-//                              @"true_name":_getCargoNameTextField.text,
-//                              @"mob_phone":_getCargoPhoneTextField.text,
-//                              @"area_info":_getCargoAddressTextField.text};
+
     NSDictionary *postDic = @{@"member_id":[[SaveInfo shareSaveInfo]user_id],
                               @"address_id":addressId,
                               @"province_id":provinceId,
