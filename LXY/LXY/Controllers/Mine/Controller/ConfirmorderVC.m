@@ -345,11 +345,7 @@
 }
 //修改收货地址
 -(void)changeAddressBtnClick:(UIButton *)btn{
-    
-    NSUserDefaults *define = [NSUserDefaults standardUserDefaults];
-    [define setObject:@"2" forKey:@"isNewPhone"];
 
-    
     ReceiveAddressVC *receiveVC = [[ReceiveAddressVC alloc]init];
     receiveVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:receiveVC animated:YES];

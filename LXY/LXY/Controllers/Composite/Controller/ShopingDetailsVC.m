@@ -121,6 +121,8 @@
          NSArray *allArray = [subStr componentsSeparatedByString:@"="];
             [mutArray addObject:allArray];
         }
+        NSUserDefaults *define = [NSUserDefaults standardUserDefaults];
+        [define setObject:@"3" forKey:@"isNewPhone"];
         ConfirmorderVC *confirmVC = [[ConfirmorderVC alloc]init];
         confirmVC.orderIds = @"";
         confirmVC.cartIds = @"";

@@ -741,7 +741,8 @@
         return;
     }
     
-    
+    NSUserDefaults *define = [NSUserDefaults standardUserDefaults];
+    [define setObject:@"2" forKey:@"isNewPhone"];
     ConfirmorderVC *confirmVC = [[ConfirmorderVC alloc]init];
     confirmVC.orderIds = @"";
     confirmVC.cartIds = _cartIds;
