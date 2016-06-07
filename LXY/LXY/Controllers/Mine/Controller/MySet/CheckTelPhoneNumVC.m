@@ -38,10 +38,10 @@
 //下一步按钮点击
 - (IBAction)nextButtonClick:(id)sender {
     
-    if (![GHControl lengalPhoneNumber:_phoneNumTextfield.text]) {
-        HUDNormal(@"请输入正确的手机号");
-        return;
-    }
+//    if (![GHControl lengalPhoneNumber:_phoneNumTextfield.text]) {
+//        HUDNormal(@"请输入正确的手机号");
+//        return;
+//    }
      [self nextStepView];
 
 }

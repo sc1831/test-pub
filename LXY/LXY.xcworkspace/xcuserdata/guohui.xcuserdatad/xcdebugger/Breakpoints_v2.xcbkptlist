@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LXY/Common/SaveInfo.m"
-            timestampString = "486269615.171367"
+            filePath = "LXY/Controllers/Login/RegisterVC.m"
+            timestampString = "486958814.379089"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "-isFistStart"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "-getVerificationCode"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -74,10 +74,11 @@
     NSUserDefaults *define = [NSUserDefaults standardUserDefaults];
     [define setObject:@"0" forKey:@"isNewPhone"];
 
-    if (![GHControl lengalPhoneNumber:_phoneTextField.text]) {
-        HUDNormal(@"请输入正确的手机号");
-        return;
-    }
+//    if (![GHControl lengalPhoneNumber:_phoneTextField.text]) {
+//        HUDNormal(@"请输入正确的手机号");
+//        return;
+//    }
+    
     if ([statcPhoneNum isEqualToString:_phoneTextField.text]) {
         
     }else{
@@ -135,13 +136,15 @@
 
 - (void)getVerificationCode{
     
-    if (![GHControl lengalPhoneNumber:_phoneTextField.text]) {
-        HUDNormal(@"请输入正确的手机号");
-        return;
-    }
+//    if (![GHControl lengalPhoneNumber:_phoneTextField.text]) {
+//        HUDNormal(@"请输入正确的手机号");
+//        return;
+//    }
+    
+    
+    
     if (![GHControl isExistNetwork]) {
         HUDNormal(@"服务器无响应，请稍后重试");
-
         return;
     }
     
@@ -149,14 +152,11 @@
     NSDictionary *postDic = @{@"phone":_phoneTextField.text,@"type":@"1"};
     statcPhoneNum = _phoneTextField.text;
     [request sendRequestPostUrl:REGISTRE_SEND_SMS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
-
-       
+        HUDNormal([resultDic objectForKey:@"msg"]);
         if ([resultDic[@"code"] intValue] != 1) {
-            HUDNormal([resultDic objectForKey:@"msg"]);
             return ;
         }
 
-        HUDNormal(@"短信发送成功,请注意查收");
         
         [self getIdentifyingCodeBtnClick];
     } setFailBlock:^(NSString *errorStr) {

@@ -230,11 +230,12 @@
     if ([_userNameTextField.text length] == 0) {
         HUDNormal(@"手机号不可以为空");
         return;
-    }else if (![GHControl lengalPhoneNumber:_userNameTextField.text]){
-        HUDNormal(@"请输入正确的手机号");
-        return;
-    
     }
+//    else if (![GHControl lengalPhoneNumber:_userNameTextField.text]){
+////        HUDNormal(@"请输入正确的手机号");
+////        return;
+//    
+//    }
     else if ([_passwordTextField.text length] < 6) {
         HUDNormal(@"密码由6-12位字母或数字组成，请重新输入");
         return;
@@ -263,11 +264,13 @@
     if ([_userNameTextField.text length] == 0) {
         HUDNormal(@"手机号不可以为空");
         return;
-    }else if (![GHControl lengalPhoneNumber:_userNameTextField.text]){
-        HUDNormal(@"请输入正确的手机号");
-        return;
-        
     }
+    
+//    else if (![GHControl lengalPhoneNumber:_userNameTextField.text]){
+//        HUDNormal(@"请输入正确的手机号");
+//        return;
+//        
+//    }
     if (![GHControl isExistNetwork]) {
         HUDNormal(@"服务器无响应，请稍后重试");
 

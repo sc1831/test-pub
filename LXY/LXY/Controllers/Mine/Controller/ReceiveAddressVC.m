@@ -231,10 +231,13 @@
         HUDNormal(@"请输入正确的姓名");
         return;
     }
-    if (![GHControl lengalPhoneNumber:_getCargoPhoneTextField.text]) {
-        HUDNormal(@"请输入正确的手机号");
-        return;
-    }
+    
+//    if (![GHControl lengalPhoneNumber:_getCargoPhoneTextField.text]) {
+//        HUDNormal(@"请输入正确的手机号");
+//        return;
+//    }
+    
+    
     if (![GHControl isExistNetwork]) {
         HUDNormal(@"服务器无响应，请稍后重试");
 
