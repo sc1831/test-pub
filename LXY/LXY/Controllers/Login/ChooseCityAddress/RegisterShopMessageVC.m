@@ -96,10 +96,10 @@
         return;
     }
    
-    if (![GHControl validateIdentityCard:_nameTextField.text]) {
-        HUDNormal(@"请输入正确的姓名");
-        return;
-    }
+//    if (![GHControl validateIdentityCard:_nameTextField.text]) {
+//        HUDNormal(@"请输入正确的姓名");
+//        return;
+//    }
 //    if (![GHControl lengalPhoneNumber:_phoneNumTextField.text]) {
 //        HUDNormal(@"请输入正确的手机号");
 //        return;

@@ -82,7 +82,7 @@ typedef void (^IMAGE_Completion)(id response);
 ///手机号码正则法则
 //+ (BOOL)lengalPhoneNumber:(NSString *)numStr;
 ///姓名
-+ (BOOL)validateIdentityCard:(NSString *)identityCard;
+//+ (BOOL)validateIdentityCard:(NSString *)identityCard;
 //隐藏空白单元格
 +(void)setExtraCellLineHidden:(UITableView *)tableView;
 //位置信息清空

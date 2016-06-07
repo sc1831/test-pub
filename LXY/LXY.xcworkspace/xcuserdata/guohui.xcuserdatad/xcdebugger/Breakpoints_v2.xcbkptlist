@@ -25,14 +25,62 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LXY/Controllers/Login/RegisterVC.m"
-            timestampString = "486958814.379089"
+            filePath = "LXY/Controllers/Mine/Controller/ReceiveAddressVC.m"
+            timestampString = "486981982.427018"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
-            landmarkName = "-getVerificationCode"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
+            landmarkName = "-sendRequestData"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LXY/Controllers/Mine/Controller/ReceiveAddressVC.m"
+            timestampString = "486982119.410602"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "261"
+            endingLineNumber = "261"
+            landmarkName = "-sendRequestData"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ReceiveAddressVC sendRequestData]"
+                  moduleName = "LXY"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guohui/Desktop/lexianyu_ios/LXY/LXY/Controllers/Mine/Controller/ReceiveAddressVC.m"
+                  timestampString = "486982194.861474"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "261"
+                  endingLineNumber = "261"
+                  offsetFromSymbolStart = "3700">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__35-[ReceiveAddressVC sendRequestData]_block_invoke"
+                  moduleName = "LXY"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guohui/Desktop/lexianyu_ios/LXY/LXY/Controllers/Mine/Controller/ReceiveAddressVC.m"
+                  timestampString = "486982194.861669"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "262"
+                  endingLineNumber = "262"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
