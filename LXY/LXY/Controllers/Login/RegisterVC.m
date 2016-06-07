@@ -105,14 +105,13 @@
     
     [request sendRequestPostUrl:REGISTRE_SEND_AUTH_CODE andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
 
+        HUDNormal([resultDic objectForKey:@"msg"]);
         if ([resultDic[@"code"] intValue] != 1) {
-            HUDNormal([resultDic objectForKey:@"msg"]);
+
             return ;
         }
         
-
         
-        HUDNormal(@"验证成功");
         RegisterShopMessageVC *shopMessageVC = [[RegisterShopMessageVC alloc]init];
         shopMessageVC.phoneNumStr = _phoneTextField.text;
         shopMessageVC.passwordStr = _passwordTextField.text;

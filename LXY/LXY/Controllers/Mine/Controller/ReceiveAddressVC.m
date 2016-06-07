@@ -53,10 +53,7 @@
     
     NSString *addressId;
 }
--(void)viewWillAppear:(BOOL)animated{
 
-    
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"收货地址" ;
@@ -85,7 +82,7 @@
     
     RequestCenter * request = [RequestCenter shareRequestCenter];
     NSDictionary *postDic = @{
-                              @"user_id":[[SaveInfo shareSaveInfo]user_id]
+                              @"user_id":@"59333"//[[SaveInfo shareSaveInfo]user_id]
                               };
     
     [request sendRequestPostUrl:MY_ADDRESS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {

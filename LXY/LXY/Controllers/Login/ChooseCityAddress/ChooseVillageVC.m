@@ -113,7 +113,7 @@
     [defaults setObject:model.village_id forKey:@"village_id"];
     
     
-    NSString *allStr = [NSString stringWithFormat:@"%@%@",_villageStr,model.village_name];
+    NSString *allStr = [NSString stringWithFormat:@"%@  %@",_villageStr,model.village_name];
     
         if (_receiveAddressClick) {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"receiveAddressCityName" object:self userInfo:@{@"receiveAddressCityName":allStr}];

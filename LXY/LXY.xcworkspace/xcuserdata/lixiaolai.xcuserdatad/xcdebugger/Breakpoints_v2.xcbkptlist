@@ -161,6 +161,38 @@
             endingLineNumber = "166"
             landmarkName = "-chooseCity:"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ReceiveAddressVC chooseCity:]"
+                  moduleName = "LXY"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guohui/Desktop/lexianyuNewLast_ios/LXY/LXY/Controllers/Mine/Controller/ReceiveAddressVC.m"
+                  timestampString = "486980293.400865"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "167"
+                  endingLineNumber = "167"
+                  offsetFromSymbolStart = "840">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__31-[ReceiveAddressVC chooseCity:]_block_invoke"
+                  moduleName = "LXY"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guohui/Desktop/lexianyuNewLast_ios/LXY/LXY/Controllers/Mine/Controller/ReceiveAddressVC.m"
+                  timestampString = "486980293.400968"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "169"
+                  endingLineNumber = "169"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -208,6 +240,102 @@
             startingLineNumber = "131"
             endingLineNumber = "131"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LXY/Controllers/Mine/Controller/ReceiveAddressVC.m"
+            timestampString = "486962464.689773"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ReceiveAddressVC viewDidLoad]"
+                  moduleName = "LXY"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guohui/Desktop/lexianyuNewLast_ios/LXY/LXY/Controllers/Mine/Controller/ReceiveAddressVC.m"
+                  timestampString = "486980293.405875"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__31-[ReceiveAddressVC viewDidLoad]_block_invoke"
+                  moduleName = "LXY"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guohui/Desktop/lexianyuNewLast_ios/LXY/LXY/Controllers/Mine/Controller/ReceiveAddressVC.m"
+                  timestampString = "486980293.406207"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LXY/Controllers/Mine/Controller/DetailAddressVC.m"
+            timestampString = "486962554.176043"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LXY/Controllers/Mine/Controller/ReceiveAddressVC.m"
+            timestampString = "486962624.725055"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "-receiveAddressCityName:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LXY/Controllers/Mine/Controller/DetailAddressVC.m"
+            timestampString = "486981213.891319"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "-sendRequestData"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
