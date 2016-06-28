@@ -81,11 +81,8 @@
     }
     
     RequestCenter * request = [RequestCenter shareRequestCenter];
-    NSDictionary *postDic = @{
-                              @"user_id":@"59333"//[[SaveInfo shareSaveInfo]user_id]
-                              };
-    
-    [request sendRequestPostUrl:MY_ADDRESS andDic:postDic setSuccessBlock:^(NSDictionary *resultDic) {
+
+    [request sendRequestPostUrl:MY_ADDRESS andDic:nil setSuccessBlock:^(NSDictionary *resultDic) {
         if ([resultDic[@"code"] intValue] != 1) {
             BG_LOGIN ;
             return ;
