@@ -260,6 +260,10 @@
         }
 
         
+        
+        
+        
+        
         [[NSNotificationCenter defaultCenter] postNotificationName:@"receiveAddressCityNameAndPhoneNum" object:self userInfo:nil];
         [self popView];
 
