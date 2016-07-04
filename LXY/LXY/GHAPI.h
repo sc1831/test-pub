@@ -44,8 +44,6 @@
 //提交订单
 #define MY_SUBMIT_ORDERS  @"app/order/index"
 
-
-
 //登录
 #define LOGIN @"app/Register/login"
 #define EDIT_USER_TOKEN @"app/User/edit_user_token"
