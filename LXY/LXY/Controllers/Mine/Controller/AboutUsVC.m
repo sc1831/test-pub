@@ -51,6 +51,9 @@
     self.aboutWebView.scalesPageToFit = NO ;
     [self.aboutWebView loadRequest:[NSURLRequest requestWithURL:url]];
     
+    
+    
+    
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView{
